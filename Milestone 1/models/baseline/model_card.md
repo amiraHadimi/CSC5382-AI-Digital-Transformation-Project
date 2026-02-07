@@ -1,89 +1,58 @@
-# Model Card: TF-IDF + Ridge Regression Baseline (Story Point Estimation)
+<!-- models/baseline/model_card.md -->
+
+# Model Card — TF-IDF + Ridge Baseline (Story Point Estimation)
 
 ## Model Details
-- **Model name:** storypoint-tfidf-ridge-baseline
+- **Model name:** tfidf_ridge_storypoints_baseline
+- **Model type:** Text regression (TF-IDF + Ridge Regression)
+- **Intended use:** Decision-support baseline for predicting story points from user story text (title + description)
+- **Primary users:** Agile teams / researchers building estimation and planning decision-support tools
 - **Version:** 1.0 (Milestone 1 baseline)
-- **Model type:** Regression (Ridge Regression)
-- **Input:** User story text (`title + description`)
-- **Output:** Predicted story points (continuous numeric value)
-- **Intended use:** Decision-support for Agile planning (estimation + optimization pipeline input)
-
-## Motivation
-This baseline provides a **transparent, lightweight, reproducible** starting point for story point estimation. It establishes a reference for comparison with later deep learning and LLM-based models, and supports the project’s longer-term objective of using predictions as inputs to solver-backed optimization.
 
 ## Training Data
-- **Dataset:** Agile User Story Point Estimation dataset (public)
+- **Dataset:** Agile User Story Point Estimation (public)
 - **Source:** https://github.com/mrthlinh/Agile-User-Story-Point-Estimation/blob/master/data_csv/data
-- **Size:** 23,313 user stories/issues
-- **Fields used:**
-  - `title` (text)
-  - `description` (text)
-  - `story_points` (numeric target)
+- **Size:** 23,313 issues/user stories (16 open-source projects collected via JIRA)
+- **Fields used:** `title`, `description` → input text; `story_points` → numeric target
 
-## Preprocessing
-- Concatenate `title` and `description`
-- TF-IDF vectorization:
-  - Recommended settings (baseline-friendly):
-    - `ngram_range=(1,2)`
-    - `min_df` (e.g., 2–5)
-    - `max_features` (optional, e.g., 50k)
-- Basic cleanup:
-  - lowercasing
-  - whitespace normalization
-
-*(Exact hyperparameters are recorded in the training notebook for full reproducibility.)*
-
-## Model Architecture
-- **Vectorizer:** TF-IDF (sparse bag-of-words representation)
-- **Regressor:** Ridge Regression (L2 regularization)
-
-Why Ridge?
-- More stable than unregularized linear regression for high-dimensional sparse text features.
+## Input / Output
+- **Input:** concatenated text = `title + "\n" + description`
+- **Output:** predicted story points (continuous numeric value)
 
 ## Training Procedure
-- **Notebook:** `notebooks/baseline_retrain.ipynb`
-- **Train/validation/test split:** documented and executed in the notebook  
-- **Artifact export:** model is saved after training (e.g., joblib)
+- **Text preprocessing:** basic cleaning (as implemented in `notebooks/baseline_retrain.ipynb`)
+- **Vectorization:** TF-IDF (word n-grams as configured in the notebook)
+- **Regressor:** Ridge Regression (L2 regularization)
+- **Train/validation/test split:** documented and implemented in the notebook (seeded for reproducibility)
 
 ## Evaluation
-### Metrics
-- MAE (Mean Absolute Error)
-- RMSE (Root Mean Squared Error)
-- Accuracy@±1 story point
-
-### Intended interpretation
-- Lower MAE/RMSE means better estimation accuracy
-- Accuracy@±1 reflects “planning tolerance” (near-miss estimates that may still be usable in sprint planning)
+Metrics reported by the notebook:
+- **MAE** (primary)
+- **RMSE**
+- **Accuracy@±1 story point**
 
 ## Intended Use
-### Primary use cases
-- Quick and reproducible baseline for story point estimation
-- Benchmark for comparison against improved models (DL / LLM)
-- Input signal for later milestones’ optimization formulation (e.g., sprint backlog selection)
-
-### Out-of-scope uses
-- Replacing team judgment entirely
-- High-stakes commitments without human review
-- Estimating story points for domains/projects with drastically different conventions without recalibration
+This baseline is meant to:
+- provide a **reproducible reference point** for later deep learning / LLM approaches
+- support later milestones where predicted story points become inputs to optimization (e.g., sprint backlog selection)
 
 ## Limitations
-- TF-IDF ignores deep semantics and long-range context in text
-- Story point scales vary across teams/projects (cross-project generalization may be limited)
-- Continuous regression may output non-integer values (rounding strategies should be evaluated carefully)
-- Sensitive to dataset bias (open-source JIRA projects may not represent all Agile environments)
+- Predicts story points purely from text; does not incorporate additional signals (assignee, team, priority, history).
+- Story point scales can differ by project/team; no normalization is applied in this milestone.
+- Linear model may underfit complex semantic patterns.
 
-## Ethical / Responsible AI Considerations
-- This model may encode biases present in historical estimation behavior
-- Should be used as a **support tool**, not an automatic authority
-- Human-in-the-loop review is recommended, especially for high-uncertainty stories
+## Ethical / Responsible Use Notes
+- Predictions should **assist**, not replace, human planning decisions.
+- Results may reflect biases or inconsistencies present in historical labeling practices.
 
-## Reproducibility
-- Training and evaluation are fully reproducible using:
-  - `notebooks/baseline_retrain.ipynb`
-- Model artifact produced by notebook:
-  - `models/baseline/baseline.joblib` (generated)
+## How to Reproduce
+1. Open: `notebooks/baseline_retrain.ipynb`
+2. Install dependencies from `requirements.txt` (if provided)
+3. Run all cells to:
+   - train the model
+   - export `models/baseline/baseline.joblib`
+   - generate evaluation outputs
 
-## Citation
-If you use this baseline in academic work, cite:
-- Dataset/origin: Choetkiertikul et al. (2016)
-- Baseline implementation: this repository’s Milestone 1
+## Model Artifact
+- **Binary:** `models/baseline/baseline.joblib`
+- **Training notebook:** `notebooks/baseline_retrain.ipynb`
