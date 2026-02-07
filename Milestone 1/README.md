@@ -55,7 +55,21 @@ Dataset sample available at:
 
 ## 4. Project Archetype
 
-This project follows a **decision-support machine learning system** archetype, where predictions assist Agile teams during sprint planning rather than replacing human judgment.
+This project is framed as a decision-support machine learning system for Agile planning activities,
+including backlog grooming and sprint planning. At its core, the system predicts story point estimates
+from natural-language user stories using machine learning.
+
+Beyond standalone prediction, the project is conceptually aligned with optimization-based planning
+systems, where estimates are used as inputs to constrained decision-making processes. Inspired by
+the LLM-Based Formalized Programming (LLMFP) framework, the long-term vision of the project is
+to leverage large language models to extract goals, constraints, and decision variables from Agile
+artifacts, formulate an intermediate symbolic representation, and generate executable code for
+formal optimization solvers.
+
+In this milestone, the focus is limited to validating feasibility through a predictive baseline. The
+formal optimization and symbolic code generation components are explicitly deferred to later
+milestones.
+
 
 ---
 
