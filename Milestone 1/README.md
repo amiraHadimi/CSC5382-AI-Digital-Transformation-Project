@@ -65,22 +65,26 @@ The optimization constraints are **not derived from the estimation dataset itsel
 
 ## 5. Feasibility Analysis
 
-### 5.1 Literature-Based Feasibility
-Prior research demonstrates that automated story point estimation from Agile artifacts is feasible and reproducible on public benchmarks. Early work introduced large datasets and showed that deep learning models significantly outperform traditional regression-based approaches. Subsequent studies refined these models and achieved improved estimation accuracy on the same benchmark dataset. More recent work explores large language models, indicating that task-specific LLMs can achieve competitive performance for story point estimation.
+## 5. Feasibility Analysis
 
-These studies collectively establish story point estimation as a solvable machine learning problem and justify its use as an input to optimization-driven Agile planning.
+### 5.1 Literature Review
+
+Prior research demonstrates that automated story point estimation from Agile artifacts is a feasible and reproducible machine learning task. Early work established the foundations of the problem by introducing large benchmark datasets and showing that learning-based approaches can effectively model the relationship between natural-language user stories and effort estimates. Subsequent studies proposed refined deep learning architectures to improve estimation accuracy on the same datasets, confirming the robustness of the task across different modeling choices.
+
+More recent research explores the use of large language models (LLMs) for story point estimation, indicating that task-specific and resource-efficient LLMs can achieve competitive performance compared to traditional deep learning models. Together, these studies provide strong evidence that story point estimation is a solvable problem and justify the use of a simple, reproducible baseline model in this milestone, which can later be compared against more advanced approaches.
 
 ---
 
 ### 5.2 Summary of Related Work
 
-Table 1 summarizes representative studies on automated story point estimation. The selected works are chosen to demonstrate feasibility, reproducibility, and methodological progression on a shared public dataset.
+Table 1 summarizes representative studies on automated story point estimation. The selected works are chosen to demonstrate feasibility, methodological progression, and reproducibility on publicly available Agile datasets.
 
 | ID | Reference | Model / Technique | Dataset | Evaluation Metrics | Key Contribution |
 |---|---|---|---|---|---|
-| Choetkiertikul et al. (2016) | *A Deep Learning Model for Estimating Story Points* | LD-RNN (LSTM + Recurrent Highway Network) | 23,313 user stories from 16 open-source Agile projects (JIRA) | MAE, Standardized Accuracy (SA) | Introduced a large public benchmark dataset and showed deep learning significantly outperforms traditional baselines |
-| Mittal et al. (2024) | *Improving Story Point Estimation Using Deep Learning* | Enhanced LSTM-based architecture | Same benchmark dataset | MAE, RMSE | Demonstrated improved estimation accuracy and reinforced feasibility on the benchmark dataset |
-| Llama3SP (2025) | *Llama3SP: A Resource-Efficient LLM for Story Point Estimation* | Fine-tuned LLaMA-based model | Same benchmark dataset | MAE, RMSE, Accuracy@Tolerance | Showed that task-specific, resource-efficient LLMs can achieve competitive estimation performance |
+| Choetkiertikul et al. (2016) | *A Deep Learning Model for Estimating Story Points* | LD-RNN (LSTM + Recurrent Highway Network) | 23,313 user stories from 16 open-source Agile projects (JIRA) | MAE, Standardized Accuracy (SA) | Introduced a large public benchmark dataset and demonstrated that deep learning models significantly outperform traditional regression-based baselines |
+| Mittal et al. (2023) | *A Novel Deep Learning Model for Effective Story Point Estimation in Agile Software Development* | Deep learning–based estimation model | Public Agile project data | MAE, RMSE | Proposed an alternative deep learning architecture and further validated the feasibility of learning-based story point estimation |
+| Llama3SP (2025) | *Llama3SP: A Resource-Efficient Large Language Model for Story Point Estimation* | Fine-tuned LLaMA-based model | Agile user story datasets | MAE, RMSE, Accuracy@Tolerance | Demonstrated that task-specific and resource-efficient LLMs can achieve competitive performance for story point estimation |
+
 
 ---
 
