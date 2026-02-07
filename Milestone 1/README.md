@@ -1,18 +1,16 @@
 # Milestone 1 – Project Inception  
 ## AI-Based Story Point Estimation for Optimization-Driven Agile Planning
 
-> **Repository goal (Milestone 1):** frame the business idea as an ML problem and demonstrate feasibility with a **reproducible baseline** (retrain notebook + trained model artifact + model card).
-
 ---
 
-## 1) Business Case Description (0.5)
+## 1) Business Case Description 
 Accurate effort estimation is central to Agile development because it directly affects sprint planning, resource allocation, and delivery predictability. In practice, teams estimate effort using **story points** (e.g., planning poker). While effective, this process is often **subjective**, **time-consuming**, and **inconsistent** across teams and sprints.
 
 This project aims to **automatically estimate story points from user story text** (title + description) using machine learning. The system is designed as a **decision-support tool** that assists Agile teams during backlog refinement and sprint planning by providing consistent, data-driven estimates.
 
 ---
 
-## 2) Business Value of Using ML (Impact) (0.5)
+## 2) Business Value of Using ML (Impact) 
 Story point estimation depends on variable natural-language descriptions and historical estimation behavior. Rule-based approaches cannot robustly capture this semantic variability.
 
 Machine learning enables:
@@ -23,7 +21,7 @@ Machine learning enables:
 
 ---
 
-## 3) Dataset Overview (0.5)
+## 3) Dataset Overview 
 **Source (public):**  
 - Agile User Story Point Estimation dataset (CSV):  
   https://github.com/mrthlinh/Agile-User-Story-Point-Estimation/blob/master/data_csv/data  
@@ -48,7 +46,7 @@ Story points are modeled as a **continuous numeric target**. Because projects ma
 
 ---
 
-## 4) Project Archetype (0.5)
+## 4) Project Archetype 
 This project is framed as a **decision-support ML system embedded within an optimization-driven Agile planning workflow**.
 
 ### 4.1 Predictive component (ML)
@@ -78,7 +76,7 @@ The optimization constraints typically **do not live inside the story-point data
 
 ---
 
-## 5) Feasibility Analysis – Literature Review (2.0)
+## 5) Feasibility Analysis – Literature Review 
 Prior research shows that predicting story points from Agile text is feasible on public benchmarks and that more advanced architectures (deep learning and LLM-based approaches) can improve accuracy. The works below are selected to (1) establish the benchmark dataset and task feasibility, (2) show a deep-learning refinement on the same benchmark, and (3) show an LLM-based estimator that reports competitive results while providing code/models for reuse.
 
 ### Table 1 — Representative studies on automated story point estimation
@@ -93,7 +91,7 @@ Prior research shows that predicting story points from Agile text is feasible on
 
 ---
 
-## 6) Feasibility + Baseline Specification (0.5)
+## 6) Feasibility + Baseline Specification 
 
 ### 6.1 Baseline choice (what & why)
 To validate feasibility with a transparent and reproducible starting point, this milestone uses a **classical NLP regression baseline**:
@@ -114,7 +112,7 @@ This repository includes:
 
 ---
 
-## 7) Metrics for Business Goal Evaluation (0.5)
+## 7) Metrics for Business Goal Evaluation 
 The baseline is evaluated using:
 - **MAE (Mean Absolute Error):** primary metric (interpretable in story points)
 - **RMSE (Root Mean Squared Error):** penalizes large errors more heavily
@@ -133,7 +131,7 @@ The baseline is evaluated using:
 - `references/`  
   - `references.md`  
 - `presentation/`  
-  - recorded presentation (≤ 7 minutes)
+  - recorded presentation 
 
 ---
 
