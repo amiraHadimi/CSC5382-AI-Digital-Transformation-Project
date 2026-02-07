@@ -93,6 +93,20 @@ Full references available in:
 ---
 
 ## 6. Baseline Model
+### Feasibility and Baseline Justification
+
+The feasibility of the proposed approach is supported by prior work demonstrating that both classical
+machine learning models and deep learning architectures can successfully predict story point estimates
+from textual user stories. While state-of-the-art models such as recurrent neural networks and large
+language models achieve higher accuracy, they introduce significant complexity and reproducibility
+challenges.
+
+For this reason, a TF-IDF–based Linear Regression model is selected as the baseline. This choice provides
+a transparent, reproducible reference point that allows the impact of more advanced models to be
+measured in subsequent milestones. The baseline can be fully retrained using the provided notebook,
+and the trained model artifact is generated as part of the retraining process, satisfying the
+reproducibility requirements of this milestone.
+
 
 A simple and reproducible baseline is used to validate feasibility.
 
