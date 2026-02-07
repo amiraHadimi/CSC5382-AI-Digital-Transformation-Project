@@ -76,30 +76,38 @@ milestones.
 ## 5. Literature Review
 
 The problem of Agile story point estimation has been extensively studied in the software engineering
-The problem of Agile story point estimation has been widely studied in the software engineering and
-machine learning literature. Early work established that learning-based approaches can outperform
-traditional expert-driven estimation techniques by leveraging historical Agile project data and
-natural-language descriptions of user stories.
+The literature on Agile story point estimation demonstrates that machine learning techniques can
+effectively support effort estimation by learning from historical project data and natural-language
+descriptions of user stories. Early deep learning work by Choetkiertikul et al. (2016) introduced a
+large benchmark dataset and showed that recurrent neural architectures significantly outperform
+traditional regression-based baselines when evaluated using standard error metrics such as MAE and
+standardized accuracy.
 
-Subsequent research focused on deep learning architectures capable of capturing semantic and
-contextual information directly from user story text, achieving improved estimation accuracy.
-However, these gains often come at the cost of increased model complexity and reduced transparency.
-As a result, more recent studies emphasize the importance of interpretability and decision support,
-particularly in Agile settings where estimates are used collaboratively during backlog grooming
-and sprint planning.
+Subsequent research, including the work of Mittal et al. (2024), builds on this foundation by refining
+deep learning architectures and further reducing estimation error on the same benchmark dataset.
+These studies confirm both the feasibility of the task and the effectiveness of deep learning models
+for capturing semantic complexity in Agile requirements.
 
-More recent LLM-based approaches extend this line of work by exploring how large language models
-and agent-based systems can support higher-level Agile planning tasks. These systems move beyond
-standalone prediction and motivate the integration of estimation within structured planning and
-optimization pipelines, aligning with formalized programming and symbolic reasoning frameworks.
+More recent work explores the role of large language models in Agile estimation and planning.
+Explainable local LLMs have been shown to generate human-like estimates while offering transparency
+through reasoning traces, highlighting their suitability for decision-support scenarios. In parallel,
+LLM-based multi-agent frameworks extend estimation beyond prediction by embedding it within
+structured planning and coordination workflows.
+
+Together, these studies motivate the use of a simple, transparent baseline model in this project.
+Establishing a reproducible baseline enables objective comparison with more advanced deep learning
+and LLM-based approaches in subsequent milestones while satisfying feasibility and reproducibility
+requirements.
 
 
-| ID | Authors (Year) | Technique | Dataset | Evaluation Metrics | Key Findings |
-|----|----------------|----------|---------|--------------------|--------------|
-| P1 | Choetkiertikul et al. (2016) | Deep Learning (LSTM-based LD-RNN) | 23,313 user stories from 16 open-source Agile projects | MAE, standardized accuracy | Demonstrated that deep learning models outperform traditional effort estimation baselines |
-| P2 | A Novel Deep Learning Model for Story Point Estimation (Year) | Deep Learning | Agile user story datasets | MAE, RMSE | Proposed an enhanced deep learning architecture achieving improved estimation accuracy |
-| P3 | Explainable AI for Story Point Estimation (Year) | Explainable Machine Learning Models | Scrum project datasets | MAE, interpretability metrics | Highlighted the trade-off between estimation accuracy and model interpretability in Agile settings |
-| P4 | LLM-Based Framework for Agile Planning (Year) | Large Language Models / Multi-Agent Systems | Agile artifacts | Task-level accuracy, qualitative evaluation | Demonstrated the potential of LLM-based systems for supporting Agile planning and decision-making |
+
+| Authors (Year) | Technique | Dataset | Evaluation Metrics | Key Findings |
+|---------------|----------|---------|--------------------|--------------|
+| Choetkiertikul et al. (2016) | Deep Learning (LD-RNN combining LSTM and Recurrent Highway Networks) | 23,313 user stories from 16 open-source Agile projects collected via JIRA | MAE, Standardized Accuracy (SA) | Demonstrated that deep learning models significantly outperform traditional bag-of-words and regression-based baselines for story point estimation |
+| Mittal et al. (2024) | Deep Learning (LD-RNN variant) | 23,313 user stories from 16 open-source Agile projects (same benchmark dataset) | MAE, RMSE | Proposed an improved deep learning architecture that achieves lower estimation error compared to existing deep learning baselines |
+| Yonathan (2024) | Explainable Local Large Language Models (LLMs) | Agile user stories stored in CSV format | Agreement within ±1 story point, qualitative consistency analysis | Showed that local LLMs can produce human-like estimates while providing interpretability through reasoning traces |
+| An LLM-Based Multi-Agent Framework (2024) | Multi-agent LLM system with task decomposition and coordination | Agile planning artifacts (user stories, tasks, constraints) | Task-level accuracy, qualitative evaluation | Demonstrated the potential of LLM-based agents to support Agile planning through structured reasoning and decision support rather than standalone prediction |
+
 
 
 
