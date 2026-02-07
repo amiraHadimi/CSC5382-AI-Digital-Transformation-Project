@@ -61,6 +61,22 @@ This project follows a **decision-support machine learning system** archetype, w
 
 ## 5. Literature Review
 
+The problem of Agile story point estimation has been extensively studied in the software engineering
+and machine learning literature. Early work demonstrated that machine learning models trained on
+historical Agile project data can outperform expert-based estimation techniques, motivating the
+automation of effort estimation tasks.
+
+Subsequent research explored increasingly expressive models, including deep learning architectures
+that operate directly on natural-language user story descriptions. These models leverage distributed
+representations of text to capture semantic complexity and contextual information that cannot be
+handled by rule-based systems. More recent studies investigate the use of pre-trained language models
+and large language models (LLMs), highlighting their ability to generalize across projects and reduce
+feature engineering requirements.
+
+Collectively, these works establish the feasibility of predicting story point estimates from textual
+user stories and motivate the use of a simple and reproducible baseline model as a reference point for
+future, more advanced approaches.
+
 | ID | Authors (Year) | Technique | Dataset | Key Findings |
 |----|----------------|----------|---------|--------------|
 | P1 | Choetkiertikul et al. (2016) | LSTM + Recurrent Highway Network (LD-RNN) | 23,313 user stories from 16 open-source Agile projects | Deep learning model significantly outperformed traditional baselines in MAE and standardized accuracy |
@@ -68,6 +84,7 @@ This project follows a **decision-support machine learning system** archetype, w
 | P3 | Yalçıner et al. (2024) | SBERT embeddings + Gradient Boosted Trees | Industrial Agile datasets | Hybrid embedding-based models achieved better performance than classical ML approaches |
 | P4 | Pavlič & Saklamaeva (2024) | Large Language Models (LLMs) | Agile effort estimation datasets | LLMs achieved performance comparable to or exceeding human estimators |
 | P5 | Multimodal Generative AI (2024) | Multimodal Generative Models | Agile user stories with auxiliary signals | Showed the potential of generative AI for more robust and context-aware story point estimation |
+
 
 
 Full references available in:  
