@@ -94,12 +94,12 @@ standalone prediction and motivate the integration of estimation within structur
 optimization pipelines, aligning with formalized programming and symbolic reasoning frameworks.
 
 
-| ID | Authors (Year) | Technique | Dataset | Key Findings |
-|----|----------------|----------|---------|--------------|
-| P1 | Choetkiertikul et al. (2016) | Deep Learning (LSTM-based LD-RNN) | 23,313 user stories from 16 open-source Agile projects | Demonstrated that deep learning models outperform traditional effort estimation baselines |
-| P2 | A Novel Deep Learning Model for Story Point Estimation (Year) | Deep Learning | Agile user story datasets | Proposed an enhanced deep learning architecture achieving improved estimation accuracy |
-| P3 | Explainable AI for Story Point Estimation (Year) | Explainable Machine Learning Models | Scrum project datasets | Highlighted the trade-off between estimation accuracy and model interpretability in Agile settings |
-| P4 | LLM-Based Framework for Agile Planning (Year) | Large Language Models / Multi-Agent Systems | Agile artifacts | Demonstrated the potential of LLM-based systems for automating and supporting Agile planning tasks |
+| ID | Authors (Year) | Technique | Dataset | Evaluation Metrics | Key Findings |
+|----|----------------|----------|---------|--------------------|--------------|
+| P1 | Choetkiertikul et al. (2016) | Deep Learning (LSTM-based LD-RNN) | 23,313 user stories from 16 open-source Agile projects | MAE, standardized accuracy | Demonstrated that deep learning models outperform traditional effort estimation baselines |
+| P2 | A Novel Deep Learning Model for Story Point Estimation (Year) | Deep Learning | Agile user story datasets | MAE, RMSE | Proposed an enhanced deep learning architecture achieving improved estimation accuracy |
+| P3 | Explainable AI for Story Point Estimation (Year) | Explainable Machine Learning Models | Scrum project datasets | MAE, interpretability metrics | Highlighted the trade-off between estimation accuracy and model interpretability in Agile settings |
+| P4 | LLM-Based Framework for Agile Planning (Year) | Large Language Models / Multi-Agent Systems | Agile artifacts | Task-level accuracy, qualitative evaluation | Demonstrated the potential of LLM-based systems for supporting Agile planning and decision-making |
 
 
 
