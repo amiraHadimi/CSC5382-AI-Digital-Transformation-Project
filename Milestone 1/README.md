@@ -107,32 +107,36 @@ Full references available in:
 ---
 
 ## 6. Baseline Model
+
 ### Feasibility and Baseline Justification
 
 The feasibility of the proposed approach is supported by prior work demonstrating that both classical
 machine learning models and deep learning architectures can successfully predict story point estimates
-from textual user stories. While state-of-the-art models such as recurrent neural networks and large
-language models achieve higher accuracy, they introduce significant complexity and reproducibility
-challenges.
+from textual user stories. Foundational studies and recent advances, including deep learning and
+large language model–based approaches, establish that effort estimation from Agile artifacts is a
+solvable machine learning problem.
 
-For this reason, a TF-IDF–based Linear Regression model is selected as the baseline. This choice provides
-a transparent, reproducible reference point that allows the impact of more advanced models to be
-measured in subsequent milestones. The baseline can be fully retrained using the provided notebook,
-and the trained model artifact is generated as part of the retraining process, satisfying the
-reproducibility requirements of this milestone.
+While state-of-the-art models such as recurrent neural networks and large language models achieve
+higher accuracy, they introduce increased complexity, higher computational cost, and reduced
+reproducibility. For this reason, a simpler model is selected for the baseline to establish a clear
+and reproducible point of reference.
 
+### Baseline Specification
 
-A simple and reproducible baseline is used to validate feasibility.
+A TF-IDF–based Linear Regression model is selected as the baseline for this milestone. This choice
+provides a transparent and easily reproducible implementation that enables systematic comparison
+with more advanced models in subsequent milestones.
 
-**Baseline:**
-- TF-IDF text representation
-- Linear Regression model
+- **Text representation:** TF-IDF applied to the concatenated title and description  
+- **Prediction model:** Linear Regression  
 
-The baseline can be retrained using:  
+The baseline can be fully retrained using the provided notebook:  
 [`notebooks/baseline_retrain.ipynb`](./notebooks/baseline_retrain.ipynb)
 
-The model is documented in:  
+The trained model artifact is generated as part of the retraining process, and the model is documented
+using a structured model card inspired by HuggingFace model cards:  
 [`models/baseline/model_card.md`](./models/baseline/model_card.md)
+
 
 ---
 
