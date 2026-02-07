@@ -61,11 +61,14 @@ This project follows a **decision-support machine learning system** archetype, w
 
 ## 5. Literature Review
 
-| Authors (Year) | Technique | Dataset | Key Findings |
-|---------------|----------|---------|-------------|
-| Choetkiertikul et al. (2016) | LSTM + RHN | 23,313 Agile issues | Improved MAE over traditional baselines |
-| Pavlič & Saklamaeva (2024) | Large Language Models | Agile datasets | Comparable performance to human estimates |
-| Yalçıner et al. (2024) | SBERT + GBT | Industrial Agile data | Improved estimation accuracy |
+| ID | Authors (Year) | Technique | Dataset | Key Findings |
+|----|----------------|----------|---------|--------------|
+| P1 | Choetkiertikul et al. (2016) | LSTM + Recurrent Highway Network (LD-RNN) | 23,313 user stories from 16 open-source Agile projects | Deep learning model significantly outperformed traditional baselines in MAE and standardized accuracy |
+| P2 | Panda et al. (2015) | Neural Networks | Agile software project datasets | Demonstrated that ML-based effort estimation improves accuracy over expert judgment |
+| P3 | Yalçıner et al. (2024) | SBERT embeddings + Gradient Boosted Trees | Industrial Agile datasets | Hybrid embedding-based models achieved better performance than classical ML approaches |
+| P4 | Pavlič & Saklamaeva (2024) | Large Language Models (LLMs) | Agile effort estimation datasets | LLMs achieved performance comparable to or exceeding human estimators |
+| P5 | Multimodal Generative AI (2024) | Multimodal Generative Models | Agile user stories with auxiliary signals | Showed the potential of generative AI for more robust and context-aware story point estimation |
+
 
 Full references available in:  
 [`references/references.md`](./references/references.md)
