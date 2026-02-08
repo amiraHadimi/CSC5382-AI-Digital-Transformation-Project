@@ -1,139 +1,115 @@
-# Milestone 1 – Project Inception  
+# Milestone 1 – Project Inception
 ## AI-Based Story Point Estimation for Optimization-Driven Agile Planning
 
----
+## Business Case Description
+Accurate effort estimation is central to Agile development because it directly affects sprint planning, resource allocation, and delivery predictability. In practice, teams estimate effort using story points (e.g., planning poker). While effective, this process is often subjective, time-consuming, and inconsistent across teams and sprints.
 
-## 1) Business Case Description 
-Accurate effort estimation is central to Agile development because it directly affects sprint planning, resource allocation, and delivery predictability. In practice, teams estimate effort using **story points** (e.g., planning poker). While effective, this process is often **subjective**, **time-consuming**, and **inconsistent** across teams and sprints.
+This project aims to automatically estimate story points from user story text (title + description) using machine learning. The system is designed as a decision-support tool that assists Agile teams during backlog refinement and sprint planning by providing consistent, data-driven estimates.
 
-This project aims to **automatically estimate story points from user story text** (title + description) using machine learning. The system is designed as a **decision-support tool** that assists Agile teams during backlog refinement and sprint planning by providing consistent, data-driven estimates.
-
----
-
-## 2) Business Value of Using ML (Impact) 
+## Business Value of Using ML
 Story point estimation depends on variable natural-language descriptions and historical estimation behavior. Rule-based approaches cannot robustly capture this semantic variability.
 
 Machine learning enables:
-- **Consistency:** reduces estimation variability across time and team members  
-- **Efficiency:** speeds up grooming and planning by reducing manual estimation effort  
-- **Scalability:** supports estimation across multiple projects/teams  
-- **Decision support:** helps less-experienced teams calibrate estimates using historical data
+- Consistency: reduces estimation variability across time and team members
+- Efficiency: speeds up grooming and planning by reducing manual estimation effort
+- Scalability: supports estimation across multiple projects/teams
+- Decision support: helps less-experienced teams calibrate estimates using historical data
 
----
+## Dataset Overview
+Source (public):
+- Agile User Story Point Estimation dataset (CSV):
+  https://github.com/mrthlinh/Agile-User-Story-Point-Estimation/blob/master/data_csv/data
 
-## 3) Dataset Overview 
-**Source (public):**  
-- Agile User Story Point Estimation dataset (CSV):  
-  https://github.com/mrthlinh/Agile-User-Story-Point-Estimation/blob/master/data_csv/data  
+Origin:
+- Introduced by Choetkiertikul et al. (A Deep Learning Model for Estimating Story Points), collected from JIRA projects.
 
-**Origin:**  
-- Introduced by **Choetkiertikul et al.** (*A Deep Learning Model for Estimating Story Points*), collected from JIRA projects.
+Size & coverage:
+- 23,313 user stories/issues from 16 open-source Agile projects.
 
-**Size & coverage:**  
-- **23,313** user stories/issues from **16** open-source Agile projects (across multiple repositories).
+Main fields used (this milestone):
+- title (text)
+- description (text)
+- story_points (numeric label)
 
-**Main fields used (this milestone):**
-- `title` (text)  
-- `description` (text)  
-- `story_points` (numeric label)
+Label strategy (this milestone):
+- Story points are modeled as a continuous numeric target. Because projects may use different internal scales, labels are not normalized in Milestone 1 (normalization is treated as a later experiment).
 
-**Label strategy (this milestone):**  
-Story points are modeled as a **continuous numeric target**. Because projects may use different internal scales, labels are **not normalized** in Milestone 1 (normalization is treated as a later experiment).
-
-**Repository assets:**
-- Sample for quick inspection: [`data/sample.csv`](data/sample.csv)  
+Repository assets:
+- Sample for quick inspection: data/sample.csv
 - Full dataset is referenced via the public source link above.
 
----
+## Project Archetype
+This project is framed as a decision-support ML system embedded within an optimization-driven Agile planning workflow.
 
-## 4) Project Archetype 
-This project is framed as a **decision-support ML system embedded within an optimization-driven Agile planning workflow**.
+Predictive component (ML)
+- Given a user story’s title + description, the model predicts its story points.
 
-### 4.1 Predictive component (ML)
-Given a user story’s `title + description`, the model predicts its **story points**.
+Optimization component (business decision)
+Sprint planning can be formulated as a constrained optimization problem (e.g., knapsack-style backlog selection):
+- Decision variables: select which stories to include in the next sprint
+- Constraints: capacity/velocity, dependencies, deadlines, WIP limits, priorities, team availability
+- Objective: maximize delivered value (or minimize risk/penalties) under constraints
 
-### 4.2 Optimization component (the “real” business decision)
-In Agile planning, teams repeatedly solve constrained decision problems such as **sprint backlog selection**:
+A simple form:
+- choose stories x_i ∈ {0, 1}
+- capacity constraint Σ x_i · sp_i ≤ capacity
+- maximize value Σ x_i · value_i
 
-- **Decision variables:** select which stories to include in the next sprint (and optionally assignment/order)
-- **Constraints:** capacity/velocity, dependencies, deadlines, WIP limits, priorities, team availability
-- **Objective:** maximize delivered value (or minimize risk/penalties) under constraints
+Here, estimated story points are inputs to the optimization, not the final output.
 
-A simple formalization is a **knapsack-style** problem:
-- choose stories \(x_i \in \{0,1\}\)
-- capacity constraint \(\sum x_i \cdot \hat{sp}_i \le \text{capacity}\)
-- maximize value \(\sum x_i \cdot value_i\)
+Why code generation matters
+Optimization constraints typically do not live inside the story-point dataset. They come from planning context (capacity notes, dependencies, team constraints, sprint goals, etc.). In later milestones, an LLM will be used to:
+1) extract decision variables / constraints / objective from natural-language planning context, and
+2) generate solver-ready symbolic code (e.g., OR-Tools / Pyomo / MiniZinc / CP-SAT model).
 
-Here, **estimated story points** \(\hat{sp}_i\) are inputs to the optimization, not the final output.
+Milestone 1 scope: validate feasibility using a reproducible story point estimation baseline only.
+Later milestones: integrate solver-based optimization and LLM-generated symbolic formulations.
 
-### 4.3 Why “code generation” matters
-The optimization constraints typically **do not live inside the story-point dataset**. They come from planning context (capacity notes, dependencies, policies, sprint goals, etc.). In later milestones, an LLM will be used to:
-1) extract variables / constraints / objective from natural-language planning context, and  
-2) generate **solver-ready symbolic code** (e.g., OR-Tools / Pyomo / MiniZinc / CP-SAT model).
+## Feasibility Analysis and Related Work
+Prior research shows that predicting story points from Agile text is feasible on public benchmarks and that more advanced architectures (deep learning and LLM-based approaches) can improve accuracy. The works below are selected to (1) establish the benchmark dataset and task feasibility, (2) show a deep-learning refinement on the same benchmark family, (3) provide a Transformer-based baseline with public artifacts, and (4) represent a recent resource-efficient LLM approach with released code/models.
 
-**Milestone 1 scope:** validate feasibility using a reproducible story point estimation baseline only.  
-**Later milestones:** integrate solver-based optimization and LLM-generated symbolic formulations.
-
----
-
-## 5) Feasibility Analysis – Literature Review 
-Prior research shows that predicting story points from Agile text is feasible on public benchmarks and that more advanced architectures (deep learning and LLM-based approaches) can improve accuracy. The works below are selected to (1) establish the benchmark dataset and task feasibility, (2) show a deep-learning refinement on the same benchmark, and (3) show an LLM-based estimator that reports competitive results while providing code/models for reuse.
-
-### Table 1 — Representative studies on automated story point estimation
+Table — Representative studies on automated story point estimation
 
 | ID | Reference | Model / Technique | Dataset | Evaluation Metrics | Key Contribution |
 |---|---|---|---|---|---|
-| 1 | Choetkiertikul et al. | **LD-RNN** (LSTM + Recurrent Highway Network) | 23,313 stories, 16 OSS projects (JIRA) | MAE, SA | Introduced the benchmark dataset and showed deep learning outperforms common baselines |
-| 2 | Mittal, Arsalan, Garg | Novel deep learning model (LD-RNN-style) | 23,313 issues, 16 OSS projects (JIRA) | MAE, SA (also reports comparisons vs Deep-SE) | Confirms feasibility and reports improved performance comparisons on the same benchmark family |
-| 3 | Sepúlveda Montoya, Ríos Gómez, Jaramillo Villegas | **Llama3SP** (fine-tuned LLaMA-based model) | Public DeepSE datasets / story-point benchmark lineage | MAE, RMSE, tolerance-based accuracy (reported) | Shows a resource-efficient LLM estimator with released code/models for reuse |
+| 1 | Choetkiertikul et al. | LD-RNN (LSTM + Recurrent Highway Network) | 23,313 stories, 16 OSS projects (JIRA) | MAE, SA | Introduced the benchmark dataset and showed deep learning outperforms common baselines |
+| 2 | Mittal, Arsalan, Garg | Novel deep learning model | 23,313 issues, 16 OSS projects (JIRA) | MAE, SA (reported) | Confirms feasibility and reports improved performance comparisons vs earlier baselines |
+| 3 | Fu, Tantithamthavorn | GPT2SP (Transformer/GPT-2 based) | 23,313 issues, 16 OSS projects | MAE (reported in paper) | Provides a Transformer-based approach and an openly available replication package |
+| 4 | Sepúlveda Montoya, Ríos Gómez, Jaramillo Villegas | Llama3SP (fine-tuned LLaMA 3.2 with QLoRA) | DeepSE datasets / story-point benchmark lineage | MAE, RMSE, tolerance-based metrics (reported) | Resource-efficient LLM estimator; code + pretrained models released |
 
-> Note: The optimization/code-generation framework paper is **not** listed here because this table is restricted to **story point estimation** literature (estimation feasibility + progression).
+## Baseline Specification
+Baseline choice (what & why)
+To satisfy the milestone’s reproducibility requirement (trained model binary + retraining notebook available), we select GPT2SP as the baseline.
 
----
+GPT2SP is an established Transformer-based story point estimator built on GPT-2. It is accompanied by a public replication package that provides:
+- trained model binaries (hosted on Hugging Face Model Hub; also mirrored via Google Drive), and
+- training notebooks documenting the full retraining process.
 
-## 6) Feasibility + Baseline Specification 
+This baseline provides a reproducible reference point for future milestones, where we will integrate estimates into optimization (sprint backlog selection) and compare against more recent LLM estimators such as Llama3SP.
 
-### 6.1 Baseline choice (what & why)
-To validate feasibility with a transparent and reproducible starting point, this milestone uses a **classical NLP regression baseline**:
+Reproducibility pointers (baseline artifacts)
+- Replication package (code + training notebooks): https://github.com/awsm-research/gpt2sp
+- Example trained model on Hugging Face: https://huggingface.co/MickyMike/GPT2SP
 
-- **Text representation:** TF-IDF over concatenated `title + description`  
-- **Regressor:** **Ridge Regression** (L2-regularized linear regression)
+Note: In this repository, we keep lightweight wrapper notebooks for baseline loading/inference, while retraining notebooks remain available via the upstream replication package (and can be vendored into this repo if required by grading).
 
-**Why Ridge (instead of plain Linear Regression):**
-- Stable on high-dimensional sparse TF-IDF features
-- Standard, widely accepted baseline for text regression
-- Fast to train, easy to reproduce and interpret
+## Metrics for Business Goal Evaluation
+The baseline will be evaluated using:
+- MAE (Mean Absolute Error)
+- RMSE (Root Mean Squared Error)
+- Accuracy@±1 story point (tolerance-based)
 
-### 6.2 Reproducibility (required by the milestone)
-This repository includes:
-- Retraining notebook: [`notebooks/baseline_retrain.ipynb`](notebooks/baseline_retrain.ipynb)  
-- Trained model artifact (generated by the notebook): [`models/baseline/baseline.joblib`](models/baseline/baseline.joblib)  
-- Model card (HuggingFace-inspired): [`models/baseline/model_card.md`](models/baseline/model_card.md)
+## Repository Structure / Assets
+- data/
+  - sample.csv
+- notebooks/
+  - (your project notebooks; optional wrapper notebook to load GPT2SP)
+- models/
+  - model_card.md (baseline model card)
+- references/
+  - references.md
+- presentation/
+  - recorded presentation
 
----
-
-## 7) Metrics for Business Goal Evaluation 
-The baseline is evaluated using:
-- **MAE (Mean Absolute Error):** primary metric (interpretable in story points)
-- **RMSE (Root Mean Squared Error):** penalizes large errors more heavily
-- **Accuracy@±1 story point:** tolerance-based metric aligned with planning practicality
-
----
-
-## 8) Repository Structure / Assets
-- `data/`  
-  - `sample.csv` (small sample for quick inspection)  
-- `notebooks/`  
-  - `baseline_retrain.ipynb`  
-- `models/baseline/`  
-  - `baseline.joblib` (generated after training)  
-  - `model_card.md`  
-- `references/`  
-  - `references.md`  
-- `presentation/`  
-  - recorded presentation 
-
----
-
-## 9) References
-See: [`references/references.md`](references/references.md)
+## References
+See: references/references.md
