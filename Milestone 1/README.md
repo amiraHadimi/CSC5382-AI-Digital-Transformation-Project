@@ -15,7 +15,7 @@ Machine learning enables:
 - Scalability: supports estimation across multiple projects/teams
 - Decision support: helps less-experienced teams calibrate estimates using historical data
 
-## 3) Dataset Overview
+##  Dataset Overview
 
 ### Source and Origin
 This project uses the **Agile User Story Point Estimation** dataset, a publicly available benchmark dataset originally introduced by **Choetkiertikul et al.** in *A Deep Learning Model for Estimating Story Points*. The dataset was collected from **JIRA issue trackers** and has since become a **standard reference benchmark** for research on automated story point estimation.
