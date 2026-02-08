@@ -15,28 +15,59 @@ Machine learning enables:
 - Scalability: supports estimation across multiple projects/teams
 - Decision support: helps less-experienced teams calibrate estimates using historical data
 
-## Dataset Overview
-Source (public):
-- Agile User Story Point Estimation dataset (CSV):
-  https://github.com/mrthlinh/Agile-User-Story-Point-Estimation/blob/master/data_csv/data
+## 3) Dataset Overview
 
-Origin:
-- Introduced by Choetkiertikul et al. (A Deep Learning Model for Estimating Story Points), collected from JIRA projects.
+### Source and Origin
+This project uses the **Agile User Story Point Estimation** dataset, a publicly available benchmark dataset originally introduced by **Choetkiertikul et al.** in *A Deep Learning Model for Estimating Story Points*. The dataset was collected from **JIRA issue trackers** and has since become a **standard reference benchmark** for research on automated story point estimation.
 
-Size & coverage:
-- 23,313 user stories/issues from 16 open-source Agile projects.
+The same dataset (or directly derived variants) is reused in multiple subsequent studies, including deep learning–based approaches, GPT-based models (e.g., GPT2SP), and more recent LLM-based estimators (e.g., Llama3SP), which highlights its relevance and robustness.
 
-Main fields used (this milestone):
-- title (text)
-- description (text)
-- story_points (numeric label)
+---
 
-Label strategy (this milestone):
-- Story points are modeled as a continuous numeric target. Because projects may use different internal scales, labels are not normalized in Milestone 1 (normalization is treated as a later experiment).
+### Size and Coverage
+- **Total instances:** 23,313 user stories / issues  
+- **Projects:** 16 large open-source Agile projects  
+- **Repositories:** Multiple well-known OSS ecosystems (e.g., Apache, Moodle, Spring, Atlassian)  
+- **Data source:** Real-world Agile development artifacts extracted from JIRA
 
-Repository assets:
-- Sample for quick inspection: data/sample.csv
-- Full dataset is referenced via the public source link above.
+This scale and diversity make the dataset representative of realistic Agile planning scenarios rather than synthetic or toy examples.
+
+---
+
+### Core Fields (Conceptual View)
+At a conceptual level, the dataset contains:
+- **Title:** short textual summary of the user story  
+- **Description (or user story):** detailed natural-language description of the requirement  
+- **Story points:** numeric effort estimate assigned by Agile teams  
+
+In this milestone, story points are modeled as a **continuous numeric target**, following prior work.
+
+---
+
+### Preprocessing and Representations
+Different repositories derived from the original dataset provide **alternative but semantically equivalent representations** to facilitate modeling. In particular:
+- Textual fields may be merged into a single column (e.g., `concat = title + description`)
+- The target label may appear under different names (e.g., `point` instead of `story_points`)
+
+These variations are **purely preprocessing choices** and do not alter the underlying semantics of the data. In this project, the model operates on the **combined textual content** of the title and description, consistent with prior studies.
+
+---
+
+### Why This Dataset Is Powerful
+This dataset is particularly well suited for this project because:
+- It captures **real-world Agile estimation behavior** rather than synthetic labels  
+- It contains **rich natural-language descriptions**, enabling NLP-based modeling  
+- It has been **validated and reused across multiple independent studies**, ensuring comparability  
+- It supports both **classical ML baselines** and **modern LLM-based approaches**
+
+As a result, the dataset provides a strong foundation for evaluating story point estimation models and for integrating learned estimates into downstream optimization workflows in later milestones.
+
+---
+
+### Repository Assets
+- **Sample file:** `data/sample.csv` (for quick inspection and reproducibility)  
+- **Full dataset:** referenced via the public source link above
+
 
 ## Project Archetype
 This project is framed as a decision-support ML system embedded within an optimization-driven Agile planning workflow.
