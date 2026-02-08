@@ -133,8 +133,6 @@ The baseline will be evaluated using:
 ## Repository Structure / Assets
 - data/
   - sample.csv
-- notebooks/
-  - (your project notebooks; optional wrapper notebook to load GPT2SP)
 - models/
   - model_card.md (baseline model card)
 - references/
