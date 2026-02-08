@@ -122,7 +122,6 @@ Reproducibility pointers (baseline artifacts)
 - Replication package (code + training notebooks): https://github.com/awsm-research/gpt2sp
 - Example trained model on Hugging Face: https://huggingface.co/MickyMike/GPT2SP
 
-Note: In this repository, we keep lightweight wrapper notebooks for baseline loading/inference, while retraining notebooks remain available via the upstream replication package (and can be vendored into this repo if required by grading).
 
 ## Metrics for Business Goal Evaluation
 
