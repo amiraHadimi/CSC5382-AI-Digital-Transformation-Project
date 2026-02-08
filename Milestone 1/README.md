@@ -70,31 +70,55 @@ As a result, the dataset provides a strong foundation for evaluating story point
 
 
 ## Project Archetype
-This project is framed as a decision-support ML system embedded within an optimization-driven Agile planning workflow.
 
-Predictive component (ML)
-- Given a user story’s title + description, the model predicts its story points.
+This project is framed as a **decision-support machine learning system** whose primary learned task is **story point estimation from natural-language user stories**, and whose downstream usage is **optimization-oriented**.
 
-Optimization component (business decision)
-Sprint planning can be formulated as a constrained optimization problem (e.g., knapsack-style backlog selection):
-- Decision variables: select which stories to include in the next sprint
-- Constraints: capacity/velocity, dependencies, deadlines, WIP limits, priorities, team availability
-- Objective: maximize delivered value (or minimize risk/penalties) under constraints
+### Predictive Component (Machine Learning)
 
-A simple form:
-- choose stories x_i ∈ {0, 1}
-- capacity constraint Σ x_i · sp_i ≤ capacity
-- maximize value Σ x_i · value_i
+The core ML task addressed in this project is **effort estimation**:
 
-Here, estimated story points are inputs to the optimization, not the final output.
+- **Input:** user story text (title + description)
+- **Output:** predicted story points (continuous numeric value)
 
-Why code generation matters
-Optimization constraints typically do not live inside the story-point dataset. They come from planning context (capacity notes, dependencies, team constraints, sprint goals, etc.). In later milestones, an LLM will be used to:
-1) extract decision variables / constraints / objective from natural-language planning context, and
-2) generate solver-ready symbolic code (e.g., OR-Tools / Pyomo / MiniZinc / CP-SAT model).
+This component is trained and evaluated using labeled data, following established practice in the literature on automated story point estimation.
 
-Milestone 1 scope: validate feasibility using a reproducible story point estimation baseline only.
-Later milestones: integrate solver-based optimization and LLM-generated symbolic formulations.
+### Optimization-Oriented Usage (Downstream)
+
+Story points are not the final goal of the system. Instead, they serve as **learned parameters** that can be used in downstream **decision-making and optimization tasks** commonly encountered in Agile software development.
+
+A representative example is **Sprint Backlog Selection**, which can be formalized as a constrained optimization problem:
+
+- **Decision variables:**  
+  \( x_i \in \{0,1\} \), indicating whether user story \( i \) is selected
+
+- **Parameters:**  
+  \( \hat{sp}_i \) = estimated story points (predicted by the ML model)  
+  \( C \) = sprint capacity (provided by planning context)
+
+- **Constraint:**  
+  \( \sum_i \hat{sp}_i \cdot x_i \le C \)
+
+- **Objective (example):**  
+  maximize delivered value or priority under capacity constraints
+
+In this formulation, **story point estimation provides the numeric inputs**, while the selection itself is performed by an optimization solver.
+
+### Intermediate Symbolic Representation and Code Generation
+
+The optimization component is **not learned from data** and does not require labeled planning datasets. Instead, it follows the paradigm of **LLM-Based Formalized Programming (LLMFP)**:
+
+1. Agile planning context and constraints are expressed in **natural language**
+2. An LLM extracts:
+   - decision variables
+   - constraints
+   - objective
+3. These elements are encoded in an **intermediate symbolic representation** (e.g., a structured JSON formulation)
+4. **Solver-ready code** (e.g., OR-Tools, Pyomo, or SMT-based solvers) is automatically generated from this representation
+
+This separation ensures that:
+- the **ML component** is rigorously evaluated using labeled story point data, and
+- the **optimization component** is symbolic, constraint-based, and executable via generated code.
+
 
 ## Feasibility Analysis and Related Work
 Prior research shows that predicting story points from Agile text is feasible on public benchmarks and that more advanced architectures (deep learning and LLM-based approaches) can improve accuracy. The works below are selected to (1) establish the benchmark dataset and task feasibility, (2) show a deep-learning refinement on the same benchmark family, (3) provide a Transformer-based baseline with public artifacts, and (4) represent a recent resource-efficient LLM approach with released code/models.
