@@ -125,10 +125,19 @@ Reproducibility pointers (baseline artifacts)
 Note: In this repository, we keep lightweight wrapper notebooks for baseline loading/inference, while retraining notebooks remain available via the upstream replication package (and can be vendored into this repo if required by grading).
 
 ## Metrics for Business Goal Evaluation
-The baseline will be evaluated using:
-- MAE (Mean Absolute Error)
-- RMSE (Root Mean Squared Error)
-- Accuracy@±1 story point (tolerance-based)
+
+The business goal of this project is to enable reliable downstream optimization by providing **accurate story point estimates** from user story text. In Milestone 1, the labeled signal is the story point value assigned by Agile teams; therefore, evaluation focuses on **estimation accuracy**, which is a necessary prerequisite for meaningful optimization in later stages.
+
+The following metrics are used:
+
+- **Mean Absolute Error (MAE):** measures the average absolute difference between predicted and actual story points, providing an intuitive and directly interpretable measure of estimation quality in the same units used by Agile teams.
+
+- **Root Mean Squared Error (RMSE):** penalizes larger estimation errors more strongly, highlighting cases where inaccurate estimates could significantly distort constraint-based optimization formulations (e.g., capacity limits).
+
+- **Accuracy@±1 story point:** measures the proportion of predictions that fall within a tolerance of ±1 story point, reflecting common Agile practice where small estimation deviations are acceptable and unlikely to affect decision-making materially.
+
+These metrics are consistently used in prior work on automated story point estimation, including Choetkiertikul et al., GPT2SP, and Llama3SP, enabling direct comparability with published results while ensuring that the learned estimation component is sufficiently reliable to support later symbolic optimization and code generation.
+
 
 ## Repository Structure / Assets
 - data/
