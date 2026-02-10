@@ -71,53 +71,31 @@ As a result, the dataset provides a strong foundation for evaluating story point
 
 ## Project Archetype
 
-This project is framed as a **decision-support machine learning system** whose primary learned task is **story point estimation from natural-language user stories**, and whose downstream usage is **optimization-oriented**.
+This project is framed as a **decision-support machine learning system** whose core contribution is the use of **large language models (LLMs)** for **automated story point estimation** from natural-language user stories.
 
-### Predictive Component (Machine Learning)
+### Predictive Component (LLM-Based Machine Learning)
 
-The core ML task addressed in this project is **effort estimation**:
+The primary task addressed in this project is **effort estimation** using pretrained language models adapted to the Agile domain.
 
 - **Input:** user story text (title + description)
 - **Output:** predicted story points (continuous numeric value)
 
-This component is trained and evaluated using labeled data, following established practice in the literature on automated story point estimation.
+A pretrained Transformer-based language model (e.g., GPT-2 or LLaMA-family models) is **fine-tuned** on a benchmark dataset of Agile user stories to perform regression. This fine-tuning step adapts the general linguistic knowledge of the LLM to the specific semantics of software requirements and effort estimation.
 
-### Optimization-Oriented Usage (Downstream)
+The learned component is rigorously evaluated using labeled data and standard metrics reported in the literature.
 
-Story points are not the final goal of the system. Instead, they serve as **learned parameters** that can be used in downstream **decision-making and optimization tasks** commonly encountered in Agile software development.
+### Downstream Usage in Agile Decision-Making
 
-A representative example is **Sprint Backlog Selection**, which can be formalized as a constrained optimization problem:
+Story point estimates are not an end in themselves. In Agile practice, they are used to support planning and prioritization decisions, such as backlog refinement and sprint planning.
 
-- **Decision variables:**  
-  \( x_i \in \{0,1\} \), indicating whether user story \( i \) is selected
+In this project, such planning activities are treated as **downstream decision-making tasks** that consume story point estimates as inputs. For example, estimated story points can be used to reason about feasibility under capacity constraints or to support prioritization decisions.
 
-- **Parameters:**  
-  \( \hat{sp}_i \) = estimated story points (predicted by the ML model)  
-  \( C \) = sprint capacity (provided by planning context)
-
-- **Constraint:**  
-  \( \sum_i \hat{sp}_i \cdot x_i \le C \)
-
-- **Objective (example):**  
-  maximize delivered value or priority under capacity constraints
-
-In this formulation, **story point estimation provides the numeric inputs**, while the selection itself is performed by an optimization solver.
-
-### Intermediate Symbolic Representation and Code Generation
-
-The optimization component is **not learned from data** and does not require labeled planning datasets. Instead, it follows the paradigm of **LLM-Based Formalized Programming (LLMFP)**:
-
-1. Agile planning context and constraints are expressed in **natural language**
-2. An LLM extracts:
-   - decision variables
-   - constraints
-   - objective
-3. These elements are encoded in an **intermediate symbolic representation** (e.g., a structured JSON formulation)
-4. **Solver-ready code** (e.g., OR-Tools, Pyomo, or SMT-based solvers) is automatically generated from this representation
+Importantly, **these downstream planning activities are not learned from data and are not evaluated using labeled planning datasets**. The focus of this project remains on the **accuracy and reliability of the story point estimation model**, which is a necessary prerequisite for any subsequent decision-support use.
 
 This separation ensures that:
-- the **ML component** is rigorously evaluated using labeled story point data, and
-- the **optimization component** is symbolic, constraint-based, and executable via generated code.
+- the **LLM-based estimation component** is evaluated in a rigorous, data-driven manner, and
+- planning or optimization considerations are treated as contextual motivation rather than supervised learning objectives.
+
 
 
 ## Feasibility Analysis and Related Work
