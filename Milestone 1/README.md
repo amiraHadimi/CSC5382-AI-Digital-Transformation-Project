@@ -1,5 +1,5 @@
 # Milestone 1 – Project Inception
-## AI-Based Story Point Estimation for Optimization-Driven Agile Planning
+## AI-Based Story Point Estimation for Agile Software Development
 
 ## Business Case Description
 Accurate effort estimation is central to Agile development because it directly affects sprint planning, resource allocation, and delivery predictability. In practice, teams estimate effort using story points (e.g., planning poker). While effective, this process is often subjective, time-consuming, and inconsistent across teams and sprints.
