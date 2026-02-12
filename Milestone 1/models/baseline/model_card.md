@@ -1,70 +1,102 @@
-# Model Card — GPT2SP Baseline (Story Point Estimation)
+# Model Card — Llama3SP Baseline (Latest Reproducible Model)
 
 ## Model Details
-- Model name: gpt2sp_storypoints_baseline
-- Baseline family: GPT2SP (Transformer / GPT-2–based story point estimator)
-- Model type: Text regression (story point prediction from issue text)
-- Intended use: Decision-support baseline for estimating story points from user story / issue text (title + description)
-- Primary users: Agile teams and researchers building estimation and planning decision-support tools
-- Version: 1.0 (baseline selection – Milestone 1)
+- **Model name:** `llama3sp_storypoints_baseline`
+- **Model family:** Llama3SP (Llama 3.2 + PEFT / LoRA)
+- **Task:** Story point estimation (text regression)
+- **Baseline status:** Latest reproducible baseline satisfying assignment constraints
+- **Intended use:** Decision-support tool for Agile backlog refinement and sprint planning
+- **Version:** v1.0 (Milestone 1 baseline)
 
-## Upstream Artifact Locations (Binary + Retraining Notebook)
-This baseline is selected specifically because both required artifacts are publicly available:
-- Trained model binaries: available via Hugging Face Model Hub (and mirrored via Google Drive) from the GPT2SP replication package.
-  - Example model: https://huggingface.co/MickyMike/GPT2SP
-- Retraining notebook(s): provided in the GPT2SP replication package:
-  - model training: model_training_notebook.ipynb
-  - tokenizer training: tokenizer_training_notebook.ipynb
-  - repository: https://github.com/awsm-research/gpt2sp
+This model represents the **most recent publicly available and fully reproducible baseline** for automated story point estimation at the time of this project.
+
+---
+
+## Upstream Artifacts (Binary + Retraining Notebook)
+
+This baseline is selected specifically because **both required artifacts are publicly available**:
+
+- **Trained model binary:**  
+  Example checkpoint published on Hugging Face, including:
+  - `adapter_model.safetensors`
+  - `pytorch_model.bin`  
+  https://huggingface.co/DEVCamiloSepulveda/0-LLAMA3SP-usergrid
+
+- **Retraining notebooks:**  
+  Provided in the replication package:
+  - `model_training.ipynb`
+  - `tokenizer_training_notebook.ipynb`
+  - `model_upload_notebook.ipynb`  
+  https://github.com/DEVCamiloSepulveda/llama3sp
+
+> **License note:** Use of Llama 3.x base models requires acceptance of Meta’s license terms on Hugging Face.
+
+---
 
 ## Training Data
-- Dataset: Agile story point estimation benchmark (DeepSE lineage)
-- Size & scope: 23,313 issues/user stories across 16 open-source projects collected via JIRA (as used in the benchmark literature)
-- Input fields: title, description
-- Target: story points (continuous numeric value)
+- **Dataset:** Agile Story Point Estimation benchmark (Deep-SE lineage)
+- **Size:** 23,313 user stories / issues
+- **Projects:** 16 open-source Agile projects (JIRA)
+- **Input fields:** Issue title and description
+- **Target:** Story points (continuous numeric value)
+- **Splits:** Train / validation / test splits provided via a `split_mark` column in the replication package
 
-## Input / Output
-- Input: concatenated text formed as title + description
-- Output: predicted story points (continuous numeric value)
+---
 
-## Training Specification (High-level)
-The full end-to-end retraining procedure is documented in the upstream GPT2SP training notebook(s). At a high level:
-- Tokenization: GPT-2 BPE (and experiment-specific tokenizers in GPT2SP)
-- Model: GPT-2–based Transformer architecture fine-tuned for story point regression
-- Splits: train/validation/test based on the dataset’s provided split markers (benchmark convention)
-- Output artifacts: trained weights and tokenizer artifacts published for reuse
+## Input and Output
+- **Input:** Natural-language issue text (title + description)
+- **Output:** Continuous numeric prediction (story points)
+
+---
+
+## Training Setup (High-Level)
+- **Base model:** Llama 3.2
+- **Adaptation:** Parameter-Efficient Fine-Tuning (LoRA / PEFT)
+- **Objective:** Regression with scalar output (`num_labels = 1`)
+- **Tokenization:** Llama tokenizer (as provided in replication notebooks)
+
+---
 
 ## Evaluation Metrics
-When evaluated, this baseline is intended to be assessed using:
-- MAE (Mean Absolute Error) – primary metric
-- RMSE (Root Mean Squared Error)
-- Accuracy@±1 story point – tolerance-based metric aligned with Agile planning practice
+The baseline is evaluated using metrics commonly reported in the literature:
+
+- **MAE (Mean Absolute Error)** – primary metric
+- **RMSE (Root Mean Squared Error)**
+- **Tolerance-based accuracy (±1 story point)**
+
+Example checkpoint reports (from model card):
+- MAE ≈ 1.765  
+- MdAE ≈ 1.583  
+
+> For coursework evaluation, metrics should be recomputed on the chosen dataset split to ensure consistency.
+
+---
 
 ## Intended Use
-This baseline serves as a reproducible reference model to:
-- establish feasibility for automated story point estimation, and
-- provide a comparison point for subsequent baselines (e.g., Llama3SP) and for later milestones integrating optimization (e.g., sprint backlog selection).
+This model is intended to:
+- Support Agile teams during backlog refinement
+- Provide consistent, data-driven initial estimates
+- Serve as an input to downstream planning and optimization tasks
 
-Predicted story points are intended to be used as inputs to downstream optimization tasks.
+Predictions are **not** intended to replace human judgment.
+
+---
 
 ## Limitations
-- Predictions are based on text only; does not incorporate team context (priority, assignee, velocity, sprint capacity).
-- Story point scales can vary across projects; cross-project generalization may be limited.
-- As a Transformer-based model, inference/training is heavier than classical ML baselines (TF-IDF + linear models).
+- Story points are **team-specific** and may not generalize perfectly across projects
+- Does not incorporate contextual features (velocity, team size, sprint capacity)
+- Requires Llama model license acceptance for full reproducibility
 
-## Ethical and Responsible Use
-- Predictions should support, not replace, human planning decisions.
-- Story points should not be used to evaluate individual developer performance.
-- Historical labeling may encode team-specific biases or inconsistent estimation practices.
+---
+
+## Ethical Considerations
+- Must not be used to evaluate individual developer performance
+- Should be treated as a **decision-support tool**, not an automated decision-maker
+
+---
 
 ## Reproducibility Checklist
-To verify baseline reproducibility for grading:
-1. Confirm pretrained weights can be accessed from the Hugging Face model page above.
-2. Confirm retraining notebooks exist in the GPT2SP replication package.
-3. (Optional) Run the upstream training notebook to reproduce training artifacts.
-
-## Local Repository Notes
-This repository documents the baseline selection in Milestone 1. In later milestones, we will add:
-- wrapper notebook to load GPT2SP weights and run inference on the chosen dataset split
-- training/evaluation runs and recorded metrics
-- integration of estimates into a formal sprint-planning optimization model
+- [x] Trained model binary publicly available  
+- [x] Retraining notebook publicly available  
+- [x] Dataset and splits documented  
+- [x] License requirements documented
