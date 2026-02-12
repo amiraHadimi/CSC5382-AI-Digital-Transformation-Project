@@ -99,7 +99,16 @@ This separation ensures that:
 
 
 ## Feasibility Analysis and Related Work
-Prior research shows that predicting story points from Agile text is feasible on public benchmarks and that more advanced architectures (deep learning and LLM-based approaches) can improve accuracy. The works below are selected to (1) establish the benchmark dataset and task feasibility, (2) show a deep-learning refinement on the same benchmark family, (3) provide a Transformer-based baseline with public artifacts, and (4) represent a recent resource-efficient LLM approach with released code/models.
+### Literature Review Summary
+
+Prior research has shown that predicting story points directly from Agile user story text is feasible when evaluated on shared public benchmarks. Paper **[1]** (Choetkiertikul et al., 2019) established the problem formulation by introducing a large, issue-level dataset collected from JIRA repositories and proposing an end-to-end deep learning model (LD-RNN). Their results demonstrated that recurrent neural architectures combining LSTM and recurrent highway networks significantly outperform traditional estimation baselines such as mean, median, and bag-of-words–based models.
+
+Using the same benchmark, Paper **[2]** (Mittal et al., 2024) provides an independent empirical re-evaluation of deep learning–based story point estimation. Although no new dataset or fundamentally new architecture is introduced, the study confirms the robustness and general applicability of LD-RNN-style models across multiple projects, reinforcing the feasibility of learning story point estimates directly from textual descriptions.
+
+Moving beyond recurrent models, Paper **[3]** (Fu & Tantithamthavorn, 2022) introduces *GPT2SP*, a Transformer-based approach that adapts a pre-trained GPT-2 model for numerical regression. Compared to the RNN-based approaches in Papers **[1]** and **[2]**, GPT2SP better captures long-range semantic dependencies in user stories and shows improved generalization, particularly in cross-project estimation scenarios. The authors also release a public replication package, supporting reproducibility.
+
+Most recently, Paper **[4]** (Sepúlveda Montoya et al., 2025) proposes *Llama3SP*, a resource-efficient large language model fine-tuned for story point estimation using parameter-efficient techniques. In contrast to GPT2SP’s full fine-tuning of a Transformer, Llama3SP employs QLoRA to drastically reduce computational and memory requirements while maintaining strong predictive performance. This work represents the current state of the art by showing that modern LLMs can be applied to Agile effort estimation in a practical and cost-effective manner, with released code and pretrained models.
+
 
 Table — Representative studies on automated story point estimation
 
