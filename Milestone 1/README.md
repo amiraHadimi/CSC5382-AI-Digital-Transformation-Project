@@ -79,30 +79,31 @@ As a result, the dataset provides a strong foundation for evaluating story point
 
 ## Project Archetype
 
-This project is framed as a **decision-support machine learning system** whose core contribution is the use of **large language models (LLMs)** for **automated story point estimation** from natural-language user stories.
+This project is framed as a decision-support machine learning system whose core contribution is the use of large language models (LLMs) for automated story point estimation from natural-language user stories.
 
 ### Predictive Component (LLM-Based Machine Learning)
 
-The primary task addressed in this project is **effort estimation** using pretrained language models adapted to the Agile domain.
+The primary task addressed in this project is effort estimation using pretrained language models adapted to the Agile domain.
 
-- **Input:** user story text (title + description)
+- **Input:** user story text (title + description)  
 - **Output:** predicted story points (continuous numeric value)
 
-A pretrained Transformer-based language model (e.g., GPT-2 or LLaMA-family models) is **fine-tuned** on a benchmark dataset of Agile user stories to perform regression. This fine-tuning step adapts the general linguistic knowledge of the LLM to the specific semantics of software requirements and effort estimation.
+A pretrained Transformer-based language model from the **LLaMA family** is fine-tuned on a benchmark dataset of Agile user stories to perform regression. This fine-tuning adapts the general linguistic knowledge of the LLM to the specific semantics of software requirements and effort estimation.
 
-The learned component is rigorously evaluated using labeled data and standard metrics reported in the literature.
+The learned component is evaluated using labeled data and standard metrics reported in the literature.
 
 ### Downstream Usage in Agile Decision-Making
 
-Story point estimates are not an end in themselves. In Agile practice, they are used to support planning and prioritization decisions, such as backlog refinement and sprint planning.
+Story point estimates are not an end in themselves. In Agile practice, they support planning and prioritization activities such as backlog refinement and sprint planning.
 
-In this project, such planning activities are treated as **downstream decision-making tasks** that consume story point estimates as inputs. For example, estimated story points can be used to reason about feasibility under capacity constraints or to support prioritization decisions.
+In this project, these activities are treated as downstream decision-making tasks that consume predicted story points as inputs (e.g., reasoning about feasibility under capacity constraints). They are **not learned from data** and are **not evaluated using labeled planning datasets**.
 
-Importantly, **these downstream planning activities are not learned from data and are not evaluated using labeled planning datasets**. The focus of this project remains on the **accuracy and reliability of the story point estimation model**, which is a necessary prerequisite for any subsequent decision-support use.
+The focus therefore remains on the **accuracy and reliability of the story point estimation model**, which is a prerequisite for effective decision support.
 
 This separation ensures that:
-- the **LLM-based estimation component** is evaluated in a rigorous, data-driven manner, and
-- planning or optimization considerations are treated as contextual motivation rather than supervised learning objectives.
+- the LLM-based estimation component is evaluated in a rigorous, data-driven manner, and  
+- planning or optimization considerations remain contextual rather than supervised learning objectives.
+
 
 
 
