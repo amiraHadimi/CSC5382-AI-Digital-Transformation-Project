@@ -121,7 +121,7 @@ Table — Representative studies on automated story point estimation
 
 ## Baseline Model Selection (Latest Reproducible Baseline)
 
-To satisfy the assignment requirement that the baseline must be fully reproducible—with both (i) a downloadable trained model binary and (ii) a retraining notebook—we select **Llama3SP** as the baseline model for automated story point estimation.
+To satisfy the assignment requirement that the baseline must be fully reproducible—with both (i) a downloadable trained model binary and (ii) a retraining notebookwe select **Llama3SP** as the baseline model for automated story point estimation.
 
 **Llama3SP** is, to the best of our knowledge, the **most recent (late-2025) state-of-the-art model** for story point estimation that strictly fulfills these constraints. It is built on the **Llama 3.x family** and fine-tuned using **parameter-efficient techniques (LoRA / PEFT)**, making it more modern than earlier GPT-2–based baselines such as GPT2SP.
 
