@@ -101,7 +101,7 @@ This separation ensures that:
 ## Feasibility Analysis and Related Work
 ### Literature Review Summary
 
-Prior research has shown that predicting story points directly from Agile user story text is feasible when evaluated on shared public benchmarks. Paper **[1]** (Choetkiertikul et al., 2019) established the problem formulation by introducing a large, issue-level dataset collected from JIRA repositories and proposing an end-to-end deep learning model (LD-RNN). Their results demonstrated that recurrent neural architectures combining LSTM and recurrent highway networks significantly outperform traditional estimation baselines such as mean, median, and bag-of-words–based models.
+Prior research has shown that predicting story points directly from Agile user story text is feasible when evaluated on shared public benchmarks. Paper **[1]** (Choetkiertikul et al., 2016) established the problem formulation by introducing a large, issue-level dataset collected from JIRA repositories and proposing an end-to-end deep learning model (LD-RNN). Their results demonstrated that recurrent neural architectures combining LSTM and recurrent highway networks significantly outperform traditional estimation baselines such as mean, median, and bag-of-words–based models.
 
 Using the same benchmark, Paper **[2]** (Mittal et al., 2024) provides an independent empirical re-evaluation of deep learning–based story point estimation. Although no new dataset or fundamentally new architecture is introduced, the study confirms the robustness and general applicability of LD-RNN-style models across multiple projects, reinforcing the feasibility of learning story point estimates directly from textual descriptions.
 
