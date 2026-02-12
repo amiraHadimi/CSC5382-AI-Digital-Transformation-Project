@@ -6,14 +6,22 @@ Accurate effort estimation is central to Agile development because it directly a
 
 This project aims to automatically estimate story points from user story text (title + description) using machine learning. The system is designed as a decision-support tool that assists Agile teams during backlog refinement and sprint planning by providing consistent, data-driven estimates.
 
-## Business Value of Using ML
-Story point estimation depends on variable natural-language descriptions and historical estimation behavior. Rule-based approaches cannot robustly capture this semantic variability.
+## Business Value of Using Machine Learning
 
-Machine learning enables:
-- Consistency: reduces estimation variability across time and team members
-- Efficiency: speeds up grooming and planning by reducing manual estimation effort
-- Scalability: supports estimation across multiple projects/teams
-- Decision support: helps less-experienced teams calibrate estimates using historical data
+Story point estimation is well suited for machine learning according to standard criteria for when ML should be applied.
+
+The problem is **too complex for rule-based coding**, as story points depend on nuanced interpretations of natural-language user stories, implicit requirements, and technical uncertainty. It is also a **perceptive task**, requiring semantic understanding of textual descriptions rather than deterministic rules.
+
+Estimation practices are **constantly changing** across teams, projects, and technologies. Machine learning models can be retrained on recent data, enabling adaptation without redesigning estimation logic. In addition, story points represent a **weakly formalized phenomenon** with no closed-form mapping from text to effort.
+
+At the same time, the objective is **simple and well-defined**—predicting a numeric story point value from text—making the task suitable for supervised learning. Once trained, the model provides **cost-effective** estimates at scale.
+
+From a business perspective, this results in:
+- **Consistency:** reduced estimation variability across time and team members  
+- **Efficiency:** faster backlog refinement and sprint planning  
+- **Scalability:** support across multiple projects and teams  
+- **Decision support:** assistance for less-experienced teams using historical data
+
 
 ##  Dataset Overview
 
