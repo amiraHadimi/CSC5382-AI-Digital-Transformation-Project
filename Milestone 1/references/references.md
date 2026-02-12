@@ -12,7 +12,12 @@
    **A Novel Deep Learning Model for Effective Story Point Estimation in Agile Software Development.**  
    (IEEE Xplore entry) https://ieeexplore.ieee.org/document/10664177/
 
-3. Juan Camilo Sepúlveda Montoya, Nicole Tatiana Ríos Gómez, José A. Jaramillo Villegas.  
+3. M. Fu and C. Tantithamthavorn, **GPT2SP: A Transformer-Based Agile Story Point Estimation Approach**
+   in IEEE Transactions on Software Engineering, vol. 49, no. 2, pp. 611-625, 1 Feb. 2023, doi: 10.1109/TSE.2022.3158252.
+   keywords: {Estimation;Transformers;Computer architecture;Planning;Task analysis;Training;Artificial intelligence;
+   Agile story point estimation;AI for SE;explainable AI},
+
+4. Juan Camilo Sepúlveda Montoya, Nicole Tatiana Ríos Gómez, José A. Jaramillo Villegas.  
    **Llama3SP: A resource-Efficient large language model for agile story point estimation.**  
    Natural Language Processing Journal, 13, Article 100189 (2025).  
    (ScienceDirect listing) https://www.sciencedirect.com/journal/natural-language-processing-journal/vol/13/suppl/C  
