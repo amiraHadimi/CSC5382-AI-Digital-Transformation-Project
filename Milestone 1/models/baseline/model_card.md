@@ -84,7 +84,7 @@ Predictions are **not** intended to replace human judgment.
 ## Limitations
 - Story points are **team-specific** and may not generalize perfectly across projects
 - Does not incorporate contextual features (velocity, team size, sprint capacity)
-- Requires Llama model license acceptance for full reproducibility
+
 
 ---
 
