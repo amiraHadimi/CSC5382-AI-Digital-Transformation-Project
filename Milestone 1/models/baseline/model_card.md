@@ -29,7 +29,6 @@ This baseline is selected specifically because **both required artifacts are pub
   - `model_upload_notebook.ipynb`  
   https://github.com/DEVCamiloSepulveda/llama3sp
 
-> **License note:** Use of Llama 3.x base models requires acceptance of Meta’s license terms on Hugging Face.
 
 ---
 
