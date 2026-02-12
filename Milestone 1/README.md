@@ -74,7 +74,7 @@ As a result, the dataset provides a strong foundation for evaluating story point
 
 ### Repository Assets
 - **Sample file:** `data/sample.csv` (for quick inspection and reproducibility)  
-- **Full dataset:** referenced via the public source link above
+- **Full dataset:** referenced via the public source link in /data
 
 
 ## Project Archetype
