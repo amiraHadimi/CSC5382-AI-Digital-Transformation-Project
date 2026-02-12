@@ -92,19 +92,6 @@ A pretrained Transformer-based language model from the **LLaMA family** is fine-
 
 The learned component is evaluated using labeled data and standard metrics reported in the literature.
 
-### Downstream Usage in Agile Decision-Making
-
-Story point estimates are not an end in themselves. In Agile practice, they support planning and prioritization activities such as backlog refinement and sprint planning.
-
-In this project, these activities are treated as downstream decision-making tasks that consume predicted story points as inputs (e.g., reasoning about feasibility under capacity constraints). They are **not learned from data** and are **not evaluated using labeled planning datasets**.
-
-The focus therefore remains on the **accuracy and reliability of the story point estimation model**, which is a prerequisite for effective decision support.
-
-This separation ensures that:
-- the LLM-based estimation component is evaluated in a rigorous, data-driven manner, and  
-- planning or optimization considerations remain contextual rather than supervised learning objectives.
-
-
 
 
 ## Feasibility Analysis and Related Work
