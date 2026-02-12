@@ -140,8 +140,6 @@ To satisfy the assignment requirement that the baseline must be fully reproducib
 
 The replication package includes notebooks such as `model_training.ipynb` and `tokenizer_training_notebook.ipynb`, enabling full retraining and verification of results.
 
-> **Note on licensing:** Access to Llama 3.x base models on Hugging Face requires accepting Meta’s license terms. This is documented as part of the reproducibility checklist.
-
 
 
 ## Metrics for Business Goal Evaluation
