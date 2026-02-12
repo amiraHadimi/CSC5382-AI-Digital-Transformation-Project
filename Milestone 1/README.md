@@ -119,19 +119,29 @@ Table — Representative studies on automated story point estimation
 | 3 | Fu, Tantithamthavorn | GPT2SP (Transformer/GPT-2 based) | 23,313 issues, 16 OSS projects | MAE  | Provides a Transformer-based approach and an openly available replication package |
 | 4 | Sepúlveda Montoya, Ríos Gómez, Jaramillo Villegas | Llama3SP (fine-tuned LLaMA 3.2 with QLoRA) | 23,313 issues, 16 OSS projects | MAE, RMSE, tolerance-based metrics  | Resource-efficient LLM estimator; code + pretrained models released |
 
-## Baseline Specification
-Baseline choice (what & why)
-To satisfy the milestone’s reproducibility requirement (trained model binary + retraining notebook available), we select GPT2SP as the baseline.
+## Baseline Model Selection (Latest Reproducible Baseline)
 
-GPT2SP is an established Transformer-based story point estimator built on GPT-2. It is accompanied by a public replication package that provides:
-- trained model binaries (hosted on Hugging Face Model Hub; also mirrored via Google Drive), and
-- training notebooks documenting the full retraining process.
+To satisfy the assignment requirement that the baseline must be fully reproducible—with both (i) a downloadable trained model binary and (ii) a retraining notebook—we select **Llama3SP** as the baseline model for automated story point estimation.
 
-This baseline provides a reproducible reference point for future milestones, where we will integrate estimates into optimization (sprint backlog selection) and compare against more recent LLM estimators such as Llama3SP.
+**Llama3SP** is, to the best of our knowledge, the **most recent (late-2025) state-of-the-art model** for story point estimation that strictly fulfills these constraints. It is built on the **Llama 3.x family** and fine-tuned using **parameter-efficient techniques (LoRA / PEFT)**, making it more modern than earlier GPT-2–based baselines such as GPT2SP.
 
-Reproducibility pointers (baseline artifacts)
-- Replication package (code + training notebooks): https://github.com/awsm-research/gpt2sp
-- Example trained model on Hugging Face: https://huggingface.co/MickyMike/GPT2SP
+### Why Llama3SP
+- Uses a **modern large language model (Llama 3.2)** rather than earlier Transformer generations
+- Evaluated on the **standard Agile story point benchmark** (23,313 issues, 16 OSS projects)
+- Provides a **public replication package** with retraining notebooks
+- Provides **downloadable trained weights** via the Hugging Face Model Hub
+- Explicitly designed for **numerical regression** (story point prediction)
+
+### Reproducibility Artifacts (Required by Assignment)
+- **Replication package (code + notebooks + data):**  
+  https://github.com/DEVCamiloSepulveda/llama3sp
+- **Example pretrained model (binary):**  
+  https://huggingface.co/DEVCamiloSepulveda/0-LLAMA3SP-usergrid
+
+The replication package includes notebooks such as `model_training.ipynb` and `tokenizer_training_notebook.ipynb`, enabling full retraining and verification of results.
+
+> **Note on licensing:** Access to Llama 3.x base models on Hugging Face requires accepting Meta’s license terms. This is documented as part of the reproducibility checklist.
+
 
 
 ## Metrics for Business Goal Evaluation
