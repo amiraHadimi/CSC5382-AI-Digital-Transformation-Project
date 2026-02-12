@@ -111,7 +111,7 @@ Table — Representative studies on automated story point estimation
 | ID | Reference | Model / Technique | Dataset | Evaluation Metrics | Key Contribution |
 |---|---|---|---|---|---|
 | 1 | Choetkiertikul et al. | LD-RNN (LSTM + Recurrent Highway Network) | 23,313 stories, 16 OSS projects (JIRA) | MAE, SA | Introduced the benchmark dataset and showed deep learning outperforms common baselines |
-| 2 | Mittal, Arsalan, Garg | Novel deep learning model | 23,313 issues, 16 OSS projects (JIRA) | MAE, SA  | Confirms feasibility and reports improved performance comparisons vs earlier baselines |
+| 2 | Harish, Arsalan, Garg | Novel deep learning model | 23,313 issues, 16 OSS projects (JIRA) | MAE, SA  | Confirms feasibility and reports improved performance comparisons vs earlier baselines |
 | 3 | Fu, Tantithamthavorn | GPT2SP (Transformer/GPT-2 based) | 23,313 issues, 16 OSS projects | MAE  | Provides a Transformer-based approach and an openly available replication package |
 | 4 | Sepúlveda Montoya, Ríos Gómez, Jaramillo Villegas | Llama3SP (fine-tuned LLaMA 3.2 with QLoRA) | 23,313 issues, 16 OSS projects | MAE, RMSE, tolerance-based metrics  | Resource-efficient LLM estimator; code + pretrained models released |
 
