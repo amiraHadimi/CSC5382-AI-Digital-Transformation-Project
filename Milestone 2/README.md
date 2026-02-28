@@ -122,58 +122,38 @@ The application allows the user to:
 cd "Milestone 2"
 streamlit run app/streamlit_app.py
 
-5. End-to-End Scenario
+## 5. End-to-End Scenario
 
 The complete pipeline works as follows:
 
-User inputs an issue title.
-
-Text is tokenized using the Llama tokenizer.
-
-Base model processes the tokens.
-
-Project-specific LoRA adapter refines the prediction.
-
-Regression head outputs a continuous story point value.
-
-Evaluation script computes MAE on test data.
-
-Results are saved in the /results directory.
+1. User inputs an issue title.
+2. Text is tokenized using the Llama tokenizer.
+3. The base model processes the tokenized input.
+4. The project-specific LoRA adapter refines the prediction.
+5. The regression head outputs a continuous story point value.
+6. The evaluation script computes MAE on the test data.
+7. Results are saved in the `/results` directory.
 
 This confirms a fully functional end-to-end machine learning workflow.
 
-5. End-to-End Scenario
+---
 
-The complete pipeline works as follows:
+## 6. Limitations
 
-User inputs an issue title.
+- Evaluation limited to 100 test samples per project (runtime constraint).
+- CPU-only inference.
+- No additional fine-tuning performed in this milestone.
+- Performance varies across projects (e.g., higher MAE observed for Moodle).
 
-Text is tokenized using the Llama tokenizer.
+---
 
-Base model processes the tokens.
-
-Project-specific LoRA adapter refines the prediction.
-
-Regression head outputs a continuous story point value.
-
-Evaluation script computes MAE on test data.
-
-Results are saved in the /results directory.
-
-This confirms a fully functional end-to-end machine learning workflow.
-
-7. Deliverables
+## 7. Deliverables
 
 This milestone includes:
 
-Model integration scripts
-
-Evaluation pipeline
-
-Streamlit application
-
-Per-project MAE results
-
-Word report (PDF)
-
-Recorded presentation
+- Model integration scripts  
+- Evaluation pipeline  
+- Streamlit application  
+- Per-project MAE results  
+- Word report (PDF)  
+- Recorded presentation  
