@@ -261,7 +261,7 @@ html, body, [class*="css"] {
 """, unsafe_allow_html=True)
 
 # ── Header ────────────────────────────────────────────────────────────────────
-st.markdown('<div class="header-badge">Milestone 2 · PoC</div>', unsafe_allow_html=True)
+st.markdown('<div class="header-badge"></div>', unsafe_allow_html=True)
 st.markdown('<div class="main-title">Story Point<br><span>Estimator</span></div>', unsafe_allow_html=True)
 st.markdown(
     '<div class="subtitle">Llama3SP · Decision-support demo — model suggests story points,<br>a human validates the final estimate.</div>',
