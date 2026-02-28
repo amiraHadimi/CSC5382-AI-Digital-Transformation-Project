@@ -131,6 +131,8 @@ streamlit run app/streamlit_app.py
 ---
 
 ## 5. End-to-End Scenario
+For a complete end-to-end testing demonstration, including live inference and evaluation walkthrough, please refer to the recorded presentation video.
+The video illustrates the full workflow from user input in the Streamlit application to prediction generation and MAE computation.
 
 The complete pipeline works as follows:
 
