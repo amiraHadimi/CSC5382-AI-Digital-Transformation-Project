@@ -1,0 +1,101 @@
+issuekey,project,title,y_true,y_pred,abs_error
+TISTUD-6577,appceleratorstudio,3.3.0 Studio Installer: Status bar resets back to zero as install progresses,5.0,5.706953525543213,0.7069535255432129
+TISTUD-6578,appceleratorstudio,Update content assist to support FixedSpace tag,5.0,4.78044319152832,0.2195568084716797
+TISTUD-6579,appceleratorstudio,Update content assist to support shorthand notation for left and right navigation buttons,5.0,4.302049160003662,0.6979508399963379
+TISTUD-6580,appceleratorstudio,Alloy: enable developers to create new widget components,5.0,6.271311283111572,1.2713112831115723
+TISTUD-6581,appceleratorstudio,Update content assist to support setting ActionBar properties via the Menu tag,8.0,5.246635913848877,2.753364086151123
+TISTUD-6582,appceleratorstudio,Update content assist to support shorthand notation for keyboard and return key types,8.0,4.772126197814941,3.2278738021850586
+TISTUD-6584,appceleratorstudio,Importing sample apps from Dashboard or Samples gives intermittent 'Auto-share exception',5.0,4.553527355194092,0.4464726448059082
+TISTUD-6696,appceleratorstudio,Installing Studio dependencies fails when user has never run sudo before,5.0,6.976240158081055,1.9762401580810547
+TISTUD-6590,appceleratorstudio,Clean up login error dialog text/punctuation,2.0,4.10611629486084,2.10611629486084
+TISTUD-6591,appceleratorstudio,Alloy: Update content assist to support leftNavButtons and rightNavButtons arrays,8.0,4.831419467926025,3.1685805320739746
+TISTUD-6592,appceleratorstudio,Windows: Studio Installer: Studio does not install Jdk and hence fails installation,5.0,6.62412691116333,1.62412691116333
+TISTUD-6593,appceleratorstudio,Unable to install studio when git is manually installed using context menu option - since git1.8.3,5.0,6.367295742034912,1.367295742034912
+TISTUD-6594,appceleratorstudio,TitaniumStudio: Absurd folder structure for node.acs project,3.0,5.572946548461914,2.572946548461914
+TISTUD-6595,appceleratorstudio,Theme: Dark Theme from Studio dashboard makes text from tab titles and Project explorer un-Readable,8.0,5.227312088012695,2.7726879119873047
+TISTUD-6597,appceleratorstudio,"""use strict""; should not reflow immediately after the brace",3.0,5.747434616088867,2.747434616088867
+TISTUD-6598,appceleratorstudio,var declarations on newlines should not all be placed on a single line,3.0,4.582521915435791,1.582521915435791
+TISTUD-6599,appceleratorstudio,switch statements should not indent cases.,3.0,5.198797702789307,2.1987977027893066
+TISTUD-6601,appceleratorstudio,Update content assist for KeyboardToolbar with TextArea,8.0,4.924921035766602,3.0750789642333984
+TISTUD-6603,appceleratorstudio,Pass in proxy details to Titanium CLI login call,5.0,5.189138889312744,0.18913888931274414
+TISTUD-6604,appceleratorstudio,"JDK installation fails with message ""Wrong Size""",8.0,4.322782039642334,3.677217960357666
+TISTUD-6606,appceleratorstudio,Node.ACS: Unable to Create New Node.ACS Project,5.0,3.632295608520508,1.3677043914794922
+TISTUD-6607,appceleratorstudio,Incorrect Studio version is reported when JIRA ticket is submitted through Studio,5.0,6.671775817871094,1.6717758178710938
+TISTUD-6615,appceleratorstudio,Studio alloy menu shows Class Names for Alloy Components instead of component name,3.0,4.826013088226318,1.8260130882263184
+TISTUD-6616,appceleratorstudio,Changes made to iOS/Android Device launch configuration from Run Configuration do not get reflected on app launch,5.0,4.729576110839844,0.27042388916015625
+TISTUD-6618,appceleratorstudio,Studio installer does not install mandatory Prerequisite,5.0,6.783807277679443,1.7838072776794434
+TISTUD-6619,appceleratorstudio,Consolidate jetty.util JSON classes into json.simple,5.0,6.039752960205078,1.0397529602050781
+TISTUD-6623,appceleratorstudio,"Unable to create project, prompt for titanium login when already logged in studio",3.0,5.716639995574951,2.716639995574951
+TISTUD-6625,appceleratorstudio,'Clear' button on Setup Proxy Entry popup is missing,5.0,3.6316635608673096,1.3683364391326904
+TISTUD-6626,appceleratorstudio,Dashboard: Apps in Marketplace are hovering over each other,5.0,5.210980415344238,0.21098041534423828
+TISTUD-6635,appceleratorstudio,Node ACS: Unable to create new Node.ACS service: Destination directory could not be created,5.0,3.9113802909851074,1.0886197090148926
+TISTUD-6637,appceleratorstudio,Mobile module cannot be installed into a non existing folder,3.0,4.4947967529296875,1.4947967529296875
+TISTUD-6639,appceleratorstudio,Generic icon appears for Appcelerator Studio in control panel,5.0,4.691161155700684,0.3088388442993164
+TISTUD-6641,appceleratorstudio,User operation gets stuck at Preferences window containing invalid values,5.0,4.008985996246338,0.9910140037536621
+TISTUD-6642,appceleratorstudio,Appc studio installer showing incomplete studio name,8.0,4.161792278289795,3.838207721710205
+TISTUD-6643,appceleratorstudio,"Ubuntu: Preferences window title appears as ""%trimmedwindow.label.eclipseSDK""",5.0,5.042738437652588,0.04273843765258789
+TISTUD-6644,appceleratorstudio,Ubuntu: Organization text cut off when creating Node.ACS project,8.0,4.9459452629089355,3.0540547370910645
+TISTUD-6645,appceleratorstudio,"Windows: Additional folder created as ""Appcelerator, Inc"" on running the installer on clean machine",5.0,5.31128454208374,0.31128454208374023
+TISTUD-6646,appceleratorstudio,"Studio: Intermittently non-responsive ""finish"" button in wizard when trying to run on device",5.0,5.982794761657715,0.9827947616577148
+TISTUD-6647,appceleratorstudio,Studio can't find Java virtual machine on launch after install on a fresh Windows machine,5.0,4.972246170043945,0.027753829956054688
+TISTUD-6650,appceleratorstudio,Intermittent Error enabling Appcelerator services creating the app with no Appcelerator services,5.0,6.759756565093994,1.7597565650939941
+TISTUD-6654,appceleratorstudio,Studio: Large projects (450mb) take a very long time (estimated 90+ minutes) to index,8.0,5.831754684448242,2.168245315551758
+TISTUD-6655,appceleratorstudio,Breakpoints disappear after formatting controller file,8.0,3.747842788696289,4.252157211303711
+TISTUD-6656,appceleratorstudio,Support breakpoints in alloy.js file,8.0,5.915923118591309,2.0840768814086914
+TISTUD-6657,appceleratorstudio,Appcelerator Studio: Incorrect message on the progress bar after enabling services,2.0,4.409974575042725,2.4099745750427246
+TISTUD-6662,appceleratorstudio,Move to Eclipse 4.4 base for RCP,8.0,5.948485374450684,2.0515146255493164
+TISTUD-6663,appceleratorstudio,Android Keystore: Escape specials characters  used in any of the fields of the keytool wizard,5.0,5.639832973480225,0.6398329734802246
+TISTUD-6668,appceleratorstudio,Reduce the height of modules table in tiapp editor,3.0,3.5277397632598877,0.5277397632598877
+TISTUD-6671,appceleratorstudio,Appcelerator Studio license link leads to Titanium Studio license agreement,2.0,4.835024356842041,2.835024356842041
+TISTUD-6672,appceleratorstudio,Appc studio installer showing incomplete studio & company name,8.0,4.4587602615356445,3.5412397384643555
+TISTUD-6674,appceleratorstudio,Content Assist: Documentation link in Content assist opens invalid URL,5.0,4.128804683685303,0.8711953163146973
+TISTUD-6677,appceleratorstudio,"Windows: Additional folder created as ""Appcelerator Studio 3.3.0"" on running the installer on clean machine",5.0,5.2501726150512695,0.25017261505126953
+TISTUD-6680,appceleratorstudio,Android: Platform Configuration Window does not show the latest Android updates,8.0,4.983279705047607,3.0167202949523926
+TISTUD-6681,appceleratorstudio,Android is not detected on Studio Dashboard if only Android L (5.0) is installed,5.0,5.551253795623779,0.5512537956237793
+TISTUD-6684,appceleratorstudio,Windows: Alloy compiler does not show error details,5.0,6.015263080596924,1.0152630805969238
+TISTUD-6685,appceleratorstudio,Studio: Studio does not recognize the previous Titanium installation directory after upgrading 3.2.3 to 3.3.0,5.0,4.248013019561768,0.7519869804382324
+TISTUD-6686,appceleratorstudio,Windows: The installer is not able to install GIT from our URL ,2.0,4.936451435089111,2.9364514350891113
+TISTUD-6689,appceleratorstudio,Support AndroidView in addition to View as child of AlertDialog,5.0,4.920960903167725,0.07903909683227539
+TISTUD-6690,appceleratorstudio,Add content assist for collection/model bindings in alloy view XML,8.0,6.551949977874756,1.4480500221252441
+TISTUD-6691,appceleratorstudio,command/quick fix to extract a string to i18n files,13.0,4.7208147048950195,8.27918529510498
+TISTUD-6692,appceleratorstudio,Add hyperlink detector to jump from i18n translation keys in Alloy View XML attributes to their definition in strings.xml files,8.0,6.071514129638672,1.9284858703613281
+TISTUD-6693,appceleratorstudio,Add hyperlink detector to jump from string keys in i18n files to usage in view files,8.0,5.078097820281982,2.9219021797180176
+TISTUD-6694,appceleratorstudio,content assist to suggest strings inside L() calls in Alloy view XML from the available keys in i18n files,8.0,6.467854976654053,1.5321450233459473
+TISTUD-6701,appceleratorstudio,Update content assist for <ActionBar> tag,5.0,4.436008453369141,0.5639915466308594
+TISTUD-6702,appceleratorstudio,Allow updates from secure locations,8.0,4.6402411460876465,3.3597588539123535
+TISTUD-6706,appceleratorstudio,"""Null"" username when logging out Studio and cancel the process",1.0,5.068027973175049,4.068027973175049
+TISTUD-6708,appceleratorstudio,Installing Android 4.1.2 through Studio Wizard installs too many build tools,5.0,7.230510711669922,2.230510711669922
+TISTUD-6709,appceleratorstudio,NPE when install wizard advanced config for Android is shown,3.0,5.092132568359375,2.092132568359375
+TISTUD-6711,appceleratorstudio,Studio: Theme resets with every update,5.0,4.99751091003418,0.0024890899658203125
+TISTUD-6712,appceleratorstudio,Force overwrite of modules folder on SDK installation,8.0,4.4766526222229,3.5233473777770996
+TISTUD-6721,appceleratorstudio,Pull out CoffeeScript plugins into Aptana Studio,5.0,8.919333457946777,3.9193334579467773
+TISTUD-6722,appceleratorstudio,Android: Module cannot be packaged on Windows,8.0,5.8469648361206055,2.1530351638793945
+TISTUD-6724,appceleratorstudio,Alloy: Update content assist for data binding with Ti.UI.Picker,8.0,4.2455220222473145,3.7544779777526855
+TISTUD-6726,appceleratorstudio,Studio: Alloy TSS doesn't understand bitwise operator,5.0,5.572096824645996,0.5720968246459961
+TISTUD-6733,appceleratorstudio,Studio global run toolbar looks bad on Windows with larger font size,8.0,4.435504913330078,3.564495086669922
+TISTUD-6735,appceleratorstudio,Provide useful content assist against mobware commonjs SDKs/modules,8.0,8.148347854614258,0.1483478546142578
+TISTUD-6736,appceleratorstudio,Suggest content assist for string arguments to require function call,5.0,5.8378424644470215,0.8378424644470215
+TISTUD-6737,appceleratorstudio,Replace 32-bit version of Studio with 64-bit version,8.0,4.800359725952148,3.1996402740478516
+TISTUD-6738,appceleratorstudio,Android “Configure Native SDKs” workflow does not work correctly,5.0,4.674851417541504,0.3251485824584961
+TISTUD-6739,appceleratorstudio,Liveview should not validate the hooks on startup,2.0,4.964028358459473,2.9640283584594727
+TISTUD-6744,appceleratorstudio,Breakpoints not hit on Mac OS X,8.0,4.503897666931152,3.4961023330688477
+TISTUD-6742,appceleratorstudio,Allow downloading and installing modules accessed with basic auth,8.0,6.128006458282471,1.8719935417175293
+TISTUD-6753,appceleratorstudio,Unable to do updates and installs,5.0,6.616723537445068,1.6167235374450684
+TISTUD-6745,appceleratorstudio,Windows: No shortcut added to Windows Start Menu,5.0,3.6678593158721924,1.3321406841278076
+TISTUD-6883,appceleratorstudio,"Titanium updates are not installed when node is available, but npm is not available",5.0,6.355508327484131,1.3555083274841309
+TISTUD-6749,appceleratorstudio,Titanium's require resolver logic isn't getting applied to Alloy projects and files underneath app folder,3.0,6.286657810211182,3.2866578102111816
+TISTUD-6755,appceleratorstudio,Appcelerator Studio: Run configurations display incorrectly,2.0,5.340574264526367,3.340574264526367
+TISTUD-6757,appceleratorstudio,"Allow user to make use of ""Native"" proxy provider on startup of Studio",8.0,5.836596965789795,2.163403034210205
+TISTUD-6759,appceleratorstudio,Studio should prompt for new node.js version updates,5.0,4.944767951965332,0.05523204803466797
+TISTUD-6766,appceleratorstudio,Appcelerator Studio: LiveView does not compile for each targeted platform on update,8.0,5.223143577575684,2.7768564224243164
+TISTUD-6770,appceleratorstudio,Save Project as Alloy / TiClassic Template,8.0,5.320532321929932,2.6794676780700684
+TISTUD-6771,appceleratorstudio,Incorporate App Template / Widget / Module Search into Studio,8.0,5.924553871154785,2.075446128845215
+TISTUD-6772,appceleratorstudio,Errors occurring when editing TiApp.xml,5.0,4.249890327453613,0.7501096725463867
+TISTUD-6774,appceleratorstudio,"Move org.chromium.sdk plugin down to aptana, remove duplicate library embedded in com.aptana.js.debug.core.v8",5.0,6.426142692565918,1.426142692565918
+TISTUD-6776,appceleratorstudio,Show XCode6 iOS simulators categorized on SDK,8.0,6.156731128692627,1.843268871307373
+TISTUD-6778,appceleratorstudio,Show full username instead of user id in sudo password prompt,5.0,4.5829644203186035,0.4170355796813965
+TISTUD-6833,appceleratorstudio,Android modules are not recognized as Java projects,5.0,7.147529125213623,2.147529125213623
+TISTUD-6784,appceleratorstudio,Don't require install of Titanium SDK if path to SDK in preferences is bad,5.0,3.7442855834960938,1.2557144165039062
+TISTUD-6786,appceleratorstudio,Studio installs of global npm packages modifies permissions of .npm folder,5.0,5.8993096351623535,0.8993096351623535
+TISTUD-6805,appceleratorstudio,3.5.0 studio UI interface is not as clean as 3.4.0 studio,8.0,5.390358924865723,2.6096410751342773
+TISTUD-6806,appceleratorstudio,Update content assist for Picker to reflect new data-binding support,5.0,5.072616100311279,0.0726161003112793

@@ -1,0 +1,101 @@
+issuekey,project,title,y_true,y_pred,abs_error
+BAM-10059,bamboo,Different table for Quarantined test results on Result Summary,2.0,2.1691911220550537,0.1691911220550537
+BAM-10060,bamboo,Quarantine table on Tests tab should have column to show which user quarantined the test,2.0,1.570377230644226,0.4296227693557739
+BAM-10061,bamboo,Button for enabling and disabling a test in Quarantine on the Result summary,1.0,2.1871933937072754,1.1871933937072754
+BAM-10062,bamboo,Make test Quarantine work for all Tasks that have support for Tests,1.0,1.9069606065750122,0.9069606065750122
+BAM-10063,bamboo,Styling for new combined Plan Status and History Navigator,3.0,2.783752202987671,0.2162477970123291
+BAM-10064,bamboo,Improved email templates,2.0,1.695729374885559,0.3042706251144409
+BAM-10089,bamboo,Improvements to EBS mounting,5.0,3.8402223587036133,1.1597776412963867
+BAM-10090,bamboo,Indexing problem in table USER_COMMIT because of column COMMIT_REVISION text type,2.0,0.7531892657279968,1.2468107342720032
+BAM-10092,bamboo,Bamboo 3.3 does not respect @RequiresRestart ,3.0,1.821851372718811,1.178148627281189
+BAM-10094,bamboo,Newer Bamboo versions are not shipping the svnkit for the jsvn script.,1.0,0.7042653560638428,0.2957346439361572
+BAM-10095,bamboo,An administrator should be able to enable or disable Agent Authentication,2.0,0.8423025012016296,1.1576974987983704
+BAM-10096,bamboo,An administrator must be able to approve an agent when it connects for the first time,3.0,2.387763738632202,0.6122362613677979
+BAM-10097,bamboo,An administrator should be able to provide a wild card mask to validate an agents IP address,1.0,0.691518247127533,0.30848175287246704
+BAM-10100,bamboo,An administrator should be given the appropriate directions in the Agent log to approve the agent if it is not approved,1.0,1.9333043098449707,0.9333043098449707
+BAM-10101,bamboo,An administrator should be provided a way to approve all connected agents,1.0,1.7458304166793823,0.7458304166793823
+BAM-10104,bamboo,Repository Isolation not available via the UI in Bamboo 3.3,1.0,1.024987816810608,0.02498781681060791
+BAM-10105,bamboo,Can't access artifacts due to permission error,2.0,0.845658540725708,1.154341459274292
+BAM-10106,bamboo,An administrator should be able to auto accept connected agents that are connected when the agent auth is enabled,1.0,0.9622278809547424,0.03777211904525757
+BAM-10107,bamboo,An administrator should be able to revoke approved keys,1.0,3.633765697479248,2.633765697479248
+BAM-10108,bamboo,Merge and add Functional test for Agent Authentication,2.0,2.377227783203125,0.377227783203125
+BAM-10171,bamboo,HelpPathResolver shouldn't throw an NPE when called with a null argument,1.0,2.9200987815856934,1.9200987815856934
+BAM-10178,bamboo,Validate and properly used repository name on Plan create wizard,1.0,0.8976371884346008,0.10236281156539917
+BAM-10202,bamboo,Failed build email should include build errors iff only one Job failed and no tests failed,1.0,1.7812926769256592,0.7812926769256592
+BAM-10254,bamboo,CSS images do not load after base url changes,2.0,3.158266305923462,1.158266305923462
+BAM-10344,bamboo,User can override Plan Branch Build Strategy,2.0,0.185069277882576,1.814930722117424
+BAM-10354,bamboo,Update breadcrumbs ,2.0,3.4359400272369385,1.4359400272369385
+BAM-10355,bamboo,Tabbed content re-design,4.0,2.48528790473938,1.5147120952606201
+BAM-10356,bamboo,New Plan Navigator,1.0,1.0922436714172363,0.09224367141723633
+BAM-10357,bamboo,New Navigation Sidebar Layout,2.0,0.054546013474464417,1.9454539865255356
+BAM-10358,bamboo,New Branch List Component,3.0,1.0592291355133057,1.9407708644866943
+BAM-10359,bamboo,Non-Tabbed content re-design,2.0,2.2192301750183105,0.21923017501831055
+BAM-10360,bamboo,New Plan Statistics component,1.0,1.9644014835357666,0.9644014835357666
+BAM-10361,bamboo,Update Status Ribbon for new UI,1.0,-0.07313048094511032,1.0731304809451103
+BAM-10362,bamboo,Global Admin Re-Design,4.0,1.6300148963928223,2.3699851036071777
+BAM-10426,bamboo,Event Listeners,2.0,4.204738616943359,2.2047386169433594
+BAM-10427,bamboo,Build Process plugin points,2.0,3.7723770141601562,1.7723770141601562
+BAM-10429,bamboo,SAL Plugin,1.0,2.910993814468384,1.9109938144683838
+BAM-10430,bamboo,Random config changes to master dont cause branch to blow up,3.0,2.407817840576172,0.5921821594238281
+BAM-10438,bamboo,Functional test TestReportingTest tests are not being run and must be updated for the new source repository code,2.0,-0.5993746519088745,2.5993746519088745
+BAM-10503,bamboo,Remote triggering for branches,1.0,4.122591018676758,3.122591018676758
+BAM-10577,bamboo,Bamboo page constantly refreshes,1.0,2.8999078273773193,1.8999078273773193
+BAM-10613,bamboo,Validation for when the default repository is changed on a Plan with Plan Branches,2.0,2.870720148086548,0.8707201480865479
+BAM-10651,bamboo,Html email show as text after gmail rewrites email,2.0,0.8539925813674927,1.1460074186325073
+BAM-10656,bamboo,NPE in bamboo sandbox plugin,1.0,2.8449862003326416,1.8449862003326416
+BAM-10677,bamboo,"Bamboo executes all ""tries"", even if no new code is commited during the Quiet Period in Subversion",2.0,0.4639340043067932,1.5360659956932068
+BAM-10693,bamboo,Allow Bamboo to ignore commits with certain commit messages,3.0,0.8054494857788086,2.1945505142211914
+BAM-10706,bamboo,Official Support OpenJDK 1.7,2.0,2.1895391941070557,0.18953919410705566
+BAM-10804,bamboo,Dependencies for Plan Branches,3.0,4.103755950927734,1.1037559509277344
+BAM-10841,bamboo,Tab label is wrong for Build Summary,1.0,1.1550898551940918,0.1550898551940918
+BAM-10870,bamboo,Detect Branches should show dialog where user can pick branches to create,5.0,1.2646063566207886,3.7353936433792114
+BAM-10882,bamboo,Branch variables page should have the key be a select list with optgroups for global vs plan,2.0,2.5144801139831543,0.5144801139831543
+BAM-10890,bamboo,NPE in Branch detection when timeout occurs,1.0,3.7147340774536133,2.7147340774536133
+BAM-10903,bamboo,Include SSH example in shipped jetty.xml,1.0,-0.2934020161628723,1.2934020161628723
+BAM-10937,bamboo,Shallow clones should be disabled when integration is enabled,3.0,1.854401707649231,1.145598292350769
+BAM-10940,bamboo,User reported as code updater not consistent in Bamboo e-mail notifications,2.0,2.1918087005615234,0.19180870056152344
+BAM-10945,bamboo,Author and Committer have to be made configurable (at least for Git),2.0,1.6619102954864502,0.3380897045135498
+BAM-10980,bamboo,Prettier handling of integration errors,2.0,2.1872458457946777,0.18724584579467773
+BAM-10997,bamboo,Validate that Task plugins without a view template do not make the Task unusable,1.0,2.709913492202759,1.7099134922027588
+BAM-11068,bamboo,Make first commit search asynchronous.,3.0,2.905243158340454,0.0947568416595459
+BAM-11096,bamboo,Bamboo Git Plugin (native mode) shouldn't hang when using ssh protocol on windows.,3.0,2.086089849472046,0.9139101505279541
+BAM-11107,bamboo,Show X out of Y branches on Branch Creation dialog,1.0,1.6122792959213257,0.6122792959213257
+BAM-11108,bamboo,Disable buttons when creating branch.,1.0,2.3385093212127686,1.3385093212127686
+BAM-11116,bamboo,Integration Strategy UI is broken for longer field names,1.0,2.7746634483337402,1.7746634483337402
+BAM-11117,bamboo,Rename Integration Strategy to Merge Strategy,1.0,1.0467324256896973,0.046732425689697266
+BAM-11118,bamboo,"Merge Strategy ""default"" should be labeled default",1.0,3.4309263229370117,2.4309263229370117
+BAM-11128,bamboo,Git revision not shown for plan,2.0,0.45046254992485046,1.5495374500751495
+BAM-11129,bamboo,When a plan uses 2 repositories and you clone the plan and change one repository the other will often error out,2.0,0.5916748642921448,1.4083251357078552
+BAM-11132,bamboo,"""Run"" menu in configuration confusing",1.0,2.046895742416382,1.0468957424163818
+BAM-11170,bamboo,mvn:deploy a final version of all EC2 images on prod account before release,1.0,2.2492072582244873,1.2492072582244873
+BAM-11188,bamboo,HipChat build notifications,3.0,2.294577121734619,0.7054228782653809
+BAM-11191,bamboo,Created issue should be linked in Bamboo,2.0,2.0174460411071777,0.017446041107177734
+BAM-11195,bamboo,Import/Export for ActiveObjects,3.0,2.353036642074585,0.646963357925415
+BAM-11250,bamboo,Improve AMI customisation process and documentation ,3.0,1.9294251203536987,1.0705748796463013
+BAM-11285,bamboo,Make all committers automatically responsible when build fails,1.0,1.5897059440612793,0.5897059440612793
+BAM-11287,bamboo,User can claim all responsibility for a build failure,1.0,1.4335209131240845,0.4335209131240845
+BAM-11599,bamboo,JIRA login screen displayed in dialog looks weird,2.0,1.9785197973251343,0.021480202674865723
+BAM-11600,bamboo,Rewrite JIRA issue details retrieval to use REST api not RSS.,3.0,2.433434009552002,0.566565990447998
+BAM-11601,bamboo,Bamboo artifacts don't get collected if they are located into directories,1.0,0.6580867767333984,0.34191322326660156
+BAM-11602,bamboo,Bamboo sometimes kills processes not belonging to it on Windows,5.0,3.2892374992370605,1.7107625007629395
+BAM-11603,bamboo,Database deadlock in MySQL,5.0,3.743878126144409,1.2561218738555908
+BAM-11604,bamboo,ViewAgent action slow when there's a lot of data,3.0,1.9880367517471313,1.0119632482528687
+BAM-11607,bamboo,Create reciprocal link from JIRA to Bamboo when manually linking result to issue,1.0,1.8438690900802612,0.8438690900802612
+BAM-11608,bamboo,Create reciprocal link from JIRA to Bamboo when manually linking result to issue,1.0,1.8438690900802612,0.8438690900802612
+BAM-11609,bamboo,Some reponsibility not being shown on the Wallboard,2.0,1.051416039466858,0.9485839605331421
+BAM-11624,bamboo,Show X lines of logs on the error log summary if no error log summary has been set,1.0,2.904705286026001,1.904705286026001
+BAM-11626,bamboo,Notification when responsibility is manually changed,2.0,3.4753496646881104,1.4753496646881104
+BAM-11627,bamboo,Add Linked JIRA Issue should be shown in dialog,1.0,0.5514376163482666,0.4485623836517334
+BAM-11628,bamboo,Add Linked JIRA Issue should be shown in dialog,1.0,0.5514376163482666,0.4485623836517334
+BAM-11629,bamboo,Keyboard shortcut for create issue,1.0,0.9249786734580994,0.07502132654190063
+BAM-11630,bamboo,Make HipChat plugin work for change in responsibilities notification type,1.0,0.23355604708194733,0.7664439529180527
+BAM-11631,bamboo,Going directly to Bamboo's configureGlobalPermissions.action erases all permissions,2.0,0.302213579416275,1.697786420583725
+BAM-11632,bamboo,Null environment variable values prevent builds from running,1.0,2.6136960983276367,1.6136960983276367
+BAM-11938,bamboo,Exception on My Bamboo -> My Broken Plans,1.0,3.0915870666503906,2.0915870666503906
+BAM-11939,bamboo,Mismatch between 'merged' status of XML and BuildDefinition,3.0,0.6847416162490845,2.3152583837509155
+BAM-11950,bamboo,"Combine ""Automatic Detection"" and ""Automatic removal"" into a single ""Automatically manage branches"" feature",2.0,1.753867506980896,0.246132493019104
+BAM-11952,bamboo,Create Branch error handling looks broken,1.0,2.661201238632202,1.6612012386322021
+BAM-11956,bamboo,Get more tasks link on task browser is broken,1.0,1.2298829555511475,0.22988295555114746
+BAM-12037,bamboo,A user can manually link any branch to any issue.,2.0,2.3458611965179443,0.34586119651794434
+BAM-12285,bamboo,Improve the UX of the custom build dialog,2.0,-0.08494235575199127,2.0849423557519913
+BAM-12286,bamboo,Pass the revision to build via REST,1.0,-0.4164043664932251,1.416404366493225

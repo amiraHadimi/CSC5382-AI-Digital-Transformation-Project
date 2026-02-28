@@ -1,0 +1,101 @@
+issuekey,project,title,y_true,y_pred,abs_error
+APSTUD-5039,aptanastudio,Git push fails when the repository origin URL is HTTPS and a password is needed,13.0,7.073780059814453,5.926219940185547
+APSTUD-5040,aptanastudio,Assertion Failed in ThemeingDamagerRepairer.storeScope(),8.0,8.861903190612793,0.861903190612793
+APSTUD-5041,aptanastudio,PyDev needs to support new syntax from Python 3.3,13.0,10.636009216308594,2.3639907836914062
+APSTUD-5043,aptanastudio,Submit ticket 'Steps to Reproduce' lacks scrollbars.,3.0,7.406973838806152,4.406973838806152
+APSTUD-5046,aptanastudio,Studio indexing unchanged files,8.0,3.594204902648926,4.405795097351074
+APSTUD-7159,aptanastudio,Errors starting up Eclipse 4.2 with Titanium studio,5.0,9.197802543640137,4.197802543640137
+APSTUD-7160,aptanastudio,PHP Interpreters are gone after an restart,5.0,14.327892303466797,9.327892303466797
+APSTUD-7161,aptanastudio,Error saving php.ini,8.0,7.806232452392578,0.19376754760742188
+APSTUD-7162,aptanastudio,"No auto completion if namespace is defined in a ""use"" statement",13.0,7.787989139556885,5.212010860443115
+APSTUD-7172,aptanastudio,"""show line numbers"" checkbox is broken",8.0,10.32469367980957,2.3246936798095703
+APSTUD-7931,aptanastudio,Ruby: Add check for pre-existing files to Ruby and Rails project wizards,5.0,7.303180694580078,2.303180694580078
+APSTUD-7176,aptanastudio,Renaming Projects tracked by git fails,5.0,8.92623233795166,3.92623233795166
+APSTUD-7177,aptanastudio,Add PHP 5.4 trait use in the outline,8.0,8.329171180725098,0.32917118072509766
+APSTUD-7178,aptanastudio,"""Remember my decision"" in the dialog for choosing connections does not work for download case",5.0,4.653618335723877,0.34638166427612305
+APSTUD-7179,aptanastudio,HTML reference docs out of order,5.0,8.78299331665039,3.7829933166503906
+APSTUD-7180,aptanastudio,HTML reference docs have incorrectly overridden information,13.0,3.309542417526245,9.690457582473755
+APSTUD-7278,aptanastudio,Linux: Direct users to workaround if dashboard fails to load on fresh install,5.0,9.141473770141602,4.141473770141602
+APSTUD-7187,aptanastudio,Add CSS help docs into the internal Studio help pages,13.0,6.849499702453613,6.150500297546387
+APSTUD-7193,aptanastudio,Pydev 2.6+ not working with Ganymede,3.0,12.502725601196289,9.502725601196289
+APSTUD-7474,aptanastudio,Studio: Editor: Sass fold markers miss the last line while folding,5.0,7.483784198760986,2.4837841987609863
+APSTUD-7200,aptanastudio,NullPointerException in Utils.isDirectory(),3.0,6.290032386779785,3.290032386779785
+APSTUD-7207,aptanastudio,Add updated HTML help docs into the internal Studio help pages,13.0,6.912026882171631,6.087973117828369
+APSTUD-7208,aptanastudio,"As a user, I'd like to get HTML help-page link when hovering over a HTML tag",8.0,9.735039710998535,1.7350397109985352
+APSTUD-7213,aptanastudio,PHP: Error formatting classes with numeric index,5.0,6.665630340576172,1.6656303405761719
+APSTUD-7216,aptanastudio,Safari used instead of default Mac OS X (10.8) browser after bug report,5.0,6.40460205078125,1.40460205078125
+APSTUD-7217,aptanastudio,Function outline not linking line numbers properly,5.0,6.049600601196289,1.049600601196289
+APSTUD-7218,aptanastudio,Syntax error foo..bar() not reported,5.0,9.703513145446777,4.703513145446777
+APSTUD-7219,aptanastudio,NullPointerException in HTMLTidyValidator.buildFile(),5.0,6.8277974128723145,1.8277974128723145
+APSTUD-7221,aptanastudio,JavaScript: Formatter adds space at 'for' loops,5.0,12.125157356262207,7.125157356262207
+APSTUD-7224,aptanastudio,Cache com.aptana.theme.Theme.getTextAttribute(String) for improved editor colorization performance,13.0,10.299144744873047,2.700855255126953
+APSTUD-7227,aptanastudio,Aptana-Studio install-Update error : jira.bat does not exist,5.0,9.838963508605957,4.838963508605957
+APSTUD-7229,aptanastudio,NullPointerException in com.aptana.scope.ScopeSelector.compare(),5.0,6.540853977203369,1.5408539772033691
+APSTUD-7231,aptanastudio,Spelling service is missing,8.0,6.310142993927002,1.689857006072998
+APSTUD-7232,aptanastudio,Latin file names truncated after upload to FTP / wrong display of latin characters in ftp,8.0,3.623434066772461,4.376565933227539
+APSTUD-7236,aptanastudio,studio3-feature-development build is including a number of eclipse plugins in build artifacts,13.0,7.311652660369873,5.688347339630127
+APSTUD-7238,aptanastudio,"Create ""push-studio3-stable"" Jenkins build",5.0,5.618852138519287,0.6188521385192871
+APSTUD-7239,aptanastudio,Git tag Aptana Studio builds on push to stable,8.0,8.518111228942871,0.5181112289428711
+APSTUD-7240,aptanastudio,"Create ""push-studio3-rubles-stable"" Jenkins build",5.0,4.906100749969482,0.09389925003051758
+APSTUD-7242,aptanastudio,Install and configure Build Pipeline plugin on Jenkins,8.0,10.958909034729004,2.958909034729004
+APSTUD-7244,aptanastudio,Aptana does not remember spaces settings,8.0,5.946636199951172,2.053363800048828
+APSTUD-7245,aptanastudio,Use JFlex scanner for HTML colorization,13.0,10.650967597961426,2.349032402038574
+APSTUD-7246,aptanastudio,Use JFlex scanner for CSS colorization,13.0,11.217803955078125,1.782196044921875
+APSTUD-7247,aptanastudio,Use JFlex scanners for CSS partitioning,5.0,6.885671615600586,1.885671615600586
+APSTUD-7248,aptanastudio,Use JFlex scanners for HTML partitioning,5.0,7.162674903869629,2.162674903869629
+APSTUD-7251,aptanastudio,"XHTML: Invalid warning on ""html proprietary attribute ""xml:lang'""",5.0,5.626330852508545,0.6263308525085449
+APSTUD-7252,aptanastudio,XHTML: Invalid '<!DOCTYPE> isn't allowed after elements' warning,5.0,6.630413055419922,1.6304130554199219
+APSTUD-7253,aptanastudio,Primary nature changes do not apply,8.0,5.142425537109375,2.857574462890625
+APSTUD-7257,aptanastudio,Remote View: Refresh required to see FTP connections after startup,5.0,7.623992443084717,2.623992443084717
+APSTUD-7264,aptanastudio,content assist for typecasting is broken,8.0,12.94445514678955,4.944455146789551
+APSTUD-7265,aptanastudio,Debugger: Rapid use of the toggle breakpoint shortcut key creates duplicate entries.,5.0,8.285387992858887,3.2853879928588867
+APSTUD-7267,aptanastudio,Switching branch outside IDE doesn't auto-close projects not on new branch,8.0,10.865872383117676,2.865872383117676
+APSTUD-7270,aptanastudio,Show char limit in the git commit message field,8.0,9.04935073852539,1.0493507385253906
+APSTUD-7272,aptanastudio,Split derby into separate plugin,5.0,8.585968971252441,3.5859689712524414
+APSTUD-7277,aptanastudio,Lion: High CPU Usage,13.0,11.585344314575195,1.4146556854248047
+APSTUD-7279,aptanastudio,Refactor the PyDev interactive console to be used in other projects,13.0,12.314173698425293,0.685826301574707
+APSTUD-7280,aptanastudio,Create JS interactive console feature using the PyDev extracted base (using Rhino),20.0,8.402932167053223,11.597067832946777
+APSTUD-7281,aptanastudio,Build JS interactive console feature and bundle it in the build (with PyDev dependency for now),5.0,8.40831470489502,3.4083147048950195
+APSTUD-7282,aptanastudio,Create JS interactive console documentation in wiki,5.0,5.4949631690979,0.4949631690979004
+APSTUD-7283,aptanastudio,Execute the javascript shell as an external process (currently it's running javascript using the same vm as Aptana Studio),5.0,5.427151203155518,0.4271512031555176
+APSTUD-7284,aptanastudio,Integrate actions to execute the current script in the shell (ctrl+alt+enter in PyDev),5.0,1.1688926219940186,3.8311073780059814
+APSTUD-7285,aptanastudio,Remove PyDev dependency from the JS interactive console,20.0,9.781258583068848,10.218741416931152
+APSTUD-7286,aptanastudio,Implement LRUCache with virtual memory paging scheme in editor infrastructure,13.0,9.893056869506836,3.106943130493164
+APSTUD-7287,aptanastudio,Don't show colors in preferences (only link to themes),2.0,3.763190984725952,1.7631909847259521
+APSTUD-7297,aptanastudio,Test latest CEF version on Linux,13.0,7.253986358642578,5.746013641357422
+APSTUD-7311,aptanastudio,Aptana loses connection settings,13.0,9.783766746520996,3.216233253479004
+APSTUD-7318,aptanastudio,"Editor blocks certain characters like double quotes, left curly braces, left paranthesis, left braces",8.0,5.1494317054748535,2.8505682945251465
+APSTUD-7320,aptanastudio,Create an extension point to hook into the project creation process,8.0,9.57279109954834,1.5727910995483398
+APSTUD-7324,aptanastudio,IllegalStateException setting Job's system property,8.0,5.247710704803467,2.752289295196533
+APSTUD-7330,aptanastudio,Deadlock when updating folding structure.,8.0,5.167548656463623,2.832451343536377
+APSTUD-7331,aptanastudio,Support ES5 getter/setter syntax in Javascript parser,20.0,14.853917121887207,5.146082878112793
+APSTUD-7334,aptanastudio,JavaScript comment moved to next line during formatting,5.0,7.783481121063232,2.7834811210632324
+APSTUD-7336,aptanastudio,Cannot highlight in javascript single-character variable name,5.0,7.633703708648682,2.6337037086486816
+APSTUD-7339,aptanastudio,cannot use <% tags in any *.html.erb file popup error,5.0,7.487693786621094,2.4876937866210938
+APSTUD-7340,aptanastudio,ctrl+space creates extra sign and extra letter,2.0,8.912178039550781,6.912178039550781
+APSTUD-7346,aptanastudio,CompositePartitionScanner should not rely on IRules (so that it can take advantage of JFlex-based scanners).,40.0,12.435259819030762,27.56474018096924
+APSTUD-7352,aptanastudio,"Add ""tags"" to templates",8.0,5.547702789306641,2.4522972106933594
+APSTUD-7358,aptanastudio,Increase height of validation list ,3.0,6.660865306854248,3.660865306854248
+APSTUD-7359,aptanastudio,"""Events"" variable/object flagged as error in JavaScript Style Validator",8.0,8.131826400756836,0.13182640075683594
+APSTUD-7366,aptanastudio,Trying to write a string that is too long and will overflow the recorded length maximum,13.0,7.128155708312988,5.871844291687012
+APSTUD-7367,aptanastudio,Auto-completing html attribute value inserts an extra character,5.0,6.796665191650391,1.7966651916503906
+APSTUD-7377,aptanastudio,"After some exception is logged, don't log the same exception again for 20 seconds.",5.0,4.814347743988037,0.1856522560119629
+APSTUD-7386,aptanastudio,"turn off ""."" as a trigger character for JavaScript",3.0,8.011689186096191,5.011689186096191
+APSTUD-7392,aptanastudio,InvalidThreadAccess exception when starting up aptana studio (getting color in git from non-ui thread with no theme ends up setting current theme and trying to update tree).,8.0,8.310078620910645,0.31007862091064453
+APSTUD-7393,aptanastudio,StackOverflowError parsing big file (with fast parser),5.0,8.070709228515625,3.070709228515625
+APSTUD-7394,aptanastudio,ClassCastException during parse in Python file with yield in global scope.,3.0,7.425167083740234,4.425167083740234
+APSTUD-7410,aptanastudio,Error updating the PHP task-tags,5.0,5.648169994354248,0.648169994354248
+APSTUD-7415,aptanastudio,Not changing perspective when PHP debug terminates.,5.0,10.815835952758789,5.815835952758789
+APSTUD-7416,aptanastudio,Git not remembering my password,8.0,10.563511848449707,2.563511848449707
+APSTUD-7417,aptanastudio,Project template rubles not working after current nightly build.,3.0,6.186666011810303,3.1866660118103027
+APSTUD-7418,aptanastudio,Formatting JavaScript source deletes bookmarks,8.0,7.360133647918701,0.6398663520812988
+APSTUD-7420,aptanastudio,JS formatter inserts space before typeof,5.0,5.842709064483643,0.8427090644836426
+APSTUD-7421,aptanastudio,JS editor does not color words `this` and `arguments` in Aptana Studio 2.x theme,5.0,11.18384838104248,6.1838483810424805
+APSTUD-7423,aptanastudio,Add more Javascript formatter options for comments,20.0,9.26304817199707,10.73695182800293
+APSTUD-7425,aptanastudio,Search form doesn't support crtl+a (select all) shortcut,5.0,8.330459594726562,3.3304595947265625
+APSTUD-7438,aptanastudio,JS Indexing complaining about metadata types declared like Anchor[],5.0,5.171124458312988,0.17112445831298828
+APSTUD-7442,aptanastudio,JS Functions on overloaded variable names produce broken type strings,13.0,8.273768424987793,4.726231575012207
+APSTUD-7444,aptanastudio,git revert,5.0,9.774202346801758,4.774202346801758
+APSTUD-7449,aptanastudio,Pydev - Attributes in class that inherits from dict do not appear in variable view/debug/perspective,1.0,7.356686592102051,6.356686592102051
+APSTUD-7475,aptanastudio,"php formater, always inserts space after include statement",5.0,8.95554256439209,3.95554256439209
+APSTUD-7477,aptanastudio,Adjust JS index keys to be inline with expected usage,40.0,9.420994758605957,30.579005241394043

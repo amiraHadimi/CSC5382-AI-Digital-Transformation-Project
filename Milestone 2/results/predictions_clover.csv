@@ -1,0 +1,78 @@
+issuekey,project,title,y_true,y_pred,abs_error
+CLOV-1614,clover,Error when closing Cloud Editor in Eclipse,3.0,2.003159999847412,0.9968400001525879
+CLOV-1617,clover,Automatic Clover integration does not work for <groovyc> task,5.0,1.162102222442627,3.837897777557373
+CLOV-1632,clover,Protect against deployment of instrumented code,3.0,4.752469539642334,1.752469539642334
+CLOV-1644,clover,Set up developmment environment for Stash,2.0,3.893766403198242,1.8937664031982422
+CLOV-1654,clover,as a plugin developer I'd like to have annotations for a package in a Clover database,5.0,8.943353652954102,3.9433536529541016
+CLOV-1657,clover,Compiling Groovy code with Clover throws NPE,1.0,5.775206565856934,4.775206565856934
+CLOV-1658,clover,Publish Clover-for-Scala prototype,5.0,8.692811012268066,3.6928110122680664
+CLOV-1659,clover,as a user I want to use Clover with maven-scala-plugin,13.0,2.00789213180542,10.99210786819458
+CLOV-1660,clover,as a user I want to use Clover with scalac ,5.0,4.784425735473633,0.2155742645263672
+CLOV-1661,clover,as a user I want to use Clover with SBT,20.0,2.1907765865325928,17.809223413467407
+CLOV-1662,clover,as a user I want to see nested functions in reports,5.0,6.904480934143066,1.9044809341430664
+CLOV-1663,clover,as a user I want to see for Scala exact code coverage highlighting in an HTML report,8.0,11.910900115966797,3.910900115966797
+CLOV-1664,clover,as a user I want to use Clover-for-Scala in IntelliJ IDEA,40.0,6.454054832458496,33.545945167541504
+CLOV-1665,clover,as a user I want to use Clover-for-Scala in Eclipse,40.0,3.9422922134399414,36.05770778656006
+CLOV-1666,clover,as a user I want to run test optimization for Scala tests,40.0,8.982072830200195,31.017927169799805
+CLOV-1667,clover,as a user I want to see smart names for classes and functions in reports,20.0,7.591448783874512,12.408551216125488
+CLOV-1668,clover,"Clover installs instrumented-jars in local Maven repo, in place of non-instrument ones",1.0,4.230886459350586,3.230886459350586
+CLOV-1672,clover,Ensure that Clover JAR is readable by Ant 1.9.0-1.9.1,3.0,2.6702303886413574,0.3297696113586426
+CLOV-1675,clover,"Grails Clover Plugin compatibility with Grails 2.4.5, 2.5.0",5.0,5.070919036865234,0.07091903686523438
+CLOV-1679,clover,MavenIntegrator shall not add arguments if they are already present in original command,1.0,3.1564247608184814,2.1564247608184814
+CLOV-1682,clover,Repository pollution protection reports a custom classifier under Maven 2.2.x,3.0,4.28219747543335,1.2821974754333496
+CLOV-1683,clover,Grails Clover Plugin compatibility with Grails 3.x,5.0,4.32725191116333,0.6727480888366699
+CLOV-1743,clover,OutOfMemoryError while flushing coverage data,2.0,4.623748302459717,2.623748302459717
+CLOV-1752,clover,Drop support for IDEA versions older than 11.0.0,2.0,3.9793436527252197,1.9793436527252197
+CLOV-1757,clover,Make Clover compatible with IntelliJ 15,8.0,5.907064914703369,2.092935085296631
+CLOV-1758,clover,Support JDK9 by Clover,20.0,4.519277572631836,15.480722427368164
+CLOV-1761,clover,Add support for Eclipse Mars 4.5 version,1.0,2.4043710231781006,1.4043710231781006
+CLOV-1766,clover,Eclipse Mars 4.5 does not load platform:/ resources properly,2.0,2.0729475021362305,0.07294750213623047
+CLOV-1771,clover,AspectJ spike,3.0,4.774703025817871,1.774703025817871
+CLOV-1775,clover,Rename maven-clover2-plugin artifactId to clover-maven-plugin,3.0,2.1222333908081055,0.8777666091918945
+CLOV-1776,clover,Instrumentation error on certain projects since 4.0.5 build of Clover. ,2.0,4.672740459442139,2.6727404594421387
+CLOV-1779,clover,Groovy code with Generics throw NPEs,3.0,7.044415473937988,4.044415473937988
+CLOV-1780,clover,Add migration message in maven-clover2-plugin POM,2.0,1.970482587814331,0.029517412185668945
+CLOV-1784,clover,Extend interfaces to manipulate test optimization,2.0,3.120619297027588,1.120619297027588
+CLOV-1785,clover,Extend database format to handle statements and methods in a file,3.0,4.502607822418213,1.502607822418213
+CLOV-1787,clover,Rename ClassInfo to TypeInfo,1.0,2.9232685565948486,1.9232685565948486
+CLOV-1788,clover,Make session.enterClass() more language-independent,3.0,2.984273910522461,0.015726089477539062
+CLOV-1789,clover,Add possibility to add custom properties for code elements,2.0,4.893770694732666,2.893770694732666
+CLOV-1790,clover,Rename StatementInfo to ExpressionInfo,1.0,2.355403184890747,1.355403184890747
+CLOV-1792,clover,Drop classic HTML report,2.0,3.43365478515625,1.43365478515625
+CLOV-1793,clover,Drop Grails 1.3,2.0,1.5577210187911987,0.44227898120880127
+CLOV-1794,clover,Drop Eclipse 3.6 and 3.7,1.0,1.602768898010254,0.6027688980102539
+CLOV-1795,clover,Remove --style from Command line processors,1.0,3.7328972816467285,2.7328972816467285
+CLOV-1797,clover,Support for IDEA 14.1.5,1.0,4.121695041656494,3.121695041656494
+CLOV-1800,clover,Walk AST and store file and type info in database,8.0,5.016956329345703,2.983043670654297
+CLOV-1801,clover,Walk AST and store method info in a database,8.0,3.8170723915100098,4.18292760848999
+CLOV-1802,clover,Walk AST and store statement info in a database,8.0,3.8826558589935303,4.11734414100647
+CLOV-1804,clover,Add support for Eclipse Mars.1,1.0,0.38340407609939575,0.6165959239006042
+CLOV-1808,clover,StringIndexOutOfBoundsException in CloverStartup.evaluateDaysLeft,1.0,0.9800702333450317,0.01992976665496826
+CLOV-1817,clover,Fix colors of test passed / failed / error icons in Eclipse,1.0,2.377582550048828,1.3775825500488281
+CLOV-1823,clover,Test optimization in Eclipse Mars 4.5.1 keeps running one test,1.0,4.849345684051514,3.8493456840515137
+CLOV-1824,clover,Add IDEA 14.0.4 to a test matrix,1.0,3.96488618850708,2.96488618850708
+CLOV-1825,clover,Add more debug logging for clover2:aggregate,1.0,0.5943325161933899,0.4056674838066101
+CLOV-1827,clover,Update Clover Tutorial,1.0,3.010175943374634,2.010175943374634
+CLOV-1828,clover,Rename maven-clover2-plugin to clover-maven-plugin (post-release tasks),2.0,2.739530086517334,0.739530086517334
+CLOV-1834,clover,Instrumentation failure of an annotation inside the catch clause,1.0,5.014465808868408,4.014465808868408
+CLOV-1835,clover,Unicode 0x200B (zero-width whitespace) causes instrumentation failure,2.0,3.165318727493286,1.1653187274932861
+CLOV-1841,clover,Prepare feature analysis of JCov tool,2.0,4.693188667297363,2.6931886672973633
+CLOV-1846,clover,IntelliJ Plugin should ask for rebuilding project after changing exclusions,1.0,2.010371685028076,1.0103716850280762
+CLOV-1847,clover,IntelliJ Plugin should not use UI thread to generate Cloud report,2.0,3.90873122215271,1.90873122215271
+CLOV-1848,clover,Add IntelliJ 15.0.2 to test matrix,1.0,6.99921989440918,5.99921989440918
+CLOV-1852,clover,Gradle Spec,1.0,4.448200702667236,3.4482007026672363
+CLOV-1855,clover,Drop support for IntelliJ IDEA 11.x,1.0,5.885740756988525,4.885740756988525
+CLOV-1856,clover,IntelliJ IDEA plugin with version 4.1.1 shows wrong supported version,1.0,3.8867547512054443,2.8867547512054443
+CLOV-1859,clover,Update Bamboo Clover Plugin (automatic integration shall use new clover-maven-plugin),1.0,1.7307929992675781,0.7307929992675781
+CLOV-1861,clover,Create simple Gradle repository and run Bamboo plan to test it,1.0,8.03038215637207,7.03038215637207
+CLOV-1884,clover,CloverCompilerAdapter should look for Javac.compileList also in super classes,1.0,3.0695717334747314,2.0695717334747314
+CLOV-1887,clover,Provide high level instrumentation task which will instrument sources to given directory,4.0,11.087427139282227,7.087427139282227
+CLOV-1888,clover,Provide high level task which will execute tests in simple module java project,4.0,5.502126216888428,1.5021262168884277
+CLOV-1890,clover,Provide simple reporting task which generate Clover report,2.0,5.088829517364502,3.088829517364502
+CLOV-1892,clover,Make Clover instrumentation work in multi java project builds,3.0,4.864256381988525,1.8642563819885254
+CLOV-1896,clover,Clover shall be able to instrument Test sources,2.0,6.12730073928833,4.12730073928833
+CLOV-1907,clover,TestWithClover task must be aware of instrumented test sources and modify test classpath accordingly,2.0,2.8701560497283936,0.8701560497283936
+CLOV-1951,clover,Support Eclipse 4.6 Neon,3.0,1.127217173576355,1.872782826423645
+CLOV-1953,clover,Clover does not instrument all nodes in Groovy AST,5.0,5.766865253448486,0.7668652534484863
+CLOV-1955,clover,Support InteliiJ IDEA 2016.2,1.0,4.009956359863281,3.0099563598632812
+CLOV-1960,clover,Instrument Groovy traits and show code coverage for them,8.0,6.186698913574219,1.8133010864257812

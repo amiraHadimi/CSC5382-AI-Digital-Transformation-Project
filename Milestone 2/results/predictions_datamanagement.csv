@@ -1,0 +1,101 @@
+issuekey,project,title,y_true,y_pred,abs_error
+DM-5869,datamanagement,Assessment of current state-of-the-stack diffim implementation,6.0,17.64280891418457,11.64280891418457
+DM-5870,datamanagement,Update testdata_subaru to support calib changes,1.0,0.8501312732696533,0.14986872673034668
+DM-5872,datamanagement,"Incorporate ""Bickerton algorithm"" for detecting & masking satellite trails",5.0,7.248139381408691,2.2481393814086914
+DM-5874,datamanagement,Produce document describing flavors of coadds,10.0,7.08434534072876,2.9156546592712402
+DM-5875,datamanagement,Propose text for alternate galaxy models in DPDD,1.0,4.508942604064941,3.5089426040649414
+DM-5877,datamanagement,Use Afterburners to clean up aperture correction logic,6.0,1.4694488048553467,4.530551195144653
+DM-5878,datamanagement,Add chi plots to validate_drp output to compare nominal error,2.0,6.476784706115723,4.476784706115723
+DM-5879,datamanagement,Remove use of Boost smart pointers throughout the Science Pipelines,10.0,10.008296966552734,0.008296966552734375
+DM-5880,datamanagement,Audit use of Boost in the stack and remove it where possible,10.0,6.180907726287842,3.819092273712158
+DM-5881,datamanagement,Recover from processCcd refactor,10.0,4.819566249847412,5.180433750152588
+DM-5884,datamanagement,Create MySQL account for monitoring,4.0,6.852375030517578,2.852375030517578
+DM-5885,datamanagement,Create a JSON file for monitoring stack,3.0,6.781620502471924,3.781620502471924
+DM-5886,datamanagement,Provide ngmix-based MCMC galaxy fitting,60.0,12.22864055633545,47.77135944366455
+DM-5889,datamanagement,"Suppress gcc warnings about ""unused local typedefs""",1.0,0.6751668453216553,0.3248331546783447
+DM-5893,datamanagement,LSST the Docs Fastly should redirect /en/latest/ to /,1.0,4.957326889038086,3.957326889038086
+DM-5894,datamanagement,LSST the Docs Fastly Courtesy Redirects for directory paths,4.0,5.438039302825928,1.4380393028259277
+DM-5897,datamanagement,Robustify coadd,2.0,12.068717002868652,10.068717002868652
+DM-5898,datamanagement,Python EUPS package can use $PYTHON,1.0,1.9921326637268066,0.9921326637268066
+DM-5900,datamanagement,Create psutil EUPS package,1.0,3.823439121246338,2.823439121246338
+DM-5901,datamanagement,LTD Keeper: More Robust Edition purges,3.0,4.671425819396973,1.6714258193969727
+DM-5903,datamanagement,Finish technical note on galaxy shear experiments,4.0,10.914283752441406,6.914283752441406
+DM-5904,datamanagement,Create focus script,2.0,4.7802510261535645,2.7802510261535645
+DM-5905,datamanagement,Refactor DipoleFitPlugin classification into separate Classification plugin,6.0,4.6139235496521,1.3860764503479004
+DM-5906,datamanagement,Remove qmeta::QueryId and use global qserv::QueryId,6.0,5.677355766296387,0.3226442337036133
+DM-5907,datamanagement,Replace the heap in ScanScheduler with a list.,9.0,3.183684825897217,5.816315174102783
+DM-5908,datamanagement,Alter the worker thread pool to allow threads to leave the pool and continue.,9.0,2.5954222679138184,6.404577732086182
+DM-5909,datamanagement,"After the first result set is returned, have the thread leave the pool.",6.0,4.925750255584717,1.0742497444152832
+DM-5910,datamanagement,Add code to the czar to throttle incoming large results.,9.0,2.9566380977630615,6.0433619022369385
+DM-5911,datamanagement,Fix circular references in Mapper objects,1.0,4.16464376449585,3.1646437644958496
+DM-5912,datamanagement,"Add ""everything"" scan",3.0,4.671351432800293,1.671351432800293
+DM-5913,datamanagement,Add ability for workers to switch slow queries to the everything scan.,9.0,4.194118022918701,4.805881977081299
+DM-5914,datamanagement,Document planned implementation of toy model of Lupton(ZOGY),6.0,13.233209609985352,7.233209609985352
+DM-5915,datamanagement,Decide how to rework afw:Wcs guts with AST,8.0,7.136781692504883,0.8632183074951172
+DM-5916,datamanagement,Decide how to rework XYTransform/GTransfo guts with AST,10.0,4.858364105224609,5.141635894775391
+DM-5917,datamanagement,Design an API for the new Wcs and Transform system,16.0,13.288928985595703,2.711071014404297
+DM-5918,datamanagement,What transforms do we currently need?,4.0,10.15993881225586,6.159938812255859
+DM-5919,datamanagement,Describe our composite mappings and transformation endpoints (Frames),4.0,8.003765106201172,4.003765106201172
+DM-5920,datamanagement,Create DCR metric using new dipole measurement,6.0,8.090847969055176,2.090847969055176
+DM-5921,datamanagement,Clarify how to work with ci_hsc's astrometry_net_data,1.0,6.356106758117676,5.356106758117676
+DM-5922,datamanagement,Rework camera geometry to use the replacement for XYTransform,8.0,7.3665337562561035,0.6334662437438965
+DM-5923,datamanagement,Support arbitrary sky rotation angles in StarFast,2.0,5.355798721313477,3.3557987213134766
+DM-5924,datamanagement,Improve overscan correction,6.0,8.569746017456055,2.5697460174560547
+DM-5925,datamanagement,Implement fringe correction in ISR,6.0,16.60202407836914,10.60202407836914
+DM-5926,datamanagement,networking in strange state for newly created instances,1.0,2.6077992916107178,1.6077992916107178
+DM-5927,datamanagement,API errors when trying to start up multiple instances,2.0,5.373968601226807,3.3739686012268066
+DM-5928,datamanagement,April 2016 LAAIM work,4.0,7.235126972198486,3.2351269721984863
+DM-5929,datamanagement,April Work for ConOps,33.0,16.17880630493164,16.82119369506836
+DM-5930,datamanagement,Replace exiting DipoleMeasurementTask with DipoleFitTask,6.0,5.298806190490723,0.7011938095092773
+DM-5931,datamanagement,Test planned implementation of Lupton(ZOGY) algorithm in real space,6.0,11.831229209899902,5.831229209899902
+DM-5932,datamanagement,Trial implementation of Lupton(ZOGY) in stack,16.0,11.368088722229004,4.631911277770996
+DM-5933,datamanagement,Replace jointcal.StarSelector with meas_algorithms.starSelector,2.0,4.206943035125732,2.2069430351257324
+DM-5934,datamanagement,Update developer guide with Astropy guidance,1.0,1.8833627700805664,0.8833627700805664
+DM-5935,datamanagement,Package Astropy for the stack,1.0,5.719247341156006,4.719247341156006
+DM-5936,datamanagement,Make afw rgb unit test PEP440 compliant for matplotlib check,1.0,-0.10049799084663391,1.100497990846634
+DM-5937,datamanagement,April work for middleware,1.0,12.035564422607422,11.035564422607422
+DM-5938,datamanagement,Redirect non HTTPS requests on LSST the Docs to TLS,1.0,8.558961868286133,7.558961868286133
+DM-5939,datamanagement,Pre-release versions of matplotlib 2.0 break afw unit tests,1.0,1.7080951929092407,0.7080951929092407
+DM-5940,datamanagement,Create new build based on the converted firefly code.,8.0,3.9194488525390625,4.0805511474609375
+DM-5941,datamanagement,Private network not available across all instances,2.0,4.3470258712768555,2.3470258712768555
+DM-5942,datamanagement,Public elasticsearch configuration using SSL/TLS and basic auth,1.0,6.23661470413208,5.23661470413208
+DM-5943,datamanagement,Add Git refs to Jobs Table of QA Dashboard,5.0,8.529449462890625,3.529449462890625
+DM-5945,datamanagement,Implement validate_drp plot in Bokeh as proof-of-concept for QA Dashboard,2.0,11.579060554504395,9.579060554504395
+DM-5946,datamanagement,SUIT design ,75.0,13.331769943237305,61.668230056762695
+DM-5947,datamanagement,Jupyter widget using Firefly,26.0,10.457192420959473,15.542807579040527
+DM-5948,datamanagement,Workspace design,30.0,14.013772964477539,15.986227035522461
+DM-5949,datamanagement,Testing framework setup and more unit test,45.0,6.307552814483643,38.69244718551636
+DM-5951,datamanagement,Make obs_subaru PEP8 (pyflakes) compliment,3.0,3.5434510707855225,0.5434510707855225
+DM-5952,datamanagement,Initial draft(s) of the Data Backbone ConOps,8.0,19.881778717041016,11.881778717041016
+DM-5953,datamanagement,Internal review of Data Backbone ConOps and revision(s),2.0,10.400975227355957,8.400975227355957
+DM-5954,datamanagement,Watch Boot Camp materials,4.0,3.473823070526123,0.526176929473877
+DM-5955,datamanagement,Build LSST Software Stack from the source,3.0,7.326101779937744,4.326101779937744
+DM-5958,datamanagement,Integration Environment: top level design,26.0,23.82505989074707,2.1749401092529297
+DM-5959,datamanagement,Integration Environment: Procurement,10.0,31.619892120361328,21.619892120361328
+DM-5960,datamanagement,Node delivery to racking,16.0,16.493349075317383,0.4933490753173828
+DM-5961,datamanagement,Networking,6.0,13.159684181213379,7.159684181213379
+DM-5962,datamanagement,OpenStack deployment,24.0,13.530497550964355,10.469502449035645
+DM-5963,datamanagement,Compute Upgrade,10.0,13.898565292358398,3.8985652923583984
+DM-5964,datamanagement,Object Storage Installation,5.0,23.014785766601562,18.014785766601562
+DM-5966,datamanagement,Remove use of Boost smart pointers in meas extensions,1.0,2.3243095874786377,1.3243095874786377
+DM-5967,datamanagement,Provide docker swarm POC for Qserv containers orchestration,10.0,7.66672420501709,2.33327579498291
+DM-5968,datamanagement,Split secondary index loading from qserv_data_loader.py to separate unit test,8.0,4.290121078491211,3.709878921508789
+DM-5969,datamanagement,Deploy any secondary index loader mods into qserv_data_loader.py,5.0,2.843559503555298,2.156440496444702
+DM-5970,datamanagement,Slurm deployment preparation,20.0,8.845240592956543,11.154759407043457
+DM-5972,datamanagement,Inventory to racking,30.0,15.572211265563965,14.427788734436035
+DM-5973,datamanagement,Update developer guide with pytest guidance,5.0,1.5132379531860352,3.486762046813965
+DM-5976,datamanagement,Change SubtractBackgroundConfig.isNanSafe default to True,1.0,1.1369627714157104,0.13696277141571045
+DM-5977,datamanagement,Create and deploy Beats for Logstash and Elasticsearch.,3.0,7.436259746551514,4.436259746551514
+DM-5978,datamanagement,Miscellaneous Nebula service items for x16,8.0,4.389428615570068,3.6105713844299316
+DM-5979,datamanagement, tests in testArgumentParser.py fail Jenkins run-rebuild on nfs,2.0,3.598337411880493,1.5983374118804932
+DM-5980,datamanagement,update jenkins to 2.x,10.0,2.6732940673828125,7.3267059326171875
+DM-5983,datamanagement,Stop cleanly MySQL if configuration step fails,2.0,3.1494030952453613,1.1494030952453613
+DM-5984,datamanagement,Use RO MySQL account in qserv_testdata,4.0,3.2749106884002686,0.7250893115997314
+DM-5985,datamanagement,Add unicode support for Qserv password,6.0,5.584088325500488,0.4159116744995117
+DM-5986,datamanagement,Use sagas in place of side-effects in chart-related controllers ,3.0,6.4475555419921875,3.4475555419921875
+DM-5988,datamanagement,Support Monocam reduction,6.0,8.252298355102539,2.252298355102539
+DM-5991,datamanagement,A look at the overall performance of the application,4.0,9.342684745788574,5.342684745788574
+DM-5992,datamanagement,Reception and Placement,10.0,15.73428726196289,5.734287261962891
+DM-5993,datamanagement,Networking Configuration,15.0,16.100799560546875,1.100799560546875
+DM-5994,datamanagement,Provisioning,39.0,16.577795028686523,22.422204971313477
+DM-5995,datamanagement,Disaster Recovery Implementation,30.0,25.581058502197266,4.418941497802734
