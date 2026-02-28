@@ -170,5 +170,5 @@ This milestone includes:
 
 ---
 
-📄 **Full Report (PDF):** *(Insert PDF link here)*  
-🎥 **Presentation Recording:** *(Insert recording link here)*  
+📄 **Full Report (PDF):** [Download Milestone 2 Report (PDF)](./milestone%202%20SPE.pdf)  
+🎥 **Presentation Recording:** *(Insert recording link here)*
