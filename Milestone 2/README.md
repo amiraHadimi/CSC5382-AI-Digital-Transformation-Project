@@ -6,10 +6,10 @@ This milestone implements a Proof of Concept (PoC) for automated story point est
 
 The objectives of this milestone are:
 
-- Integrate a pre-trained LLM regression model
-- Evaluate performance per project using Mean Absolute Error (MAE)
-- Develop a Streamlit-based interactive application
-- Demonstrate a complete end-to-end inference and evaluation pipeline
+- Integrate a pre-trained LLM regression model  
+- Evaluate performance per project using Mean Absolute Error (MAE)  
+- Develop a Streamlit-based interactive application  
+- Demonstrate a complete end-to-end inference and evaluation pipeline  
 
 ---
 
@@ -25,8 +25,8 @@ The system uses:
 
 The model is configured for regression:
 
-- `num_labels = 1`
-- `problem_type = "regression"`
+- `num_labels = 1`  
+- `problem_type = "regression"`  
 
 This enables the model to output continuous story point predictions.
 
@@ -44,23 +44,24 @@ During evaluation, the system:
 
 This allows efficient specialization without retraining the full base model.
 
-Implementation files:
+**Implementation files:**
 
-- `eval_mae_per_project.py`
-- `test_llama3sp.py`
+- [`eval_mae_per_project.py`](./eval_mae_per_project.py)  
+- [`test_llama3sp.py`](./test_llama3sp.py)  
 
 ---
 
 ## 2. Dataset
 
 Evaluation was conducted on **16 open-source projects** from the Llama3SP dataset:
-Milestone 2/data/llama3sp_dataset/
+
+📂 [`data/llama3sp_dataset/`](./data/llama3sp_dataset/)
 
 Each dataset contains a `split_mark` column specifying:
 
-- `train`
-- `validation`
-- `test`
+- `train`  
+- `validation`  
+- `test`  
 
 Only rows marked as **test** were used for evaluation to ensure proper separation between training and testing data.
 
@@ -75,7 +76,9 @@ If fewer than 100 test samples were available, all test samples were used.
 
 Performance is measured using **Mean Absolute Error (MAE)**:
 
+```
 MAE = (1/N) × Σ |y_true − y_pred|
+```
 
 This metric quantifies the average absolute difference between predicted and true story points.
 
@@ -84,20 +87,22 @@ This metric quantifies the average absolute difference between predicted and tru
 ### 3.2 Results
 
 Per-project MAE results are stored in:
-Milestone 2/results/mae_per_project.csv
+
+📄 [`results/mae_per_project.csv`](./results/mae_per_project.csv)
 
 A summary file is available at:
-Milestone 2/results/summary.json
 
-Individual prediction files are stored as:
-Milestone 2/results/summary.json
+📄 [`results/summary.json`](./results/summary.json)
 
+Individual prediction files are stored in:
+
+📂 [`results/`](./results/)
 
 Each prediction file contains:
 
-- `y_true`
-- `y_pred`
-- `abs_error`
+- `y_true`  
+- `y_pred`  
+- `abs_error`  
 
 These files provide full transparency of model performance.
 
@@ -107,32 +112,35 @@ These files provide full transparency of model performance.
 
 A Streamlit web application was developed to demonstrate real-time inference.
 
-Application file:
-Milestone 2/app/streamlit_app.py
+📂 Application file:  
+[`app/streamlit_app.py`](./app/streamlit_app.py)
 
 The application allows the user to:
 
-- Select a project
-- Enter an issue title
-- Generate a predicted story point
+- Select a project  
+- Enter an issue title  
+- Generate a predicted story point  
 
-### Run locally:
+### Run locally
 
 ```bash
 cd "Milestone 2"
 streamlit run app/streamlit_app.py
+```
+
+---
 
 ## 5. End-to-End Scenario
 
 The complete pipeline works as follows:
 
-1. User inputs an issue title.
-2. Text is tokenized using the Llama tokenizer.
-3. The base model processes the tokenized input.
-4. The project-specific LoRA adapter refines the prediction.
-5. The regression head outputs a continuous story point value.
-6. The evaluation script computes MAE on the test data.
-7. Results are saved in the `/results` directory.
+1. User inputs an issue title.  
+2. Text is tokenized using the Llama tokenizer.  
+3. The base model processes the tokenized input.  
+4. The project-specific LoRA adapter refines the prediction.  
+5. The regression head outputs a continuous story point value.  
+6. The evaluation script computes MAE on the test data.  
+7. Results are saved in the `/results` directory.  
 
 This confirms a fully functional end-to-end machine learning workflow.
 
@@ -140,10 +148,10 @@ This confirms a fully functional end-to-end machine learning workflow.
 
 ## 6. Limitations
 
-- Evaluation limited to 100 test samples per project (runtime constraint).
-- CPU-only inference.
-- No additional fine-tuning performed in this milestone.
-- Performance varies across projects (e.g., higher MAE observed for Moodle).
+- Evaluation limited to 100 test samples per project (runtime constraint).  
+- CPU-only inference.  
+- No additional fine-tuning performed in this milestone.  
+- Performance varies across projects (e.g., higher MAE observed for Moodle).  
 
 ---
 
@@ -157,3 +165,8 @@ This milestone includes:
 - Per-project MAE results  
 - Word report (PDF)  
 - Recorded presentation  
+
+---
+
+📄 **Full Report (PDF):** *(Insert PDF link here)*  
+🎥 **Presentation Recording:** *(Insert recording link here)*  
