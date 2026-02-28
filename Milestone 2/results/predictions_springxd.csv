@@ -1,0 +1,101 @@
+issuekey,project,title,y_true,y_pred,abs_error
+XD-3016,springxd,Document Kafka message bus properties,1.0,2.2887051105499268,1.2887051105499268
+XD-3017,springxd,Fix package tangles,5.0,3.196070909500122,1.803929090499878
+XD-3018,springxd,Update to spring-data-hadoop 2.2.0.M1,2.0,1.4875664710998535,0.5124335289001465
+XD-3019,springxd,Document how to use the module registry backed by HDFS,1.0,4.8830485343933105,3.8830485343933105
+XD-3020,springxd,Persist Deployment Properties,5.0,3.1124331951141357,1.8875668048858643
+XD-3021,springxd,Update Docker Versions,1.0,2.4598782062530518,1.4598782062530518
+XD-3022,springxd,Kafka Message Bus ignores consumer concurrency when computing partition count,3.0,2.741734504699707,0.25826549530029297
+XD-3023,springxd,SSL Config for RabbitMessageBus Connections is Ignored,1.0,1.5543596744537354,0.5543596744537354
+XD-3024,springxd,"Add new REST-API to get all the counters, gauges, and rich-gauges",5.0,4.6888108253479,0.3111891746520996
+XD-3025,springxd,SpringXD sqoop module is hanging,5.0,3.69232177734375,1.30767822265625
+XD-3026,springxd,Support specifying the default values for the module at the module config,3.0,2.915195941925049,0.08480405807495117
+XD-3027,springxd,Update Spring Integration / Spring AMQP Versions,1.0,1.3994710445404053,0.3994710445404053
+XD-3028,springxd,5 occurrences of the typo 'properites' in comments/readme/doc,1.0,2.4416370391845703,1.4416370391845703
+XD-3029,springxd,SqoopRunner class not found errror ,2.0,1.861528992652893,0.13847100734710693
+XD-3030,springxd,RabbitMQ queues not being removed on stream destroy,5.0,3.227646589279175,1.7723534107208252
+XD-3031,springxd,Document the RabbitMQ Bus Cleanup REST API,1.0,3.5695888996124268,2.5695888996124268
+XD-3032,springxd,ModuleConfigurationException should not report HTTP 500,2.0,3.3134007453918457,1.3134007453918457
+XD-3033,springxd,Upgrade to Spring Data Fowler Release,3.0,1.4098252058029175,1.5901747941970825
+XD-3034,springxd,Sqoop command should not require jdbc parameters,2.0,3.669394016265869,1.6693940162658691
+XD-3035,springxd,Kafka source module: Handling delete offsets,5.0,2.7967588901519775,2.2032411098480225
+XD-3036,springxd,Fix section headers in reference TOC,1.0,3.567960500717163,2.567960500717163
+XD-3037,springxd,Create documentation for kafka source multiple topic support,1.0,3.19587779045105,2.19587779045105
+XD-3038,springxd,Add value-expression to gauges,3.0,4.20253849029541,1.2025384902954102
+XD-3040,springxd,Create Boot based ModuleRunner (Phase III),5.0,5.802565097808838,0.8025650978088379
+XD-3041,springxd,Disable MongoDB boot autoconfiguration at XD runtime,1.0,2.7884387969970703,1.7884387969970703
+XD-3042,springxd,Upgrade to Reactor 2.0.1,5.0,1.229109287261963,3.770890712738037
+XD-3043,springxd,Document GF specific configuration properties,1.0,2.44950008392334,1.4495000839233398
+XD-3044,springxd,Add jdbcgpfdist batch job,8.0,3.589904308319092,4.410095691680908
+XD-3045,springxd,Separate mocks and real repository responsibilities from test coverage,8.0,4.747077941894531,3.2529220581054688
+XD-3046,springxd,Fix compilation errors after moving SingleNodeApplication package,2.0,1.4361871480941772,0.5638128519058228
+XD-3047,springxd,Complete Camera Ready DEBS submission,5.0,4.016927242279053,0.9830727577209473
+XD-3048,springxd,RabbitMQ queue cleanup uses wildcard unexpectedly,1.0,1.8357574939727783,0.8357574939727783
+XD-3049,springxd,Profile byte array on In-Memory and Kafka Transport,3.0,4.806781768798828,1.8067817687988281
+XD-3050,springxd,Move Reactor based processor module from spring-xd-modules to core,3.0,5.805577278137207,2.805577278137207
+XD-3051,springxd,Gradle launch task is broken,1.0,2.4908509254455566,1.4908509254455566
+XD-3052,springxd,Move gpfdist sink from spring-xd-modules repo to the core,2.0,2.705836057662964,0.7058360576629639
+XD-3053,springxd,Module configuration exception should not block admin leader election,3.0,2.656951427459717,0.3430485725402832
+XD-3054,springxd,Deployment validation when processing the deployment message,1.0,4.791971206665039,3.791971206665039
+XD-3055,springxd,Investigate failing tests in CI,3.0,4.969727516174316,1.9697275161743164
+XD-3056,springxd,Add a new source module to capture video frame from camera or video files,8.0,5.276165008544922,2.723834991455078
+XD-3057,springxd,Using Github repo for XD module registry,5.0,4.274173259735107,0.7258267402648926
+XD-3058,springxd,Windows CI FTP based tests fail.  ,3.0,2.2626874446868896,0.7373125553131104
+XD-3059,springxd,DSL parser that reads both stream and job definitions from multi line definitions,3.0,5.910060882568359,2.9100608825683594
+XD-3060,springxd,Provide more informative error message when ConversionService fails in Tuple,2.0,2.5765011310577393,0.5765011310577393
+XD-3061,springxd,Remove id/timestamp from tuple and related methods on tuplebuilder,3.0,2.9217514991760254,0.07824850082397461
+XD-3063,springxd,Add Property maxMessagesPerPoll to All Polled Sources,3.0,2.8739492893218994,0.12605071067810059
+XD-3064,springxd,HdfsMongoDB Job failing due because of missing ID in Default Tuple,3.0,2.839273452758789,0.16072654724121094
+XD-3065,springxd,"Provide an option ""--delete=true"" on the File Source",3.0,2.0978610515594482,0.9021389484405518
+XD-3066,springxd,Make Enum Conversions for ModuleOptions more lenient,3.0,3.212036609649658,0.2120366096496582
+XD-3067,springxd,Spark streaming integration module fails to initialize codec,3.0,1.80046808719635,1.19953191280365
+XD-3068,springxd,Provide configuration option to specify the default output channel for router sink,2.0,2.715693712234497,0.7156937122344971
+XD-3069,springxd,Investigate classloading leakage,8.0,4.6394548416137695,3.3605451583862305
+XD-3070,springxd,Spike: introduce xolpoc-admin to XD Admin,5.0,4.090108871459961,0.9098911285400391
+XD-3071,springxd,Spike: Produce Rabbit baseline on rackspace infrastructure,8.0,6.296727657318115,1.7032723426818848
+XD-3072,springxd,Flo parser improvements,3.0,3.425118923187256,0.42511892318725586
+XD-3073,springxd,LocalMessageBus Will Only Run 10 Jobs by Default,3.0,1.7958060503005981,1.2041939496994019
+XD-3074,springxd,Backport metadata retrieval stability improvements,1.0,5.423807144165039,4.423807144165039
+XD-3075,springxd,Backport Kafka Sink input fix,1.0,3.12580943107605,2.12580943107605
+XD-3076,springxd,Add SSL properties to the Mail source,1.0,2.4820375442504883,1.4820375442504883
+XD-3077,springxd,Default HDFS as custom module registry for YARN deployments,3.0,6.220675468444824,3.220675468444824
+XD-3078,springxd,Spring XD admin fails to redeploy modules after Spring XD container successfully reconnectes to Zookeeper,8.0,5.033087730407715,2.966912269592285
+XD-3079,springxd,Create a new Kerberos ticket instead of renew the current one,5.0,2.284868001937866,2.715131998062134
+XD-3080,springxd,Add support for cluster rebalancing,5.0,8.173789978027344,3.1737899780273438
+XD-3081,springxd,When using file as a source and sink user can not use file sink --mode,3.0,3.1489717960357666,0.1489717960357666
+XD-3082,springxd,UI: Add Analytics Tab,3.0,4.282038688659668,1.282038688659668
+XD-3083,springxd,Creating multiple Stream/Job definitions from command file is broken,3.0,3.297799587249756,0.29779958724975586
+XD-3085,springxd,Improve implementation of null sink,1.0,3.969390869140625,2.969390869140625
+XD-3086,springxd,Fix random Spark streaming test failures,1.0,2.5711495876312256,1.5711495876312256
+XD-3087,springxd,Unable to fully destroy hung batch job,3.0,3.252174139022827,0.25217413902282715
+XD-3089,springxd,Add incremental load feature to batch docs,1.0,3.6228981018066406,2.6228981018066406
+XD-3090,springxd,JdbcHdfsTests sporadically fail,2.0,4.671458721160889,2.6714587211608887
+XD-3091,springxd,Update build to use SHDP 2.2.0.RC1,1.0,2.5458812713623047,1.5458812713623047
+XD-3092,springxd,Synchronous deployment/undeployments,2.0,8.810054779052734,6.810054779052734
+XD-3093,springxd,Sqoop list-tables doesn't work oob,1.0,2.7816009521484375,1.7816009521484375
+XD-3094,springxd,SparkApp batch job is not running,2.0,2.062622308731079,0.0626223087310791
+XD-3095,springxd,Update to Reactor 2.0.2,1.0,2.0963151454925537,1.0963151454925537
+XD-3096,springxd,Support for BroadcasterMessageHandler to work with concurrent producing threads,3.0,3.928086519241333,0.928086519241333
+XD-3097,springxd,Provide defaults for xd-shell,1.0,2.3821280002593994,1.3821280002593994
+XD-3098,springxd,Message Bus optimizations (Kafka + Redis),5.0,3.876493215560913,1.123506784439087
+XD-3099,springxd,Spike: Support graceful shutdown of modules in a stream,8.0,7.067107200622559,0.9328927993774414
+XD-3100,springxd,module.*.count > 1 duplicates messages on taps,5.0,2.5911428928375244,2.4088571071624756
+XD-3101,springxd,Fix Gradle “dist�? build task,1.0,2.2923169136047363,1.2923169136047363
+XD-3102,springxd,Benchmark XD RC1 using Kafka 0.8.2 as transport,8.0,5.3878350257873535,2.6121649742126465
+XD-3103,springxd,Adapt to XD Reactor processor fixes and improvements,3.0,9.402379035949707,6.402379035949707
+XD-3104,springxd,Update to Reactor 2.0.3 ,1.0,1.7760720252990723,0.7760720252990723
+XD-3105,springxd,Turn-off JMX by default,1.0,2.9703261852264404,1.9703261852264404
+XD-3106,springxd,Support XD_JMX_ENABLED configuration,2.0,3.5155293941497803,1.5155293941497803
+XD-3107,springxd,Fix gradle build issues,3.0,2.1151909828186035,0.8848090171813965
+XD-3108,springxd,Module failed to deploy because ZK said it already exists.,3.0,3.0099129676818848,0.009912967681884766
+XD-3109,springxd,SFTP socket closed error. Infinite loop,2.0,4.370187759399414,2.370187759399414
+XD-3110,springxd,Clean-up compiler and javadoc warnings from the build,2.0,3.145401954650879,1.145401954650879
+XD-3111,springxd,Upgrade to 1.2.0 RC1 SIK release,1.0,2.3438985347747803,1.3438985347747803
+XD-3112,springxd,Hide the passwords used as module properties in streams from being displayed.,2.0,1.898068904876709,0.10193109512329102
+XD-3113,springxd,Review 'critical' sonar warning...,3.0,2.472219228744507,0.5277807712554932
+XD-3114,springxd,Ensure proper lifecycle shutdown of processors in BroadcasterMessageHandler and MultipleBroadcasterMessageHandler ,2.0,4.166131973266602,2.1661319732666016
+XD-3115,springxd,Improve ReactorReflectionUtils.extractGeneric to support classes with inheritance,1.0,5.212610721588135,4.212610721588135
+XD-3116,springxd,Update redis.tar.gz bundled in distribution to be version 3.0.1,3.0,2.653808116912842,0.3461918830871582
+XD-3117,springxd,Add Logging to ZooKeeperContainerRepository,1.0,3.5342466831207275,2.5342466831207275
+XD-3118,springxd,Update RPM script to include number of containers to be started,2.0,2.403055429458618,0.40305542945861816
+XD-3119,springxd,The performance of the pipe [in singlenode],1.0,5.749936103820801,4.749936103820801

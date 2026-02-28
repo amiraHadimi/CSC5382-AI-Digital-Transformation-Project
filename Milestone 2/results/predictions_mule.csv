@@ -1,0 +1,101 @@
+issuekey,project,title,y_true,y_pred,abs_error
+MULE-8501,mule,ExtensionManagerConfigurationBuilder not invoked when Mule starts in standalone mode,1.0,4.86416482925415,3.8641648292541504
+MULE-8502,mule,Remove log4j2 error message when building,1.0,6.265676021575928,5.265676021575928
+MULE-8503,mule,"Remove the ""extension"" prefix from the generated XSD file name",1.0,3.5492095947265625,2.5492095947265625
+MULE-8505,mule,XSD Generator creates wrong attribute types for numeric parameters,3.0,5.716487884521484,2.7164878845214844
+MULE-8506,mule,XSD Generator fails to generate documentation for attributes,5.0,3.336379289627075,1.6636207103729248
+MULE-8507,mule,Replace all string to number validators by a single one,1.0,4.556244850158691,3.5562448501586914
+MULE-8509,mule,CXF Proxy-Client is throwing NullPointerException,8.0,4.7793426513671875,3.2206573486328125
+MULE-8510,mule,Setting a NullPayload in a property must behave as setting null,2.0,1.7150228023529053,0.2849771976470947
+MULE-8512,mule,Allow default processing strategy to be configured per app,3.0,3.450486183166504,0.4504861831665039
+MULE-8514,mule,Add support for non-blocking processing strategy to CXF/WS-Consumer,8.0,7.459250450134277,0.5407495498657227
+MULE-8515,mule,NPE in is-long validator when setting a null locale,1.0,2.7718541622161865,1.7718541622161865
+MULE-8518,mule,Provide access to client certificate on 2-way TLS authenticated connections,5.0,7.06510066986084,2.06510066986084
+MULE-8519,mule,Add a trace/debug log when a Validation was done successfully,1.0,3.43680739402771,2.43680739402771
+MULE-8520,mule,is-true validator throws ValidationException for String input,3.0,2.221843957901001,0.778156042098999
+MULE-8521,mule,Validators fail when used with a MEL expression inside a component,5.0,4.405719757080078,0.5942802429199219
+MULE-8523,mule,When all validator fails it should always throw an exception,1.0,3.902024745941162,2.902024745941162
+MULE-8527,mule,Remove AspectJ dependency in CE,3.0,3.92116379737854,0.92116379737854
+MULE-8528,mule,When custom validator fails doesn't throw exception,1.0,3.487288236618042,2.487288236618042
+MULE-8530,mule,"Remove domain, ISBN, date, credit card validators",1.0,4.935149669647217,3.935149669647217
+MULE-8531,mule,Fix validation module issues,13.0,7.763629913330078,5.236370086669922
+MULE-8533,mule,MBeans/JMX Memory Leak on vanilla Mule ESB Standalone,8.0,8.089256286621094,0.08925628662109375
+MULE-8534,mule,Reverse the semmantics of MULE-8415,1.0,6.728034973144531,5.728034973144531
+MULE-8541,mule,Exposes information needed by DataMapper in order to run as a plugin,2.0,5.8405256271362305,3.8405256271362305
+MULE-8535,mule,Ensure that transformers use a proper return datatype,8.0,6.5857834815979,1.4142165184020996
+MULE-8536,mule,DI should never include Devkit components,1.0,3.9078524112701416,2.9078524112701416
+MULE-8538,mule,Dispose lifecycle phase is invoked even when initialise phase fails,5.0,5.044806480407715,0.044806480407714844
+MULE-8539,mule,Lifecycle not applied to Objects manually registered during initialisation,1.0,4.849781513214111,3.8497815132141113
+MULE-8543,mule,CXF schemas for 3.5 and 3.6 are wrong,1.0,5.768040180206299,4.768040180206299
+MULE-8544,mule,Core schema for 3.6 is not defined and rubbish at the end of line,1.0,4.161113262176514,3.1611132621765137
+MULE-8548,mule,Upgrade Spring security to 4.0.1.RELEASE,5.0,5.440178394317627,0.44017839431762695
+MULE-8549,mule,Update C3P0 to version 0.9.5,2.0,5.208657741546631,3.208657741546631
+MULE-8553,mule,Add max-send-buffer-size entry in wrapper.conf,3.0,1.0427184104919434,1.9572815895080566
+MULE-8555,mule,Promote to public api DefaultHttpListenerConfig.resolvePath or equivalent behavior,5.0,4.494640350341797,0.5053596496582031
+MULE-8556,mule,SpringRegistry is not thread-safe,3.0,3.2403900623321533,0.24039006233215332
+MULE-8564,mule,Fix jffi version,1.0,4.887585639953613,3.8875856399536133
+MULE-8565,mule,Add support for preemptive basic authentication in the HTTP module,3.0,8.084986686706543,5.084986686706543
+MULE-8569,mule,Applications and corresponding domains should share the same OptionalObjectController,5.0,2.912982702255249,2.087017297744751
+MULE-8572,mule,Dependency injection fails when injection candidate is registered on domain,3.0,4.56370210647583,1.56370210647583
+MULE-8573,mule,Add support for expressions in the authentication configuration of the HTTP connector,3.0,7.696032524108887,4.696032524108887
+MULE-8574,mule,DataType does not validates encoding,5.0,2.8275020122528076,2.1724979877471924
+MULE-8576,mule,Inbound properties copied to outbound properties not maintain their datatypes,3.0,3.9479174613952637,0.9479174613952637
+MULE-8578,mule,The Json-to-Object transformer not change the mimeType correctly. It should set application/json,3.0,4.672403812408447,1.6724038124084473
+MULE-8579,mule,Datatype cannot be configured when adding properties using message-property-transformer,3.0,5.359576225280762,2.3595762252807617
+MULE-8580,mule,Fix JDK8 build,5.0,5.094931125640869,0.09493112564086914
+MULE-8581,mule,Spike on Collection splitter is not setting the group size when payload is an Iterator,5.0,0.08793704211711884,4.912062957882881
+MULE-8582,mule,Spike - Mule support XA transaction on XA resources used by a Spring object component ?,8.0,7.191593170166016,0.8084068298339844
+MULE-8583,mule,Upgrade async-http-client to 1.9.21,3.0,3.614156484603882,0.6141564846038818
+MULE-8584,mule,Upgrade grizzly to 2.3.20,1.0,5.285572052001953,4.285572052001953
+MULE-8594,mule,Content-type is not set on HTTP responses,5.0,6.248165130615234,1.2481651306152344
+MULE-8596,mule,JMX connection error when using JConsole,8.0,5.138300895690918,2.861699104309082
+MULE-8597,mule,set-payload with invalid MIME type returns an ugly error,3.0,3.5658769607543945,0.5658769607543945
+MULE-8598,mule,Deployment should fail when using Invalid MIME type,3.0,6.871677875518799,3.871677875518799
+MULE-8600,mule,Setting wrong encoding causes flow execution to hang,8.0,6.485991477966309,1.5140085220336914
+MULE-8601,mule,Deployment should fail when using invalid encoding,3.0,3.6547014713287354,0.6547014713287354
+MULE-8603,mule,keepAlive is not working correctly in the HTTP requester,8.0,5.520143032073975,2.4798569679260254
+MULE-8604,mule,Incorrect error processing on Jetty transport,2.0,6.725739002227783,4.725739002227783
+MULE-8605,mule,Using Preemptive basic authentication in the new HTTP Module uses two request where the User/Pass are invalid,5.0,4.0755205154418945,0.9244794845581055
+MULE-8606,mule,Can't use redelivery policy,1.0,3.909513235092163,2.909513235092163
+MULE-8609,mule,Should be able to fetch prototype by name without lifecycle applied,1.0,4.229656219482422,3.229656219482422
+MULE-8610,mule,Update MVEL version to 2.1.9-MULE-006,1.0,4.239891052246094,3.2398910522460938
+MULE-8615,mule,Regression found on proxy scenario with the new http module.,13.0,5.89078426361084,7.10921573638916
+MULE-8619,mule,Review event copying and access control in non-blocking support,1.0,9.507424354553223,8.507424354553223
+MULE-8620,mule,Add dynamic configurations for DB connector,8.0,8.258777618408203,0.2587776184082031
+MULE-8625,mule,Support disablePropertiesAsHeaders in http:request builder config,5.0,2.7265803813934326,2.2734196186065674
+MULE-8626,mule,Connection and Keep-Alive message properties should not affect Listener/Requestor connection reuse behaviour.,5.0,5.806268692016602,0.8062686920166016
+MULE-8627,mule,Review CXF documentation,8.0,9.394128799438477,1.3941287994384766
+MULE-8628,mule,HTTP Connector should not send/respond http.* properties ,5.0,5.342523574829102,0.34252357482910156
+MULE-8632,mule,HTTP Listener Connector reject a GET and DELETE that contains a body. ,5.0,5.223739147186279,0.2237391471862793
+MULE-8635,mule,ConcurrentModificationException when hot deploying,8.0,6.011210918426514,1.9887890815734863
+MULE-8638,mule,[Regression] NPE when filter fails,8.0,6.22032356262207,1.7796764373779297
+MULE-8649,mule,Resolve data type from simple MEL expressions,8.0,5.194727897644043,2.805272102355957
+MULE-8650,mule,SecurityFilterMessageProcessor does not support non-blocking.,3.0,3.9236323833465576,0.9236323833465576
+MULE-8654,mule,Can't use redelivery policy with FTP,5.0,3.873563051223755,1.1264369487762451
+MULE-8655,mule,Update jython to 2.7.0,3.0,3.487616539001465,0.48761653900146484
+MULE-8656,mule,Database Connector artifact located in registry no longer implements Testable and DataSense interfaces,3.0,3.9846322536468506,0.9846322536468506
+MULE-8657,mule,XMLStreamException when using non blocking cxf:proxy-service and cxf:proxy-client,3.0,7.127622604370117,4.127622604370117
+MULE-8658,mule,"XML header is not removed when proxying, using non blocking cxf:proxy-service and cxf:proxy-client",8.0,3.0291543006896973,4.970845699310303
+MULE-8664,mule,NullPointerException testing connection on DB connector from Studio,5.0,6.2381510734558105,1.2381510734558105
+MULE-8666,mule,Set mime type correct for common files with FTP/File connectors,5.0,6.96217155456543,1.9621715545654297
+MULE-8669,mule,non-blocking processing strategy should only allow direct-threading-profile ,1.0,3.8947274684906006,2.8947274684906006
+MULE-8676,mule,HTTP listener should ignore 'Transfer-Encoding' property as it is a hop-by-hop header,8.0,4.118911266326904,3.8810887336730957
+MULE-8677,mule,HTTP requestor should ignore 'Transfer-Encoding' property as it is a hop-by-hop header,8.0,4.102316856384277,3.8976831436157227
+MULE-8678,mule,HTTP Requestor should not use Host property.,5.0,5.816051006317139,0.8160510063171387
+MULE-8680,mule,Allow TLS context to be shared in a domain,8.0,6.950238227844238,1.0497617721557617
+MULE-8685,mule,CopyOnWriteCaseInsensitiveMap should be interoperable with a regular map,1.0,4.922567844390869,3.922567844390869
+MULE-8687,mule,Passing a JaxB annotated pojo to the HTTP listener response is throwing a transformer error,1.0,3.7770962715148926,2.7770962715148926
+MULE-8690,mule,Remove registry deprecation warnings from log.,1.0,5.703161716461182,4.703161716461182
+MULE-8693,mule,XA transaction must set tx timeout in XA resources,3.0,3.9719111919403076,0.9719111919403076
+MULE-8696,mule,PROCESS_COMPLETE pipeline notification not sent when strategy is NB and the last component in the flow is not NB ,1.0,6.549805164337158,5.549805164337158
+MULE-8698,mule,NonBlockingNotSupportedFunctionalTestCase.aggregator caused InboundAggregationNoTimeoutTestCase to fail.,5.0,3.6746041774749756,1.3253958225250244
+MULE-8700,mule,Incorrect XSD generated for extension built using extension API,3.0,6.472280979156494,3.472280979156494
+MULE-8708,mule,Validations doesn't support concurrency.,3.0,5.519669055938721,2.5196690559387207
+MULE-8713,mule,Merge mule 3.x on 4.x branch,5.0,6.221405029296875,1.221405029296875
+MULE-8723,mule,Mime Type for .CSV files is not being auto detected and set,3.0,3.749504566192627,0.749504566192627
+MULE-8724,mule,Operation state handling in extensions api,8.0,5.745721817016602,2.2542781829833984
+MULE-8725,mule,Implememnt multitenant configuration eviction policy,8.0,6.805023670196533,1.1949763298034668
+MULE-8735,mule,MuleMessage is going to registry for every transformation when extended transformations are used.,1.0,5.070520401000977,4.070520401000977
+MULE-8736,mule,Enricher does not propagates datatype,8.0,3.190136671066284,4.809863328933716
+MULE-8738,mule,No data type resolution accessing flow/session properties using dot notation,1.0,5.570628643035889,4.570628643035889
+MULE-8741,mule,Extract logic for creating implicit configs to a separate class,5.0,4.800532817840576,0.19946718215942383

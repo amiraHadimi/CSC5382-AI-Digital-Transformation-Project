@@ -1,0 +1,101 @@
+issuekey,project,title,y_true,y_pred,abs_error
+TIMOB-20241,titanium,"Windows: Implement Ti.UI.View.convertPointToView( point, destinationView )",5.0,2.937086343765259,2.062913656234741
+TIMOB-20243,titanium,Hyperloop: Hyperloop stubs should be generated in platform specific folders,2.0,5.677407741546631,3.677407741546631
+TIMOB-20246,titanium,Windows: generate_project.js does not set MSBuild version,3.0,4.359375,1.359375
+TIMOB-20250,titanium,Hyperloop: Cannot remove a HyperloopViewProxy from a TiViewProxy,5.0,7.72273588180542,2.72273588180542
+TIMOB-20251,titanium,Android 6.0: java.io.FileNotFoundException: open failed: ENOENT (No such file or directory),5.0,2.5067858695983887,2.4932141304016113
+TIMOB-20252,titanium,Windows: Windows 10 SDK is not detected,5.0,7.953351020812988,2.9533510208129883
+TIMOB-20256,titanium,Windows: Reduce memory consumption at TitaniumKit startup,13.0,6.568779945373535,6.431220054626465
+TIMOB-20257,titanium,Windows: Support Ti.Blob.imageAs* methods,8.0,6.041215419769287,1.958784580230713
+TIMOB-20258,titanium,"Android: If you run a mobile project on Android < 5.0, then WindowProxy errors will appear in logcat",3.0,6.901043891906738,3.9010438919067383
+TIMOB-20263,titanium,Windows: Run unit tests on CI builds for Desktop/Store apps,8.0,9.238687515258789,1.238687515258789
+TIMOB-20283,titanium,Facebook iOS Module 5.0.0 crashes on resume on iOS 8.4,3.0,5.98637056350708,2.98637056350708
+TIMOB-20274,titanium,Hyperloop: Plugin fails if the source does not contain HL references,2.0,6.39579963684082,4.39579963684082
+TIMOB-20275,titanium,"""Found incompatible Titanium module"" error does not actually say wat the problem is",5.0,5.136959075927734,0.13695907592773438
+TIMOB-20284,titanium,Android: Function insertAt on Scroll Views causes crash,5.0,5.517580032348633,0.5175800323486328
+TIMOB-20279,titanium,Android: Ti.Contacts.getAllPeople() crashes with overflow on Android < 6,2.0,4.203120708465576,2.203120708465576
+TIMOB-20277,titanium,Hyperloop: Support Blur effect example,3.0,5.961047172546387,2.9610471725463867
+TIMOB-20280,titanium,Easier way to bump version,1.0,4.781496047973633,3.781496047973633
+TIMOB-20281,titanium,Windows: Implement enabled property for View,8.0,7.418241024017334,0.581758975982666
+TIMOB-20282,titanium,"Windows: ProgressBar default layout should be SIZE, not FILL",5.0,3.1413817405700684,1.8586182594299316
+TIMOB-20425,titanium,Main Thread: Ti.Stream undefined when enabled and run via LiveView,5.0,9.034921646118164,4.034921646118164
+TIMOB-20288,titanium,Windows: File.write can't handle UTF-8 string,5.0,3.735417127609253,1.264582872390747
+TIMOB-20289,titanium,Windows: Ti API in WebView content is not implemented,8.0,8.593070983886719,0.5930709838867188
+TIMOB-20293,titanium,Android missing Titanium.Database.DB.getFile(),3.0,5.116629123687744,2.116629123687744
+TIMOB-20295,titanium,iOS: Support SearchBar button title,3.0,4.1592631340026855,1.1592631340026855
+TIMOB-20294,titanium,iOS: Resolve Xcode compiler warnings,3.0,8.779239654541016,5.779239654541016
+TIMOB-20297,titanium,"Hyperloop: Couldn't find iOS CocoaPods third-party-modules with ""-""",5.0,5.111893653869629,0.1118936538696289
+TIMOB-20299,titanium,Windows: Build errors out with 'mix is not a function',3.0,5.537215709686279,2.5372157096862793
+TIMOB-20300,titanium,Windows: Prevent MSBuild from locking resources after builds,3.0,5.747069835662842,2.747069835662842
+TIMOB-20302,titanium,iOS: Support showing and hiding the toolbar in Ti.UI.Window,3.0,8.253005027770996,5.253005027770996
+TIMOB-20314,titanium,Windows: Add support for shadow* properties on Ti.UI.Label and Button,13.0,5.930622577667236,7.069377422332764
+TIMOB-20316,titanium,Windows: Make use of an LRU cache for cached property values,8.0,8.863117218017578,0.8631172180175781
+TIMOB-20319,titanium,iOS: Weird behavior after crop the image captured from camera,5.0,5.1394195556640625,0.1394195556640625
+TIMOB-20320,titanium,Android: Provide generic requestPermission(s) method,3.0,4.41969108581543,1.4196910858154297
+TIMOB-20357,titanium,Android: 9-patch padding box area ignored for Button backgroundImage,2.0,4.275115489959717,2.275115489959717
+TIMOB-20322,titanium,appcd: JSON response filtering,13.0,8.889585494995117,4.110414505004883
+TIMOB-20323,titanium,appcd: Integrate hook system into appc daemon,13.0,6.738077163696289,6.261922836303711
+TIMOB-20324,titanium,appcd: Add analytics facilities,13.0,12.4945707321167,0.5054292678833008
+TIMOB-20325,titanium,appcd: Add support for distributable Node executable,5.0,9.653947830200195,4.653947830200195
+TIMOB-20329,titanium,Create Jenkins build machine for titanium_mobile build and unit testing,13.0,7.016336441040039,5.983663558959961
+TIMOB-20337,titanium,Parity: enabling run-on-main-thread,3.0,8.28902816772461,5.289028167724609
+TIMOB-20347,titanium,appcd: Support for --config and --config-file options,8.0,8.204660415649414,0.20466041564941406
+TIMOB-20350,titanium,Windows: Update parity report generation/docs to show support for missing items,5.0,4.928619861602783,0.0713801383972168
+TIMOB-20354,titanium,Windows: Support Ti.Blob.imageWith* methods,8.0,5.910728454589844,2.0892715454101562
+TIMOB-20389,titanium,iOS: Listview delete event sends wrong itemId,8.0,6.039037227630615,1.9609627723693848
+TIMOB-20370,titanium,Windows: Running desktop app doesn't show logs in console,5.0,4.962594509124756,0.03740549087524414
+TIMOB-20374,titanium,Android: Longpress event on ScrollView doesn't fire,5.0,5.209683418273926,0.20968341827392578
+TIMOB-20375,titanium,Android: KitchenSink update for Facebook ,2.0,4.694746494293213,2.694746494293213
+TIMOB-20398,titanium,Ti.admob: Android issues starting from Ti SDK 5.1,5.0,5.183379650115967,0.1833796501159668
+TIMOB-20380,titanium,iOS: Views height / width properties are not respected inside ScrollableView ,5.0,6.951832294464111,1.9518322944641113
+TIMOB-20382,titanium,Windows: Custom iconic fonts do not render properly.,5.0,5.189741134643555,0.1897411346435547
+TIMOB-20385,titanium,Windows: ScrollView does not respect `top` property on views,8.0,6.710177898406982,1.2898221015930176
+TIMOB-20386,titanium,Windows: View based click event are not working consistently,8.0,7.585261821746826,0.41473817825317383
+TIMOB-20393,titanium,iOS: Launch Image Set leaves out required sizes if no (>=8.0) minimum iOS version is set,2.0,4.909183979034424,2.909183979034424
+TIMOB-20396,titanium,iOS: Main-Thread: Cannot create proxies in callbacks,3.0,6.743847370147705,3.743847370147705
+TIMOB-20400,titanium,WWDR certificate can not be found in keychain other than system,3.0,2.945437431335449,0.05456256866455078
+TIMOB-20405,titanium,iconInsets: Weird behaviour when not repositioning but also enlarging icon,3.0,4.540095806121826,1.5400958061218262
+TIMOB-20415,titanium,Android: HttpClient Basic Auth: Infinite loop with bad credentials,5.0,4.4555888175964355,0.5444111824035645
+TIMOB-20409,titanium,iOS: Add rest of stylus properties to 3D touch events,2.0,5.371912479400635,3.3719124794006348
+TIMOB-20413,titanium,Bump master to 5.4.0 and change already merged 6.0.0 features to 5.4.0 in docs,2.0,6.286275863647461,4.286275863647461
+TIMOB-20417,titanium,Hyperloop: Expose builtin utilities,8.0,8.345335006713867,0.3453350067138672
+TIMOB-20418,titanium,Hyperloop: Expose ObjC-macros in Javascript,1.0,11.17334270477295,10.17334270477295
+TIMOB-20423,titanium,iOS: KeyboardToolbar is not working well when there are more then one textfield,5.0,7.670281887054443,2.6702818870544434
+TIMOB-20424,titanium,Support for Github pull request & issue templates,3.0,8.059679985046387,5.059679985046387
+TIMOB-20493,titanium,iOS: ScrollableView fire events only for the first two views,8.0,7.58357572555542,0.4164242744445801
+TIMOB-20438,titanium,iOS: Change documentation on TableViewCellSelectionStyle,1.0,5.861754417419434,4.861754417419434
+TIMOB-20434,titanium,Kitchen Sink Crashes on initial install ,3.0,5.8035688400268555,2.8035688400268555
+TIMOB-20598,titanium,Windows: views not animating correctly,5.0,8.626636505126953,3.626636505126953
+TIMOB-20441,titanium,Android: Implement TimePicker with `minuteInterval` property,3.0,5.805454730987549,2.805454730987549
+TIMOB-20442,titanium,GitHub: Release tags marked as pre-release since 5.0.2.GA,3.0,7.479161262512207,4.479161262512207
+TIMOB-20451,titanium,Window.close should use new activity*Transition instead of activity*Animation or default,3.0,4.285036087036133,1.2850360870361328
+TIMOB-20483,titanium,Android HTTPClient onsendstream progress is wrong,2.0,5.826991081237793,3.826991081237793
+TIMOB-20453,titanium,"5.3.0 Regression: ""rendering artifact"" between launch image and first view",5.0,5.732726097106934,0.7327260971069336
+TIMOB-20457,titanium,iOS: gradient percentage units are not accurate,1.0,5.849926471710205,4.849926471710205
+TIMOB-20467,titanium,Android: Titanium.UI.ProgressBar 'color' property has no effect on text,8.0,2.4231302738189697,5.57686972618103
+TIMOB-20470,titanium,Android 6.0 (Post 5.2.0 SDK): java.io.FileNotFoundException: open failed: ENOENT (No such file or directory),3.0,3.0108635425567627,0.010863542556762695
+TIMOB-20460,titanium,Windows: ScrollableView does not respect `top` property on views,5.0,7.180370807647705,2.180370807647705
+TIMOB-20461,titanium,iPad: Events fired by Slide Over and Split Window not clear/documented,1.0,6.171459197998047,5.171459197998047
+TIMOB-20465,titanium,"iOS: Support ""keypressed"" event",1.0,5.848906993865967,4.848906993865967
+TIMOB-20469,titanium,Hyperloop is re-writing source JS then failing subsequent clean builds,8.0,6.963257789611816,1.0367422103881836
+TIMOB-20511,titanium,iOS: TableView touchend and touchstart event property index is null after upgrading to 5.2.0 SDK,5.0,7.97907018661499,2.9790701866149902
+TIMOB-20478,titanium,Windows: Implement missing Ti.Locale properties,5.0,9.796008110046387,4.796008110046387
+TIMOB-20480,titanium,Windows: Implement missing Ti.Locale functions,5.0,11.676473617553711,6.676473617553711
+TIMOB-20481,titanium,Windows: Support l10n application name,5.0,5.643697738647461,0.6436977386474609
+TIMOB-20484,titanium,Hyperloop: iOS: Local-embedded frameworks not working,13.0,10.13041877746582,2.8695812225341797
+TIMOB-20569,titanium,Windows: View visible property doesn't seem to work on Windows phone,8.0,6.214072227478027,1.7859277725219727
+TIMOB-20537,titanium,Regression: Alloy-themed i18n and platform folders no longer work since Ti 5.2.0.GA,13.0,5.80006217956543,7.19993782043457
+TIMOB-20490,titanium,Android: Apps should be able to open/resume and respond to intents,21.0,7.232086658477783,13.767913341522217
+TIMOB-20494,titanium,Console stops working with HL,1.0,4.066941261291504,3.066941261291504
+TIMOB-20495,titanium,iOS: Build error caused by missing define statements,3.0,6.238824844360352,3.2388248443603516
+TIMOB-20496,titanium,Windows: Badge icon needed with background task for Windows Store,5.0,4.740213871002197,0.25978612899780273
+TIMOB-20498,titanium,Deprecate activity*Animation,5.0,6.427516937255859,1.4275169372558594
+TIMOB-20502,titanium,Using Android shortcut to start new activity fails to detect Alloy.,5.0,4.693840026855469,0.30615997314453125
+TIMOB-20505,titanium,iOS: Inconsistent behavior with various UI components when toggling autolayout,13.0,7.038691997528076,5.961308002471924
+TIMOB-20580,titanium,Windows: can't address to parent on windows phone,5.0,4.643322467803955,0.3566775321960449
+TIMOB-20513,titanium,iOS: Activity indicator label cut off when auto layout is enabled,3.0,7.575764179229736,4.575764179229736
+TIMOB-20519,titanium,'--project dir .' causes module build to fail,2.0,6.12183952331543,4.12183952331543
+TIMOB-20523,titanium," Android: Webview with Hardware Acceleration, software rendering doesn't work.",13.0,6.564528942108154,6.435471057891846
+TIMOB-20526,titanium,iOS Module: metadata.json file is written outside iphone module folder,1.0,4.5108137130737305,3.5108137130737305
+TIMOB-20533,titanium,Ti.Android.Intent is not working properly,8.0,5.864675998687744,2.135324001312256
+TIMOB-20534,titanium,"Android: Services enabled app crashes with error ""Didn't find class ti.modules.titanium.network.NonValidatingSSLSocketFactory"" when built with 3.5.2 & 4.0.1 SDK",3.0,3.265939950942993,0.26593995094299316

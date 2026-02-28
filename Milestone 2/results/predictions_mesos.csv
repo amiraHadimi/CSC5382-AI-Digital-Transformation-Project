@@ -1,0 +1,101 @@
+issuekey,project,title,y_true,y_pred,abs_error
+MESOS-4941,mesos,Support update existing quota.,8.0,3.8311896324157715,4.1688103675842285
+MESOS-4942,mesos,Docker runtime isolator tests may cause disk issue.,2.0,3.1971065998077393,1.1971065998077393
+MESOS-4943,mesos,Reduce the size of LinuxRootfs in tests.,13.0,2.6837146282196045,10.316285371780396
+MESOS-4944,mesos,Improve overlay backend so that it's writable,5.0,2.696324586868286,2.303675413131714
+MESOS-4949,mesos,Executor shutdown grace period should be configurable.,3.0,4.011630535125732,1.0116305351257324
+MESOS-4950,mesos,Implement reconnect funtionality in the scheduler library.,3.0,5.992105007171631,2.992105007171631
+MESOS-4951,mesos,Enable actors to pass an authentication realm to libprocess,2.0,2.996595621109009,0.9965956211090088
+MESOS-4956,mesos,Add authentication to /files endpoints,5.0,2.782219886779785,2.217780113220215
+MESOS-4961,mesos,ContainerLoggerTest.LOGROTATE_RotateInSandbox is flaky,1.0,0.4873148500919342,0.5126851499080658
+MESOS-4962,mesos,Support for Mesos releases,8.0,3.943995952606201,4.056004047393799
+MESOS-4970,mesos,Add more examples of JSON resources to docs,1.0,2.4677200317382812,1.4677200317382812
+MESOS-4978,mesos,Update mesos-execute with Appc changes.,3.0,2.321377992630005,0.6786220073699951
+MESOS-4982,mesos,Update example long running to use v1 API.,5.0,3.4734537601470947,1.5265462398529053
+MESOS-4984,mesos,MasterTest.SlavesEndpointTwoSlaves is flaky,2.0,1.5363717079162598,0.46362829208374023
+MESOS-4985,mesos,Destroy a container while it's provisioning can lead to leaked provisioned directories.,3.0,1.985413670539856,1.014586329460144
+MESOS-4992,mesos,sandbox uri does not work outisde mesos http server,3.0,1.3684370517730713,1.6315629482269287
+MESOS-4998,mesos,Problematic fork/clone performance at high load.,8.0,3.507530450820923,4.492469549179077
+MESOS-5004,mesos,Clarify docs on '/reserve' and '/create-volumes' without authentication,1.0,2.6302812099456787,1.6302812099456787
+MESOS-5005,mesos,Enforce that DiskInfo principal is equal to framework/operator principal,3.0,2.8097808361053467,0.19021916389465332
+MESOS-5006,mesos,Add example for mesos-execute usage of Appc images in container-image.md.,3.0,0.8636708855628967,2.1363291144371033
+MESOS-5010,mesos,Installation of mesos python package is incomplete,2.0,2.2263474464416504,0.2263474464416504
+MESOS-5013,mesos,Add docker volume driver isolator for Mesos containerizer.,8.0,1.562342643737793,6.437657356262207
+MESOS-5014,mesos,Call and Event Type enums in scheduler.proto should be optional,2.0,0.5272145867347717,1.4727854132652283
+MESOS-5015,mesos,Call and Event Type enums in executor.proto should be optional,2.0,0.8144762516021729,1.1855237483978271
+MESOS-5016,mesos,Add a reconnect() method to the C++ scheduler library,3.0,3.043076276779175,0.043076276779174805
+MESOS-5023,mesos,MesosContainerizerProvisionerTest.DestroyWhileProvisioning is flaky.,2.0,0.6967111229896545,1.3032888770103455
+MESOS-5027,mesos,Enable authenticated login in the webui,2.0,2.715991735458374,0.715991735458374
+MESOS-5028,mesos,Copy provisioner cannot replace directory with symlink,3.0,2.352111577987671,0.6478884220123291
+MESOS-5031,mesos,Authorization Action enum does not support upgrades.,2.0,2.5751664638519287,0.5751664638519287
+MESOS-5032,mesos,Remove plain text Credential format (after deprecation cycle),3.0,1.8135207891464233,1.1864792108535767
+MESOS-5034,mesos,Design doc for ordered message delivery in libprocess,3.0,3.869851589202881,0.8698515892028809
+MESOS-5044,mesos,Temporary directories created by environment->mkdtemp cleanup can be problematic.,1.0,2.4482016563415527,1.4482016563415527
+MESOS-5049,mesos,Refactore subproces setup functions.,3.0,2.792980670928955,0.20701932907104492
+MESOS-5050,mesos,Design Linux capability support for Mesos containerizer,5.0,3.6069657802581787,1.3930342197418213
+MESOS-5051,mesos,Create helpers for manipulating Linux capabilities.,5.0,4.8496294021606445,0.15037059783935547
+MESOS-5054,mesos,Namespace the stout flags,2.0,3.152470111846924,1.1524701118469238
+MESOS-5055,mesos,Slave/Agent Rename Phase I - Update strings in the log message and standard output,2.0,3.1730775833129883,1.1730775833129883
+MESOS-5056,mesos,Replace Master/Slave Terminology Phase I - Update strings in the shell scripts outputs,1.0,2.45944881439209,1.4594488143920898
+MESOS-5057,mesos,Slave/Agent Rename Phase I - Update strings in error messages and other strings,3.0,1.379709243774414,1.620290756225586
+MESOS-5062,mesos,Update the long-lived-framework example to run on test clusters,3.0,4.038072109222412,1.038072109222412
+MESOS-5064,mesos,Remove default value for the agent `work_dir`,2.0,2.502959728240967,0.5029597282409668
+MESOS-5065,mesos,Support docker private registry default docker config.,3.0,3.298863410949707,0.29886341094970703
+MESOS-5069,mesos,Upgrade http-parser to v2.6.2,3.0,2.5166056156158447,0.4833943843841553
+MESOS-5070,mesos,Introduce more flexible subprocess interface for child options.,2.0,2.802915096282959,0.802915096282959
+MESOS-5071,mesos,Refactor the clone option to subprocess.,2.0,2.8044211864471436,0.8044211864471436
+MESOS-5078,mesos,Document TaskStatus reasons,1.0,2.1579973697662354,1.1579973697662354
+MESOS-5082,mesos,Fix a bug in the Nvidia GPU device isolator that exposes a discrepancy between clang and gcc in 'using' declarations,1.0,0.8732848763465881,0.12671512365341187
+MESOS-5101,mesos,Add CMake build to docker_build.sh,2.0,1.5787373781204224,0.42126262187957764
+MESOS-5108,mesos,Design a short-term solution for a typed error handling mechanism.,2.0,4.4385223388671875,2.4385223388671875
+MESOS-5109,mesos,Capture the error code in `ErrnoError` and `WindowsError`.,2.0,2.115126848220825,0.1151268482208252
+MESOS-5110,mesos,Introduce an additional template parameter to `Try` for typed error.,3.0,2.002389669418335,0.997610330581665
+MESOS-5111,mesos,Update `network::connect` to use the typed error state of `Try`.,2.0,2.503222703933716,0.5032227039337158
+MESOS-5112,mesos,Introduce `WindowsSocketError`.,2.0,3.015997886657715,1.0159978866577148
+MESOS-5113,mesos,`network/cni` isolator crashes when launched without the --network_cni_plugins_dir flag,1.0,1.5991560220718384,0.5991560220718384
+MESOS-5114,mesos,Flags::parse does not handle empty string correctly.,2.0,0.9255790710449219,1.0744209289550781
+MESOS-5115,mesos,Grant access to /dev/nvidiactl and /dev/nvidia-uvm in the Nvidia GPU isolator.,2.0,2.83213210105896,0.83213210105896
+MESOS-5121,mesos,pivot_root is not available on PowerPC,1.0,1.3288315534591675,0.3288315534591675
+MESOS-5124,mesos,TASK_KILLING is not supported by mesos-execute.,3.0,1.3860557079315186,1.6139442920684814
+MESOS-5125,mesos,"Commit message hook iterates over words, rather than lines.",2.0,1.5267637968063354,0.47323620319366455
+MESOS-5126,mesos,Commit message hook iterates over the commented lines.,2.0,1.7444109916687012,0.25558900833129883
+MESOS-5127,mesos,Reset `LIBPROCESS_IP` in `network\cni` isolator.,1.0,2.105473518371582,1.105473518371582
+MESOS-5128,mesos,PersistentVolumeTest.AccessPersistentVolume is flaky,3.0,0.45366954803466797,2.546330451965332
+MESOS-5130,mesos,Enable `newtork/cni` isolator in `MesosContainerizer` as the default `network` isolator.,1.0,3.943378448486328,2.943378448486328
+MESOS-5132,mesos,Commit message hook lints the diff in verbose mode.,2.0,1.9623786211013794,0.037621378898620605
+MESOS-5133,mesos,Expose TaskStatus source & reason in master's '/state' output,1.0,2.543701648712158,1.5437016487121582
+MESOS-5135,mesos,Update existing documentation to Include references to GPUs as a first class resource.,1.0,4.2077131271362305,3.2077131271362305
+MESOS-5136,mesos,Update the default JSON representation of a Resource to include GPUs,1.0,2.034522533416748,1.034522533416748
+MESOS-5137,mesos,Remove 'dashboard.js' from the webui.,1.0,1.5318876504898071,0.5318876504898071
+MESOS-5138,mesos,Fix Nvidia GPU test build for namespace change of MasterDetector,1.0,2.0763704776763916,1.0763704776763916
+MESOS-5139,mesos,ProvisionerDockerLocalStoreTest.LocalStoreTestWithTar is flaky,2.0,0.562744677066803,1.437255322933197
+MESOS-5142,mesos,Add agent flags for HTTP authorization.,2.0,3.5678234100341797,1.5678234100341797
+MESOS-5144,mesos,Cleanup memory leaks in libprocess finalize(),2.0,1.2859070301055908,0.7140929698944092
+MESOS-5146,mesos,MasterAllocatorTest/1.RebalancedForUpdatedWeights is flaky.,1.0,1.6920286417007446,0.6920286417007446
+MESOS-5152,mesos,Add authentication to agent's /monitor/statistics endpoint,2.0,2.3340418338775635,0.3340418338775635
+MESOS-5153,mesos,Sandboxes contents should be protected from unauthorized users,8.0,5.17485237121582,2.8251476287841797
+MESOS-5155,mesos,Consolidate authorization actions for quota.,5.0,4.399922847747803,0.6000771522521973
+MESOS-5156,mesos,Run mesos builds on PowerPC platform in ASF CI,1.0,3.699749708175659,2.699749708175659
+MESOS-5157,mesos,Update webui for GPU metrics,1.0,2.1319525241851807,1.1319525241851807
+MESOS-5159,mesos,Add test to verify error when requesting fractional GPUs,1.0,1.5546581745147705,0.5546581745147705
+MESOS-5160,mesos,Make `network/cni` enabled as the default network isolator for `MesosContainerizer`.,1.0,2.4386677742004395,1.4386677742004395
+MESOS-5162,mesos,"Commit message hook behaves incorrectly when a message includes a ""*"".",2.0,1.5687994956970215,0.4312005043029785
+MESOS-5164,mesos,Add authorization to agent's /monitor/statistics endpoint.,5.0,4.516908168792725,0.4830918312072754
+MESOS-5167,mesos,Add tests for `network/cni` isolator,5.0,3.445876359939575,1.5541236400604248
+MESOS-5168,mesos,Benchmark overhead of authorization based filtering.,3.0,4.708512306213379,1.708512306213379
+MESOS-5169,mesos,Introduce new Authorizer Actions for Authorized based filtering of endpoints.,3.0,2.687105417251587,0.3128945827484131
+MESOS-5170,mesos,Adapt json creation for authorization based endpoint filtering.,5.0,2.573331832885742,2.426668167114258
+MESOS-5171,mesos,Expose state/state.hpp to public headers,3.0,1.3302459716796875,1.6697540283203125
+MESOS-5172,mesos,Registry puller cannot fetch blobs correctly from some private repos.,3.0,2.8917410373687744,0.10825896263122559
+MESOS-5173,mesos,Allow master/agent to take multiple modules manifest files,3.0,2.7351787090301514,0.26482129096984863
+MESOS-5174,mesos,Update the balloon-framework to run on test clusters,3.0,3.2349557876586914,0.2349557876586914
+MESOS-5178,mesos,Add logic to validate for non-fractional GPU requests in the master,2.0,3.737271308898926,1.7372713088989258
+MESOS-5179,mesos,Enhance the error message for Duration flag.,1.0,1.3815603256225586,0.3815603256225586
+MESOS-5180,mesos,Scheduler driver does not detect disconnection with master and reregister.,3.0,3.4191601276397705,0.4191601276397705
+MESOS-5181,mesos,Master should reject calls from the scheduler driver if the scheduler is not connected.,1.0,2.8643250465393066,1.8643250465393066
+MESOS-5199,mesos,The mesos-execute prints confusing message when launching tasks.,1.0,3.021618366241455,2.021618366241455
+MESOS-5212,mesos,Allow any principal in ReservationInfo when HTTP authentication is off,1.0,1.7089643478393555,0.7089643478393555
+MESOS-5213,mesos,Operator endpoints should accept a principal without HTTP authentication,3.0,5.779239177703857,2.7792391777038574
+MESOS-5214,mesos,Populate FrameworkInfo.principal for authenticated frameworks,2.0,4.113478183746338,2.113478183746338
+MESOS-5215,mesos,Update the documentation for '/reserve' and '/create-volumes',1.0,1.8373528718948364,0.8373528718948364
+MESOS-5216,mesos,Document docker volume driver isolator.,5.0,1.4065961837768555,3.5934038162231445

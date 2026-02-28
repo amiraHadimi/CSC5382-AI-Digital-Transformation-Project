@@ -1,0 +1,101 @@
+issuekey,project,title,y_true,y_pred,abs_error
+TESB-10208,talendesb,Authorization UI: advanced 'Edit' assignment,3.0,3.221517324447632,0.22151732444763184
+TESB-10209,talendesb,Service Registry UI: Improvement in SR UI for Endpoint handling,5.0,3.0453639030456543,1.9546360969543457
+TESB-10210,talendesb,Service Registry UI: Consistency Check,1.0,3.6923694610595703,2.6923694610595703
+TESB-10211,talendesb,Service Registry UI: Improve the assignment view,3.0,2.238248348236084,0.761751651763916
+TESB-10214,talendesb,Service Registry UI: Policy creation Wizard,1.0,3.8361446857452393,2.8361446857452393
+TESB-10335,talendesb,The cLog component is severely impaired,1.0,2.7650134563446045,1.7650134563446045
+TESB-10338,talendesb,Upgrade Studio/Connectors to latest Apache snapshots,2.0,2.3745667934417725,0.37456679344177246
+TESB-10344,talendesb,Service Registry UI: export/import Services/Policies,5.0,2.6137075424194336,2.3862924575805664
+TESB-10359,talendesb,Authorization UI: export/import XACML Policy definitions,3.0,2.933170795440674,0.06682920455932617
+TESB-10364,talendesb,BPM: add support for PostgreSQL 9.2 (9.2.4),3.0,2.0616488456726074,0.9383511543273926
+TESB-10368,talendesb,Data Service: support Encryption/Signature,2.0,1.7191191911697388,0.28088080883026123
+TESB-10369,talendesb,tESBConsumer: support Encryption/Signature,2.0,1.6041463613510132,0.3958536386489868
+TESB-10372,talendesb,Data Service: user Credentials propagation,1.0,3.3439035415649414,2.3439035415649414
+TESB-10373,talendesb,tESBConsumer: user Credentials propagation,2.0,3.465299367904663,1.465299367904663
+TESB-10374,talendesb,cCXF: user Credentials propagation,5.0,3.423245906829834,1.576754093170166
+TESB-10375,talendesb,BPM ESB WS Connector: user Credentials propagation,3.0,3.672004222869873,0.672004222869873
+TESB-10378,talendesb,RS and WS client should be able to auto-follow same URI redirects,1.0,1.1525715589523315,0.15257155895233154
+TESB-10392,talendesb,BPM ESB WS Connector: Authorization support,1.0,3.5400168895721436,2.5400168895721436
+TESB-10393,talendesb,BPM ESB WS Connector: Service Registry support,1.0,3.1583292484283447,2.1583292484283447
+TESB-10396,talendesb,Event Logging: Log Listener,3.0,3.308426856994629,0.3084268569946289
+TESB-10397,talendesb,Event Logging: SAM Listener,2.0,3.0494189262390137,1.0494189262390137
+TESB-10398,talendesb,Event Logging Agent - Signing,5.0,2.3330042362213135,2.6669957637786865
+TESB-10406,talendesb,Authorization UI: add possibility to create > 1 resourse based on WSDL ,3.0,2.187443733215332,0.812556266784668
+TESB-10440,talendesb,Support for custom correleation id SOAP/REST including custom policy,3.0,3.304677963256836,0.30467796325683594
+TESB-10441,talendesb,Data services - SOAP support WSDL schema validation via ESB runtime options and via a new WSDL schema validation,2.0,1.3607510328292847,0.6392489671707153
+TESB-10442,talendesb,Enable SAM configuration via Policy/Service Registry,2.0,3.7914905548095703,1.7914905548095703
+TESB-10443,talendesb,PostgreSQL DB Support for SAM,2.0,2.9852867126464844,0.9852867126464844
+TESB-10444,talendesb,Service Registry - provide wsdl consistency check (incl. policies),2.0,2.505317211151123,0.505317211151123
+TESB-10446,talendesb,Service & Policy export/import capabilities,3.0,4.783298969268799,1.7832989692687988
+TESB-10449,talendesb,PostgreSQL DB support for Service Registry,1.0,3.7849531173706055,2.7849531173706055
+TESB-10450,talendesb,PostgreSQL support for Authorization repository,2.0,2.98901629447937,0.9890162944793701
+TESB-10453,talendesb,Switch to latest Apache libraries snapshot,2.0,2.048902750015259,0.04890275001525879
+TESB-10454,talendesb,Service Locator - TLS Support (encrypted communication support between Apache Zookeeper instances),3.0,3.1304738521575928,0.13047385215759277
+TESB-10459,talendesb,Integrate XKMS Service from cxf in the runtime,3.0,2.99603009223938,0.003969907760620117
+TESB-10460,talendesb,SAM: slow database query performance (backport to 5.3.2),1.0,1.6002626419067383,0.6002626419067383
+TESB-10461,talendesb,tRESTClient: SAML security support,5.0,3.6819798946380615,1.3180201053619385
+TESB-10521,talendesb,expose process as DS/REST: set default values for non request fields,2.0,1.9498323202133179,0.05016767978668213
+TESB-10574,talendesb,"Consumer job with empty credentials authentication can not invoke ""Fault"" row when run in runtime",1.0,1.7029632329940796,0.7029632329940796
+TESB-10576,talendesb,Event Logging: logging listener should be extended to open a second endpoint for audit events,1.0,2.461977243423462,1.461977243423462
+TESB-10584,talendesb,Implement Event logging server,8.0,3.422367811203003,4.577632188796997
+TESB-10585,talendesb,Implement Event logging REST service,3.0,3.8378801345825195,0.8378801345825195
+TESB-10587,talendesb,Externalize Jackrabbit configuration,2.0,2.0131688117980957,0.013168811798095703
+TESB-10594,talendesb,Event logging: Server side SAM DB support,3.0,3.3010902404785156,0.3010902404785156
+TESB-10595,talendesb,Extend Event logging server for Elasticsearch,3.0,3.250847816467285,0.25084781646728516
+TESB-10597,talendesb,BPM ESB WS Connector: Correlation propagation,2.0,4.812845230102539,2.812845230102539
+TESB-10598,talendesb,BPM ESB REST Connector: CorrelationID support,2.0,2.883815288543701,0.8838152885437012
+TESB-10600,talendesb,Data Service: Correlation propagation,5.0,4.515645980834961,0.48435401916503906
+TESB-10601,talendesb,REST: Correlation ID support,5.0,3.3545472621917725,1.6454527378082275
+TESB-10617,talendesb,Registry oneway communication failed when Username Token policy to service and SAML Token policy to oneway operation,2.0,3.3515710830688477,1.3515710830688477
+TESB-10634,talendesb,Upgrade to Bonita 5.10.1,2.0,1.5220272541046143,0.47797274589538574
+TESB-10648,talendesb,Authorization UI: Create resource improvements,5.0,3.6717612743377686,1.3282387256622314
+TESB-10661,talendesb,cCXF: CorrelationId support,3.0,4.019935607910156,1.0199356079101562
+TESB-10663,talendesb,"New BPM connector: ""Talend ESB Route Producer""",3.0,2.8639795780181885,0.13602042198181152
+TESB-10672,talendesb,Service Registry UI: Category should be visible only if Template selected,1.0,1.6821519136428833,0.6821519136428833
+TESB-10673,talendesb,Authorization UI: Multiple creating resources,1.0,3.304946184158325,2.304946184158325
+TESB-10680,talendesb,Disable 'Use SAM' in case 'Use SR' selected,2.0,2.8622617721557617,0.8622617721557617
+TESB-10683,talendesb,Authz: Only operations in the first serive showed in the 'select resource' panel,1.0,2.6223089694976807,1.6223089694976807
+TESB-10686,talendesb,Convert spring configuration to blueprint.,1.0,1.9605236053466797,0.9605236053466797
+TESB-10688,talendesb,Custom Correlation id support for REST participants,2.0,2.6221933364868164,0.6221933364868164
+TESB-10710,talendesb,Service Registry UI: Category should show existing values,2.0,1.7423537969589233,0.25764620304107666
+TESB-10711,talendesb,"Service Registry UI: In the policy wizard hide ""BASE_Template"" part of the policy template name",1.0,1.0772695541381836,0.0772695541381836
+TESB-10712,talendesb,"Service Registry UI:  Edit, Save, Cancel buttons should have the same behaviour on all tabs: Content, Endpoints, Assignment",3.0,1.6605380773544312,1.3394619226455688
+TESB-10714,talendesb,Edit Assignment: put validation result text after Validation button,1.0,1.8098454475402832,0.8098454475402832
+TESB-10715,talendesb,Missing DOC input for 'Policy creation Wizard' and 'Improvement in SR UI for Endpoint handling',1.0,3.6257920265197754,2.6257920265197754
+TESB-10724,talendesb,Implement xpath option for custom correlation id for SOAP Services,1.0,2.831345319747925,1.8313453197479248
+TESB-10730,talendesb,Open tasks from M2 Demo,2.0,2.507869005203247,0.5078690052032471
+TESB-10859,talendesb,Throw exception when TransportToken is applied to operation with runtime builds 5.4.0.M3,1.0,1.2250903844833374,0.2250903844833374
+TESB-10948,talendesb,Upgrade to camel 2.12,2.0,1.7581768035888672,0.2418231964111328
+TESB-10950,talendesb,Implement search Rest api for event logging service,3.0,2.8601531982421875,0.1398468017578125
+TESB-10951,talendesb,Upgrade to ActiveMQ 5.9-snapshot (and ddowngrade to AMQ 5.7.0 again),2.0,0.20395079255104065,1.7960492074489594
+TESB-10954,talendesb,SR: Enhance the import/export wsdl/policy capabilities,3.0,3.753232479095459,0.753232479095459
+TESB-10955,talendesb,Extend Rent a car demo to use xkms service,3.0,3.032679557800293,0.03267955780029297
+TESB-10956,talendesb,Commands for Event logging & feature renaming,2.0,2.3248133659362793,0.3248133659362793
+TESB-10957,talendesb,EventLogging: PostgreSQL DB Support for Event DB,1.0,4.3744893074035645,3.3744893074035645
+TESB-10958,talendesb,[SR]Apply syntax highlighter to SR service&policy content editor,3.0,2.3909854888916016,0.6090145111083984
+TESB-10959,talendesb,Can not create service reference using blueprint for sam agent and locator features (Only Investigate a solution),2.0,2.0707225799560547,0.07072257995605469
+TESB-10961,talendesb,[SR]Add 'Assign' button in SR assignments tab,2.0,2.385681390762329,0.3856813907623291
+TESB-11012,talendesb,TAC Virtual Server / ESB Cluster -avoid auto join for physical server,3.0,0.9565148949623108,2.043485105037689
+TESB-11014,talendesb,ESB - XKMS default keystore for demo services,1.0,1.8124711513519287,0.8124711513519287
+TESB-11016,talendesb,ESB Tooling: Upgrade to ActiveMQ 5.9,2.0,1.4904184341430664,0.5095815658569336
+TESB-11020,talendesb,TAC ESB Conductor. Provide a last action & sepeated 'online status' for the deployed feature & and improvide Start & top button behaviour,5.0,2.8700501918792725,2.1299498081207275
+TESB-11021,talendesb,EventLogging: Real child attributes for logSource,1.0,1.964847445487976,0.9648474454879761
+TESB-11025,talendesb,EventLogging: Make JMS cache queue configurable criticalEvents,1.0,1.626407265663147,0.626407265663147
+TESB-11028,talendesb,tESBConsumer/BPM Connector: user Credentials propagation use alias/password,3.0,2.0242652893066406,0.9757347106933594
+TESB-11029,talendesb,Upgrade to camel 2.12,2.0,1.7581768035888672,0.2418231964111328
+TESB-11128,talendesb,Event Logging: provide the LogEvent  Structure as interface as it can then be reused also in the Custom routes.,1.0,3.2029380798339844,2.2029380798339844
+TESB-11138,talendesb,EventLogging: Too many audit event flags,1.0,2.1693100929260254,1.1693100929260254
+TESB-11139,talendesb,EventLogging: Attribute prefix for event headers is not convenient,1.0,2.9083175659179688,1.9083175659179688
+TESB-11142,talendesb,EventLogging: Using MDC values for event category is not working,1.0,2.421053647994995,1.4210536479949951
+TESB-11162,talendesb,Store two sam events (FAULT_IN and FAULT_OUT) when access to rest dataservice endpoint,1.0,2.128713369369507,1.1287133693695068
+TESB-11187,talendesb,EventLogging: Improve database structure of Event Logging SQL database,2.0,1.7031642198562622,0.2968357801437378
+TESB-11291,talendesb,EventLogging: MDC values are sometimes lost completely,1.0,1.7465128898620605,0.7465128898620605
+TESB-11304,talendesb,Upgrade to Camel 2.12.1,1.0,1.6950509548187256,0.6950509548187256
+TESB-11309,talendesb,Integrate Rent-a-car XKMS scenario in the delivery package,1.0,3.415266752243042,2.415266752243042
+TESB-11311,talendesb,EventLogging: Changes to timestamp input and output for Event logging Rest search api,1.0,2.2326982021331787,1.2326982021331787
+TESB-11312,talendesb,X509 Endpoint for STS by default,1.0,1.8114566802978516,0.8114566802978516
+TESB-11321,talendesb,Upgrade Cellar to 2.3.2 GA,1.0,2.3905794620513916,1.3905794620513916
+TESB-11322,talendesb,EventLogging: Basic authentication for Event logging Rest service,2.0,3.3340766429901123,1.3340766429901123
+TESB-11323,talendesb,EventLogging: Flag to enable/disable event logging rest retreival service,1.0,1.8965911865234375,0.8965911865234375
+TESB-11324,talendesb,EventLogging: Set EventType attribute in the Event object to the listener name,1.0,2.09926176071167,1.09926176071167

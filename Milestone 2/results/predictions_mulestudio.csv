@@ -1,0 +1,101 @@
+issuekey,project,title,y_true,y_pred,abs_error
+STUDIO-5603,mulestudio,[New Launcher] Debugging support while using Mule Domains,8.0,8.130268096923828,0.13026809692382812
+STUDIO-5604,mulestudio,[New Launcher] Debugging support using multi Mule Project applications,8.0,7.608361721038818,0.39163827896118164
+STUDIO-5605,mulestudio,[New Launcher] Deploy Mule domain applications to the embedded Mule Server.,8.0,6.012458324432373,1.987541675567627
+STUDIO-5610,mulestudio,[New Launcher] Runtime View launchpad should allow to select/add/edit Mule Run configurations,8.0,5.5322184562683105,2.4677815437316895
+STUDIO-5616,mulestudio,HTTP Connector - Add OAUTH Support,8.0,4.709754467010498,3.290245532989502
+STUDIO-5617,mulestudio,HTTP Connector - Add Support For SSL Configuration,13.0,4.176172256469727,8.823827743530273
+STUDIO-5618,mulestudio,HTTP connector - Add support for Global Builders Configuration,8.0,4.552461624145508,3.447538375854492
+STUDIO-5619,mulestudio,HTTP connector - Add support for Response builder,8.0,4.495771884918213,3.504228115081787
+STUDIO-5620,mulestudio,Define packaging for RAML Connector,5.0,6.58757209777832,1.5875720977783203
+STUDIO-5621,mulestudio,[New Launcher] Import/Export Mule Domain projects,8.0,6.531618118286133,1.4683818817138672
+STUDIO-5622,mulestudio,Show response section in the Flow Container,13.0,7.191160678863525,5.808839321136475
+STUDIO-5623,mulestudio,HTTP Connector - Request - double scrolling generate issues to see the parameters,8.0,6.240764141082764,1.7592358589172363
+STUDIO-5627,mulestudio,Support back and forth navigation on the Mule Flow Editor.,8.0,7.421694755554199,0.5783052444458008
+STUDIO-5637,mulestudio,Add Mule EE 3.4.3 runtime to Studio,5.0,3.563474178314209,1.436525821685791
+STUDIO-5641,mulestudio,Add Anypoint Studio version to the About message dialog,1.0,3.9266068935394287,2.9266068935394287
+STUDIO-5645,mulestudio,WS Consumer support for the new HTTP connector,5.0,7.175133228302002,2.175133228302002
+STUDIO-5650,mulestudio,http response builder generates invalid name/value pair for headers,3.0,4.761794567108154,1.7617945671081543
+STUDIO-5657,mulestudio,Add the verb PATCH to the HTTP endpoint,1.0,2.7762980461120605,1.7762980461120605
+STUDIO-5661,mulestudio,java.lang.IllegalStateException: Mule project is null in design context,1.0,7.25074577331543,6.25074577331543
+STUDIO-5663,mulestudio,Exception in Mac OSX Yosemite,1.0,6.170581340789795,5.170581340789795
+STUDIO-5664,mulestudio,Invalid XML in a project creates a lot of error entries in the error log,1.0,4.793765068054199,3.793765068054199
+STUDIO-5665,mulestudio,Http Connector - Listener - Improve Metadata in URI Parameters,5.0,5.54775333404541,0.5477533340454102
+STUDIO-5666,mulestudio,HTTP connector - Listener and Request should be display as HTTP Connector in the palette,13.0,5.712932586669922,7.287067413330078
+STUDIO-5667,mulestudio,Rename Request/Listener config to Connector Configuration,1.0,4.615296363830566,3.6152963638305664
+STUDIO-5668,mulestudio,Spike on how collapsing should work with scopes and message routers,3.0,8.567485809326172,5.567485809326172
+STUDIO-5676,mulestudio,HTTP Connector  - Deprecate Old Connector and it components,5.0,5.5454792976379395,0.5454792976379395
+STUDIO-5698,mulestudio,Add new icons for minimizing flows,1.0,6.895841598510742,5.895841598510742
+STUDIO-5706,mulestudio,UnsupportedOperationException when using domains,5.0,6.769613265991211,1.769613265991211
+STUDIO-5707,mulestudio,"[Launcher] Export package support with domains: add the ability to only export a project, without its parent domain",5.0,3.5204596519470215,1.4795403480529785
+STUDIO-5711,mulestudio,Select RAML in Library from HTTP connector,5.0,4.572958946228027,0.42704105377197266
+STUDIO-5714,mulestudio,HTTP Response Builder: the builder can reference to itself.,5.0,5.19267463684082,0.1926746368408203
+STUDIO-5726,mulestudio,HTTP endpoint :: Editor is displayed really slow,5.0,5.208817481994629,0.2088174819946289
+STUDIO-5727,mulestudio,Palette: The return key erases the filter term,13.0,4.275106430053711,8.724893569946289
+STUDIO-5755,mulestudio,[New Containers] Remove input/process dotted line separation in flows and add background color for source,8.0,6.537089824676514,1.4629101753234863
+STUDIO-5756,mulestudio,Hide launcher,3.0,5.312155723571777,2.3121557235717773
+STUDIO-5757,mulestudio,Add HTTP properties and variables into DataSense,5.0,5.179617881774902,0.17961788177490234
+STUDIO-5758,mulestudio,Rename Templates Library to Library,1.0,5.7384209632873535,4.7384209632873535
+STUDIO-5759,mulestudio,Domains: Prevent Domains projects to be deployed to Cloudhub,5.0,6.620218276977539,1.620218276977539
+STUDIO-5760,mulestudio,Reenable plugins loading in Mule Server 3.4.x (debugger mainly),5.0,6.000486850738525,1.0004868507385254
+STUDIO-5761,mulestudio,Drawing of the editors it's working too slowly in comparison with Gasher and with big projects it is imposible to use,2.0,8.268003463745117,6.268003463745117
+STUDIO-5775,mulestudio,Warn users of server version mismatch between the launching projects and the server configured in the launch configuration,5.0,6.403916358947754,1.403916358947754
+STUDIO-5783,mulestudio,External Links not working in RAML perspective,1.0,6.089996337890625,5.089996337890625
+STUDIO-5789,mulestudio,Import/Export: Let the user rename the project when importing,8.0,5.083508014678955,2.916491985321045
+STUDIO-5828,mulestudio,HTTP Request: fix the alignment of the text attribute in the Oauth configuration,13.0,4.230226993560791,8.769773006439209
+STUDIO-5844,mulestudio,Create 3.6.0 CE runtime plugin,3.0,5.374261856079102,2.3742618560791016
+STUDIO-5848,mulestudio,"When wrapping an inbound endpoint in a Poll, the endpoint does not change to outbound.",8.0,6.082028388977051,1.9179716110229492
+STUDIO-5914,mulestudio,Studio shows description element as a message processor in the flow canvas ,5.0,5.14259672164917,0.14259672164916992
+STUDIO-5931,mulestudio,Studio shows description element as a message processor in the flow canvas (develop),5.0,7.235469341278076,2.235469341278076
+STUDIO-5938,mulestudio,"New Project Dialog: capitalize ""Version Control System (S)upport"" title",1.0,4.612968444824219,3.6129684448242188
+STUDIO-5956,mulestudio,[DataSense in Background] Improve cache locking.,8.0,6.2611260414123535,1.7388739585876465
+STUDIO-5957,mulestudio,[DataSense in Background] Create a serial background process queue for DataSense jobs,13.0,6.455378532409668,6.544621467590332
+STUDIO-5958,mulestudio,[DataSense in Background] Jobs interdependencies and automatic cancellation,13.0,7.709543228149414,5.290456771850586
+STUDIO-5959,mulestudio,[DataSense in Background] Error handling,13.0,7.404252529144287,5.595747470855713
+STUDIO-5960,mulestudio,[DataSense in Background] UI feedback,21.0,7.5901288986206055,13.409871101379395
+STUDIO-5982,mulestudio,HTTP request :: root RAML should be detected automatically,8.0,6.540175914764404,1.4598240852355957
+STUDIO-5992,mulestudio,Mule stops recognizing certain core elements from the namespace,5.0,6.889186382293701,1.8891863822937012
+STUDIO-5999,mulestudio,HTTP request ::  Value is automatically selected when going over with arrow key in Path list,8.0,5.947262287139893,2.0527377128601074
+STUDIO-6002,mulestudio,Dragging MP inside the canvas is not always succesful,8.0,7.475251197814941,0.5247488021850586
+STUDIO-6003,mulestudio,Dragging MPs inside a long flow in Windows is not possible because of the limited scrolling,5.0,6.391324520111084,1.391324520111084
+STUDIO-6005,mulestudio,Default exception strategy in Global Configuration doesn't offer the existing global exception strategies,5.0,6.233501434326172,1.2335014343261719
+STUDIO-6011,mulestudio,Debugger :: Add more room in Mule expression watches to add Multiple expressions,5.0,8.10769271850586,3.1076927185058594
+STUDIO-6012,mulestudio,[Custom Metadata Definition] Improve cache structures and persistence,13.0,5.521107196807861,7.478892803192139
+STUDIO-6085,mulestudio,[DF] Clean up alignment and layout,5.0,7.31580924987793,2.3158092498779297
+STUDIO-6088,mulestudio,[DF] Improved error reporting/layout for samples,3.0,6.430606365203857,3.4306063652038574
+STUDIO-6090,mulestudio,[DF] declare inputs when using auto complete,5.0,5.7353363037109375,0.7353363037109375
+STUDIO-6091,mulestudio,[DF] Implement current draft of language,13.0,6.820170879364014,6.179829120635986
+STUDIO-6095,mulestudio,[DF] Visual mapping design 2nd draft,8.0,8.70927906036377,0.7092790603637695
+STUDIO-6096,mulestudio,[DF] Output view for Java objects,3.0,10.01422119140625,7.01422119140625
+STUDIO-6097,mulestudio,[DF] Package 3.7 snapshot with DFL runtime,5.0,5.602294921875,0.602294921875
+STUDIO-6099,mulestudio,Add support for multi-level data-sense key.,13.0,5.878217697143555,7.121782302856445
+STUDIO-6169,mulestudio,Studio: Add support for auto discovery of the new http transport,3.0,5.652658939361572,2.6526589393615723
+STUDIO-6114,mulestudio,HTTP Request does not support dash and underscore in raml global elements,2.0,4.185364246368408,2.185364246368408
+STUDIO-6125,mulestudio,Java project dependency of Mule Project,5.0,8.282480239868164,3.282480239868164
+STUDIO-6127,mulestudio,[DataSense in Background] Add visual cues when a DS Job is executing for the current editor,8.0,7.908207893371582,0.09179210662841797
+STUDIO-6128,mulestudio,[DataSense in Background] Cancel purely UI related DataSense retrieval jobs when leaving editor that launched them,8.0,3.375788927078247,4.624211072921753
+STUDIO-6130,mulestudio,[DF] tests have to be reviewed on merge,3.0,6.051995754241943,3.0519957542419434
+STUDIO-6139,mulestudio,[DataSense in Background] Error notifications dialog loses buttons when the message is too long.,5.0,5.147586345672607,0.14758634567260742
+STUDIO-6140,mulestudio,[DataSense in Background] Make error text selectable.,3.0,5.562042236328125,2.562042236328125
+STUDIO-6149,mulestudio,[DataSense in Background] Make the DataSense explorer tree refresh every time a job finishes.,1.0,5.758089065551758,4.758089065551758
+STUDIO-6150,mulestudio,[DataSense in Background] Make the DataMapper editor refresh on job completion,5.0,6.035357475280762,1.0353574752807617
+STUDIO-6179,mulestudio,[DF] Deep search for auto completion,8.0,6.419750690460205,1.580249309539795
+STUDIO-6181,mulestudio,[DF] Support auto completion of keys for Maps/Java objects,5.0,9.137425422668457,4.137425422668457
+STUDIO-6182,mulestudio,[DF] Update grammar to reflect latest spec,3.0,4.8273396492004395,1.8273396492004395
+STUDIO-6184,mulestudio,[DF] Show output schema in DF,3.0,4.848339080810547,1.8483390808105469
+STUDIO-6191,mulestudio,[DF] Support searching by label,8.0,6.190927505493164,1.809072494506836
+STUDIO-6219,mulestudio,As an Integration Developer I want to be able to define the Metadata for Message Processors so that this Metadata it's propagated and it can be use for Design,21.0,4.510926723480225,16.489073276519775
+STUDIO-6220,mulestudio,Allow adding required libraries to pom.xml file if the project is maven based,13.0,5.011538505554199,7.988461494445801
+STUDIO-6221,mulestudio,[SVR] Apply light theme to Studio (Carl's & James' design),21.0,7.03886079788208,13.96113920211792
+STUDIO-6263,mulestudio,Create plugin for old DataMapper ,5.0,3.908348321914673,1.0916516780853271
+STUDIO-6264,mulestudio,[DF] Spike on visual mapper,13.0,7.370147705078125,5.629852294921875
+STUDIO-6301,mulestudio,[Dark\Light Theme] Change style in Properties Editors,13.0,7.593194961547852,5.406805038452148
+STUDIO-6306,mulestudio,[Custom Metadata Definition] Persist metadata definitions in the config XML file.,8.0,4.958331108093262,3.0416688919067383
+STUDIO-6331,mulestudio,Transform: when having a big payload and maximizing the editor there are some UI issues,5.0,8.090688705444336,3.090688705444336
+STUDIO-6338,mulestudio,[Dark Theme] Enable icon switching with themes,13.0,6.432910919189453,6.567089080810547
+STUDIO-6344,mulestudio,Studio <transform> element support,21.0,7.26885986328125,13.73114013671875
+STUDIO-6356,mulestudio,Metadata for Connectors is not shown on the explorer,3.0,4.004461765289307,1.0044617652893066
+STUDIO-6403,mulestudio,Transform: deep search autocomplete does not suggest XML attributes,3.0,6.485987663269043,3.485987663269043
+STUDIO-6415,mulestudio,Update Studio Weave editor to remove $ from variables,8.0,5.386229991912842,2.613770008087158
+STUDIO-6443,mulestudio,Studio doesn't refresh connector metadata when the model is an XMLMetaDataModel,5.0,9.497758865356445,4.497758865356445
+STUDIO-6493,mulestudio,Multi Level key is not saved when hitting apply or losing focus,5.0,7.0185465812683105,2.0185465812683105

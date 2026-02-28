@@ -1,0 +1,101 @@
+issuekey,project,title,y_true,y_pred,abs_error
+TDQ-10417,talenddataquality,Oracle has totally stopped to support ODBC in Java 8,8.0,7.240228176116943,0.7597718238830566
+TDQ-10435,talenddataquality,file connection has a redundant level --Metadata  in its structure ,5.0,6.2896013259887695,1.2896013259887695
+TDQ-10437,talenddataquality,"icon issues for match rule, file connection, hadoop cluster",3.0,9.8887300491333,6.888730049133301
+TDQ-10440,talenddataquality,"after restart TOS_DQ , items in Recycle Bin should manually refresh to show ",1.0,8.708874702453613,7.708874702453613
+TDQ-10442,talenddataquality,Export babili translations into git (for 6.0.0),2.0,0.9270612001419067,1.0729387998580933
+TDQ-10447,talenddataquality,"the description for ""Chart for Data Quality"" is not correct in the ""Additional Talend Package"" dialog",2.0,4.675480365753174,2.675480365753174
+TDQ-10452,talenddataquality,incorrect modules,8.0,6.196205139160156,1.8037948608398438
+TDQ-10458,talenddataquality,"The sql UDI is grey and can not be choosed after clicking ""Select indicators"" button in the column analysis with sql engine.",5.0,2.847200393676758,2.152799606323242
+TDQ-10473,talenddataquality,Semantic discovery wizard improvements,20.0,6.490024089813232,13.509975910186768
+TDQ-10474,talenddataquality,Create a preference page to configure ES installation for semantic discovery,8.0,12.323432922363281,4.323432922363281
+TDQ-10479,talenddataquality,for column/match analysis about File connection --Sampling algorithm items  status are not same before and after reopen analysis.,3.0,6.7008442878723145,3.7008442878723145
+TDQ-10493,talenddataquality,Remove previously deprecated features,5.0,2.235933780670166,2.764066219329834
+TDQ-10510,talenddataquality,DEMO DASHBOARD,24.0,3.717026472091675,20.282973527908325
+TDQ-10516,talenddataquality,"java engine ""column set"" drill down  result is not correct when studio language is French",1.0,5.369492053985596,4.369492053985596
+TDQ-10528,talenddataquality,"No related error dialog popped after selecting ""Select Data"" button when set a wrong value where clause for column analysis",1.0,6.174423694610596,5.174423694610596
+TDQ-10540,talenddataquality,Create version 6.0.0 in Babili and populate it,2.0,1.8745685815811157,0.12543141841888428
+TDQ-10544,talenddataquality, some Links in  help content for Regex Pattern doesn't get to the correct destination,5.0,5.476884841918945,0.4768848419189453
+TDQ-10547,talenddataquality,Year /Quarter/Month/Week/Date Low Frquency indicators should show result with count asc,1.0,2.4778571128845215,1.4778571128845215
+TDQ-10552,talenddataquality,"Reorganize the ""new analysis"" wizard layout",13.0,5.71314811706543,7.28685188293457
+TDQ-10555,talenddataquality,Activate Exchange indicators and regexes and rules for 6.1,3.0,9.941909790039062,6.9419097900390625
+TDQ-10557,talenddataquality,Allow set threshold option on UDI,8.0,5.762110233306885,2.2378897666931152
+TDQ-10571,talenddataquality,Export babili translations into git (for 6.0.1),2.0,0.5992856025695801,1.40071439743042
+TDQ-10614,talenddataquality,Improve robustness of the matching algorithm in tMatchGroup and match analysis,8.0,10.241321563720703,2.241321563720703
+TDQ-10641,talenddataquality,Semantic Discovery Wizard Improvements (Step 1),13.0,5.4649200439453125,7.5350799560546875
+TDQ-10690,talenddataquality,Create new Pattern frequency indicators for Japanese characters,20.0,3.4964563846588135,16.503543615341187
+TDQ-10718,talenddataquality,Semantic analysis improvements,20.0,6.552949905395508,13.447050094604492
+TDQ-10723,talenddataquality,Support Git Repository,13.0,11.223923683166504,1.776076316833496
+TDQ-10734,talenddataquality,Support semantic discovery on file delimited,8.0,9.264328956604004,1.264328956604004
+TDQ-10746,talenddataquality,start TOS_DQ get errors in error log,2.0,4.6462554931640625,2.6462554931640625
+TDQ-10754,talenddataquality,"run Column Content Comparison analysis successfully, but run report failed, show exceptions",2.0,3.8616645336151123,1.8616645336151123
+TDQ-10795,talenddataquality,"""Deploy Jar"" dialog set wrong username/password click ""..."", set correct one pop up ""Password Required"" dialog doesn't work",2.0,3.622241258621216,1.6222412586212158
+TDQ-10803,talenddataquality,"The ""Select Indicators"" dialog can not be opened when set correct context value for Where Clause ",1.0,6.976006507873535,5.976006507873535
+TDQ-10804,talenddataquality,improve patterns IPv6 and ISBN-13,8.0,8.258793830871582,0.25879383087158203
+TDQ-10806,talenddataquality,users shouldn't see a plethora of internal TODO Tasks,8.0,7.183413028717041,0.816586971282959
+TDQ-10840,talenddataquality,"with a new studio, report can not run before restart the studio(TP_All license)",1.0,4.3331098556518555,3.3331098556518555
+TDQ-10844,talenddataquality,Improve charts look & feel,8.0,8.385878562927246,0.3858785629272461
+TDQ-10848,talenddataquality,Enable Semantic Discovery on Hive,5.0,8.327072143554688,3.3270721435546875
+TDQ-10854,talenddataquality,"command line project import the attached items(report about java udi, pattern) can not run",2.0,5.166779041290283,3.166779041290283
+TDQ-10858,talenddataquality,Match Data job and Deduplicate Data job in cheat sheet can not select output as some dbs--can not show db parameters,2.0,6.994192123413086,4.994192123413086
+TDQ-10862,talenddataquality,Proxy Configuration on Additional Talend Packages screen does not go to Proxy Configuration,1.0,5.723040580749512,4.723040580749512
+TDQ-10869,talenddataquality,Create unit tests for each function in EcosystemService,5.0,3.592393636703491,1.4076063632965088
+TDQ-10880,talenddataquality,Create version 6.0.1 in Babili and populate it,2.0,1.758683443069458,0.241316556930542
+TDQ-10882,talenddataquality,Export babili translations into git (for 6.0.2),2.0,0.7505227327346802,1.2494772672653198
+TDQ-10884,talenddataquality,Export babili translations into git (for 6.1.0M2),2.0,0.7862542271614075,1.2137457728385925
+TDQ-10886,talenddataquality,Create version 6.1.0M1 in Babili and populate it,2.0,1.6048258543014526,0.39517414569854736
+TDQ-10888,talenddataquality,DQ libraries refactoring,8.0,5.277416229248047,2.722583770751953
+TDQ-10890,talenddataquality,"The ""Engines management"" menu can NOT be seen for the tdq_admin user for dqportal",5.0,4.739654064178467,0.2603459358215332
+TDQ-10901,talenddataquality,Some labels are not readable in the semantic wizard,5.0,3.3079018592834473,1.6920981407165527
+TDQ-10911,talenddataquality,Create version 6.1.0M2 in Babili and populate it,2.0,1.6394416093826294,0.3605583906173706
+TDQ-10913,talenddataquality,Export babili translations into git (for 6.1.0RC1),2.0,0.8491246104240417,1.1508753895759583
+TDQ-10926,talenddataquality,Activate Exchange indicators and regexes and rules for 6.2,3.0,10.236926078796387,7.236926078796387
+TDQ-10931,talenddataquality,Could we consider making the tMatchGroup component more user-friendly?,3.0,3.8574166297912598,0.8574166297912598
+TDQ-10932,talenddataquality,"All occurences of the word ""Guvnor"" needs to be deleted from the BRMS wizard and the components",3.0,2.925612449645996,0.0743875503540039
+TDQ-10933,talenddataquality,Hide the Exchange node,5.0,5.203511714935303,0.20351171493530273
+TDQ-10961,talenddataquality,"""generate an ETL Job to handle rows"" generated job can not run directly(inform no database set, in fact it set), need to reopen it",1.0,7.701491832733154,6.701491832733154
+TDQ-10982,talenddataquality,run column analysis on file connection will show several warning dialogs and these dialog close quickly,5.0,2.2955658435821533,2.7044341564178467
+TDQ-11000,talenddataquality,the display of x axis label is not aligned,5.0,3.613593578338623,1.386406421661377
+TDQ-11007,talenddataquality,Create version 6.1.0RC1 in Babili and populate it,2.0,1.674838662147522,0.325161337852478
+TDQ-11014,talenddataquality,Export babili translations into git (for 6.1.0),2.0,0.7569800019264221,1.2430199980735779
+TDQ-11028,talenddataquality,"right click on more than one table/view, should not show ""Semantic Discovery"" menu",2.0,3.4444093704223633,1.4444093704223633
+TDQ-11036,talenddataquality,"Remove the ""Exchange"" node from the export items wizard",1.0,5.039254188537598,4.039254188537598
+TDQ-11037,talenddataquality,Report editor improvements,1.0,6.209569454193115,5.209569454193115
+TDQ-11039,talenddataquality,"Replace ""Cancel"" by ""Stop"" in the progress dialog of Reservoir sampling",1.0,5.538358688354492,4.538358688354492
+TDQ-11040,talenddataquality,Semantic discovery wizard headers,1.0,6.206472396850586,5.206472396850586
+TDQ-11058,talenddataquality,New analysis wizard issue,3.0,4.067220687866211,1.067220687866211
+TDQ-11059,talenddataquality,TOS_DQ also show Semantic Discovery help content.,3.0,6.13360071182251,3.1336007118225098
+TDQ-11082,talenddataquality,re-created semantic analysis can not open if  create one and add all indicators for all columns first.,3.0,5.170433521270752,2.170433521270752
+TDQ-11087,talenddataquality," Running Job with exception occured and the Job was Generated by  ""generate an ETL job to handle rows""",1.0,10.289628982543945,9.289628982543945
+TDQ-11102,talenddataquality,TOP can not create hive2 standalone cdh54/HDP22/mapr connection,2.0,7.034915447235107,5.034915447235107
+TDQ-11103,talenddataquality,Add Chart and SQLexplorer jar files to the service,1.0,5.000247478485107,4.000247478485107
+TDQ-11105,talenddataquality,Fix issue with tDataMasking TUJ,1.0,4.933908462524414,3.933908462524414
+TDQ-11121,talenddataquality,Create version 6.1.0 in Babili and populate it,2.0,1.8044804334640503,0.1955195665359497
+TDQ-11124,talenddataquality,"investigate more for ""createStatement(...)""",13.0,7.350426197052002,5.649573802947998
+TDQ-11133,talenddataquality,Export babili translations into git (for 6.1.1),2.0,0.653523325920105,1.346476674079895
+TDQ-11188,talenddataquality,Can't have two data masking components within one subjob,2.0,7.89403772354126,5.89403772354126
+TDQ-11192,talenddataquality,Update description in routine generation dialog of tStandardizeRow,1.0,4.033082008361816,3.0330820083618164
+TDQ-11230,talenddataquality,Allow to add custom date pattern at runtime,13.0,5.688796043395996,7.311203956604004
+TDQ-11238,talenddataquality,can not re-create analysis with semantic wizard with same column,2.0,3.5874440670013428,1.5874440670013428
+TDQ-11246,talenddataquality,"Amazon Redshift Data Profiling ""missing system catalog data"" error",3.0,4.763820648193359,1.7638206481933594
+TDQ-11293,talenddataquality,Enhance email masking in tDataMasking,2.0,8.828490257263184,6.828490257263184
+TDQ-11312,talenddataquality,"change dbconnection name get error dialog when editor is open by double click task, also for analysis Unknown Label issue ",2.0,7.965237617492676,5.965237617492676
+TDQ-11339,talenddataquality,"The ""String index out of range: -1"" shows when the function is Keep n last digits and replace previous ones and parameter is 1 for tDataMasking",2.0,8.587692260742188,6.5876922607421875
+TDQ-11350,talenddataquality,Install new software should not be in TOS_DQ,2.0,1.1450804471969604,0.8549195528030396
+TDQ-11355,talenddataquality,"when first perspective is dq, logon a svn project (Custome log checked), can not get indicators and patterns in Repository",8.0,7.75879430770874,0.24120569229125977
+TDQ-11384,talenddataquality,Export babili translations into git (for 6.1.2),2.0,0.7586930990219116,1.2413069009780884
+TDQ-11386,talenddataquality,Export babili translations into git (for 6.2.0M2),2.0,0.8213465213775635,1.1786534786224365
+TDQ-11388,talenddataquality,Create version 6.1.1 in Babili and populate it,2.0,1.691139578819275,0.3088604211807251
+TDQ-11390,talenddataquality,Create version 6.2.0M2 in Babili and populate it,2.0,1.6170828342437744,0.3829171657562256
+TDQ-11425,talenddataquality,"The ""Could not build next result"" dialog shows after running match analysis",1.0,6.110992431640625,5.110992431640625
+TDQ-11437,talenddataquality,Contribute Data Masking API to DataPrep,8.0,6.229085445404053,1.7709145545959473
+TDQ-11440,talenddataquality,"Create an API to validate, format, enrich phone information",8.0,7.098730087280273,0.9012699127197266
+TDQ-11469,talenddataquality,"The tDataMasking job can not run if enable ""Output the orginale row?"" check box in Advanced settings under Big Data Batch part",1.0,6.7087554931640625,5.7087554931640625
+TDQ-11470,talenddataquality,update the DQ demo project version,1.0,4.064664363861084,3.064664363861084
+TDQ-11489,talenddataquality,Port tStandardizeRow to Spark framework,20.0,8.799080848693848,11.200919151306152
+TDQ-11492,talenddataquality,Port tTransliterate component to Spark,8.0,7.887811660766602,0.11218833923339844
+TDQ-11493,talenddataquality,Create a Data masking routines,5.0,10.15255355834961,5.152553558349609
+TDQ-11495,talenddataquality,Redesign analysis editors,13.0,7.906680583953857,5.093319416046143
+TDQ-11496,talenddataquality,Integrate the t-swoosh algorithm in the tMatchgroup components (step 2),20.0,6.640976428985596,13.359023571014404
+TDQ-11501,talenddataquality,create related TUJ for swoosh,3.0,4.788829803466797,1.7888298034667969
+TDQ-11517,talenddataquality,Adapt to new jar file loading mechanism,3.0,4.985406398773193,1.9854063987731934

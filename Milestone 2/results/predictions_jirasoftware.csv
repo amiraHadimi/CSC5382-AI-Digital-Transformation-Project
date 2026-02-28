@@ -1,0 +1,72 @@
+issuekey,project,title,y_true,y_pred,abs_error
+JSW-6992,jirasoftware,Align project creation dialog to JIRA style,1.0,4.878207206726074,3.878207206726074
+JSW-7043,jirasoftware,GH code fixes required for latest 6.0-breakit version,5.0,4.81257963180542,0.18742036819458008
+JSW-7159,jirasoftware,"As Patrick, I want to see list of versions when I'm looking at the backlog",5.0,3.5895564556121826,1.4104435443878174
+JSW-7160,jirasoftware,"As Patrick, I want to be able to see more details about the version when looking at the Versions Panel",5.0,3.2082345485687256,1.7917654514312744
+JSW-7161,jirasoftware,"As Patrick, I want to be able to create a new version",3.0,3.5699634552001953,0.5699634552001953
+GHS-7162,jirasoftware,"As Patrick, I want to be able to delete a version",3.0,1.6377503871917725,1.3622496128082275
+JSW-7162,jirasoftware,"As Patrick, I want to be able to delete a version",3.0,1.6377503871917725,1.3622496128082275
+JSW-7163,jirasoftware,"As Patrick, I want to be able to edit details of a version",5.0,2.385417938232422,2.614582061767578
+GHS-7164,jirasoftware,"As Patrick, I want to choose a colour for a version so I can identify it easier in the backlog",5.0,1.851608395576477,3.148391604423523
+JSW-7164,jirasoftware,"As Patrick, I want to choose a colour for a version so I can identify it easier in the backlog",5.0,1.851608395576477,3.148391604423523
+JSW-7165,jirasoftware,"As Patrick, I want to assign issues to a version",3.0,4.004416465759277,1.0044164657592773
+JSW-7166,jirasoftware,"As Patrick, I want to see the version assigned to an issue in the list view so I can quickly identify which issues belong to which versions",2.0,3.8230152130126953,1.8230152130126953
+JSW-7168,jirasoftware,"As Patrick, I want to be able to filter my backlog to a specific version so I can easily see which stories will be included",5.0,4.889163494110107,0.11083650588989258
+GHS-7170,jirasoftware,"As Patrick, I want to be able to filter my backlog to a select few versions so I can see which stories will be included in them",3.0,4.077523231506348,1.0775232315063477
+JSW-7170,jirasoftware,"As Patrick, I want to be able to filter my backlog to a select few versions so I can see which stories will be included in them",3.0,4.077523231506348,1.0775232315063477
+JSW-7171,jirasoftware,"As Patrick, I want to understand the progress towards a version with a single report",5.0,3.7314372062683105,1.2685627937316895
+GHS-7172,jirasoftware,"As Patrick, I want to adjust release report projections to simulate and better understand what can be achieved within a version",13.0,5.16702938079834,7.83297061920166
+JSW-7172,jirasoftware,"As Patrick, I want to adjust release report projections to simulate and better understand what can be achieved within a version",13.0,5.16702938079834,7.83297061920166
+JSW-7254,jirasoftware,"As a user, I would like to create an issue inside an epic when viewing an epic in JIRA",3.0,3.14579176902771,0.14579176902770996
+JSW-7314,jirasoftware,Add Atlassian Analytics events to GH,5.0,5.507954120635986,0.5079541206359863
+JSW-7357,jirasoftware,"As an administrator, I would like to be able to turn on/off the Release Planning feature as a Labs Feature",1.0,3.631988286972046,2.631988286972046
+JSW-7358,jirasoftware,"As a user, I would like for the Release Planning labs feature to be promoted on the Getting Started page",1.0,4.488741397857666,3.488741397857666
+JSW-7402,jirasoftware,As Patrick I'd like to be able to hide the versions panel,2.0,1.295825481414795,0.7041745185852051
+JSW-7469,jirasoftware,Store startDate for fixVersion,2.0,3.215468645095825,1.2154686450958252
+JSW-7585,jirasoftware,document compatibility of GH with JIRA 6.0 (NB. dependent on Plugins 3),1.0,3.0165774822235107,2.0165774822235107
+JSW-7599,jirasoftware,"As a user, I want to be able to create a GH board straight from the JIRA create project dialog so it's easier for me",5.0,6.5966925621032715,1.5966925621032715
+JSW-7600,jirasoftware,"As a BTF user, I want to be able to install GH via UPM when creating a project",3.0,3.709468364715576,0.7094683647155762
+JSW-7602,jirasoftware,"As Patrick, I want to be able to see a projection of possible end date of a version",5.0,3.742635488510132,1.2573645114898682
+JSW-7695,jirasoftware,"As Patrick, I want the list of epics to reflect the current version filter",5.0,4.111425876617432,0.8885741233825684
+JSW-7700,jirasoftware,Bring context menu to work mode,3.0,4.492491245269775,1.4924912452697754
+JSW-7753,jirasoftware,Swimlane by epic,3.0,7.406146049499512,4.406146049499512
+JSW-7805,jirasoftware,Display a invalid drop target icon on the version list when trying to assign story for a different project to a version,2.0,3.202206611633301,1.2022066116333008
+JSW-7842,jirasoftware,Integrate GH install via JIRA project template,3.0,4.8476033210754395,1.8476033210754395
+JSW-7874,jirasoftware,ADG GH: Resizable Detail View,5.0,2.935025215148926,2.064974784851074
+JSW-7876,jirasoftware,Enable GH on OD instances from the Create Project dialog,3.0,1.150634765625,1.849365234375
+JSW-7983,jirasoftware,Edit startDate of a fixVersion in JIRA,8.0,3.5242249965667725,4.4757750034332275
+JSW-8014,jirasoftware,Display a trendline for version chart,2.0,3.2491540908813477,1.2491540908813477
+JSW-8022,jirasoftware,Adjust the shading for epic & version report,2.0,4.102293968200684,2.1022939682006836
+JSW-8023,jirasoftware,Use the startDate in version report calculations,2.0,2.2501866817474365,0.2501866817474365
+JSW-8053,jirasoftware,As a user I want to be able to see the Epic Name as a column in Issue Navigator searches,2.0,3.3769073486328125,1.3769073486328125
+JSW-8137,jirasoftware,Update the open/close epic/versions panel(s),5.0,3.9212722778320312,1.0787277221679688
+JSW-8164,jirasoftware,Promote Release Planning out of labs,1.0,5.8840413093566895,4.8840413093566895
+JSW-8408,jirasoftware,Excel export - plan mode,3.0,4.7463059425354,1.7463059425354004
+JSW-8450,jirasoftware,diagram of GreenHopper data / how it all works,3.0,5.013319969177246,2.013319969177246
+JSW-8469,jirasoftware,"In order to be able to select report options easily, I want a better control to use",3.0,3.610184669494629,0.6101846694946289
+JSW-8471,jirasoftware,GH updates for JIRA 6.0 ADG changes (mainly Admin nav?) plus Gadgets,2.0,4.1508941650390625,2.1508941650390625
+JSW-8485,jirasoftware,"Change ""hide nav bar"" shortcut",1.0,3.108008861541748,2.108008861541748
+JSW-8491,jirasoftware,Gather information about potential sprint conflicts,3.0,5.890633583068848,2.8906335830688477
+JSW-8623,jirasoftware,Write soke tests to measure UI performance on the plan mode,2.0,6.71370267868042,4.71370267868042
+JSW-8662,jirasoftware,Assign a story to future sprint,13.0,8.381921768188477,4.618078231811523
+JSW-8665,jirasoftware,Autocomplete for Epic Link in JQL,3.0,2.346412420272827,0.6535875797271729
+JSW-8666,jirasoftware,Add an issue to an Epic from JIRA when no other issues have been added to it yet,1.0,4.49547004699707,3.4954700469970703
+JSW-8667,jirasoftware,Allow to set resolution in Simplified Workflow,8.0,5.659281253814697,2.3407187461853027
+GHS-8745,jirasoftware,Expose GH defaults as an API,2.0,4.969943046569824,2.969943046569824
+JSW-8745,jirasoftware,Expose GH defaults as an API,2.0,4.969943046569824,2.969943046569824
+JSW-8746,jirasoftware,GH further ADG updates,2.0,5.449342727661133,3.449342727661133
+JSW-8942,jirasoftware,Flagging on stories as swimlanes in work mode,2.0,4.234246253967285,2.234246253967285
+JSW-8974,jirasoftware,Wizard-like Create Board dialog,8.0,2.8698830604553223,5.130116939544678
+JSW-9132,jirasoftware,Update close icon in Detail View to be a font icon,1.0,3.443166732788086,2.443166732788086
+JSW-9349,jirasoftware,"In order to be better aware of the sprint markers migration, as an administrator I want to see a banner when GH 6.3 is installed",2.0,4.8839287757873535,2.8839287757873535
+JSW-9488,jirasoftware,Change visual treatment on issue count in swimlane header to not use AUI badge,1.0,5.0025739669799805,4.0025739669799805
+GHS-9559,jirasoftware,"Quick filters should collapse into a ""... Show more"" reveal pattern when they will wrap to more than one line",3.0,2.3820691108703613,0.6179308891296387
+JSW-9559,jirasoftware,"Quick filters should collapse into a ""... Show more"" reveal pattern when they will wrap to more than one line",3.0,2.3820691108703613,0.6179308891296387
+JSW-14574,jirasoftware,Change activity stream documentation regarding repository commits,4.0,3.1085104942321777,0.8914895057678223
+JSW-14350,jirasoftware,As a writer I want to create multiple articles so that they can be published,3.0,2.6778371334075928,0.3221628665924072
+JSW-14367,jirasoftware,As a reviewer to be able to review articles and add comments,3.0,4.009844779968262,1.0098447799682617
+JSW-14368,jirasoftware,As a reviewer I want to have an account so that i can review an article,4.0,3.498836040496826,0.5011639595031738
+JSW-14348,jirasoftware,As an Admin I want to be able to assign roles,4.0,4.3008131980896,0.3008131980895996
+JSW-14353,jirasoftware,As an Admin I want to create Writer accounts,4.0,3.1508567333221436,0.8491432666778564
+JSW-14355,jirasoftware,As an Admin I want to create Reviewer accounts,4.0,2.9201245307922363,1.0798754692077637
+JSW-14361,jirasoftware,As an Admin I want to create MediaManager accounts,4.0,2.9850237369537354,1.0149762630462646

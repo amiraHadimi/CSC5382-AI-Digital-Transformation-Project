@@ -1,0 +1,98 @@
+issuekey,project,title,y_true,y_pred,abs_error
+USERGRID-899,usergrid,Validate migrate_entity_data script produces consistent migrations.,1.0,3.5145020484924316,2.5145020484924316
+USERGRID-900,usergrid,Re-index using AmazonAsyncEventService should support updated date,3.0,2.302804708480835,0.697195291519165
+USERGRID-901,usergrid,Fix CorePersistant Properties and Stack Properties to not overlap when using Aws SDK,2.0,2.0480008125305176,0.04800081253051758
+USERGRID-902,usergrid,Unable to do case sensitive queries using '=',3.0,4.131602764129639,1.1316027641296387
+USERGRID-903,usergrid,Cannot query and return entities that end in a space.,3.0,3.4636013507843018,0.46360135078430176
+USERGRID-904,usergrid,Encodings in values are not being returned from query engine.,3.0,3.407716751098633,0.4077167510986328
+USERGRID-907,usergrid,Batch interval in seconds not honored,3.0,2.5621964931488037,0.4378035068511963
+USERGRID-908,usergrid,run specific migration,1.0,3.8519577980041504,2.8519577980041504
+USERGRID-909,usergrid,Evaluate removing cache from edge shard management,5.0,3.3019866943359375,1.6980133056640625
+USERGRID-912,usergrid,Upgrade Shiro to be current version,1.0,2.7838618755340576,1.7838618755340576
+USERGRID-914,usergrid,Blog post for 10k TPS and horizontal scalability,2.0,2.0607712268829346,0.06077122688293457
+USERGRID-918,usergrid,Add qparam to skip retrieving metadata and graph edges,8.0,3.906243085861206,4.093756914138794
+USERGRID-921,usergrid,Remove duplicate add to collection on write path,3.0,2.504444122314453,0.4955558776855469
+USERGRID-926,usergrid,Include distances in geoquery responses,3.0,3.8216187953948975,0.8216187953948975
+USERGRID-929,usergrid,Test the creation of entities which have an OldUUID to migrate from 1.0 to 2.1,1.0,3.4247257709503174,2.4247257709503174
+USERGRID-933,usergrid,[SPIKE] Understand what remains and break up tasks for migrating properties from files on Tomcat to Org-level in the management app,3.0,1.920061707496643,1.079938292503357
+USERGRID-936,usergrid,Unit Test for MapToEntityConverter.processListForField to test for 2d array and infinite loop,1.0,3.2585246562957764,2.2585246562957764
+USERGRID-937,usergrid,Nested Arrays in documents result in infinite loop / stack overflow,1.0,3.4348509311676025,2.4348509311676025
+USERGRID-938,usergrid,Create a tool with the capability to wipe an application from Cassandra,3.0,3.5923171043395996,0.5923171043395996
+USERGRID-939,usergrid,Style generated Docs like the Website,3.0,3.021427631378174,0.021427631378173828
+USERGRID-940,usergrid,Generated docs should include Client SDK docs,3.0,2.0133373737335205,0.9866626262664795
+USERGRID-941,usergrid,Spike: Investigate using Java Annotations to generate Swagger,5.0,0.9190910458564758,4.080908954143524
+USERGRID-944,usergrid,Prototype using Spark to perform functions on data in Cassandra,3.0,2.8585641384124756,0.14143586158752441
+USERGRID-945,usergrid,Perform load testing of new shard management impl,5.0,3.0396342277526855,1.9603657722473145
+USERGRID-950,usergrid,Remove Cassandra Keyspace name from Index Naming Strategy,1.0,2.6970839500427246,1.6970839500427246
+USERGRID-989,usergrid,Create a multi region lock ability for shard allocation,5.0,3.5193095207214355,1.4806904792785645
+USERGRID-991,usergrid,Fix tests after Jersey 2.0 upgrade,5.0,1.8809218406677246,3.1190781593322754
+USERGRID-992,usergrid,Enable Org-level properties,5.0,3.6446406841278076,1.3553593158721924
+USERGRID-993,usergrid,Separate database system and system bootstrap,3.0,3.016056537628174,0.016056537628173828
+USERGRID-1000,usergrid,get apm/apigeeMobileConfig throws exception when its not set,3.0,2.8973560333251953,0.10264396667480469
+USERGRID-1005,usergrid,Add Background processing for delete application,2.0,3.2693681716918945,1.2693681716918945
+USERGRID-1007,usergrid,Implement a cache for Shiro & permissions,5.0,1.4163322448730469,3.583667755126953
+USERGRID-1013,usergrid,Automate upload of api baas 2.1 build to s3,3.0,3.0927085876464844,0.09270858764648438
+USERGRID-1015,usergrid,Test Notification Migration ,3.0,2.3460795879364014,0.6539204120635986
+USERGRID-1016,usergrid,Remove UUID field encoding in our ES fields,3.0,2.752750873565674,0.24724912643432617
+USERGRID-1017,usergrid,Create a job to clean unused edges,3.0,4.02731466293335,1.0273146629333496
+USERGRID-1018,usergrid,Create a job to remove duplicate connections and fix connection write logic,3.0,2.7318453788757324,0.2681546211242676
+USERGRID-1022,usergrid,remove batching in index processing,1.0,2.1879429817199707,1.1879429817199707
+USERGRID-1023,usergrid,Delete from collection does not use SQS or the event service,3.0,3.3370680809020996,0.3370680809020996
+USERGRID-1024,usergrid,Fix EntityMapSerialization in EntityToMapConverter to remove type serialization,3.0,2.81602144241333,0.18397855758666992
+USERGRID-1026,usergrid,Logic to detect (N+1)-d arrays catches a case where there is no 2-d array,1.0,3.3118982315063477,2.3118982315063477
+USERGRID-1027,usergrid,Occational MIsses on Indexing into Elasticsearch,8.0,3.201930046081543,4.798069953918457
+USERGRID-1029,usergrid,"When PUTing by uuid or name, add the entry into entity_id_sets column family",3.0,3.887563943862915,0.887563943862915
+USERGRID-1031,usergrid,Test and confirm Usergrid 1.0 works with Cassandra 2.1,2.0,3.1381072998046875,1.1381072998046875
+USERGRID-1032,usergrid,Test and confirm Usergrid 2.1 works with Cassandra 2.1,2.0,3.2121474742889404,1.2121474742889404
+USERGRID-1033,usergrid,Test and confirm Usergrid 2.0 works with Cassandra 2.1,1.0,3.155233383178711,2.155233383178711
+USERGRID-1035,usergrid,Fix NoAwsCreds rule to work outside of core. ,2.0,3.4214823246002197,1.4214823246002197
+USERGRID-1037,usergrid,Refactor asset aws sdk class,2.0,1.6698706150054932,0.33012938499450684
+USERGRID-1038,usergrid,2.1-release: fix index batching from SQS reader,3.0,2.7461838722229004,0.2538161277770996
+USERGRID-1046,usergrid,remove index and deindex requests that do not go through sqs e.g. CandidateIdFilter,3.0,1.9237465858459473,1.0762534141540527
+USERGRID-1048,usergrid,When reading messages from SQS an elevated consistency may be needed with latent replication,3.0,2.8171637058258057,0.18283629417419434
+USERGRID-1051,usergrid,When ElasticSearch rejects a Search request Usergrid should not return 200 OK with an empty array,1.0,3.6345131397247314,2.6345131397247314
+USERGRID-1052,usergrid,"After large deletions, graph seek time becomes slow",5.0,3.5715181827545166,1.4284818172454834
+USERGRID-1053,usergrid,[SPIKE] Audit TODOs in the code,5.0,1.246880054473877,3.753119945526123
+USERGRID-1058,usergrid,Ability to generate a master Jacoco coverage report,3.0,3.3985445499420166,0.3985445499420166
+USERGRID-1067,usergrid,Finish 2.1 release testing,3.0,2.0517337322235107,0.9482662677764893
+USERGRID-1068,usergrid,Create a per app migration script,2.0,4.733292579650879,2.733292579650879
+USERGRID-1069,usergrid,implement build metrics in jenkins,1.0,3.333890914916992,2.333890914916992
+USERGRID-1071,usergrid,Test iOS push notifications,1.0,3.7234511375427246,2.7234511375427246
+USERGRID-1072,usergrid,Test Android push notifications,1.0,3.4157402515411377,2.4157402515411377
+USERGRID-1073,usergrid,Test Windows phone,1.0,1.7368171215057373,0.7368171215057373
+USERGRID-1074,usergrid,[SPIKE] Evaluate read repair of unique values in 1.0,1.0,2.4403796195983887,1.4403796195983887
+USERGRID-1075,usergrid,Create Repair Tool to address Service Resource Exceptions from users who cannot be queried for their data,5.0,2.2432570457458496,2.7567429542541504
+USERGRID-1076,usergrid,Create a Repair tool that will address null pointer exceptions on entity returns and then properly handle them,5.0,4.167022705078125,0.832977294921875
+USERGRID-1077,usergrid,Create a repair task in usergrid to handle instances of multiple INDEXES when they are detected,8.0,3.236067533493042,4.763932466506958
+USERGRID-1079,usergrid,Add 2 endpoints for password hash migration,5.0,2.9880008697509766,2.0119991302490234
+USERGRID-1085,usergrid,Create RPM Distributable for Usergrid 2.1,5.0,2.940737247467041,2.059262752532959
+USERGRID-1086,usergrid,Errors/Failed index events during mgmt app re-index,3.0,2.9655025005340576,0.03449749946594238
+USERGRID-1091,usergrid,AbstractReadGraphFilter produces and queues empty queue operations,1.0,4.220583438873291,3.220583438873291
+USERGRID-1092,usergrid,Test and design for ElasticSearch running on Tomcat nodes,5.0,2.441488742828369,2.558511257171631
+USERGRID-1093,usergrid,Load test in-memory queue with current consumer and queue implementation,3.0,1.7149046659469604,1.2850953340530396
+USERGRID-1099,usergrid,Order of operations error in Query Execution,5.0,2.5814764499664307,2.4185235500335693
+USERGRID-1100,usergrid,POST /users/{user}/devices/notifications does not work.,1.0,2.826695442199707,1.826695442199707
+USERGRID-1101,usergrid,Unique Value Cleanup in 2.1 - cleaning up old columns for old versions,3.0,2.8792660236358643,0.12073397636413574
+USERGRID-1106,usergrid,Fix test: clientCredentialsFlowWithHeaderAuthorization(),3.0,1.5373361110687256,1.4626638889312744
+USERGRID-1113,usergrid,Improve NotificationsService test coverage,2.0,3.3439085483551025,1.3439085483551025
+USERGRID-1115,usergrid,Fix AdminUsersIT tests,5.0,2.5407397747039795,2.4592602252960205
+USERGRID-1118,usergrid,Fix EventsResource and IT,3.0,1.587843656539917,1.412156343460083
+USERGRID-1119,usergrid,Fix GroupResourceIT.postGroupActivity() test,3.0,1.3550111055374146,1.6449888944625854
+USERGRID-1124,usergrid,"Internal ""size"" within entity metadata is not displayed when doing a GET by entity name ",1.0,3.2379403114318848,2.2379403114318848
+USERGRID-1182,usergrid,Support GCM 3.0 for Android Push Notifications,2.0,2.8352773189544678,0.8352773189544678
+USERGRID-1183,usergrid,Support APNS VoIP Push Notifications,2.0,2.508760929107666,0.508760929107666
+USERGRID-1186,usergrid,Add DELETE for Admin Users,2.0,3.286534547805786,1.2865345478057861
+USERGRID-1187,usergrid,Ensure that PUT or POST does not create duplicate org association connections. ,2.0,3.1642343997955322,1.1642343997955322
+USERGRID-1191,usergrid,Create 2.1 Release for Apache,3.0,2.676056146621704,0.3239438533782959
+USERGRID-1203,usergrid,Allow certs in notifiers to be updated and store their details in the entity.,1.0,3.536677360534668,2.536677360534668
+USERGRID-1209,usergrid,GET on missing Asset file in S3 generates 500 error not 404,1.0,3.6043715476989746,2.6043715476989746
+USERGRID-1210,usergrid,Fix AwsAssetResourceIT,3.0,1.7454829216003418,1.2545170783996582
+USERGRID-1211,usergrid,Migrate locks from Hector to Astyanax,3.0,3.187845468521118,0.18784546852111816
+USERGRID-1238,usergrid,Error occuring when clicking link to activate organization,3.0,1.9333912134170532,1.0666087865829468
+USERGRID-1239,usergrid,Add smtp message-id to logs,3.0,4.008603572845459,1.008603572845459
+USERGRID-1244,usergrid,Upgrade pushy library to use latest version (HTTP/2 APNS implementation) ,2.0,3.287404775619507,1.2874047756195068
+USERGRID-1256,usergrid,Introduce Datastax Java Driver in effort to migration away from Astyanax,1.0,2.500563859939575,1.5005638599395752
+USERGRID-1267,usergrid,Simplify Central SSO: eliminate ext token validation end-point,3.0,2.6151137351989746,0.3848862648010254
+USERGRID-1268,usergrid,Proof of Concept: use Akka for Unique Value enforcement,8.0,3.430028200149536,4.569971799850464
+USERGRID-1272,usergrid,Set a property to turn off usergrid's dependency on elasticsearch,5.0,2.3364510536193848,2.6635489463806152
+USERGRID-1275,usergrid,Allow usergrid.api.url.base to be set when creating organizations.,2.0,3.0895421504974365,1.0895421504974365
