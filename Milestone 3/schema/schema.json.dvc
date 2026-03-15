@@ -1,0 +1,5 @@
+outs:
+- md5: 04ad2c1fba22723081bce783fcafdb8d
+  size: 614
+  hash: md5
+  path: schema.json

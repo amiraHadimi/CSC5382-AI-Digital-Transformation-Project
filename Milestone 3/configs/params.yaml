@@ -1,0 +1,48 @@
+# configs/params.yaml
+# Central parameter file for DVC and pipeline configuration.
+# All hyperparameters and paths are tracked here for reproducibility.
+
+ingestion:
+  csv_path: data/raw/raw_data.csv
+  positive_sp_only: true         # Drop rows with storypoints <= 0
+  drop_null_target: true
+
+validation:
+  train_ratio: 0.8
+  random_state: 42
+  schema_path: schema/schema.pbtxt
+  stats_train_path: tfdv_output/train_stats.pb
+  stats_eval_path: tfdv_output/eval_stats.pb
+  anomalies_path: tfdv_output/anomalies_report.json
+  # Revised domain bounds applied after anomaly detection
+  storypoints_max: 200.0
+  storypoints_min: 0.0
+  text_min_presence_fraction: 0.5
+
+transform:
+  train_ratio: 0.8
+  processed_output: data/processed/processed_data.parquet
+  max_text_length: 512            # chars; truncate for LLM token budget
+  fibonacci_points:
+    - 0.5
+    - 1
+    - 2
+    - 3
+    - 5
+    - 8
+    - 13
+    - 20
+    - 40
+    - 100
+
+feature_store:
+  feast_repo_path: feast_repo/feature_repo
+  feature_view_name: user_story_features
+  entity_name: issue_id
+  ttl_days: 90
+
+model:
+  base_model: meta-llama/Llama-3.2-1B
+  max_input_tokens: 128
+  num_labels: 1
+  problem_type: regression

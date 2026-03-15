@@ -1,0 +1,98 @@
+{
+  "train": {
+    "issuekey": {
+      "dtype": "object",
+      "count": 18650,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "unique": 18650
+    },
+    "title": {
+      "dtype": "object",
+      "count": 18650,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "unique": 18489
+    },
+    "description": {
+      "dtype": "object",
+      "count": 16877,
+      "nulls": 1773,
+      "null_pct": 9.51,
+      "unique": 16695
+    },
+    "storypoints": {
+      "dtype": "int64",
+      "count": 18650,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "mean": 6.1711,
+      "std": 10.01,
+      "min": 1.0,
+      "max": 100.0,
+      "median": 3.0
+    },
+    "split_mark": {
+      "dtype": "object",
+      "count": 18650,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "unique": 3
+    },
+    "project": {
+      "dtype": "object",
+      "count": 18650,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "unique": 16
+    }
+  },
+  "eval": {
+    "issuekey": {
+      "dtype": "object",
+      "count": 4663,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "unique": 4663
+    },
+    "title": {
+      "dtype": "object",
+      "count": 4663,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "unique": 4636
+    },
+    "description": {
+      "dtype": "object",
+      "count": 4072,
+      "nulls": 591,
+      "null_pct": 12.67,
+      "unique": 4038
+    },
+    "storypoints": {
+      "dtype": "int64",
+      "count": 4663,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "mean": 4.9921,
+      "std": 4.5847,
+      "min": 1.0,
+      "max": 40.0,
+      "median": 3.0
+    },
+    "split_mark": {
+      "dtype": "object",
+      "count": 4663,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "unique": 3
+    },
+    "project": {
+      "dtype": "object",
+      "count": 4663,
+      "nulls": 0,
+      "null_pct": 0.0,
+      "unique": 4
+    }
+  }
+}

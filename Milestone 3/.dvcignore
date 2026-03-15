@@ -1,0 +1,11 @@
+# DVC ignore file
+# Files and directories that DVC should not track
+
+**/.git
+**/.zenml
+**/node_modules
+**/__pycache__
+**/*.pyc
+**/*.egg-info
+.venv/
+.env

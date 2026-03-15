@@ -1,0 +1,36 @@
+# Milestone 3 – Requirements
+# Install with: pip install -r requirements.txt
+
+# ── Core ML / Data ────────────────────────────────────────────────────────────
+pandas>=2.0.0
+numpy>=1.24.0
+pyarrow>=12.0.0       # Parquet support
+scikit-learn>=1.3.0
+
+# ── TFX / TFDV ───────────────────────────────────────────────────────────────
+tensorflow-data-validation>=1.14.0
+tensorflow>=2.13.0
+apache-beam>=2.50.0
+
+# ── ZenML (MLOps platform / pipeline) ────────────────────────────────────────
+zenml>=0.55.0
+
+# ── DVC (data versioning) ─────────────────────────────────────────────────────
+dvc>=3.30.0
+dvc[gdrive]>=3.30.0   # optional: for Google Drive remote
+
+# ── Feast (feature store) ────────────────────────────────────────────────────
+feast[local]>=0.35.0
+
+# ── HuggingFace (model – already used in Milestone 2) ────────────────────────
+transformers>=4.40.0
+peft>=0.10.0
+torch>=2.1.0
+
+# ── Visualisation ─────────────────────────────────────────────────────────────
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# ── Notebook ─────────────────────────────────────────────────────────────────
+jupyter>=1.0.0
+ipywidgets>=8.0.0

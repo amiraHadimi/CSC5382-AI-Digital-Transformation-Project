@@ -1,0 +1,6 @@
+from datetime import timedelta
+from feast import Entity, FeatureView, Field, FileSource
+from feast.types import Int64, Float32
+issue_entity = Entity(name="issue_id")
+user_story_source = FileSource(path="C:/Users/dell/Documents/AUI/master SPRING/AI for digital transformation/CSC5382-AI-Digital-Transformation-Project/Milestone 3/data/processed/processed_data.parquet", timestamp_field="event_timestamp")
+user_story_features = FeatureView(name="user_story_features", entities=[issue_entity], ttl=timedelta(days=90), schema=[Field(name="text_length",dtype=Int64),Field(name="word_count",dtype=Int64),Field(name="has_description",dtype=Int64),Field(name="log_storypoints",dtype=Float32),Field(name="is_fibonacci",dtype=Int64)], source=user_story_source)

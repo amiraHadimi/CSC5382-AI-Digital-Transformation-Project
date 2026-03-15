@@ -1,0 +1,24 @@
+# Data files (tracked by DVC, not Git)
+data/raw/raw_data.csv
+tfdv_output/*.pb
+
+# Feast local DB
+feast_repo/feature_repo/data/
+
+# Python
+__pycache__/
+*.pyc
+*.egg-info/
+.venv/
+.env
+
+# ZenML
+.zenml/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+
+venv/
