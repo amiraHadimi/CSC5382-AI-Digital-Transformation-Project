@@ -1,6 +1,8 @@
 # Milestone 3 – Data Acquisition, Validation & Preparation
 
-> **Project:** AI-Based Story Point Estimation for Agile Software Development
+> **Project:** AI-Based Story Point Estimation for Agile Software Development  
+> **Course:** CSC5382 – AI for Digital Transformation  
+> **Milestone due:** March 22, 2025
 
 ---
 
@@ -9,22 +11,26 @@
 1. [Overview](#overview)
 2. [Repository Structure](#repository-structure)
 3. [1 · Data Ingestion & Raw Storage](#1--data-ingestion--raw-storage)
-4. [2 · Schema Definition](#2--schema-definition)
-5. [3 · Data Validation & Anomaly Detection](#3--data-validation--anomaly-detection)
-6. [4 · Preprocessing & Feature Engineering](#4--preprocessing--feature-engineering)
-7. [5 · Feature Store (Feast)](#5--feature-store-feast)
-8. [6 · Data Versioning (DVC)](#6--data-versioning-dvc)
-9. [7 · ML Pipeline Integration (ZenML)](#7--ml-pipeline-integration-zenml)
-10. [Grading Checklist](#grading-checklist)
-11. [References](#references)
+4. [2 · Schema Definition & Data Validation](#2--schema-definition--data-validation)
+5. [3 · Preprocessing & Feature Engineering](#3--preprocessing--feature-engineering)
+6. [4 · Feature Store (Feast)](#4--feature-store-feast)
+7. [5 · Data Versioning (DVC)](#5--data-versioning-dvc)
+8. [6 · ML Pipeline Integration (ZenML)](#6--ml-pipeline-integration-zenml)
+9. [Grading Checklist](#grading-checklist)
+10. [References](#references)
 
 ---
 
 ## Overview
 
-Milestone 3 operationalises the data layer of the Agile story point estimation system introduced in Milestones 1 and 2. The goal is to build a **production-ready data pipeline** that ingests the raw Agile user story dataset (23,313 issues from 16 open-source JIRA projects), validates it against an inferred schema, engineers features suitable for the Llama3SP fine-tuning workflow, and registers those features in a Feast feature store — all version-controlled via DVC and orchestrated through a ZenML pipeline.
+Milestone 3 builds the complete data pipeline for the Agile story point estimation system introduced in Milestones 1 and 2. The goal is to ingest, validate, preprocess, and version the raw Agile user story dataset (23,313 issues from 16 open-source JIRA projects), and register engineered features in a Feast feature store — all orchestrated through a single reproducible pipeline script and version-controlled via DVC.
 
-The pipeline connects directly to the Llama3SP model used in Milestone 2 (`meta-llama/Llama-3.2-1B` + per-project LoRA adapters): the `input_text` feature produced here is the exact field consumed by the tokenizer in `eval_mae_per_project.py`.
+The pipeline connects directly to the Llama3SP model used in Milestone 2 (`meta-llama/Llama-3.2-1B` + per-project LoRA adapters): the `input_text` feature produced here is the exact field consumed by the Llama tokenizer in `eval_mae_per_project.py`.
+
+**To reproduce the full pipeline:**
+```bash
+python run_pipeline.py
+```
 
 ---
 
@@ -34,33 +40,36 @@ The pipeline connects directly to the Llama3SP model used in Milestone 2 (`meta-
 Milestone 3/
 ├── data/
 │   ├── raw/
-│   │   ├── raw_data.csv               ← raw ingested snapshot (DVC tracked)
-│   │   └── raw_data.csv.dvc           ← DVC pointer file
+│   │   ├── raw_data.csv.dvc           ← DVC pointer (23,313 rows, all 16 projects merged)
+│   │   └── .gitignore
 │   └── processed/
-│       ├── processed_data.parquet     ← engineered features (DVC tracked)
-│       └── processed_data.parquet.dvc
-├── notebooks/
-│   └── milestone3_pipeline.ipynb      ← main demonstration notebook
-├── pipeline/
-│   ├── ingestion.py                   ← ZenML step: raw data ingestion
-│   ├── validation.py                  ← ZenML step: TFDV validation
-│   ├── transform.py                   ← ZenML step: preprocessing & features
-│   ├── feature_store.py               ← ZenML step: Feast registration
-│   └── zenml_pipeline.py              ← full ZenML pipeline wiring
+│       ├── train.parquet              ← 13,981 rows (60%)
+│       ├── val.parquet                ← 4,661 rows  (20%)
+│       ├── test.parquet               ← 4,671 rows  (20%)
+│       ├── processed_data.parquet.dvc ← DVC pointer (full processed dataset)
+│       └── .gitignore
 ├── schema/
-│   └── schema.pbtxt                   ← TFDV inferred + revised schema
+│   └── schema.json                    ← inferred + revised schema (6 features)
 ├── tfdv_output/
-│   ├── train_stats.pb                 ← TFDV training statistics
-│   ├── eval_stats.pb                  ← TFDV evaluation statistics
-│   ├── anomalies_report.json          ← detected anomalies
-│   ├── storypoints_distribution.png
-│   └── feature_distributions.png
+│   ├── data_statistics.json           ← statistics for train, val, test splits
+│   ├── split_info.json                ← split sizes and source
+│   ├── anomalies_report.json          ← anomaly detection report (0 anomalies)
+│   └── feature_distributions.png     ← feature distribution plots
 ├── feast_repo/feature_repo/
 │   ├── feature_store.yaml             ← Feast project config
 │   └── features.py                    ← entity + feature view definitions
+├── pipeline/
+│   ├── ingestion.py                   ← ZenML step: raw data ingestion
+│   ├── validation.py                  ← ZenML step: schema + validation
+│   ├── transform.py                   ← ZenML step: preprocessing + features
+│   ├── feature_store.py               ← ZenML step: Feast registration
+│   └── zenml_pipeline.py              ← full ZenML pipeline wiring
+├── notebooks/
+│   └── milestone3_pipeline.ipynb      ← demonstration notebook
 ├── configs/
-│   └── params.yaml                    ← central parameter file (DVC params)
-├── dvc.yaml                           ← DVC stage pipeline
+│   └── params.yaml                    ← central parameter file
+├── run_pipeline.py                    ← standalone pipeline runner (all 4 steps)
+├── merge_data.py                      ← merges 16 project CSVs into one file
 ├── requirements.txt
 └── README.md                          ← this file
 ```
@@ -69,164 +78,183 @@ Milestone 3/
 
 ## 1 · Data Ingestion & Raw Storage
 
-**Tool:** ZenML step wrapping TFX ExampleGen logic | **Points: 5**
+**Tool:** Python + ZenML step | **Points: 5**
 
-Raw data is ingested from the Agile user story dataset CSV (23,313 issues, 16 OSS projects). The ingestion step normalises heterogeneous column names across project repositories (e.g., `point` → `storypoints`, `concat` → `description`) to a canonical schema, drops rows with missing or non-positive story points, and saves a versioned raw snapshot to disk.
+### What was done
 
-**Implementation:** [`pipeline/ingestion.py`](pipeline/ingestion.py)
+The dataset consists of 16 separate CSV files (one per JIRA project: `appceleratorstudio.csv`, `moodle.csv`, `springxd.csv`, etc.). These were first merged into a single unified file using [`merge_data.py`](merge_data.py), then ingested and cleaned by the ingestion step in [`run_pipeline.py`](run_pipeline.py).
 
+**Merging 16 project files:**
 ```python
-@step
-def ingest_data(csv_path: str) -> pd.DataFrame:
-    df = pd.read_csv(csv_path)
-    df = _normalize_columns(df)        # handle column aliases across projects
-    df = df.dropna(subset=["storypoints"])
-    df = df[df["storypoints"] > 0]
-    df.to_csv("data/raw/raw_data.csv", index=False)
-    return df
+# merge_data.py
+dfs = []
+for f in all_files:
+    project_name = os.path.basename(f).replace('.csv', '')
+    df = pd.read_csv(f)
+    df['project'] = project_name
+    dfs.append(df)
+combined = pd.concat(dfs, ignore_index=True)
+combined.to_csv('data/raw/raw_data.csv', index=False)
+# Result: 23,313 rows across 16 projects
 ```
 
-The raw snapshot is tracked by DVC — see [`data/raw/raw_data.csv.dvc`](data/raw/raw_data.csv.dvc).
-
-**Column normalisation map:**
+**Column normalization** — different project files used different names for the same field:
 
 | Raw column name | Canonical name |
 |---|---|
-| `point`, `story_points`, `storyPoint` | `storypoints` |
+| `storypoint`, `story_points`, `point` | `storypoints` |
 | `concat`, `body` | `description` |
 | `summary` | `title` |
 
+**Data quality filtering:**
+- Dropped rows with null `storypoints`
+- Dropped rows with `storypoints <= 0`
+- Result: 23,313 clean rows retained
+
+**Raw snapshot:** [`data/raw/raw_data.csv.dvc`](data/raw/raw_data.csv.dvc) (DVC tracked)
+
 ---
 
-## 2 · Schema Definition
+## 2 · Schema Definition & Data Validation
 
-**Tool:** TensorFlow Data Validation (TFDV) | **Points: 2**
+**Tool:** Great Expectations + custom statistics | **Points: 2 + 3**
 
-The data schema is automatically inferred from training-split statistics using TFDV's `infer_schema()`. The schema captures:
+### 2.1 Data Split
 
-- **Feature types** for each column (string, float, int)
-- **Value domain** bounds for the `storypoints` regression target
-- **Presence constraints** (min/max fraction of non-missing values) for text fields
-- **Cardinality** of categorical fields (e.g., project name)
+The dataset contains a pre-defined `split_mark` column assigned by the Llama3SP authors, ensuring consistent and reproducible splits across all research using this benchmark:
 
-**Saved schema:** [`schema/schema.pbtxt`](schema/schema.pbtxt)
+| Split | Rows | Percentage | Purpose |
+|---|---|---|---|
+| **Train** | 13,981 | 60% | Schema inference + model training |
+| **Validation** | 4,661 | 20% | Anomaly detection + hyperparameter tuning |
+| **Test** | 4,671 | 20% | Final evaluation only — **never touched during validation** |
+
+Split details: [`tfdv_output/split_info.json`](tfdv_output/split_info.json)
+
+### 2.2 Data Statistics
+
+Statistics were computed for all three splits across all 6 columns:
+
+```json
+{
+  "train": {
+    "storypoints": { "mean": 4.87, "std": 6.21, "min": 0.5, "max": 100.0 },
+    "title":       { "unique": 13891, "null_pct": 0.0 },
+    "description": { "null_pct": 12.3 }
+  },
+  "validation": { ... },
+  "test":       { ... }
+}
+```
+
+Full statistics: [`tfdv_output/data_statistics.json`](tfdv_output/data_statistics.json)
+
+### 2.3 Schema Definition
+
+The schema is inferred **from the training set only** — this prevents data leakage from the validation or test sets into the schema definition:
+
+```json
+{
+  "storypoints": { "type": "numeric", "min": 0.5,  "max": 100.0, "max_null_pct": 10.0 },
+  "title":       { "type": "string",  "unique_values": 13891,     "max_null_pct": 10.0 },
+  "description": { "type": "string",  "unique_values": 13102,     "max_null_pct": 22.3 },
+  "project":     { "type": "string",  "unique_values": 16,        "max_null_pct": 10.0 },
+  "split_mark":  { "type": "string",  "unique_values": 3,         "max_null_pct": 10.0 },
+  "issuekey":    { "type": "string",  "unique_values": 13981,     "max_null_pct": 10.0 }
+}
+```
+
+Saved schema: [`schema/schema.json`](schema/schema.json)
+
+### 2.4 Anomaly Detection & Schema Revision
+
+The **validation set** (not the test set) is checked against the training schema using Great Expectations:
+
+- Null percentage violations
+- Numeric values outside the expected range
+- Missing columns
+
+**Result: 0 anomalies detected** in the validation set. The schema required no revision, confirming that the pre-defined splits by the Llama3SP authors are internally consistent.
+
+Anomaly report: [`tfdv_output/anomalies_report.json`](tfdv_output/anomalies_report.json)
+
+> **Why validate on val and not test?**  
+> The test set is kept completely untouched until final model evaluation in a later milestone. Validating against it would constitute data leakage and bias the final performance estimate.
+
+---
+
+## 3 · Preprocessing & Feature Engineering
+
+**Tool:** Python (pandas + regex) wrapped in ZenML Transform step | **Points: 5**
+
+Implementation: [`pipeline/transform.py`](pipeline/transform.py) | [`run_pipeline.py`](run_pipeline.py)
+
+### 3.1 Text Cleaning
+
+Raw JIRA text undergoes a 5-stage cleaning pipeline:
+
+| Stage | Operation | Example |
+|---|---|---|
+| Lowercasing | `text.lower()` | `"Add Feature"` → `"add feature"` |
+| URL removal | regex `https?://\S+` | `"see https://jira.com"` → `"see "` |
+| JIRA markup removal | `{code}`, `[~user]`, `!image!` | `"{code}x=1{code}"` → `" "` |
+| Special char removal | keep `[a-z0-9 .,!?-]` | `"fix: issue #42"` → `"fix issue 42"` |
+| Whitespace collapse | `\s+` → single space | `"fix  bug"` → `"fix bug"` |
+
+### 3.2 Input Text Construction
+
+Title and description are combined into a single field matching the exact prompt format expected by the Llama3SP tokenizer:
 
 ```python
-train_stats = tfdv.generate_statistics_from_dataframe(train_df)
-schema      = tfdv.infer_schema(statistics=train_stats)
-tfdv.display_schema(schema)
-tfdv.write_schema_text(schema, "schema/schema.pbtxt")
+input_text = f"Title: {cleaned_title} Description: {cleaned_description}"
+# Example:
+# "Title: add ca against object literals Description: div class p style..."
 ```
 
-The schema is the single source of truth for data contracts across training, evaluation, and inference. It is also tracked via DVC so any schema revision is versioned alongside the data.
+### 3.3 Engineered Features
+
+| Feature | Type | Description | Use in model |
+|---|---|---|---|
+| `input_text` | string | Combined title + description | Primary LLM input |
+| `cleaned_title` | string | Cleaned title only | Reference |
+| `cleaned_description` | string | Cleaned description only | Reference |
+| `text_length` | int | Character count of `input_text` | Complexity proxy |
+| `word_count` | int | Word count of `input_text` | Complexity proxy |
+| `title_word_count` | int | Word count of cleaned title | Title length signal |
+| `has_description` | int (0/1) | 1 if description is non-empty | Missingness flag |
+| `log_storypoints` | float | `log1p(storypoints)` | Reduces target skew |
+| `is_fibonacci` | int (0/1) | 1 if value in {1,2,3,5,8,13,20,40,100} | Planning poker alignment |
+
+Feature distribution plots: [`tfdv_output/feature_distributions.png`](tfdv_output/feature_distributions.png)
+
+### 3.4 Output Files
+
+| File | Rows | Description |
+|---|---|---|
+| `data/processed/train.parquet` | 13,981 | Training set with all engineered features |
+| `data/processed/val.parquet` | 4,661 | Validation set |
+| `data/processed/test.parquet` | 4,671 | Test set (untouched until Milestone 4) |
+| `data/processed/processed_data.parquet` | 23,313 | Full dataset |
+
+Each processed file contains **15 columns**: 6 original + 9 engineered features.
 
 ---
 
-## 3 · Data Validation & Anomaly Detection
-
-**Tool:** TensorFlow Data Validation (TFDV) | **Points: 3**
-
-TFDV validates the evaluation split against the training schema and detects anomalies. The full validation workflow is:
-
-### 3.1 Statistics Visualisation
-
-Training and evaluation statistics are compared side by side using `tfdv.visualize_statistics()`. This surfaces distribution skew between splits — particularly important for `storypoints`, whose distribution varies across the 16 JIRA projects (see [`tfdv_output/storypoints_distribution.png`](tfdv_output/storypoints_distribution.png)).
-
-### 3.2 Anomaly Detection
-
-```python
-anomalies = tfdv.validate_statistics(statistics=eval_stats, schema=schema)
-tfdv.display_anomalies(anomalies)
-```
-
-Typical anomalies found in this dataset include:
-
-| Anomaly type | Affected feature | Cause |
-|---|---|---|
-| Domain value out of range | `storypoints` | Eval projects use larger point scales |
-| Missing value ratio exceeded | `description` | Some JIRA issues have no body text |
-| String value not in domain | `project` | Eval projects not seen in training schema |
-
-The full anomaly report is saved to [`tfdv_output/anomalies_report.json`](tfdv_output/anomalies_report.json).
-
-### 3.3 Schema Revision
-
-Anomalies are resolved by relaxing domain constraints rather than discarding valid data:
-
-```python
-# Relax storypoints range to accommodate all 16 projects
-for feature in schema.feature:
-    if feature.name == "storypoints":
-        feature.float_domain.min = 0.0
-        feature.float_domain.max = 200.0
-    if feature.name in ("title", "description"):
-        feature.presence.min_fraction = 0.5  # allow partial absence
-```
-
-The revised schema is saved back to [`schema/schema.pbtxt`](schema/schema.pbtxt).
-
-**Full notebook walkthrough:** [`notebooks/milestone3_pipeline.ipynb`](notebooks/milestone3_pipeline.ipynb) — Section 2.
-
----
-
-## 4 · Preprocessing & Feature Engineering
-
-**Tool:** ZenML Transform step (pandas + custom NLP) | **Points: 5**
-
-The preprocessing step applies a multi-stage cleaning and feature engineering pipeline adapted to the characteristics of JIRA user story text.
-
-**Implementation:** [`pipeline/transform.py`](pipeline/transform.py)
-
-### 4.1 Text Cleaning
-
-Raw text undergoes four cleaning passes before being fed to the Llama tokenizer:
-
-| Step | Operation | Rationale |
-|---|---|---|
-| Lowercasing | `text.lower()` | Normalise case for LLM tokenizer |
-| URL removal | regex `https?://\S+` | URLs carry no semantic effort signal |
-| JIRA markup removal | `{code}`, `[~user]`, `!image!` | Artefacts of JIRA export format |
-| Special character removal | keep `[a-z0-9\s.,!?-]` | Reduce vocabulary noise |
-| Whitespace collapse | `\s+` → single space | Canonical token spacing |
-
-### 4.2 Engineered Features
-
-| Feature | Type | Description |
-|---|---|---|
-| `input_text` | string | `"Title: <t> Description: <d>"` — primary LLM input |
-| `cleaned_title` | string | Cleaned title only |
-| `cleaned_description` | string | Cleaned description only |
-| `text_length` | int | Character count of `input_text` |
-| `word_count` | int | Word count of `input_text` |
-| `title_word_count` | int | Word count of cleaned title |
-| `has_description` | int (0/1) | Flag: non-empty description present |
-| `log_storypoints` | float | `log1p(storypoints)` — reduces right skew for regression |
-| `is_fibonacci` | int (0/1) | Flag: story point is a standard Fibonacci planning value |
-
-The `input_text` format (`"Title: … Description: …"`) is consistent with the prompt structure used in the Llama3SP paper, ensuring continuity with the Milestone 2 inference pipeline.
-
-**Distribution plots:** [`tfdv_output/feature_distributions.png`](tfdv_output/feature_distributions.png)
-
-### 4.3 Output
-
-Processed data is exported as Parquet for efficient downstream loading:
-
-```
-data/processed/processed_data.parquet   (DVC tracked)
-```
-
----
-
-## 5 · Feature Store (Feast)
+## 4 · Feature Store (Feast)
 
 **Tool:** Feast (local FileSource, offline mode) | **Points: 1**
 
-Engineered features are registered in a Feast feature store, enabling consistent feature retrieval across training, evaluation, and future inference requests — decoupling feature computation from model training.
+Implementation: [`pipeline/feature_store.py`](pipeline/feature_store.py) | [`feast_repo/feature_repo/features.py`](feast_repo/feature_repo/features.py)
 
-**Implementation:** [`pipeline/feature_store.py`](pipeline/feature_store.py)
+A Feast feature store was set up to register the engineered features, enabling consistent feature retrieval across training, evaluation, and future inference — decoupling feature computation from model training.
 
-**Feature view definition:** [`feast_repo/feature_repo/features.py`](feast_repo/feature_repo/features.py)
+### Entity
+```python
+issue_entity = Entity(name="issue_id")
+# Unique identifier for each JIRA issue / user story
+```
 
+### Feature View
 ```python
 user_story_features = FeatureView(
     name="user_story_features",
@@ -244,72 +272,58 @@ user_story_features = FeatureView(
 )
 ```
 
-To apply the feature store:
+**To apply the feature store:**
 ```bash
 cd feast_repo/feature_repo
 feast apply
 ```
 
-For production deployments, the `FileSource` can be replaced with a BigQuery or Redis online store with no changes to the feature view definitions.
+**Feast apply output:**
+```
+Applying changes for project agile_story_points
+Created entity issue_id
+Created feature view user_story_features
+Created sqlite table agile_story_points_user_story_features
+```
 
 ---
 
-## 6 · Data Versioning (DVC)
+## 5 · Data Versioning (DVC)
 
 **Tool:** DVC (Data Version Control) | **Points: 3**
 
-All data artifacts produced by the pipeline are tracked using DVC. This ensures that every experiment can be reproduced by checking out the corresponding DVC pointer files alongside the code.
+All data artifacts are tracked using DVC so every experiment can be reproduced exactly by checking out the corresponding DVC pointer files alongside the code.
 
-**DVC pipeline config:** [`dvc.yaml`](dvc.yaml)
-**Parameter file:** [`configs/params.yaml`](configs/params.yaml)
+### Tracked Artifacts
 
-### Setup & Commands
+| Artifact | DVC pointer file | Git tag |
+|---|---|---|
+| `data/raw/raw_data.csv` | `data/raw/raw_data.csv.dvc` | `v1.0-milestone3` |
+| `data/processed/processed_data.parquet` | `data/processed/processed_data.parquet.dvc` | `v1.0-milestone3` |
 
+### Commands Used
 ```bash
-# Initialise DVC (first time only)
 dvc init
-
-# Track raw data
-dvc add data/raw/raw_data.csv
-git add data/raw/raw_data.csv.dvc data/raw/.gitignore
-git commit -m "feat: track raw data with DVC [milestone3]"
-git tag -a v1.0-raw -m "Milestone 3: initial raw data ingestion"
-
-# Track processed data
-dvc add data/processed/processed_data.parquet
-git add data/processed/processed_data.parquet.dvc
-git commit -m "feat: add processed feature-engineered data [milestone3]"
-git tag -a v1.0-processed -m "Milestone 3: processed Parquet after feature engineering"
-
-# Track schema
-dvc add schema/schema.pbtxt
-git commit -m "feat: add TFDV inferred+revised schema [milestone3]"
-
-# Reproduce the full pipeline
-dvc repro
-
-# Push data to remote (configure remote first)
-dvc remote add -d myremote gdrive://<folder-id>
-dvc push
+dvc add "Milestone 3/data/raw/raw_data.csv"
+dvc add "Milestone 3/data/processed/processed_data.parquet"
+git add .
+git commit -m "feat: Milestone 3 - data pipeline complete"
+git tag -a v1.0-milestone3 -m "Milestone 3 complete"
+git push origin main
+git push origin --tags
 ```
 
-### Versioned Artifacts
-
-| Artifact | DVC file | Git tag |
-|---|---|---|
-| `data/raw/raw_data.csv` | `data/raw/raw_data.csv.dvc` | `v1.0-raw` |
-| `data/processed/processed_data.parquet` | `data/processed/processed_data.parquet.dvc` | `v1.0-processed` |
-| `schema/schema.pbtxt` | `schema/schema.pbtxt.dvc` | — |
+The `.dvc` pointer files are committed to Git instead of the actual data files, keeping the repository lightweight while maintaining full data reproducibility.
 
 ---
 
-## 7 · ML Pipeline Integration (ZenML)
+## 6 · ML Pipeline Integration (ZenML)
 
-**Tool:** ZenML | **Points: 5 (ingestion) + pipeline**
+**Tool:** ZenML | **Points: included in ingestion + pipeline**
 
-All four steps are wired into a single ZenML pipeline, integrating this milestone's data work into the larger MLOps platform that will support model training, experiment tracking, and deployment in subsequent milestones.
+All pipeline steps are implemented as ZenML `@step` functions and wired into a single `@pipeline`, integrating this milestone's data work into the larger MLOps platform that supports model training, experiment tracking, and deployment in subsequent milestones.
 
-**Implementation:** [`pipeline/zenml_pipeline.py`](pipeline/zenml_pipeline.py)
+**Pipeline definition:** [`pipeline/zenml_pipeline.py`](pipeline/zenml_pipeline.py)
 
 ```python
 @pipeline(name="milestone3_data_pipeline", enable_cache=True)
@@ -320,23 +334,10 @@ def data_pipeline(csv_path: str = "data/raw/raw_data.csv") -> None:
     store_info   = setup_feature_store(df=processed_df)
 ```
 
-### Running the Pipeline
-
+**Standalone runner (no ZenML server needed):**
 ```bash
-# Install dependencies
-pip install -r requirements.txt
-
-# Run via Python
-python pipeline/zenml_pipeline.py --csv-path data/raw/raw_data.csv
-
-# Or via ZenML CLI
-zenml pipeline run pipeline/zenml_pipeline.py:data_pipeline
-
-# Launch ZenML dashboard to inspect artifacts
-zenml up
+python run_pipeline.py
 ```
-
-ZenML's caching (`enable_cache=True`) ensures that unchanged steps are not re-executed, reducing runtime when iterating on downstream steps. Each step produces a tracked artifact (DataFrames, dicts) stored in the ZenML artifact store, providing full lineage from raw CSV to Feast-registered features.
 
 ### Pipeline DAG
 
@@ -344,28 +345,29 @@ ZenML's caching (`enable_cache=True`) ensures that unchanged steps are not re-ex
 ingest_data
     │
     ▼
-validate_data          (TFDV schema + anomaly detection)
-    │
+validate_data          → schema/schema.json
+    │                  → tfdv_output/anomalies_report.json
+    │                  → tfdv_output/data_statistics.json
     ▼
-preprocess_and_engineer (text cleaning + feature engineering)
-    │
+preprocess_and_engineer → data/processed/train.parquet
+    │                   → data/processed/val.parquet
+    │                   → data/processed/test.parquet
     ▼
-setup_feature_store    (Feast feature view registration)
+setup_feature_store    → feast_repo/feature_repo/
 ```
 
 ---
 
 ## Grading Checklist
 
-| Requirement | Tool used | Points | Deliverable |
+| Requirement | Tool | Points | Deliverable |
 |---|---|---|---|
-| Data management – Schema definition | TFDV `infer_schema` | 2 | [`schema/schema.pbtxt`](schema/schema.pbtxt) |
-| Data Validation & Verification (stats, anomaly detection, anomaly fix) | TFDV | 3 | [`tfdv_output/`](tfdv_output/) · [`notebooks/milestone3_pipeline.ipynb`](notebooks/milestone3_pipeline.ipynb) |
-| Data versioning | DVC | 3 | [`dvc.yaml`](dvc.yaml) · `.dvc` pointer files · git tags |
+| Schema definition | Custom stats + JSON | 2 | [`schema/schema.json`](schema/schema.json) |
+| Data validation & verification (stats, anomaly detection, fix) | Great Expectations | 3 | [`tfdv_output/`](tfdv_output/) |
+| Data versioning | DVC | 3 | `.dvc` pointer files + git tag `v1.0-milestone3` |
 | Feature store | Feast | 1 | [`feast_repo/feature_repo/features.py`](feast_repo/feature_repo/features.py) |
-| Ingestion of raw data & storage into repository | ZenML + TFX ExampleGen | 5 | [`pipeline/ingestion.py`](pipeline/ingestion.py) · [`data/raw/raw_data.csv.dvc`](data/raw/raw_data.csv.dvc) |
-| Preprocessing & Feature Engineering | ZenML Transform | 5 | [`pipeline/transform.py`](pipeline/transform.py) · [`data/processed/processed_data.parquet`](data/processed/processed_data.parquet) |
-| Setup data pipeline within larger ML pipeline | ZenML | (above) | [`pipeline/zenml_pipeline.py`](pipeline/zenml_pipeline.py) |
+| Ingestion of raw data & storage | Python + ZenML | 5 | [`run_pipeline.py`](run_pipeline.py) · [`data/raw/raw_data.csv.dvc`](data/raw/raw_data.csv.dvc) |
+| Preprocessing & Feature Engineering | ZenML Transform step | 5 | [`pipeline/transform.py`](pipeline/transform.py) · [`data/processed/`](data/processed/) |
 | **Total** | | **19** | |
 
 ---
@@ -373,10 +375,9 @@ setup_feature_store    (Feast feature view registration)
 ## References
 
 1. Choetkiertikul, M., Dam, H. K., Tran, T., Treude, C., & Ghose, A. (2018). *A deep learning model for estimating story points.* IEEE TSE. https://doi.org/10.1109/TSE.2018.2792247
-2. Mittal, H., Arsalan, M., & Garg, P. (2024). *Story point estimation using deep learning: an empirical re-evaluation.*
-3. Fu, M., & Tantithamthavorn, C. (2022). *GPT2SP: A Transformer-based Agile story point estimation approach.* IEEE TSE. https://doi.org/10.1109/TSE.2022.3160829
-4. Sepúlveda Montoya, C., Ríos Gómez, J., & Jaramillo Villegas, J. A. (2025). *Llama3SP: Resource-efficient LLM for Agile story point estimation.* https://github.com/DEVCamiloSepulveda/llama3sp
-5. TensorFlow Data Validation. https://www.tensorflow.org/tfx/data_validation/get_started
-6. ZenML Documentation. https://docs.zenml.io
-7. Feast Feature Store. https://docs.feast.dev
-8. DVC Documentation. https://dvc.org/doc
+2. Fu, M., & Tantithamthavorn, C. (2022). *GPT2SP: A Transformer-based Agile story point estimation approach.* IEEE TSE. https://doi.org/10.1109/TSE.2022.3160829
+3. Sepúlveda Montoya, C., Ríos Gómez, J., & Jaramillo Villegas, J. A. (2025). *Llama3SP.* https://github.com/DEVCamiloSepulveda/llama3sp
+4. Great Expectations Documentation. https://docs.greatexpectations.io
+5. ZenML Documentation. https://docs.zenml.io
+6. Feast Feature Store. https://docs.feast.dev
+7. DVC Documentation. https://dvc.org/doc
