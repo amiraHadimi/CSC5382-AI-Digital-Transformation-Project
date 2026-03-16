@@ -1,8 +1,6 @@
 # Milestone 3 – Data Acquisition, Validation & Preparation
 
 > **Project:** AI-Based Story Point Estimation for Agile Software Development
-> **Course:** CSC5382 – AI for Digital Transformation
-> **Milestone due:** March 22, 2025
 
 ---
 
