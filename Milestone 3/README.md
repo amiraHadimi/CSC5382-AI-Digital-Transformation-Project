@@ -2,7 +2,6 @@
 
 > **Project:** AI-Based Story Point Estimation for Agile Software Development
 > **Course:** CSC5382 – AI for Digital Transformation
-> **Due:** March 22, 2025
 > **Repository:** github.com/amiraHadimi/CSC5382-AI-Digital-Transformation-Project
 
 ---
@@ -409,20 +408,6 @@ zenml pipeline run pipeline/zenml_pipeline.py:data_pipeline
 
 ---
 
-## Grading Checklist
-
-| Requirement | Tool | Points | Deliverable |
-|---|---|---|---|
-| Schema definition | Custom statistics + JSON | 2 | [`schema/schema.json`](schema/schema.json) |
-| Data validation & verification (stats, anomaly detection, fix) | Great Expectations | 3 | [`tfdv_output/`](tfdv_output/) |
-| Data versioning | DVC + git tags | 3 | `.dvc` pointer files + tag `v1.0-milestone3` |
-| Feature store | Feast | 1 | [`feast_repo/feature_repo/features.py`](feast_repo/feature_repo/features.py) |
-| Ingestion of raw data & storage | Python + ZenML | 5 | [`run_pipeline.py`](run_pipeline.py) · [`data/raw/raw_data.csv.dvc`](data/raw/raw_data.csv.dvc) |
-| Preprocessing & Feature Engineering | ZenML Transform step | 5 | [`pipeline/transform.py`](pipeline/transform.py) · [`data/processed/`](data/processed/) |
-| Setup data pipeline within larger ML pipeline | ZenML `@pipeline` | ✅ | [`pipeline/zenml_pipeline.py`](pipeline/zenml_pipeline.py) |
-| **Total** | | **19 / 19** | |
-
----
 
 ## References
 
