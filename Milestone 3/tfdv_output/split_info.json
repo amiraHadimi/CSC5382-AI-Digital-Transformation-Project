@@ -1,0 +1,17 @@
+{
+  "total": 23313,
+  "train": {
+    "size": 13981,
+    "pct": 60.0
+  },
+  "validation": {
+    "size": 4661,
+    "pct": 20.0
+  },
+  "test": {
+    "size": 4671,
+    "pct": 20.0
+  },
+  "split_source": "split_mark column (pre-defined by Llama3SP authors)",
+  "note": "Schema from train only. Anomalies on val only. Test untouched."
+}
