@@ -3,6 +3,7 @@
 > **Project:** AI-Based Story Point Estimation for Agile Software Development
 > **Course:** CSC5382 – AI for Digital Transformation
 > **Repository:** github.com/amiraHadimi/CSC5382-AI-Digital-Transformation-Project
+> 📄 **[Download Full Report (PDF)](Milestone3_Report.pdf)**
 
 ---
 
