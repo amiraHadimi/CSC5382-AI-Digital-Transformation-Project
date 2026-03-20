@@ -1,12 +1,11 @@
 # Milestone 3 – Data Acquisition, Validation & Preparation
-
 > **Project:** AI-Based Story Point Estimation for Agile Software Development
 > **Course:** CSC5382 – AI for Digital Transformation
 > **Repository:** github.com/amiraHadimi/CSC5382-AI-Digital-Transformation-Project
 > 📄 **[Download Full Report (PDF)](Milestone3_Report.pdf)**
->🎥 **[Presentation Recording](https://alakhawayn365-my.sharepoint.com/:v:/g/personal/a_hadimi_aui_ma/IQBNp3mTWfHRRYUUHyBF_nfeAeVO8-rQAuB7kzEJYyChrSs?e=yjN7SN)**
----
+> 🎥 **[Presentation Recording](https://alakhawayn365-my.sharepoint.com/:v:/g/personal/a_hadimi_aui_ma/IQBNp3mTWfHRRYUUHyBF_nfeAeVO8-rQAuB7kzEJYyChrSs?e=yjN7SN)**
 
+---
 ## Table of Contents
 
 1. [Overview](#overview)
