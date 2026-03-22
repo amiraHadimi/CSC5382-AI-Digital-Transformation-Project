@@ -135,7 +135,6 @@ The dataset contains a pre-defined `split_mark` column assigned by the Llama3SP 
 | **Validation (val)** | 4,661 | 20% | Anomaly detection + hyperparameter tuning |
 | **Test** | 4,671 | 20% | Final evaluation only — **never touched during validation** |
 
-> **Why not touch the test set?** The test set is kept sealed until final model evaluation in Milestone 4. Checking anomalies against it would constitute data leakage and bias the final performance estimate.
 
 Split details: [`tfdv_output/split_info.json`](tfdv_output/split_info.json)
 
