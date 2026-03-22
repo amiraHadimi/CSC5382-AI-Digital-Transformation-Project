@@ -359,7 +359,6 @@ def data_pipeline(csv_path: str) -> None:
 | Artifact store | DataFrames, reports, and schemas are stored and versioned between steps |
 | Caching (`enable_cache=True`) | If raw data has not changed, ZenML skips unchanged steps |
 | Dashboard | All runs, artifacts, and step outputs visible in ZenML UI |
-| Extensibility | Milestone 4 training steps can be added directly to this same pipeline |
 
 ### Pipeline DAG
 
