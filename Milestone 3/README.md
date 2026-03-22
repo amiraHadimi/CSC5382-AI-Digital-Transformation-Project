@@ -382,19 +382,6 @@ preprocess_and_engineer → data/processed/train.parquet
 setup_feature_store    → feast_repo/feature_repo/
 ```
 
-### Designed to Grow Into the Full ML Pipeline
-
-The data pipeline is the foundation of the larger MLOps system. Future milestones extend it by adding new steps:
-
-| Milestone 3 (this milestone) | Milestone 4+ (extensions) |
-|---|---|
-| `ingest_data` | `ingest_data` (same) |
-| `validate_data` | `validate_data` (same) |
-| `preprocess_and_engineer` | `preprocess_and_engineer` (same) |
-| `setup_feature_store` | `setup_feature_store` (same) |
-| — | `train_model` (added in Milestone 4) |
-| — | `evaluate_model` (added in Milestone 4) |
-| — | `deploy_model` (added in Milestone 5) |
 
 ### Running the Pipeline
 
