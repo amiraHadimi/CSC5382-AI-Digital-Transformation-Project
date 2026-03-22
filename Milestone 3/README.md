@@ -211,8 +211,6 @@ input_text = f"Title: {cleaned_title} Description: {cleaned_description}"
 # "Title: add ca against object literals Description: div class p style..."
 ```
 
-This is the **primary feature** consumed by the Llama model during fine-tuning in Milestone 4.
-
 ### 3.3 Engineered Features
 
 | Feature | Type | How Computed | Why Useful |
