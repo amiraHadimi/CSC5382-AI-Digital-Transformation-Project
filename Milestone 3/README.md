@@ -16,8 +16,7 @@
 6. [Step 4 · Feature Store (Feast)](#step-4--feature-store-feast)
 7. [Step 5 · Data Versioning (DVC)](#step-5--data-versioning-dvc)
 8. [Step 6 · ML Pipeline Integration (ZenML)](#step-6--ml-pipeline-integration-zenml)
-9. [Grading Checklist](#grading-checklist)
-10. [References](#references)
+9. [References](#references)
 
 ---
 
