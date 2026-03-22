@@ -24,7 +24,7 @@
 
 Milestone 3 builds the complete data pipeline for the Agile story point estimation system introduced in Milestones 1 and 2. The goal is to ingest, validate, preprocess, and version the raw Agile user story dataset (23,313 issues from 16 open-source JIRA projects), register engineered features in a Feast feature store, and wire everything into a ZenML pipeline as part of the larger MLOps platform — all version-controlled via DVC.
 
-The pipeline connects directly to the Llama3SP model used in Milestone 2 (`meta-llama/Llama-3.2-1B` + per-project LoRA adapters). The `input_text` feature produced here is the exact field consumed by the Llama tokenizer during fine-tuning in Milestone 4.
+The pipeline connects directly to the Llama3SP model used in Milestone 2 (`meta-llama/Llama-3.2-1B` + per-project LoRA adapters).
 
 **To reproduce the full pipeline with one command:**
 ```bash
