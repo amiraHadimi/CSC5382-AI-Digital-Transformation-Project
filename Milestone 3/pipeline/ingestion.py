@@ -22,6 +22,7 @@ COLUMN_ALIASES = {
     "story_points": "storypoints",
     "storyPoint":   "storypoints",
     "story_point":  "storypoints",
+    "storypoint": "storypoints",
     "concat":       "description",
     "body":         "description",
     "summary":      "title",

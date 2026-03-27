@@ -1,146 +1,112 @@
 {
   "train": {
     "issuekey": {
-      "dtype": "object",
-      "count": 13981,
+      "dtype": "str",
+      "count": 18650,
       "nulls": 0,
       "null_pct": 0.0,
-      "unique": 13981
+      "unique": 18650,
+      "top_value": "APSTUD-1313"
     },
     "title": {
-      "dtype": "object",
-      "count": 13981,
+      "dtype": "str",
+      "count": 18650,
       "nulls": 0,
       "null_pct": 0.0,
-      "unique": 13860
+      "unique": 18489,
+      "top_value": "Export babili translations into trunk of SVN"
     },
     "description": {
-      "dtype": "object",
-      "count": 12499,
-      "nulls": 1482,
-      "null_pct": 10.6,
-      "unique": 12320
+      "dtype": "str",
+      "count": 16877,
+      "nulls": 1773,
+      "null_pct": 9.51,
+      "unique": 16695,
+      "top_value": "See https://confluence.lsstcorp.org/display/DM/Qserv+Release+Procedure for recipe."
     },
     "storypoints": {
       "dtype": "int64",
-      "count": 13981,
+      "count": 18650,
       "nulls": 0,
       "null_pct": 0.0,
-      "mean": 6.7028,
-      "std": 10.8752,
+      "mean": 6.1711,
+      "std": 10.01,
       "min": 1.0,
       "max": 100.0,
-      "median": 4.0
+      "median": 3.0,
+      "p25": 2.0,
+      "p75": 8.0
     },
     "split_mark": {
-      "dtype": "object",
-      "count": 13981,
+      "dtype": "str",
+      "count": 18650,
       "nulls": 0,
       "null_pct": 0.0,
-      "unique": 1
+      "unique": 3,
+      "top_value": "train"
     },
     "project": {
-      "dtype": "object",
-      "count": 13981,
+      "dtype": "str",
+      "count": 18650,
       "nulls": 0,
       "null_pct": 0.0,
-      "unique": 16
+      "unique": 16,
+      "top_value": "datamanagement"
     }
   },
-  "validation": {
+  "eval": {
     "issuekey": {
-      "dtype": "object",
-      "count": 4661,
+      "dtype": "str",
+      "count": 4663,
       "nulls": 0,
       "null_pct": 0.0,
-      "unique": 4661
+      "unique": 4663,
+      "top_value": "TDQ-10000"
     },
     "title": {
-      "dtype": "object",
-      "count": 4661,
+      "dtype": "str",
+      "count": 4663,
       "nulls": 0,
       "null_pct": 0.0,
-      "unique": 4632
+      "unique": 4636,
+      "top_value": "Export babili translations into trunk of SVN"
     },
     "description": {
-      "dtype": "object",
-      "count": 4299,
-      "nulls": 362,
-      "null_pct": 7.77,
-      "unique": 4263
+      "dtype": "str",
+      "count": 4072,
+      "nulls": 591,
+      "null_pct": 12.67,
+      "unique": 4038,
+      "top_value": "Use the implementation matrix to see what's remaining (these are things that are not implemented but supported in Cascades):  https://docs.google.com/a/macadamian.com/spreadsheet/ccc?key=0Ajs-e76-B0yIdG1oLVVleVVxaGRYd3lWWXd0czhqUFE"
     },
     "storypoints": {
       "dtype": "int64",
-      "count": 4661,
+      "count": 4663,
       "nulls": 0,
       "null_pct": 0.0,
-      "mean": 5.914,
-      "std": 9.5855,
+      "mean": 4.9921,
+      "std": 4.5847,
       "min": 1.0,
-      "max": 100.0,
-      "median": 3.0
+      "max": 40.0,
+      "median": 3.0,
+      "p25": 2.0,
+      "p75": 5.0
     },
     "split_mark": {
-      "dtype": "object",
-      "count": 4661,
+      "dtype": "str",
+      "count": 4663,
       "nulls": 0,
       "null_pct": 0.0,
-      "unique": 1
+      "unique": 3,
+      "top_value": "train"
     },
     "project": {
-      "dtype": "object",
-      "count": 4661,
+      "dtype": "str",
+      "count": 4663,
       "nulls": 0,
       "null_pct": 0.0,
-      "unique": 16
-    }
-  },
-  "test": {
-    "issuekey": {
-      "dtype": "object",
-      "count": 4671,
-      "nulls": 0,
-      "null_pct": 0.0,
-      "unique": 4671
-    },
-    "title": {
-      "dtype": "object",
-      "count": 4671,
-      "nulls": 0,
-      "null_pct": 0.0,
-      "unique": 4605
-    },
-    "description": {
-      "dtype": "object",
-      "count": 4284,
-      "nulls": 387,
-      "null_pct": 8.29,
-      "unique": 4249
-    },
-    "storypoints": {
-      "dtype": "int64",
-      "count": 4671,
-      "nulls": 0,
-      "null_pct": 0.0,
-      "mean": 5.064,
-      "std": 7.2208,
-      "min": 1.0,
-      "max": 100.0,
-      "median": 3.0
-    },
-    "split_mark": {
-      "dtype": "object",
-      "count": 4671,
-      "nulls": 0,
-      "null_pct": 0.0,
-      "unique": 1
-    },
-    "project": {
-      "dtype": "object",
-      "count": 4671,
-      "nulls": 0,
-      "null_pct": 0.0,
-      "unique": 16
+      "unique": 4,
+      "top_value": "titanium"
     }
   }
 }

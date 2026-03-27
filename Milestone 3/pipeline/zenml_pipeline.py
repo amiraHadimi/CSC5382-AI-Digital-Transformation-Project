@@ -16,10 +16,10 @@ import argparse
 from zenml import pipeline
 from zenml.logger import get_logger
 
-from ingestion     import ingest_data
-from validation    import validate_data
-from transform     import preprocess_and_engineer
-from feature_store import setup_feature_store
+from pipeline.ingestion import ingest_data
+from pipeline.validation import validate_data
+from pipeline.transform import preprocess_and_engineer
+from pipeline.feature_store import setup_feature_store
 
 logger = get_logger(__name__)
 
