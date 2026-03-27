@@ -36,7 +36,7 @@ python run_pipeline.py
 | Step | Name | Tool | Output |
 |---|---|---|---|
 | Step 1 | Data Ingestion & Raw Storage | Python + ZenML | `data/raw/raw_data.csv` (23,313 rows) |
-| Step 2 | Schema Definition & Data Validation | Great Expectations | `schema.json`, statistics, anomaly report |
+| Step 2 | Schema Definition & Data Validation | Custom Validation (pandas-based, TFDV-inspired) | `schema.json`, statistics, anomaly report |
 | Step 3 | Preprocessing & Feature Engineering | pandas + ZenML Transform | `train/val/test .parquet` files (15 features) |
 | Step 4 | Feature Store Registration | Feast | Feature store with 6 registered features |
 | Step 5 | Data Versioning | DVC + Git | `.dvc` pointer files + tag `v1.0-milestone3` |
@@ -121,7 +121,7 @@ The Llama3SP benchmark dataset is distributed as **16 separate CSV files** — o
 
 ## Step 2 · Schema Definition & Data Validation
 
-**Tool:** Great Expectations + custom statistics | **Points: 2 (schema) + 3 (validation)**
+**Tool:** Custom Validation (pandas-based, TFDV-inspired) + statistical analysis| **Points: 2 (schema) + 3 (validation)**
 **Code:** [`pipeline/validation.py`](pipeline/validation.py)
 **Outputs:** [`schema/schema.json`](schema/schema.json) | [`tfdv_output/`](tfdv_output/)
 
@@ -169,7 +169,7 @@ Saved schema: [`schema/schema.json`](schema/schema.json)
 
 ### 2.4 Anomaly Detection & Schema Revision
 
-The **validation set** is checked against the training schema using Great Expectations:
+The validation set is checked against the training schema using a custom validation module inspired by TensorFlow Data Validation (TFDV) and Great Expectations. Due to compatibility issues with TFDV on Python 3.11 (Windows), a pandas-based validation layer was implemented to ensure robustness and reproducibility while preserving the same validation logic.
 - Null percentage violations (is the missing data rate too high?)
 - Numeric range violations (are values outside the expected min/max range?)
 
@@ -322,7 +322,7 @@ python run_pipeline.py
 **Tool:** ZenML | **Requirement:** Setup the data pipeline as part of the larger ML pipeline
 **Code:** [`pipeline/zenml_pipeline.py`](pipeline/zenml_pipeline.py)
 
-This requirement asks that the data pipeline not be a standalone script, but instead be wired into a larger MLOps platform that will eventually include training, evaluation, and deployment. We satisfied this using ZenML.
+This requirement ensures that the data pipeline is not executed as a standalone script, but instead integrated into a structured MLOps workflow. We implemented this using ZenML, which orchestrates all pipeline steps, tracks executions, and manages artifacts across stages.
 
 ### Every Step is a ZenML Step
 
@@ -381,12 +381,38 @@ setup_feature_store    → feast_repo/feature_repo/
 ### Running the Pipeline
 
 ```bash
-# Standalone (no ZenML server needed)
+# Standalone execution (no ZenML server required)
 python run_pipeline.py
 
-# Via ZenML CLI
-zenml pipeline run pipeline/zenml_pipeline.py:data_pipeline
+# ZenML execution (tracked pipeline)
+zenml pipeline run pipeline.zenml_pipeline.data_pipeline
 ```
+
+### ZenML Dashboard Visualization
+
+The pipeline execution is fully tracked and visualized through the ZenML dashboard.
+
+After starting the local server:
+
+zenml login --local --blocking
+
+the dashboard is available at:
+
+http://127.0.0.1:8237
+
+The dashboard provides:
+
+A visual representation of the pipeline DAG
+Execution status of each step (all steps completed successfully)
+Logs and metadata for each component
+Artifact tracking across pipeline stages
+
+All four steps — ingestion, validation, preprocessing, and feature store setup — are displayed as successfully executed nodes.
+
+### Example Dashboard View
+This confirms that the pipeline is fully orchestrated within an MLOps platform rather than executed as a standalone script.
+
+
 
 ---
 
