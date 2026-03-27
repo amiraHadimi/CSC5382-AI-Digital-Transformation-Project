@@ -410,7 +410,12 @@ Artifact tracking across pipeline stages
 All four steps — ingestion, validation, preprocessing, and feature store setup — are displayed as successfully executed nodes.
 
 ### Example Dashboard View
-This confirms that the pipeline is fully orchestrated within an MLOps platform rather than executed as a standalone script.
+
+![ZenML Dashboard](images/zenml_dashboard.png)
+
+*Figure: ZenML dashboard showing successful execution of all pipeline steps.*
+
+> This confirms that the pipeline is fully orchestrated within an MLOps platform rather than executed as a standalone script.
 
 
 
