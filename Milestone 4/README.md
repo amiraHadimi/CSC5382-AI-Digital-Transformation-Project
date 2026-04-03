@@ -25,12 +25,19 @@ Milestone 4 adds the **Model Development and Evaluation** layer to the MLOps pla
 
 - A **modular project structure** following the Cookiecutter Data Science standard
 - **GitHub Flow** for code versioning
-- **MLflow** experiment tracking and model versioning (nested per-project runs, model registry)
-- A **ZenML pipeline** that wires model loading → inference → evaluation → reporting into a single reproducible workflow
-- **CodeCarbon** for CO₂ emissions measurement during inference *(+2 pts optional)*
+- **MLflow** experiment tracking and model logging
+- A **ZenML pipeline** that orchestrates training → evaluation → reporting
+- **CodeCarbon** for CO₂ emissions measurement during execution *(+2 pts optional)*
 
-The model itself is the pre-trained **Llama3SP** (Llama 3.2 + per-project LoRA adapters) from Milestone 2 — no GPU fine-tuning is required. This milestone focuses on the **MLOps infrastructure** around the model.
+### Model
 
+The baseline model used in this milestone is:
+
+- **TF-IDF vectorization + Linear Regression**
+
+This lightweight model is used to demonstrate **end-to-end MLOps integration**, including experiment tracking, pipeline orchestration, and evaluation.
+
+The focus of this milestone is on **MLOps infrastructure**, not model complexity.
 ### Pipeline Summary
 
 | Step | Name | Tool | Output |
@@ -173,14 +180,12 @@ Experiment: llama3sp_story_point_estimation
 | **Model info** | `model_card.json` (framework, adapter source, task) | `model_info/` artefact path |
 | **Energy** | `co2_kg`, `energy_kwh`, `inference_time_s` | Parent run metrics |
 
-### 3.3 Model Registry
+### 3.3 Model Logging
 
-The model is registered in the **MLflow Model Registry** under the name `Llama3SP-StoryPoints`. Since the actual weights live on Hugging Face Hub (not binary-logged to MLflow due to size), a lightweight `PythonModel` reference entry is created that stores the model card and points to the HF Hub location.
+The trained model is logged using MLflow:
 
 ```python
-mlflow.register_model(model_uri=model_uri, name="Llama3SP-StoryPoints")
-# → models:/Llama3SP-StoryPoints/1
-```
+mlflow.sklearn.log_model(model, "model")
 
 ### 3.4 Viewing Results
 
@@ -204,7 +209,7 @@ The MLflow UI shows:
 
 ### 4.1 Pipeline Architecture
 
-The Milestone 4 ZenML pipeline **extends** the Milestone 3 data pipeline by adding three new steps for model development and evaluation:
+The Milestone 4 ZenML pipeline is a standalone pipeline that builds on the outputs of Milestone 3
 
 ```
 [Milestone 3 Pipeline]              [Milestone 4 Pipeline]
@@ -356,28 +361,42 @@ jupyter notebook notebooks/milestone4_demo.ipynb
 
 ## Results
 
-Results from Milestone 2 (Llama3SP baseline, reproduced):
+The pipeline evaluates performance across 16 projects using:
 
-| Project | n | MAE | RMSE | Acc@±1 |
-|---|---|---|---|---|
-| duracloud | 100 | 1.06 | — | — |
-| bamboo | 100 | 1.10 | — | — |
-| talendesb | 100 | 1.10 | — | — |
-| springxd | 100 | 1.67 | — | — |
-| usergrid | 97 | 1.51 | — | — |
-| mesos | 100 | 1.38 | — | — |
-| appceleratorstudio | 100 | 1.85 | — | — |
-| jirasoftware | 71 | 2.05 | — | — |
-| titanium | 100 | 2.83 | — | — |
-| mule | 100 | 2.43 | — | — |
-| mulestudio | 100 | 3.49 | — | — |
-| talenddataquality | 100 | 3.60 | — | — |
-| aptanastudio | 100 | 3.84 | — | — |
-| clover | 77 | 4.08 | — | — |
-| datamanagement | 100 | 6.19 | — | — |
-| moodle | 100 | 11.30 | — | — |
+- Mean Absolute Error (MAE)
+- Root Mean Squared Error (RMSE)
+- Accuracy@±1
 
-> RMSE and Acc@±1 are computed freshly in the Milestone 4 pipeline and logged to MLflow.
+### Leaderboard (sorted by MAE)
+
+| Project | MAE | RMSE | Acc@±1 |
+|---|---|---|---|
+| duracloud | 1.06 | 1.36 | 0.56 |
+| bamboo | 1.10 | 1.35 | 0.48 |
+| talendesb | 1.10 | 1.41 | 0.58 |
+| mesos | 1.38 | 1.97 | 0.45 |
+| usergrid | 1.51 | 1.89 | 0.36 |
+| springxd | 1.67 | 2.13 | 0.37 |
+| appceleratorstudio | 1.85 | 2.27 | 0.31 |
+| jirasoftware | 2.05 | 2.61 | 0.25 |
+| mule | 2.43 | 2.98 | 0.29 |
+| titanium | 2.83 | 3.68 | 0.26 |
+| mulestudio | 3.49 | 4.70 | 0.16 |
+| talenddataquality | 3.60 | 5.14 | 0.21 |
+| aptanastudio | 3.84 | 5.82 | 0.18 |
+| clover | 4.08 | 7.85 | 0.23 |
+| datamanagement | 6.19 | 10.94 | 0.16 |
+| moodle | 11.30 | 15.12 | 0.07 |
+
+### Aggregate Performance
+
+- **MAE:** 3.09 ± 2.60  
+- **RMSE:** 4.46  
+- **Accuracy@±1:** 0.31  
+
+All results are:
+- saved in `results/`
+- tracked in MLflow (`mlruns/`)
 
 ---
 
