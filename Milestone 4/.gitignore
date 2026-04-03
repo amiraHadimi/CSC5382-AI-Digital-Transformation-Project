@@ -1,0 +1,13 @@
+results/
+.zen/
+.pytest_cache/
+mlruns/
+__pycache__/
+*.py[cod]
+.env
+.venv/
+venv/
+*.safetensors
+*.bin
+*.pt
+.DS_Store

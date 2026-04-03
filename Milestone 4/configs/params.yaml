@@ -1,0 +1,47 @@
+# =============================================================================
+# Milestone 4 – Central Parameter File
+# AI-Based Story Point Estimation for Agile Software Development
+# =============================================================================
+# All hyperparameters, paths, and settings are centralised here.
+# Referenced by the ZenML pipeline, MLflow tracking, and evaluation scripts.
+
+# ── Model ─────────────────────────────────────────────────────────────────────
+model:
+  hf_author: "DEVCamiloSepulveda"
+  base_model_id: "meta-llama/Llama-3.2-1B"
+  num_labels: 1
+  problem_type: "regression"
+
+# ── Inference ─────────────────────────────────────────────────────────────────
+inference:
+  max_len: 20             # Token max length (title-only, Llama3SP paper default)
+  batch_size: 16
+  use_description: false  # Title-only (matches published Llama3SP baseline)
+  limit_test_rows: 100    # Max test rows per project (null = all rows)
+
+# ── Data ──────────────────────────────────────────────────────────────────────
+data:
+  # Path to the processed test split from Milestone 3
+  test_parquet: "../Milestone 3/data/processed/test.parquet"
+  # Fallback: raw per-project CSVs from Milestone 2
+  raw_csv_glob: "../Milestone 2/data/llama3sp_dataset/*.csv"
+  results_dir: "results"
+
+# ── MLflow ────────────────────────────────────────────────────────────────────
+mlflow:
+  experiment_name: "llama3sp_story_point_estimation"
+  run_name_prefix: "m4_eval"
+  tracking_uri: "mlruns"   # local directory
+
+# ── ZenML pipeline ────────────────────────────────────────────────────────────
+zenml:
+  pipeline_name: "milestone4_training_pipeline"
+  enable_cache: true
+
+# ── CodeCarbon ────────────────────────────────────────────────────────────────
+codecarbon:
+  project_name: "story_point_estimation_m4"
+  output_dir: "results/carbon"
+  country_iso_code: "MAR"    # Morocco (AUI campus location)
+  save_to_file: true
+  log_level: "warning"
