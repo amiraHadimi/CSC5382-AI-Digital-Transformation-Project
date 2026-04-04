@@ -68,10 +68,6 @@ Milestone 4/
 │       └── config.py               ← params.yaml loader + HF_TOKEN helper
 ├── configs/
 │   └── params.yaml                 ← Central parameter file (all hyperparameters)
-├── models/
-│   └── README.md                   ← Model storage strategy (HF Hub + MLflow registry)
-├── notebooks/
-│   └── milestone4_demo.ipynb       ← Interactive demo notebook
 ├── tests/
 │   ├── test_metrics.py             ← Unit tests for metrics module
 │   └── test_config.py              ← Unit tests for config loader
