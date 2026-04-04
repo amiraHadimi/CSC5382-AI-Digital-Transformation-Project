@@ -29,7 +29,13 @@ Milestone 4 adds the **Model Development and Evaluation** layer to the MLOps pla
 - A **ZenML-structured pipeline** that wires model loading → inference → evaluation → reporting into a reproducible workflow
 - **CodeCarbon** for CO₂ emissions measurement during inference *(+2 pts optional)*
 
-The model is the pre-trained **Llama3SP** (Llama 3.2-1B + per-project LoRA adapters from HuggingFace Hub) evaluated across 16 JIRA projects. This milestone focuses entirely on the **MLOps infrastructure** around the existing model — no GPU fine-tuning is required.
+### Model
+
+This milestone evaluates a **pre-trained model**, Llama3SP (Llama 3.2-1B with per-project LoRA adapters from HuggingFace Hub), which was selected in Milestone 2.
+
+Due to computational constraints, the model is **not fine-tuned in this milestone**. Instead, the focus is on integrating it into a complete MLOps pipeline for **systematic evaluation, tracking, and reporting**.
+
+In addition, a lightweight baseline model (TF-IDF + Linear Regression) is implemented and trained separately to demonstrate the training component of the pipeline.
 
 ### Pipeline Summary
 
@@ -174,7 +180,7 @@ Experiment: llama3sp_story_point_estimation  (id: 731412219392875610)
 
 ### 3.3 Model Registry
 
-The model is registered under the name **`Llama3SP-StoryPoints`** in the MLflow Model Registry. Because the weights live on HuggingFace Hub (too large to store in MLflow), a lightweight `pyfunc` reference entry is created that stores the model card and points to the HF Hub location.
+The model is logged and tracked using MLflow. Due to the large size of Llama3SP weights (hosted on HuggingFace Hub), MLflow is used to store metadata, metrics, and references rather than full model binaries.
 
 ### 3.4 Viewing Results
 
@@ -295,7 +301,7 @@ mlflow ui --port 5000
 :: Open http://localhost:5000 in browser
 ```
 
-### ZenML Pipeline (reference — requires Linux / non-Windows environment)
+### ZenML Pipeline 
 
 The ZenML pipeline definitions in `src/pipeline/` can be run directly in environments without the pydantic conflict:
 
@@ -307,6 +313,7 @@ python -c "from src.pipeline.zenml_pipeline import training_pipeline; training_p
 ---
 
 ## Results
+These results correspond to the evaluation of the pretrained Llama3SP model.
 
 All 16 JIRA projects evaluated. Results are stored in `results/mae_per_project.csv` and logged to MLflow experiment `731412219392875610`.
 
@@ -345,6 +352,16 @@ All 16 JIRA projects evaluated. Results are stored in `results/mae_per_project.c
 | Energy efficiency measurement | CodeCarbon wrapping inference loop; `carbon_summary.json` + MLflow metrics | ✅ **Fully working** | +2 |
 
 ---
+
+### Design Choice
+
+This milestone prioritizes **MLOps integration over model complexity**.
+
+- Llama3SP is used as a **pretrained industrial-scale model**
+- A lightweight baseline (TF-IDF + Linear Regression) is used to demonstrate **training capability**
+- The main contribution is the **end-to-end pipeline: tracking, evaluation, reproducibility, and monitoring**
+
+This design aligns with real-world MLOps systems, where models are often reused and evaluated rather than trained from scratch.
 
 ## References
 
