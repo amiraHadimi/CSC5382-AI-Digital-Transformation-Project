@@ -137,31 +137,10 @@ main
 
 ### 3.1 Experiment Structure
 
-MLflow is configured with a **nested run hierarchy**:
+MLflow is configured with a single run per pipeline execution, where all per-project metrics are logged within the same run using structured metric naming (e.g., `<project>_mae`, `<project>_rmse`).
 
 ```
-Experiment: llama3sp_story_point_estimation  (id: 731412219392875610)
-└── Parent run: m4_eval_<timestamp>
-    ├── Params:   base_model_id, hf_author, num_labels, problem_type
-    ├── Metrics:  mean_mae, std_mae, mean_rmse, mean_accuracy_at_1, num_projects
-    │             co2_kg, energy_kwh, inference_time_s
-    ├── Artefacts: mae_per_project.csv, summary.json, carbon/carbon_summary.json
-    ├── Child run: appceleratorstudio  → mae, rmse, acc_at_1
-    ├── Child run: aptanastudio
-    ├── Child run: bamboo
-    ├── Child run: clover
-    ├── Child run: datamanagement
-    ├── Child run: duracloud
-    ├── Child run: jirasoftware
-    ├── Child run: mesos
-    ├── Child run: moodle
-    ├── Child run: mule
-    ├── Child run: mulestudio
-    ├── Child run: springxd
-    ├── Child run: talenddataquality
-    ├── Child run: talendesb
-    ├── Child run: titanium
-    └── Child run: usergrid
+
 ```
 
 ### 3.2 What is Logged
