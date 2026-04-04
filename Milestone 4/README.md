@@ -25,7 +25,7 @@ Milestone 4 adds the **Model Development and Evaluation** layer to the MLOps pla
 
 - A **modular project structure** following the Cookiecutter Data Science standard
 - **GitHub Flow** for code versioning
-- **MLflow** experiment tracking and model versioning (nested per-project runs, model registry)
+- **MLflow** experiment tracking and model versioning with structured per-project metrics and artifact logging
 - A **ZenML-structured pipeline** that wires model loading → inference → evaluation → reporting into a reproducible workflow
 - **CodeCarbon** for CO₂ emissions measurement during inference *(+2 pts optional)*
 
@@ -165,9 +165,22 @@ mlflow ui --port 5000
 :: Open: http://localhost:5000
 ```
 
-The MLflow UI shows all runs with timestamps and aggregate metrics, nested child runs per project for drill-down, the artefact browser for CSV/JSON outputs, and the model registry entry under the **Models** tab.
+The MLflow UI shows all runs with timestamps and aggregate metrics, logs per-project metrics within the same MLflow run, the artefact browser for CSV/JSON outputs, and the model registry entry under the **Models** tab.
 
 ---
+
+## 📊 MLflow Tracking – Visual Evidence
+
+The following screenshots demonstrate that MLflow experiment tracking, metric logging, and artifact storage are fully operational.
+
+### Experiment Runs
+![MLflow Experiments](assets/mlflow_experiments.png)
+
+### Metrics and Parameters
+![MLflow Metrics](assets/mlflow_metrics.png)
+
+### Logged Artifacts
+![MLflow Artifacts](assets/mlflow_artifacts.png)
 
 ## Requirement 4 · MLOps Platform Integration (ZenML)
 **Tool:** ZenML | **Points: 5**  
@@ -181,7 +194,7 @@ The three-step pipeline follows the ZenML DAG pattern, with steps calling modula
 load_model_step
       │   (model_info dict)
       ▼
-evaluate_step  ←─── MLflow (nested runs)
+evaluate_step  ←─── MLflow 
       │         └── CodeCarbon (CO₂ tracking)
       │   (metrics DataFrame)
       ▼
@@ -322,7 +335,7 @@ All 16 JIRA projects evaluated. Results are stored in `results/mae_per_project.c
 |---|---|---|---|
 | Project structure / modularity | Cookiecutter layout (`src/`, `configs/`, `tests/`, `results/`) | ✅ Implemented | 2 |
 | Code versioning | GitHub Flow (feature branches, PRs, conventional commits) | ✅ Implemented | 2 |
-| Experiment tracking + model versioning | MLflow (nested runs, model registry, all 16 projects logged) | ✅ **Fully working** (`mlruns/` populated) | 5 |
+| Experiment tracking + model versioning | MLflow | ✅ **Fully working** (`mlruns/` populated) | 5 |
 | MLOps platform integration | ZenML `@step`/`@pipeline` definitions; pipeline executed end-to-end in 24m28s across 16 projects | ✅ **Fully working** | 5 |
 | Energy efficiency measurement | CodeCarbon wrapping inference loop; `carbon_summary.json` + MLflow metrics | ✅ **Fully working** | +2 |
 
