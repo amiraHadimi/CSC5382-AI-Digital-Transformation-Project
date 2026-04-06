@@ -21,11 +21,7 @@
 
 ## Overview
 
-This milestone prioritizes MLOps integration over model complexity.
-
-Llama3SP is used as a pretrained industrial-scale model for offline evaluation, while a lightweight TF-IDF + Linear Regression baseline is included to demonstrate the training capability.
-
-The main contribution of this milestone is the implementation of an end-to-end MLOps pipeline that ensures reproducibility, experiment tracking, structured evaluation, and integration into a larger ML workflow.
+Milestone 4 extends the previous milestones by adding model training, evaluation, and experiment tracking capabilities. It implements:
 
 - A **modular project structure** following the Cookiecutter Data Science standard
 - **GitHub Flow** for code versioning
@@ -35,21 +31,30 @@ The main contribution of this milestone is the implementation of an end-to-end M
 
 ### Model
 
-This milestone evaluates a **pre-trained model**, Llama3SP (Llama 3.2-1B with per-project LoRA adapters from HuggingFace Hub), which was selected in Milestone 2.
+This milestone prioritizes MLOps integration over model complexity.
 
-Due to computational constraints, the model is **not fine-tuned in this milestone**. Instead, the focus is on integrating it into a complete MLOps pipeline for **systematic evaluation, tracking, and reporting**.
+Llama3SP is used as a pretrained industrial-scale model for offline evaluation, while a lightweight TF-IDF + Linear Regression baseline is included to demonstrate the training capability.
 
-In addition, a lightweight baseline model (TF-IDF + Linear Regression) is implemented and trained separately to demonstrate the training component of the pipeline.
+The main contribution of this milestone is the implementation of an end-to-end MLOps pipeline that ensures reproducibility, experiment tracking, structured evaluation, and integration into a larger ML workflow.
 
-### Pipeline Summary
+## Pipeline Overview
 
-| Step | Name | Responsibility | Output |
-|---|---|---|---|
-| Step 1 | `load_model_step` | Resolve base model ID; load tokenizer + base model | Model + tokenizer |
-| Step 2 | `evaluate_step` | Per-project adapter loading → inference → MLflow + CodeCarbon logging | Metrics DataFrame |
-| Step 3 | `report_step` | Aggregate metrics; print leaderboard | Summary dict |
+The ZenML pipeline orchestrates the following steps:
 
-> The pipeline executes the three-step DAG (`load_model_step → evaluate_step → report_step`) via `run_pipeline.py`. ZenML step tracking is active and the full run completed in **24 minutes 28 seconds** across all 16 JIRA projects.
+1. train_tracking_step  
+   - Trains a lightweight TF-IDF + Linear Regression baseline  
+   - Logs metrics and artifacts using MLflow  
+
+2. load_model_step  
+   - Loads the pretrained Llama3SP model  
+
+3. evaluate_step  
+   - Runs inference and computes evaluation metrics  
+
+4. report_step  
+   - Generates summary files (e.g., MAE per project, global summary)  
+
+> The pipeline executes a four-step DAG (`train_tracking_step → load_model_step → evaluate_step → report_step`) via `run_pipeline.py`. ZenML step tracking is active and the full run completed in **24 minutes 28 seconds** across all 16 JIRA projects.
 
 ---
 
@@ -99,8 +104,6 @@ The `Milestone 4/` directory follows the **Cookiecutter Data Science** project t
 |---|---|
 | `src/` — all source code as importable packages | `src/pipeline/`, `src/evaluation/`, `src/tracking/`, `src/utils/` |
 | `configs/` — centralised configuration | `configs/params.yaml` (single source of truth for all hyperparameters) |
-| `models/` — model artefacts directory | `models/README.md` (weights on HF Hub; registry entry in MLflow) |
-| `notebooks/` — exploratory and demo notebooks | `notebooks/milestone4_demo.ipynb` |
 | `tests/` — unit tests | `tests/test_metrics.py`, `tests/test_config.py` |
 | `results/` — generated outputs (gitignored) | `results/mae_per_project.csv`, `results/summary.json`, per-project CSVs |
 
@@ -117,21 +120,9 @@ The `Milestone 4/` directory follows the **Cookiecutter Data Science** project t
 ## Requirement 2 · Code Versioning (GitHub Flow)
 **Tool:** Git with GitHub Flow | **Points: 2**
 
-This milestone follows **GitHub Flow**:
+Version control is managed using Git and GitHub with a milestone-based development approach.
 
-```
-main
- └── feature/milestone4-project-structure    (Req 1: folder layout, configs)
- └── feature/milestone4-mlflow-tracking      (Req 3: MLflow integration)
- └── feature/milestone4-zenml-pipeline       (Req 4: ZenML steps + pipeline)
- └── feature/milestone4-codecarbon           (Optional: energy tracking)
-```
-
-**Branch workflow:**
-1. Each requirement was developed on a dedicated feature branch.
-2. A pull request was opened for each branch with a descriptive title and summary.
-3. PRs were reviewed and merged into `main` via squash merges to keep history clean.
-4. Commit messages follow the **Conventional Commits** standard (`feat:`, `fix:`, `refactor:`, `test:`, `docs:`).
+The focus is on maintaining a clean, modular, and reproducible codebase, with clear commit history for tracking changes across the pipeline implementation.
 
 ---
 
@@ -157,9 +148,10 @@ MLflow is configured with a single run per pipeline execution, where all per-pro
 | **Carbon / energy** | `co2_kg`, `energy_kwh`, `inference_time_s` | Parent run metrics |
 | **Artefacts** | `mae_per_project.csv`, `summary.json`, `carbon_summary.json` | Parent run artefacts |
 
-### 3.3 Model Registry
+### 3.3 Model Tracking
 
-The model is logged and tracked using MLflow. Due to the large size of Llama3SP weights (hosted on HuggingFace Hub), MLflow is used to store metadata, metrics, and references rather than full model binaries.
+MLflow is used to track experiments, metrics, and artifacts.  
+Model binaries for Llama3SP are hosted externally on HuggingFace Hub, while MLflow stores metadata and evaluation results.
 
 ### 3.4 Viewing Results
 
@@ -169,7 +161,7 @@ mlflow ui --port 5000
 :: Open: http://localhost:5000
 ```
 
-The MLflow UI shows all runs with timestamps and aggregate metrics, logs per-project metrics within the same MLflow run, the artefact browser for CSV/JSON outputs, and the model registry entry under the **Models** tab.
+The MLflow UI shows all runs with timestamps and aggregate metrics, logs per-project metrics within the same MLflow run, the artefact browser for CSV/JSON outputs.
 
 ---
 
@@ -209,7 +201,7 @@ report_step    ─── Leaderboard printed to stdout
 
 **`load_model_step`** — Resolves the base model ID from the HF adapter config, loads the tokenizer and base Llama 3.2-1B model on CPU.
 
-**`evaluate_step`** — The main step. For each of 16 projects it: loads the project-specific LoRA adapter (dynamic switching, no model reload), runs batched CPU inference on the test split, computes MAE / RMSE / Accuracy@±1, logs a nested MLflow child run, and saves a per-project predictions CSV. CodeCarbon wraps the entire loop to measure total inference emissions.
+**`evaluate_step`** — The main step. For each of 16 projects it: loads the project-specific LoRA adapter (dynamic switching, no model reload), runs batched CPU inference on the test split, computes MAE / RMSE / Accuracy@±1, logs all metrics within a single MLflow run using structured naming, and saves a per-project predictions CSV. CodeCarbon wraps the entire loop to measure total inference emissions.
 
 **`report_step`** — Aggregates per-project metrics, prints a sorted leaderboard to stdout, and returns the summary dict.
 
@@ -305,7 +297,7 @@ python -c "from src.pipeline.zenml_pipeline import training_pipeline; training_p
 ---
 
 ## Results
-These results correspond to the evaluation of the pretrained Llama3SP model.
+These results correspond to the offline evaluation of the pretrained Llama3SP model across 16 projects.
 
 All 16 JIRA projects evaluated. Results are stored in `results/mae_per_project.csv` and logged to MLflow experiment `731412219392875610`.
 
