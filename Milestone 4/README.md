@@ -27,7 +27,7 @@ Milestone 4 extends the previous milestones by adding model training, evaluation
 - **Git-based code versioning** for traceability and reproducibility
 - **MLflow** experiment tracking with structured per-project metrics and artifact logging
 - A **ZenML-structured pipeline** that wires baseline training → model loading → inference → evaluation → reporting into a reproducible workflow
-- - **CodeCarbon** for CO₂ emissions measurement during inference *(+2 pts optional)*
+- **CodeCarbon** for estimating energy consumption and CO₂ emissions during inference *(+2 pts optional)*
 
 ### Model
 
@@ -216,14 +216,22 @@ The steps are defined with the ZenML `@step` and `@pipeline` decorators in `src/
 ---
 
 ## Optional · Energy Efficiency Measurement (CodeCarbon)
-**Tool:** CodeCarbon | **Points: 2**  
-**Code:** [`src/tracking/carbon_tracker.py`](src/tracking/carbon_tracker.py)
 
-CodeCarbon is integrated to measure the environmental cost of running the inference pipeline.
+CodeCarbon is integrated to estimate the environmental impact of the inference pipeline.
 
-The `CarbonTracker` wraps the full 16-project evaluation loop. Measurements are written to `results/carbon/carbon_summary.json` and also logged to MLflow as `co2_kg`, `energy_kwh`, and `inference_time_s` so they appear alongside accuracy metrics in the experiment UI.
+The tracker wraps the full evaluation loop and records:
 
-Country is set to **Morocco (MAR)** in `configs/params.yaml` to use the correct electricity carbon intensity for the AUI campus location.
+- Energy consumption (kWh)
+- Estimated CO₂ emissions (kg)
+- Execution duration
+
+Outputs are stored in:
+- `results/carbon/emissions.csv`
+- `results/carbon/carbon_summary.json`
+
+These metrics are also logged to MLflow for experiment tracking and comparison.
+
+The system runs in offline mode using the Morocco (MAR) electricity carbon intensity.
 
 ---
 
