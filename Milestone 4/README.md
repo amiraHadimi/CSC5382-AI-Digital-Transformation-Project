@@ -9,7 +9,7 @@
 1. [Overview](#overview)
 2. [Repository Structure](#repository-structure)
 3. [Requirement 1 · Project Structure & Modularity](#requirement-1--project-structure--modularity)
-4. [Requirement 2 · Code Versioning (GitHub Flow)](#requirement-2--code-versioning-github-flow)
+4. [Requirement 2 · Code Versioning ](#requirement-2--code-versioning)
 5. [Requirement 3 · Experiment Tracking & Model Versioning (MLflow)](#requirement-3--experiment-tracking--model-versioning-mlflow)
 6. [Requirement 4 · MLOps Platform Integration (ZenML)](#requirement-4--mlops-platform-integration-zenml)
 7. [Optional · Energy Efficiency Measurement (CodeCarbon)](#optional--energy-efficiency-measurement-codecarbon)
@@ -24,8 +24,8 @@
 Milestone 4 extends the previous milestones by adding model training, evaluation, and experiment tracking capabilities. It implements:
 
 - A **modular project structure** following the Cookiecutter Data Science standard
-- **GitHub Flow** for code versioning
-- **MLflow** experiment tracking and model versioning with structured per-project metrics and artifact logging
+- **Git-based code versioning** for traceability and reproducibility
+- **MLflow** experiment tracking with structured per-project metrics and artifact logging
 - A **ZenML-structured pipeline** that wires model loading → inference → evaluation → reporting into a reproducible workflow
 - **CodeCarbon** for CO₂ emissions measurement during inference *(+2 pts optional)*
 
@@ -66,12 +66,12 @@ Milestone 4/
 │   ├── pipeline/
 │   │   ├── model_loader.py         ← Base model + LoRA adapter loading
 │   │   ├── inference.py            ← Batched CPU inference logic
-│   │   ├── zenml_steps.py          ← ZenML @step definitions (reference)
-│   │   └── zenml_pipeline.py       ← ZenML @pipeline definition (reference)
+│   │   ├── zenml_steps.py          ← ZenML @step definitions 
+│   │   └── zenml_pipeline.py       ← ZenML @pipeline definition 
 │   ├── evaluation/
 │   │   └── metrics.py              ← MAE, RMSE, Accuracy@±1 + EvalMetrics dataclass
 │   ├── tracking/
-│   │   ├── mlflow_tracker.py       ← MLflow experiment / registry wrapper
+│   │   ├── mlflow_tracker.py       ← MLflow experiment / tracking wrapper
 │   │   └── carbon_tracker.py       ← CodeCarbon emissions wrapper
 │   └── utils/
 │       └── config.py               ← params.yaml loader + HF_TOKEN helper
@@ -103,7 +103,7 @@ The `Milestone 4/` directory follows the **Cookiecutter Data Science** project t
 | Cookiecutter Convention | Implementation |
 |---|---|
 | `src/` — all source code as importable packages | `src/pipeline/`, `src/evaluation/`, `src/tracking/`, `src/utils/` |
-| `configs/` — centralised configuration | `configs/params.yaml` (single source of truth for all hyperparameters) |
+| `configs/` — centralised configuration | `configs/params.yaml` stores the main pipeline and evaluation parameters |
 | `tests/` — unit tests | `tests/test_metrics.py`, `tests/test_config.py` |
 | `results/` — generated outputs (gitignored) | `results/mae_per_project.csv`, `results/summary.json`, per-project CSVs |
 
@@ -111,7 +111,7 @@ The `Milestone 4/` directory follows the **Cookiecutter Data Science** project t
 
 - Every concern lives in its own module: model loading (`model_loader.py`), inference (`inference.py`), metrics (`metrics.py`), MLflow tracking (`mlflow_tracker.py`), CodeCarbon (`carbon_tracker.py`), config (`config.py`).
 - Pipeline steps (`zenml_steps.py`, `run_pipeline.py`) are thin orchestrators — they call the above modules and do not implement logic themselves.
-- `configs/params.yaml` is the **single source of truth**: no magic numbers appear in the codebase.
+- `configs/params.yaml` centralises the main parameters used by the pipeline, while some local defaults remain defined inside code where appropriate.
 - All packages expose clean `__init__.py` interfaces.
 - `src/models/` also contains `train.py` and `evaluate.py` for standalone model training/evaluation workflows.
 
@@ -126,7 +126,7 @@ The focus is on maintaining a clean, modular, and reproducible codebase, with cl
 
 ---
 
-## Requirement 3 · Experiment Tracking & Model Versioning (MLflow)
+## Requirement 3 · Experiment Tracking (MLflow)
 **Tool:** MLflow (local) | **Points: 5**  
 **Code:** [`src/tracking/mlflow_tracker.py`](src/tracking/mlflow_tracker.py)
 
@@ -184,20 +184,24 @@ The following screenshots demonstrate that MLflow experiment tracking, metric lo
 
 ### 4.1 Pipeline Architecture
 
-The three-step pipeline follows the ZenML DAG pattern, with steps calling modular `src/` components:
+The four-step pipeline follows the ZenML DAG pattern, with steps calling modular `src/` components:
 
-```
+```text
+train_tracking_step
+      │
+      ▼
 load_model_step
       │   (model_info dict)
       ▼
-evaluate_step  ←─── MLflow 
-      │         └── CodeCarbon (CO₂ tracking)
-      │   (metrics DataFrame)
+evaluate_step  ←─── MLflow
+      │
       ▼
 report_step    ─── Leaderboard printed to stdout
 ```
 
 ### 4.2 Step Definitions
+
+**`train_tracking_step`** — Trains the lightweight TF-IDF + Linear Regression baseline and logs the corresponding metrics and artifacts through MLflow.
 
 **`load_model_step`** — Resolves the base model ID from the HF adapter config, loads the tokenizer and base Llama 3.2-1B model on CPU.
 
@@ -330,7 +334,7 @@ All 16 JIRA projects evaluated. Results are stored in `results/mae_per_project.c
 | Requirement | Tool | Status | Points |
 |---|---|---|---|
 | Project structure / modularity | Cookiecutter layout (`src/`, `configs/`, `tests/`, `results/`) | ✅ Implemented | 2 |
-| Code versioning | GitHub Flow (feature branches, PRs, conventional commits) | ✅ Implemented | 2 |
+| Code versioning | Git-based version control for milestone development | ✅ Implemented | 2 |
 | Experiment tracking + model versioning | MLflow | ✅ **Fully working** (`mlruns/` populated) | 5 |
 | MLOps platform integration | ZenML `@step`/`@pipeline` definitions; pipeline executed end-to-end in 24m28s across 16 projects | ✅ **Fully working** | 5 |
 | Energy efficiency measurement | CodeCarbon wrapping inference loop; `carbon_summary.json` + MLflow metrics | ✅ **Fully working** | +2 |
