@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/dell/Documents/AUI/master%20SPRING/AI%20for%20digital%20transformation/CSC5382-AI-Digital-Transformation-Project/Milestone%204/mlruns/0/c8cbc7d2de564d80a593a49cf728bf90/artifacts
+end_time: 1775251625640
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: c8cbc7d2de564d80a593a49cf728bf90
+run_name: receptive-elk-749
+run_uuid: c8cbc7d2de564d80a593a49cf728bf90
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1775251606420
+status: 3
+tags: []
+user_id: dell

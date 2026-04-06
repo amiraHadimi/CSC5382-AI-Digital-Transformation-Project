@@ -1,0 +1,15 @@
+{
+  "mean_mae": 3.0927,
+  "std_mae": 2.5198,
+  "mean_rmse": 4.4558,
+  "mean_accuracy_at_1": 0.308,
+  "num_projects": 16,
+  "base_model_id": "meta-llama/Llama-3.2-1B",
+  "hf_author": "DEVCamiloSepulveda",
+  "max_len": 20,
+  "batch_size": 16,
+  "use_description": false,
+  "limit_test_rows": 100,
+  "baseline_train_mae": 10.045944242848591,
+  "generated_at": "2026-04-03 23:48:14"
+}
