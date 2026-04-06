@@ -26,8 +26,8 @@ Milestone 4 extends the previous milestones by adding model training, evaluation
 - A **modular project structure** following the Cookiecutter Data Science standard
 - **Git-based code versioning** for traceability and reproducibility
 - **MLflow** experiment tracking with structured per-project metrics and artifact logging
-- A **ZenML-structured pipeline** that wires model loading → inference → evaluation → reporting into a reproducible workflow
-- **CodeCarbon** for CO₂ emissions measurement during inference *(+2 pts optional)*
+- A **ZenML-structured pipeline** that wires baseline training → model loading → inference → evaluation → reporting into a reproducible workflow
+- - **CodeCarbon** for CO₂ emissions measurement during inference *(+2 pts optional)*
 
 ### Model
 
@@ -117,8 +117,8 @@ The `Milestone 4/` directory follows the **Cookiecutter Data Science** project t
 
 ---
 
-## Requirement 2 · Code Versioning (GitHub Flow)
-**Tool:** Git with GitHub Flow | **Points: 2**
+## Requirement 2 · Code Versioning 
+**Tool:** Git | **Points: 2**
 
 Version control is managed using Git and GitHub with a milestone-based development approach.
 
@@ -335,7 +335,7 @@ All 16 JIRA projects evaluated. Results are stored in `results/mae_per_project.c
 |---|---|---|---|
 | Project structure / modularity | Cookiecutter layout (`src/`, `configs/`, `tests/`, `results/`) | ✅ Implemented | 2 |
 | Code versioning | Git-based version control for milestone development | ✅ Implemented | 2 |
-| Experiment tracking + model versioning | MLflow | ✅ **Fully working** (`mlruns/` populated) | 5 |
+| Experiment tracking | MLflow | ✅ **Fully working** (`mlruns/` populated) | 5 |
 | MLOps platform integration | ZenML `@step`/`@pipeline` definitions; pipeline executed end-to-end in 24m28s across 16 projects | ✅ **Fully working** | 5 |
 | Energy efficiency measurement | CodeCarbon wrapping inference loop; `carbon_summary.json` + MLflow metrics | ✅ **Fully working** | +2 |
 
