@@ -1,78 +1,103 @@
-"""
-tracking/carbon_tracker.py
-==========================
-Disabled CodeCarbon wrapper for Milestone 4.
+from __future__ import annotations
 
-This version intentionally disables CO₂ tracking to avoid repeated GPU / pynvml
-warnings on Windows systems where GPU power queries are not supported.
-
-It keeps the same interface so the rest of the pipeline works unchanged.
-"""
-
-import os
-import json
+from dataclasses import dataclass, asdict
 from pathlib import Path
+from typing import Union
+import csv
+import json
+
+from codecarbon import OfflineEmissionsTracker
 import mlflow
 
 
+@dataclass
+class CarbonSummary:
+    duration: float
+    emissions_kg: float
+    energy_kwh: float
+    cpu_energy_kwh: float
+    gpu_energy_kwh: float
+    ram_energy_kwh: float
+    country_name: str
+
+
 class CarbonTracker:
-    """
-    No-op CarbonTracker used to keep the pipeline stable on Windows.
-    """
+    def __init__(self, cfg_or_output_dir: Union[dict, str, Path]) -> None:
+        if isinstance(cfg_or_output_dir, dict):
+            data_cfg = cfg_or_output_dir.get("data", {})
+            carbon_cfg = cfg_or_output_dir.get("codecarbon", {})
 
-    def __init__(self, cfg: dict):
-        """
-        Args:
-            cfg: Full config dict (load_config() output).
-        """
-        cc_cfg = cfg.get("codecarbon", {})
-        self.project_name = cc_cfg.get("project_name", "story_point_estimation_m4")
-        self.country_iso = cc_cfg.get("country_iso_code", "MAR")
+            milestone_root = Path(__file__).resolve().parents[2]
+            results_dir = milestone_root / data_cfg.get("results_dir", "results")
+            self.output_dir = results_dir / "carbon"
 
-        output_dir = cc_cfg.get("output_dir", "results/carbon")
-        m4_root = Path(__file__).resolve().parents[2]
-        self.output_dir = str(m4_root / output_dir)
-        os.makedirs(self.output_dir, exist_ok=True)
+            self.country_iso_code = carbon_cfg.get("country_iso_code", "MAR")
+            self.project_name = carbon_cfg.get("project_name", "milestone4_evaluation")
+        else:
+            self.output_dir = Path(cfg_or_output_dir)
+            self.country_iso_code = "MAR"
+            self.project_name = "milestone4_evaluation"
+
+        self.output_dir.mkdir(parents=True, exist_ok=True)
+        self.csv_path = self.output_dir / "emissions.csv"
+        self.summary_path = self.output_dir / "carbon_summary.json"
+
+        self.tracker = OfflineEmissionsTracker(
+            country_iso_code=self.country_iso_code,
+            project_name=self.project_name,
+            output_dir=str(self.output_dir),
+            output_file="emissions.csv",
+            save_to_file=True,
+        )
 
     def start(self) -> None:
-        """
-        Start tracking.
+        self.tracker.start()
+        
 
-        In this disabled version, we skip CodeCarbon entirely.
-        """
-        print("[CarbonTracker] CodeCarbon disabled for this local Windows run.")
+    def stop(self) -> CarbonSummary:
+        returned_emissions = self.tracker.stop()
 
-    def stop(self) -> dict | None:
-        """
-        Stop tracking and return a placeholder summary.
-        """
-        summary = {
-            "emissions_kg_co2eq": 0.0,
-            "energy_kwh": 0.0,
-            "duration_seconds": 0.0,
-            "country": self.country_iso,
-        }
+        rows = []
+        if self.csv_path.exists():
+            with self.csv_path.open("r", encoding="utf-8") as f:
+                rows = list(csv.DictReader(f))
 
-        summary_path = Path(self.output_dir) / "carbon_summary.json"
-        with open(summary_path, "w", encoding="utf-8") as f:
-            json.dump(summary, f, indent=2)
+        last = rows[-1] if rows else {}
 
-        print("[CarbonTracker] Carbon tracking skipped.")
+        csv_emissions = float(last.get("emissions", 0.0) or 0.0)
+        emissions_kg = float(
+            returned_emissions if returned_emissions is not None else csv_emissions
+        )
+
+        summary = CarbonSummary(
+            duration=float(last.get("duration", 0.0) or 0.0),
+            emissions_kg=emissions_kg,
+            energy_kwh=float(last.get("energy_consumed", 0.0) or 0.0),
+            cpu_energy_kwh=float(last.get("cpu_energy", 0.0) or 0.0),
+            gpu_energy_kwh=float(last.get("gpu_energy", 0.0) or 0.0),
+            ram_energy_kwh=float(last.get("ram_energy", 0.0) or 0.0),
+            country_name=str(last.get("country_name", "")),
+        )
+
+        with self.summary_path.open("w", encoding="utf-8") as f:
+            json.dump(asdict(summary), f, indent=2)
+
         return summary
 
-    def log_to_mlflow(self, summary: dict | None) -> None:
-        """
-        Log placeholder carbon data to the currently active MLflow run.
-        """
-        if summary is None:
-            return
+    def log_to_mlflow(self, summary: CarbonSummary) -> None:
+        mlflow.log_metrics(
+            {
+                "co2_kg": summary.emissions_kg,
+                "energy_kwh": summary.energy_kwh,
+                "inference_time_s": summary.duration,
+                "cpu_energy_kwh": summary.cpu_energy_kwh,
+                "gpu_energy_kwh": summary.gpu_energy_kwh,
+                "ram_energy_kwh": summary.ram_energy_kwh,
+            }
+        )
 
-        mlflow.log_metrics({
-            "co2_kg": summary["emissions_kg_co2eq"],
-            "energy_kwh": summary["energy_kwh"],
-            "inference_time_s": summary["duration_seconds"],
-        })
+        if self.summary_path.exists():
+            mlflow.log_artifact(str(self.summary_path), artifact_path="carbon")
 
-        summary_json = Path(self.output_dir) / "carbon_summary.json"
-        if summary_json.exists():
-            mlflow.log_artifact(str(summary_json), artifact_path="carbon")
+        if self.csv_path.exists():
+            mlflow.log_artifact(str(self.csv_path), artifact_path="carbon")

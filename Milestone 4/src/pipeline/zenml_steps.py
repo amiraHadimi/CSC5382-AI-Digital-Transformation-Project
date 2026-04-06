@@ -152,8 +152,8 @@ def evaluate_step(model_info: dict, train_info: dict) -> pd.DataFrame:
       - Loads and activates the project-specific LoRA adapter.
       - Runs batched inference on the test split.
       - Computes MAE, RMSE, and Accuracy@±1.
-      - Logs metrics as a nested MLflow child run.
-      - Tracks CO₂ emissions with CodeCarbon.
+      - Logs metrics in MLflow.
+      - Tracks estimated emissions with CodeCarbon.
 
     Args:
         model_info: Metadata dict from load_model_step.
@@ -175,14 +175,14 @@ def evaluate_step(model_info: dict, train_info: dict) -> pd.DataFrame:
     logger.info(f"[Step 3] Training step status: {train_info.get('status')}")
     logger.info(f"[Step 3] Baseline training MAE from Step 1: {train_info.get('baseline_mae')}")
 
-    # ── Locate per-project CSV files ─────────────────────────────────────────
+    # Locate per-project CSV files
     csv_glob = str(m4_root / data_cfg["raw_csv_glob"])
     csv_files = sorted(glob.glob(csv_glob))
     if not csv_files:
         raise RuntimeError(f"No CSV files found at: {csv_glob}")
     logger.info(f"[Step 3] Found {len(csv_files)} project CSV files.")
 
-    # ── Load model objects (re-load here; not serialisable across ZenML steps) ─
+    # Load model objects
     logger.info("[Step 3] Loading tokenizer...")
     tokenizer = load_tokenizer(model_info["hf_author"], hf_token)
 
@@ -193,9 +193,11 @@ def evaluate_step(model_info: dict, train_info: dict) -> pd.DataFrame:
 
     first_project = os.path.splitext(os.path.basename(csv_files[0]))[0].lower()
     logger.info(f"[Step 3] Building PEFT model with first adapter: {first_project}")
-    peft_model = build_peft_model(base_model, model_info["hf_author"], first_project, hf_token)
+    peft_model = build_peft_model(
+        base_model, model_info["hf_author"], first_project, hf_token
+    )
 
-    # ── MLflow + CodeCarbon setup ─────────────────────────────────────────────
+    # MLflow + CodeCarbon setup
     tracker = MLflowTracker(cfg)
     carbon = CarbonTracker(cfg)
     run_name = f"{cfg['mlflow']['run_name_prefix']}_{time.strftime('%Y%m%d_%H%M%S')}"
@@ -218,81 +220,83 @@ def evaluate_step(model_info: dict, train_info: dict) -> pd.DataFrame:
     with tracker.start_run(run_name=run_name, params=inference_params):
         tracker.log_model_info(model_info)
 
-        # ── Start CO₂ tracking around the full evaluation loop ────────────────
         carbon.start()
+        try:
+            for csv_path in csv_files:
+                project = os.path.splitext(os.path.basename(csv_path))[0].lower()
+                logger.info(f"[Step 3] Evaluating project: {project}")
 
-        for csv_path in csv_files:
-            project = os.path.splitext(os.path.basename(csv_path))[0].lower()
-            logger.info(f"[Step 3] Evaluating project: {project}")
+                df = pd.read_csv(csv_path)
+                test_df = df[df["split_mark"].astype(str).str.lower().str.contains("test")].copy()
+                if test_df.empty:
+                    logger.warning(f"[Step 3] No test rows for {project} — skipping.")
+                    continue
 
-            df = pd.read_csv(csv_path)
-            test_df = df[df["split_mark"].astype(str).str.lower().str.contains("test")].copy()
-            if test_df.empty:
-                logger.warning(f"[Step 3] No test rows for {project} — skipping.")
-                continue
+                limit = inf_cfg.get("limit_test_rows")
+                if limit:
+                    test_df = test_df.head(limit).copy()
 
-            limit = inf_cfg.get("limit_test_rows")
-            if limit:
-                test_df = test_df.head(limit).copy()
+                # Activate this project's LoRA adapter
+                load_adapter_for_project(
+                    peft_model, model_info["hf_author"], project, hf_token
+                )
+                peft_model.eval()
 
-            # Activate this project's LoRA adapter
-            load_adapter_for_project(peft_model, model_info["hf_author"], project, hf_token)
-            peft_model.eval()
+                # Run inference
+                y_pred = run_inference_on_dataframe(
+                    test_df,
+                    tokenizer,
+                    peft_model,
+                    batch_size=inf_cfg["batch_size"],
+                    max_len=inf_cfg["max_len"],
+                    use_description=inf_cfg["use_description"],
+                )
 
-            # Run inference
-            y_pred = run_inference_on_dataframe(
-                test_df,
-                tokenizer,
-                peft_model,
-                batch_size=inf_cfg["batch_size"],
-                max_len=inf_cfg["max_len"],
-                use_description=inf_cfg["use_description"],
-            )
+                # Resolve ground-truth column name
+                sp_col = next(
+                    (
+                        c
+                        for c in ["storypoint", "storypoints", "story_points", "point"]
+                        if c in test_df.columns
+                    ),
+                    None,
+                )
+                if sp_col is None:
+                    logger.warning(
+                        f"[Step 3] No story point column found for {project} — skipping."
+                    )
+                    continue
 
-            # Resolve ground-truth column name
-            sp_col = next(
-                (
-                    c
-                    for c in ["storypoint", "storypoints", "story_points", "point"]
-                    if c in test_df.columns
-                ),
-                None,
-            )
-            if sp_col is None:
-                logger.warning(f"[Step 3] No story point column found for {project} — skipping.")
-                continue
+                y_true = test_df[sp_col].astype(float).to_numpy()
+                metrics = compute_metrics(y_true, y_pred, project)
+                all_metrics.append(metrics)
 
-            y_true = test_df[sp_col].astype(float).to_numpy()
-            metrics = compute_metrics(y_true, y_pred, project)
-            all_metrics.append(metrics)
+                # Log per-project metrics in the same MLflow run
+                tracker.log_project(metrics, params={"project": project})
 
-            # Log per-project nested MLflow run
-            tracker.log_project(metrics, params={"project": project})
+                # Save per-project predictions CSV
+                pred_df = pd.DataFrame(
+                    {
+                        "project": project,
+                        "title": test_df["title"].fillna("").values,
+                        "y_true": y_true,
+                        "y_pred": y_pred,
+                        "abs_error": np.abs(y_true - y_pred),
+                    }
+                )
+                pred_df.to_csv(f"{results_dir}/predictions_{project}.csv", index=False)
 
-            # Save per-project predictions CSV
-            pred_df = pd.DataFrame(
-                {
-                    "project": project,
-                    "title": test_df["title"].fillna("").values,
-                    "y_true": y_true,
-                    "y_pred": y_pred,
-                    "abs_error": np.abs(y_true - y_pred),
-                }
-            )
-            pred_df.to_csv(f"{results_dir}/predictions_{project}.csv", index=False)
+                logger.info(
+                    f"[Step 3]   {project:20s} | n={metrics.test_size:4d} | "
+                    f"MAE={metrics.mae:.4f} | RMSE={metrics.rmse:.4f} | "
+                    f"Acc@±1={metrics.accuracy_at_1:.3f}"
+                )
+                gc.collect()
 
-            logger.info(
-                f"[Step 3]   {project:20s} | n={metrics.test_size:4d} | "
-                f"MAE={metrics.mae:.4f} | RMSE={metrics.rmse:.4f} | "
-                f"Acc@±1={metrics.accuracy_at_1:.3f}"
-            )
-            gc.collect()
+        finally:
+            emissions = carbon.stop()
+            carbon.log_to_mlflow(emissions)
 
-        # ── Stop CO₂ tracker ─────────────────────────────────────────────────
-        emissions = carbon.stop()
-        carbon.log_to_mlflow(emissions)
-
-        # ── Aggregate and log summary ─────────────────────────────────────────
         aggregate = aggregate_metrics(all_metrics)
         logger.info(f"[Step 3] Aggregate metrics: {aggregate}")
 
@@ -305,11 +309,10 @@ def evaluate_step(model_info: dict, train_info: dict) -> pd.DataFrame:
             "generated_at": time.strftime("%Y-%m-%d %H:%M:%S"),
         }
         summary_json = f"{results_dir}/summary.json"
-        with open(summary_json, "w") as f:
+        with open(summary_json, "w", encoding="utf-8") as f:
             json.dump(summary, f, indent=2)
 
         tracker.log_summary(aggregate, artefact_paths=[mae_csv, summary_json])
-        tracker.register_model(model_name="Llama3SP-StoryPoints")
 
     return pd.DataFrame([m.to_dict() for m in all_metrics])
 
