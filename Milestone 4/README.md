@@ -10,7 +10,7 @@
 2. [Repository Structure](#repository-structure)
 3. [Requirement 1 · Project Structure & Modularity](#requirement-1--project-structure--modularity)
 4. [Requirement 2 · Code Versioning ](#requirement-2--code-versioning)
-5. [Requirement 3 · Experiment Tracking & Model Versioning (MLflow)](#requirement-3--experiment-tracking--model-versioning-mlflow)
+5. [Requirement 3 · Experiment Tracking (MLflow)](#requirement-3--experiment-tracking--mlflow)
 6. [Requirement 4 · MLOps Platform Integration (ZenML)](#requirement-4--mlops-platform-integration-zenml)
 7. [Optional · Energy Efficiency Measurement (CodeCarbon)](#optional--energy-efficiency-measurement-codecarbon)
 8. [How to Run](#how-to-run)
@@ -54,7 +54,7 @@ The ZenML pipeline orchestrates the following steps:
 4. report_step  
    - Generates summary files (e.g., MAE per project, global summary)  
 
-> The pipeline executes a four-step DAG (`train_tracking_step → load_model_step → evaluate_step → report_step`) via `run_pipeline.py`. ZenML step tracking is active and the full run completed in **24 minutes 28 seconds** across all 16 JIRA projects.
+> The pipeline executes a four-step DAG (`train_tracking_step → load_model_step → evaluate_step → report_step`) via `run_pipeline.py`. ZenML step tracking is active and the full run completed in **53 minutes 14 seconds** across all 16 JIRA projects.
 
 ---
 
@@ -211,7 +211,7 @@ report_step    ─── Leaderboard printed to stdout
 
 ### 4.3 Execution
 
-The steps are defined with the ZenML `@step` and `@pipeline` decorators in `src/pipeline/zenml_steps.py` and `src/pipeline/zenml_pipeline.py`. The pipeline is executed via `run_pipeline.py` and ZenML step timing is tracked. The full pipeline run across all 16 projects completed in **24 minutes 28 seconds** on a CPU-only machine (Intel i7-1165G7).
+The steps are defined with the ZenML `@step` and `@pipeline` decorators in `src/pipeline/zenml_steps.py` and `src/pipeline/zenml_pipeline.py`. The pipeline is executed via `run_pipeline.py` and ZenML step timing is tracked. The full pipeline run across all 16 projects completed in **53 minutes 14 seconds** on a CPU-only machine (Intel i7-1165G7).
 
 ---
 
@@ -345,8 +345,7 @@ All 16 JIRA projects evaluated. Results are stored in `results/mae_per_project.c
 | Code versioning | Git-based version control for milestone development | ✅ Implemented | 2 |
 | Experiment tracking | MLflow | ✅ **Fully working** (`mlruns/` populated) | 5 |
 | MLOps platform integration | ZenML `@step`/`@pipeline` definitions; pipeline executed end-to-end in 24m28s across 16 projects | ✅ **Fully working** | 5 |
-| Energy efficiency measurement | CodeCarbon wrapping inference loop; `carbon_summary.json` + MLflow metrics | ✅ **Fully working** | +2 |
-
+| Energy efficiency measurement | CodeCarbon integration with `emissions.csv`, `carbon_summary.json`, and MLflow logging | ✅ Fully working | +2 |
 ---
 
 ### Design Choice
