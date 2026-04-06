@@ -348,6 +348,17 @@ All 16 JIRA projects evaluated. Results are stored in `results/mae_per_project.c
 | Energy efficiency measurement | CodeCarbon integration with `emissions.csv`, `carbon_summary.json`, and MLflow logging | ✅ Fully working | +2 |
 ---
 
+## Results
+
+These results correspond to the offline evaluation of the pretrained Llama3SP model across 16 projects.
+
+The evaluation pipeline completed in approximately **53 minutes** on a CPU-only environment.  
+The `evaluate_step` alone required about **52 minutes**, while the full pipeline execution time was **53m14s**, including CodeCarbon tracking.
+
+### Pipeline Execution Output
+
+![Pipeline Output](assets/pipeline_output.png)
+
 ### Design Choice
 
 This milestone prioritizes **MLOps integration over model complexity**.
