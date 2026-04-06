@@ -21,7 +21,11 @@
 
 ## Overview
 
-Milestone 4 adds the **Model Development and Evaluation** layer to the MLOps platform built in Milestones 1–3. It implements:
+This milestone prioritizes MLOps integration over model complexity.
+
+Llama3SP is used as a pretrained industrial-scale model for offline evaluation, while a lightweight TF-IDF + Linear Regression baseline is included to demonstrate the training capability.
+
+The main contribution of this milestone is the implementation of an end-to-end MLOps pipeline that ensures reproducibility, experiment tracking, structured evaluation, and integration into a larger ML workflow.
 
 - A **modular project structure** following the Cookiecutter Data Science standard
 - **GitHub Flow** for code versioning
