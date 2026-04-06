@@ -1,0 +1,17 @@
+project,test_size,mae,rmse,accuracy_at_1
+appceleratorstudio,100,1.8538,2.2783,0.31
+aptanastudio,100,3.8437,5.8262,0.18
+bamboo,100,1.0968,1.3503,0.48
+clover,77,4.0754,7.8535,0.2338
+datamanagement,100,6.1856,10.9452,0.16
+duracloud,100,1.0613,1.3632,0.56
+jirasoftware,71,2.0503,2.61,0.2535
+mesos,100,1.3783,1.9684,0.45
+moodle,100,11.3025,15.1241,0.07
+mule,100,2.4297,2.9878,0.29
+mulestudio,100,3.4888,4.7076,0.16
+springxd,100,1.6722,2.1395,0.37
+talenddataquality,100,3.6042,5.1427,0.21
+talendesb,100,1.1015,1.4136,0.58
+titanium,100,2.8328,3.6872,0.26
+usergrid,97,1.5067,1.8958,0.3608

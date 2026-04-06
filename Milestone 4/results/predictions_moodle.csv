@@ -1,0 +1,101 @@
+project,title,y_true,y_pred,abs_error
+moodle,Accessibility improvements for gradereport course header and aggregation controls.,20.0,15.720516204833984,4.279483795166016
+moodle,Remove old functionality,20.0,14.207756042480469,5.792243957519531
+moodle,Move sql in index.php to an api,5.0,6.838708400726318,1.8387084007263184
+moodle,"Get prototype onto prototype.moodle.net, promote and request feedback",8.0,20.952913284301758,12.952913284301758
+moodle,Implement backup and restore of the grades history,40.0,66.45533752441406,26.455337524414062
+moodle,Review and move AJAX grading code to YUI module,40.0,78.43445587158203,38.43445587158203
+moodle,Handle grades associated with deleted grade items in the history report,20.0,20.058420181274414,0.05842018127441406
+moodle,Mathjax default SSL CDN address is down causing atto to fail to load,5.0,5.040771961212158,0.0407719612121582
+moodle,html_writer::table Ignore attributes for rows,5.0,10.38045597076416,5.38045597076416
+moodle,Migrate row/column highlight code to YUI module,5.0,52.58858108520508,47.58858108520508
+moodle,"Improve behaviour of grader header, footer and sidebar on iOS 8 + IE",5.0,15.409296035766602,10.409296035766602
+moodle,"Rename ""Sum of grades"" aggregation to ""Natural""",5.0,18.039260864257812,13.039260864257812
+moodle,Nest weightings within categories,13.0,45.3623046875,32.3623046875
+moodle,Add form change checking to Gradebook setup page,8.0,18.185800552368164,10.185800552368164
+moodle,Negative adjusted weights in the natural aggregation should not be allowed.,13.0,10.28676700592041,2.71323299407959
+moodle,Category colours not matching in Gradebook User report,13.0,17.549169540405273,4.549169540405273
+moodle,Allow editing of weights within single category,20.0,21.143449783325195,1.1434497833251953
+moodle,Only allow drop lowest/keep highest when items in category are equally weighted,40.0,28.159738540649414,11.840261459350586
+moodle,Allow categories to be collapsed in the Gradebook setup page,40.0,17.51483917236328,22.48516082763672
+moodle,Allow weightings within a category to be reset,20.0,19.182754516601562,0.8172454833984375
+moodle,Grade export does not support grade display type anymore,2.0,8.074063301086426,6.074063301086426
+moodle,"Create a mockup/prototype of the simplified, combined Gradebook Setup page",20.0,39.465972900390625,19.465972900390625
+moodle,Integrate Natural weighting code,40.0,26.219562530517578,13.780437469482422
+moodle,Publish prototype and publicise,8.0,19.706218719482422,11.706218719482422
+moodle,When searching for a course that does not exist a non-sensical string is displayed.,5.0,5.0071587562561035,0.007158756256103516
+moodle,Refactor user_button class to remove js methods,20.0,11.291539192199707,8.708460807800293
+moodle,Data-target does nothing,3.0,6.038069248199463,3.038069248199463
+moodle,Allow sorting on additional name fields.,20.0,6.737972736358643,13.262027263641357
+moodle,Typo in behat function name,3.0,-0.8559234142303467,3.8559234142303467
+moodle,Restore AJAX editing,20.0,20.1058406829834,0.10584068298339844
+moodle,Re-organised CSS of the grader report,13.0,43.62038803100586,30.62038803100586
+moodle,Make the grader report work on theme_base and derivatives,20.0,7.415484428405762,12.584515571594238
+moodle,Handle floating objects with RTL languages,8.0,30.89336585998535,22.89336585998535
+moodle,change the default value of grade_aggregations_visible,5.0,10.776534080505371,5.776534080505371
+moodle,Remove grade/lib.php update_field(),5.0,3.2743351459503174,1.7256648540496826
+moodle,Move install code into core,8.0,7.757527828216553,0.24247217178344727
+moodle,Fix RTL styling of the new grader report,5.0,17.825359344482422,12.825359344482422
+moodle,Sum of Grades still not calculating correctly with hidden items,8.0,15.847412109375,7.847412109375
+moodle,Add weights to sum of grades / natural,40.0,14.724021911621094,25.275978088378906
+moodle,Update reports so that they display natural weights properly,20.0,24.79073143005371,4.790731430053711
+moodle,Apply natural weights to all grade items when setting up the gradebook.,20.0,28.860265731811523,8.860265731811523
+moodle,"Implement ""Export since"" filter on grade export",40.0,12.826166152954102,27.1738338470459
+moodle,Fix highlighting behaviour in the new grader report,5.0,12.973342895507812,7.9733428955078125
+moodle,The tooltip prevents the user from entering the feedback field,5.0,0.7389928102493286,4.261007189750671
+moodle,Styling for the grader report when editing is turned on,8.0,11.047538757324219,3.0475387573242188
+moodle,Bring in code from UCLA,20.0,18.124691009521484,1.8753089904785156
+moodle,Update code from UCLA to meet coding style guidelines,40.0,15.598228454589844,24.401771545410156
+moodle,Add floating title for the footer,8.0,15.604605674743652,7.604605674743652
+moodle,reimplement extra credit handling with natural weights.,8.0,40.43968200683594,32.43968200683594
+moodle,"Grader report displays ""error"" for single item in new course",20.0,8.873714447021484,11.126285552978516
+moodle,Investigate/fix handling of hidden and excluded grades within natural weights,20.0,31.66710090637207,11.66710090637207
+moodle,Create an update script for natural grading,8.0,13.512327194213867,5.512327194213867
+moodle,Classes .overridden and .ajaxoverridden are not changing the styles,5.0,10.25482177734375,5.25482177734375
+moodle,Add contribution column to the user report,40.0,10.196954727172852,29.80304527282715
+moodle,If you adjust the weight of a category itself you cannot un-override it,8.0,11.984729766845703,3.984729766845703
+moodle,"Automatically normalise weights, and notify users",20.0,16.672088623046875,3.327911376953125
+moodle,Update table row/column sizes when AJAX quick editing,5.0,19.495378494262695,14.495378494262695
+moodle,"Update ""date till"" string in the grade history report",2.0,12.311603546142578,10.311603546142578
+moodle,Implement the prototyped changes,20.0,28.480947494506836,8.480947494506836
+moodle,Review third party libraries for new versions,13.0,29.57821273803711,16.57821273803711
+moodle,Event monitor: Write behat tests for the tool,20.0,2.874843120574951,17.12515687942505
+moodle,Event monitor: Write QA tests for the tool,20.0,7.152641773223877,12.847358226776123
+moodle,Event monitor: Add help icon on subscriptions manage page,20.0,13.971944808959961,6.028055191040039
+moodle,Event monitor: Trigger various events,8.0,16.716035842895508,8.716035842895508
+moodle,Event monitor: Remove dependency on MDL-46155,13.0,12.717559814453125,0.282440185546875
+moodle,Fix nested custom_menu responsive display,5.0,20.972705841064453,15.972705841064453
+moodle,Outcome items weight cannot be edited,20.0,5.672919750213623,14.327080249786377
+moodle,Dividers don't display well in responsive layouts,3.0,50.66501998901367,47.66501998901367
+moodle,Discussion subscriptions visible (and broken) to guests,8.0,17.306489944458008,9.306489944458008
+moodle,"Change default aggregation method to ""Natural""",8.0,10.107976913452148,2.1079769134521484
+moodle,Backup / restore aggregationcoef2 and weightoverride,5.0,13.633225440979004,8.633225440979004
+moodle,Record aggregationcoef2 and weightoverride in grade history,5.0,13.724785804748535,8.724785804748535
+moodle,Undefined offset when using another aggregation method than Natural,8.0,1.8925111293792725,6.1074888706207275
+moodle,Include YUI gallery modules properly,3.0,31.026363372802734,28.026363372802734
+moodle,Upgrade S3 library in repository_s3 to 0.5.1-dev for Moodle 2.8 release,5.0,12.247208595275879,7.247208595275879
+moodle,Upgrade AdoDB library to 5.19 for Moodle 2.8 release,5.0,20.109325408935547,15.109325408935547
+moodle,Upgrade Google APIs Client Library to 1.0.5 for Moodle 2.8 release,8.0,17.20453453063965,9.204534530639648
+moodle,Upgrade Compatible password hashing library for Moodle 2.8 release,5.0,17.443099975585938,12.443099975585938
+moodle,Upgrade PHPMailer to 5.2.9 for Moodle 2.8 release,5.0,11.790820121765137,6.790820121765137
+moodle,Upgrade Typo3 library to 4.7.19 for Moodle 2.8 release,5.0,15.039329528808594,10.039329528808594
+moodle,Upgrade Markdown to 1.4.1 for Moodle 2.8 release,5.0,11.926860809326172,6.926860809326172
+moodle,Category max grade is not properly updated when using extra credit,8.0,12.503973007202148,4.503973007202148
+moodle,Record aggregationstatus and aggregationweight in the history tables,20.0,16.454326629638672,3.545673370361328
+moodle,Test the Grader report on a number of third-party themes,8.0,13.972419738769531,5.972419738769531
+moodle,Ensure changes to categories and effects on grade items are recorded in Grade history,8.0,22.201278686523438,14.201278686523438
+moodle,Fix bug where categories do not show Adjusted when they are,8.0,6.997529029846191,1.0024709701538086
+moodle,Do not include items with a weight of 0 in the max grade.,8.0,12.92048168182373,4.9204816818237305
+moodle,grademax should be reset to 100 when switching from natural agg method to different one,5.0,16.96786117553711,11.96786117553711
+moodle,Missing table header in behat step causes debugging.,5.0,1.3578917980194092,3.642108201980591
+moodle,Fix unit tests broken in the dev branch.,8.0,5.790515899658203,2.209484100341797
+moodle,Natural aggregation normalizes values to the range mingrade -> maxgrade - it should use 0 -> maxgrade,13.0,5.768833637237549,7.231166362762451
+moodle,We need a log in icon for the user menu.,3.0,17.5443172454834,14.544317245483398
+moodle,Event monitor: Fix missing alt on icons,3.0,5.057746887207031,2.0577468872070312
+moodle,Finish VERP work in current sprint,40.0,15.40614128112793,24.59385871887207
+moodle,Add behat tests for displaying scales in gradebook,13.0,7.785139083862305,5.214860916137695
+moodle,Styling changes for gradebook design improvements,8.0,35.84052658081055,27.840526580810547
+moodle,Decide Moodle 2.9 requirements and push them to environment.xml,13.0,11.72746753692627,1.2725324630737305
+moodle,Mark competencies complete when the course is completed,5.0,15.459540367126465,10.459540367126465
+moodle,A user can upload evidence or prior learning,13.0,28.539525985717773,15.539525985717773
+moodle,Course competency links should be included in course backup/restore,2.0,22.768939971923828,20.768939971923828
