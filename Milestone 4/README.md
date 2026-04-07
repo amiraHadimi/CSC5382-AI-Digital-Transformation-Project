@@ -23,7 +23,7 @@
 
 Milestone 4 extends the previous milestones by adding model training, evaluation, and experiment tracking capabilities. It implements:
 
-- A **modular project structure** following the Cookiecutter Data Science standard
+- A **modular project structure** inspired by the Cookiecutter Data Science standard
 - **Git-based code versioning** for traceability and reproducibility
 - **MLflow** experiment tracking with structured per-project metrics and artifact logging
 - A **ZenML-structured pipeline** that wires baseline training → model loading → inference → evaluation → reporting into a reproducible workflow
@@ -98,7 +98,7 @@ Milestone 4/
 ## Requirement 1 · Project Structure & Modularity
 **Tool:** Cookiecutter Data Science standard | **Points: 2**
 
-The `Milestone 4/` directory follows the **Cookiecutter Data Science** project template conventions, adapted for an MLOps context:
+The `Milestone 4/` directory is inspired by the **Cookiecutter Data Science** project template conventions, adapted for an MLOps context:
 
 | Cookiecutter Convention | Implementation |
 |---|---|
