@@ -105,7 +105,7 @@ The `Milestone 4/` directory follows the **Cookiecutter Data Science** project t
 | `src/` — all source code as importable packages | `src/pipeline/`, `src/evaluation/`, `src/tracking/`, `src/utils/` |
 | `configs/` — centralised configuration | `configs/params.yaml` stores the main pipeline and evaluation parameters |
 | `tests/` — unit tests | `tests/test_metrics.py`, `tests/test_config.py` |
-| `results/` — generated outputs (gitignored) | `results/mae_per_project.csv`, `results/summary.json`, per-project CSVs |
+| `results/` — generated outputs | `results/mae_per_project.csv`, `results/summary.json`, per-project CSVs |
 
 **Key modularity principles applied:**
 
