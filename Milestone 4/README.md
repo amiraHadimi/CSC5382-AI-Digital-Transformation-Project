@@ -80,13 +80,13 @@ Milestone 4/
 ├── tests/
 │   ├── test_metrics.py             ← Unit tests for metrics module
 │   └── test_config.py              ← Unit tests for config loader
-├── results/                        ← Generated at runtime (gitignored)
+├── results/                        ← Generated at runtime 
 │   ├── mae_per_project.csv         ← Per-project MAE, RMSE, Acc@±1
 │   ├── summary.json                ← Aggregate summary + hyperparams
 │   ├── predictions_<project>.csv   ← Per-row y_true / y_pred / abs_error
 │   └── carbon/
 │       └── carbon_summary.json     ← CO₂, energy_kwh, duration
-├── mlruns/                         ← MLflow tracking artefacts (gitignored)
+├── mlruns/                         ← MLflow tracking artefacts 
 ├── run_pipeline.py                 ← Entry point: python run_pipeline.py
 ├── setup_milestone4.py             ← Environment setup helper
 ├── requirements.txt
