@@ -215,6 +215,22 @@ The steps are defined with the ZenML `@step` and `@pipeline` decorators in `src/
 
 ---
 
+### ZenML Execution Proof
+
+ZenML is used as the orchestration layer for the pipeline. The workflow is implemented using the `@pipeline` decorator, and each stage is defined as a ZenML `@step`.
+
+The pipeline integrates:
+- baseline training (`train_tracking_step`)
+- model loading (`load_model_step`)
+- evaluation (`evaluate_step`)
+- reporting (`report_step`)
+
+Execution is performed via `python run_pipeline.py`, which internally triggers the ZenML pipeline.
+
+The successful execution and structure of the pipeline are visualized in the ZenML dashboard below:
+
+![ZenML Dashboard](assets/zenml_dashboard.png)
+
 ## Optional · Energy Efficiency Measurement (CodeCarbon)
 
 CodeCarbon is integrated to estimate the environmental impact of the inference pipeline.
