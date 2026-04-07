@@ -215,6 +215,47 @@ The steps are defined with the ZenML `@step` and `@pipeline` decorators in `src/
 
 ---
 
+## Pipeline Workflow
+
+The end-to-end pipeline follows a structured execution flow orchestrated by ZenML, ensuring modularity, reproducibility, and traceability.
+
+The workflow proceeds as follows:
+
+1. **Configuration Loading**  
+   The pipeline begins by loading parameters from `configs/params.yaml`, which defines model settings, dataset paths, and evaluation parameters. This ensures that all executions are reproducible and centrally controlled.
+
+2. **Baseline Training (`train_tracking_step`)**  
+   A lightweight TF-IDF + Linear Regression model is trained on the processed dataset.  
+   - This step demonstrates the system’s ability to perform training within the pipeline  
+   - Training metrics and parameters are logged using MLflow  
+
+3. **Model Loading (`load_model_step`)**  
+   The pretrained Llama3SP model is loaded from HuggingFace Hub.  
+   - The tokenizer and base model are initialized  
+   - LoRA adapters are prepared for project-specific inference  
+
+4. **Evaluation (`evaluate_step`)**  
+   This is the core step of the pipeline.  
+   - Each of the 16 JIRA projects is processed sequentially  
+   - The corresponding LoRA adapter is dynamically loaded  
+   - Batched inference is performed on the test dataset  
+   - Evaluation metrics are computed:
+     - Mean Absolute Error (MAE)
+     - Root Mean Squared Error (RMSE)
+     - Accuracy@±1  
+   - Metrics and artifacts are logged to MLflow  
+   - CodeCarbon tracks energy consumption and CO₂ emissions during execution  
+
+5. **Reporting (`report_step`)**  
+   The final step aggregates results across all projects.  
+   - A leaderboard is generated (sorted by MAE)  
+   - Results are saved as:
+     - `mae_per_project.csv`
+     - `summary.json`  
+   - A summary is printed to the console  
+
+---
+
 ### ZenML Execution Proof
 
 ZenML is used as the orchestration layer for the pipeline. The workflow is implemented using the `@pipeline` decorator, and each stage is defined as a ZenML `@step`.
