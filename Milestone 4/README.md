@@ -426,6 +426,15 @@ This milestone prioritizes **MLOps integration over model complexity**.
 
 This design aligns with real-world MLOps systems, where models are often reused and evaluated rather than trained from scratch.
 
+
+## 🎥 Video Demonstration
+
+This video demonstrates the full Milestone 4 pipeline, including:
+
+👉 Watch the video here:  
+https://alakhawayn365-my.sharepoint.com/:v:/g/personal/a_hadimi_aui_ma/IQCx5ebvW5PoRpLXYVPjNlP2AWEVruaYDUtI86twBUkwXPc?e=jZ5kqi
+
+
 ## References
 
 1. Choetkiertikul et al. (2018). *A deep learning model for estimating story points.* IEEE TSE.
