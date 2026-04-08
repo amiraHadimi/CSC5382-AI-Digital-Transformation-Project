@@ -268,7 +268,7 @@ The integration of MLflow Model Registry provides:
 
 The following screenshot shows the registered model and its multiple versions:
 
-![MLflow Model Registry – Registered Versions](assets/mlflow_model_registry.png)
+![MLflow Model Registry – Registered Versions](assets/mlflow_versions.png)
 
 
 ## Requirement 4 · MLOps Platform Integration (ZenML)
