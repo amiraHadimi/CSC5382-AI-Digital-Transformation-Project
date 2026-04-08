@@ -14,8 +14,8 @@
 2. [Repository Structure](#repository-structure)
 3. [Requirement 1 · Project Structure & Modularity](#requirement-1--project-structure--modularity)
 4. [Requirement 2 · Code Versioning ](#requirement-2--code-versioning)
-5. [Requirement 3 · Experiment Tracking (MLflow)](#requirement-3--experiment-tracking--mlflow)
-6. [Requirement 4 · MLOps Platform Integration (ZenML)](#requirement-4--mlops-platform-integration-zenml)
+5. [Requirement 3 · Experiment Tracking & Model Versioning (MLflow)](#requirement-3--experiment-tracking--model-versioning-mlflow)
+6. 6. [Requirement 4 · MLOps Platform Integration (ZenML)](#requirement-4--mlops-platform-integration-zenml)
 7. [Optional · Energy Efficiency Measurement (CodeCarbon)](#optional--energy-efficiency-measurement-codecarbon)
 8. [How to Run](#how-to-run)
 9. [Results](#results)
@@ -29,7 +29,7 @@ Milestone 4 extends the previous milestones by adding model training, evaluation
 
 - A **modular project structure** inspired by the Cookiecutter Data Science standard
 - **Git-based code versioning** for traceability and reproducibility
-- **MLflow** experiment tracking with structured per-project metrics and artifact logging
+- **MLflow** experiment tracking with structured per-project metrics, artifact logging, and **model versioning via the MLflow Model Registry**
 - A **ZenML-structured pipeline** that wires baseline training → model loading → inference → evaluation → reporting into a reproducible workflow
 - **CodeCarbon** for estimating energy consumption and CO₂ emissions during inference *(+2 pts optional)*
 
@@ -130,8 +130,8 @@ The focus is on maintaining a clean, modular, and reproducible codebase, with cl
 
 ---
 
-## Requirement 3 · Experiment Tracking (MLflow)
-**Tool:** MLflow (local) | **Points: 5**  
+## Requirement 3 · Experiment Tracking & Model Versioning (MLflow)
+**Tool:** MLflow (local) | **Points: 5**
 **Code:** [`src/tracking/mlflow_tracker.py`](src/tracking/mlflow_tracker.py)
 
 ### 3.1 Experiment Structure
@@ -268,7 +268,7 @@ The integration of MLflow Model Registry provides:
 
 The following screenshot shows the registered model and its multiple versions:
 
-
+![MLflow Model Registry – Registered Versions](assets/mlflow_model_registry.png)
 
 
 ## Requirement 4 · MLOps Platform Integration (ZenML)
@@ -493,7 +493,7 @@ All 16 JIRA projects evaluated. Results are stored in `results/mae_per_project.c
 |---|---|---|---|
 | Project structure / modularity | Cookiecutter layout (`src/`, `configs/`, `tests/`, `results/`) | ✅ Implemented | 2 |
 | Code versioning | Git-based version control for milestone development | ✅ Implemented | 2 |
-| Experiment tracking | MLflow | ✅ **Fully working** (`mlruns/` populated) | 5 |
+| Experiment tracking & model versioning | MLflow (experiment tracking + Model Registry with 3 registered versions of `storypoints_tfidf_lr`) | ✅ **Fully working** | 5 |
 | MLOps platform integration | ZenML `@step`/`@pipeline` definitions; pipeline executed end-to-end in 24m28s across 16 projects | ✅ **Fully working** | 5 |
 | Energy efficiency measurement | CodeCarbon integration with `emissions.csv`, `carbon_summary.json`, and MLflow logging | ✅ Fully working | +2 |
 ---
