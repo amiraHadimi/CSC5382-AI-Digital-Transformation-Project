@@ -1,7 +1,5 @@
-results/
-.zen/
+
 .pytest_cache/
-mlruns/
 __pycache__/
 *.py[cod]
 .env

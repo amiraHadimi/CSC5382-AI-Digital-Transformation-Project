@@ -8,7 +8,7 @@ Handles:
   - run lifecycle
   - logging metrics, params, artefacts
 """
-
+from mlflow import MlflowClient
 import os
 import mlflow
 
@@ -53,6 +53,34 @@ class MLflowTracker:
                 if os.path.exists(path):
                     mlflow.log_artifact(path)
 
-    def register_model(self, model_name="model"):
-        # Optional: keep simple for local setup
-        pass
+    from mlflow import MlflowClient
+import mlflow
+
+class MLflowTracker:
+    # ... existing __init__ ...
+
+    def register_model(self, model_uri: str, model_name: str, tags: dict | None = None, description: str | None = None):
+        """
+        Register a logged model as a new version in the MLflow Model Registry.
+        model_uri examples:
+          - runs:/<run_id>/model
+          - file:/... (local model)
+        """
+        mv = mlflow.register_model(model_uri=model_uri, name=model_name)
+        client = MlflowClient()
+
+        if description:
+            client.update_model_version(name=model_name, version=mv.version, description=description)
+
+        if tags:
+            for k, v in tags.items():
+                client.set_model_version_tag(name=model_name, version=mv.version, key=str(k), value=str(v))
+
+        return mv
+
+    def set_alias(self, model_name: str, alias: str, version: str):
+        """
+        Point an alias (e.g., 'champion') to a specific model version.
+        """
+        client = MlflowClient()
+        client.set_registered_model_alias(name=model_name, alias=alias, version=str(version))
