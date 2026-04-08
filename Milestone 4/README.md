@@ -15,7 +15,7 @@
 3. [Requirement 1 · Project Structure & Modularity](#requirement-1--project-structure--modularity)
 4. [Requirement 2 · Code Versioning ](#requirement-2--code-versioning)
 5. [Requirement 3 · Experiment Tracking & Model Versioning (MLflow)](#requirement-3--experiment-tracking--model-versioning-mlflow)
-6. 6. [Requirement 4 · MLOps Platform Integration (ZenML)](#requirement-4--mlops-platform-integration-zenml)
+6. [Requirement 4 · MLOps Platform Integration (ZenML)](#requirement-4--mlops-platform-integration-zenml)
 7. [Optional · Energy Efficiency Measurement (CodeCarbon)](#optional--energy-efficiency-measurement-codecarbon)
 8. [How to Run](#how-to-run)
 9. [Results](#results)
