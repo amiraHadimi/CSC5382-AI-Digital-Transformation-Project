@@ -182,6 +182,95 @@ The following screenshots demonstrate that MLflow experiment tracking, metric lo
 ### Logged Artifacts
 ![MLflow Artifacts](assets/mlflow_artifacts.png)
 
+```
+
+```
+
+### 3.5 Model Versioning (MLflow Model Registry)
+
+In addition to experiment tracking, MLflow was extended with **Model Registry support** to enable proper model versioning and lifecycle management.
+
+---
+
+#### Backend Database
+
+MLflow was configured with a **database-backed backend store** using SQLite:
+```cmd
+mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root ./mlartifacts --host 127.0.0.1 --port 5000
+```
+
+- `mlflow.db` stores experiment metadata and model registry information
+- `mlartifacts/` stores serialized model artifacts
+- This setup enables persistent tracking of model versions and metadata
+
+> The database is stored locally at the project root and is intentionally excluded from version control.
+
+---
+
+#### Registered Model
+
+A baseline model was implemented using:
+
+- TF-IDF vectorization
+- Linear Regression
+
+The full pipeline is logged and registered in MLflow as:
+storypoints_tfidf_lr
+
+Each training run automatically creates a new version of this registered model.
+
+---
+
+#### Model Versions
+
+Multiple versions of the baseline model were created by modifying hyperparameters in `configs/params.yaml` and retraining:
+
+| Version | Change |
+|---------|--------|
+| Version 1 | Initial TF-IDF configuration |
+| Version 2 | Increased feature space (`max_features`) |
+| Version 3 | Extended n-gram range (`ngram_range = [1, 2]`) |
+
+This demonstrates iterative model improvement and version tracking.
+
+---
+
+#### Model Evaluation from Registry
+
+Models are loaded directly from the MLflow registry using versioned URIs:
+```bash
+python -m src.models.evaluate --model-name storypoints_tfidf_lr --version 1
+```
+
+or equivalently:
+models:/storypoints_tfidf_lr/1
+
+This ensures:
+
+- ✅ Reproducibility
+- ✅ Clear separation between training and evaluation
+- ✅ Ability to compare different model versions
+
+---
+
+#### Benefits
+
+The integration of MLflow Model Registry provides:
+
+- 🔖 Version control for models (not just code)
+- 🔍 Traceability between runs, parameters, and results
+- 🔁 Reproducible evaluation using versioned model URIs
+- 🗄️ Separation of artifacts and metadata via database-backed storage
+
+---
+
+#### 📦 MLflow Model Registry – Versioning Proof
+
+The following screenshot shows the registered model and its multiple versions:
+
+
+
+
 ## Requirement 4 · MLOps Platform Integration (ZenML)
 **Tool:** ZenML | **Points: 5**  
 **Code:** [`src/pipeline/zenml_pipeline.py`](src/pipeline/zenml_pipeline.py) | [`src/pipeline/zenml_steps.py`](src/pipeline/zenml_steps.py)
