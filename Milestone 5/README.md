@@ -82,6 +82,7 @@ Milestone 5/
 The architecture diagram shows the complete production system with three serving modes,
 the FastAPI backend, model layer, Docker packaging, CI/CD pipeline, and HuggingFace
 Spaces deployment. See `assets/architecture.png`.
+
 ![System Architecture](assets/architecture.png)
 
 **Key design decisions:**
