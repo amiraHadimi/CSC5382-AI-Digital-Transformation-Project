@@ -1,0 +1,10 @@
+streamlit
+torch
+transformers
+peft
+accelerate
+sentencepiece
+safetensors
+huggingface_hub
+torchvision
+scikit-learn

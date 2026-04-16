@@ -85,6 +85,7 @@ Spaces deployment. See `assets/architecture.png`.
 
 ![System Architecture](assets/architecture.png)
 
+
 **Key design decisions:**
 - Two-container local setup (API + Streamlit) vs. single-container HuggingFace Space
 - Model loaded once at first request and cached globally (singleton pattern)
