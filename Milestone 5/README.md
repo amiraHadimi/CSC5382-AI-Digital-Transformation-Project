@@ -398,6 +398,6 @@ Interactive API docs: http://localhost:8000/docs
 | Front-end client | Streamlit | 2 | ✅ `frontend/app.py` |
 | Packaging and containerization | Docker + Compose | 3 | ✅ `Dockerfile`, `Dockerfile.streamlit`, `docker-compose.yml` |
 | CI/CD pipeline | GitHub Actions | 5 | ✅ `.github/workflows/ci.yml` — 2 green runs |
-| Hosting the application | HuggingFace Spaces | 3 | ✅ https://huggingface.co/spaces/amiraHadimi/story-point-estimator |
+| Hosting the application | HuggingFace Spaces | 3 | ✅ https://huggingface.co/spaces/ameeera/llama3sp-story-point-estimator |
 | Model serving runtime | Llama3SP (PEFT) | 3 | ✅ `app/model.py` |
 | **Total** | | **27** | ✅ |
