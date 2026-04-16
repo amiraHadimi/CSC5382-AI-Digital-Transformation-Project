@@ -238,7 +238,7 @@ The pipeline runs on every push to `main`, `milestone5`, and `milestone4-final`:
 ## Requirement 7 · ML Service Deployment (3 pts)
 **Tool:** HuggingFace Spaces (Docker SDK)
 
-**Live URL:** https://huggingface.co/spaces/amiraHadimi/story-point-estimator
+**Live URL:** https://huggingface.co/spaces/ameeera/llama3sp-story-point-estimator
 
 ### Architecture of the HF Space
 HuggingFace Spaces only supports one container per Space. The `hf_space/` folder
