@@ -1,0 +1,33 @@
+{
+  "issuekey": {
+    "type": "string",
+    "unique_values": 13981,
+    "max_null_pct": 10.0
+  },
+  "title": {
+    "type": "string",
+    "unique_values": 13860,
+    "max_null_pct": 10.0
+  },
+  "description": {
+    "type": "string",
+    "unique_values": 12320,
+    "max_null_pct": 20.6
+  },
+  "storypoints": {
+    "type": "numeric",
+    "min": 1.0,
+    "max": 100.0,
+    "max_null_pct": 10.0
+  },
+  "split_mark": {
+    "type": "string",
+    "unique_values": 1,
+    "max_null_pct": 10.0
+  },
+  "project": {
+    "type": "string",
+    "unique_values": 16,
+    "max_null_pct": 10.0
+  }
+}
