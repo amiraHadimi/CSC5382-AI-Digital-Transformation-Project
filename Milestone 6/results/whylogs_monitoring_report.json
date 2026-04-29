@@ -1,0 +1,126 @@
+{
+  "dataset": "test_predictions",
+  "n_samples": 496,
+  "statistics": {
+    "storypoints": {
+      "count": 496,
+      "null_pct": 0.0,
+      "mean": 4.4415,
+      "std": 5.084,
+      "min": 1.0,
+      "p25": 1.75,
+      "p50": 3.0,
+      "p75": 5.0,
+      "max": 50.0
+    },
+    "y_pred_llama": {
+      "count": 496,
+      "null_pct": 0.0,
+      "mean": 1.8288,
+      "std": 1.0052,
+      "min": -1.2656,
+      "p25": 1.2734,
+      "p50": 1.8438,
+      "p75": 2.4883,
+      "max": 5.2812
+    },
+    "y_pred_baseline": {
+      "count": 496,
+      "null_pct": 0.0,
+      "mean": 6.1868,
+      "std": 4.4141,
+      "min": -3.9334,
+      "p25": 3.1971,
+      "p50": 5.6373,
+      "p75": 8.6004,
+      "max": 26.6741
+    },
+    "text_length": {
+      "count": 496,
+      "null_pct": 0.0,
+      "mean": 683.3105,
+      "std": 1474.5588,
+      "min": 20.0,
+      "p25": 184.0,
+      "p50": 324.5,
+      "p75": 623.25,
+      "max": 19208.0
+    },
+    "abs_err_llama": {
+      "count": 496,
+      "null_pct": 0.0,
+      "mean": 3.161,
+      "std": 4.7914,
+      "min": 0.0,
+      "p25": 0.7188,
+      "p50": 1.7695,
+      "p75": 3.4824,
+      "max": 47.8906
+    },
+    "abs_err_baseline": {
+      "count": 496,
+      "null_pct": 0.0,
+      "mean": 4.1006,
+      "std": 4.2001,
+      "min": 0.0017,
+      "p25": 1.2567,
+      "p50": 3.0054,
+      "p75": 5.4953,
+      "max": 33.3452
+    }
+  },
+  "alerts": [],
+  "temporal_windows": [
+    {
+      "window": 1,
+      "n": 99,
+      "mean_pred_llama": 1.7935,
+      "mean_pred_baseline": 6.4028,
+      "mean_actual": 4.9192,
+      "mae_llama": 3.4273,
+      "mae_baseline": 3.6937
+    },
+    {
+      "window": 2,
+      "n": 99,
+      "mean_pred_llama": 1.8927,
+      "mean_pred_baseline": 6.7311,
+      "mean_actual": 4.7172,
+      "mae_llama": 3.5393,
+      "mae_baseline": 4.9418
+    },
+    {
+      "window": 3,
+      "n": 99,
+      "mean_pred_llama": 1.9361,
+      "mean_pred_baseline": 6.6327,
+      "mean_actual": 4.7475,
+      "mae_llama": 3.4378,
+      "mae_baseline": 5.1537
+    },
+    {
+      "window": 4,
+      "n": 99,
+      "mean_pred_llama": 1.7905,
+      "mean_pred_baseline": 6.1168,
+      "mean_actual": 4.4242,
+      "mae_llama": 3.1688,
+      "mae_baseline": 3.5123
+    },
+    {
+      "window": 5,
+      "n": 99,
+      "mean_pred_llama": 1.7396,
+      "mean_pred_baseline": 5.1338,
+      "mean_actual": 3.3939,
+      "mae_llama": 2.2232,
+      "mae_baseline": 3.1716
+    }
+  ],
+  "thresholds_used": {
+    "prediction_mean_max": 8.0,
+    "prediction_mean_min": 1.5,
+    "null_rate_max": 0.05,
+    "text_length_min_mean": 20
+  }
+}

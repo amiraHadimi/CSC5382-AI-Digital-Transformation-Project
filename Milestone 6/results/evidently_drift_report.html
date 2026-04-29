@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>Drift Report</title>
+<style>
+  body {font-family:Arial,sans-serif;max-width:1100px;margin:40px auto;color:#333}
+  h1 {color:#2c3e50;border-bottom:3px solid #2c3e50;padding-bottom:8px}
+  table {border-collapse:collapse;width:100%;font-size:13px}
+  th,td {border:1px solid #ccc;padding:6px 10px}
+  th {background:#2c3e50;color:#fff}
+  .overall {padding:12px;border-radius:6px;margin:16px 0;font-size:15px;font-weight:bold}
+  .drift {'background:#ffe0e0;color:#721c24'}
+  .nodrift {'background:#d4edda;color:#155724'}
+  img {max-width:100%;margin:20px 0}
+</style>
+</head>
+<body>
+<h1>Milestone 6 – Data Drift Report (Evidently / KS-test)</h1>
+<p><strong>Reference:</strong> Training split (M3 train.parquet) &nbsp;|&nbsp;
+   <strong>Current:</strong> Test split (M3 test.parquet)</p>
+<div class="overall drift">
+  Dataset drift detected: 🔴 YES &nbsp;|&nbsp;
+  Drifted columns: 6 / 6
+</div>
+<table>
+<tr><th>Feature</th><th>Drift Detected</th><th>p-value</th><th>KS Statistic</th>
+    <th>Wasserstein Dist</th><th>Ref Mean</th><th>Current Mean</th><th>Mean Shift</th></tr>
+<tr style="background:#ffe0e0"><td>storypoints</td><td>🔴 YES</td><td>0.0</td><td>0.09244</td><td>1.638799</td><td>6.7028</td><td>5.064</td><td>-1.6388</td></tr><tr style="background:#ffe0e0"><td>text_length</td><td>🔴 YES</td><td>0.001581</td><td>0.031889</td><td>24.611935</td><td>643.923</td><td>630.243</td><td>-13.68</td></tr><tr style="background:#ffe0e0"><td>word_count</td><td>🔴 YES</td><td>6e-05</td><td>0.038503</td><td>3.794823</td><td>86.3118</td><td>85.4389</td><td>-0.8729</td></tr><tr style="background:#ffe0e0"><td>has_description</td><td>🔴 YES</td><td>0.049423</td><td>0.022941</td><td>0.022941</td><td>0.8916</td><td>0.9146</td><td>0.0229</td></tr><tr style="background:#ffe0e0"><td>log_storypoints</td><td>🔴 YES</td><td>0.0</td><td>0.09244</td><td>0.134552</td><td>1.6641</td><td>1.5295</td><td>-0.1346</td></tr><tr style="background:#ffe0e0"><td>title_word_count</td><td>🔴 YES</td><td>0.020229</td><td>0.025565</td><td>0.191865</td><td>8.5535</td><td>8.3796</td><td>-0.174</td></tr>
+</table>
+<h2>Distribution Plots</h2>
+<img src="evidently_drift_plot.png" alt="Drift distribution plots">
+</body>
+</html>

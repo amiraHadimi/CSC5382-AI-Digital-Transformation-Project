@@ -1,0 +1,186 @@
+{
+  "experiment": {
+    "model_a": "Llama3SP (DEVCamiloSepulveda/2-LLAMA3SP-talendesb)",
+    "model_b": "TF-IDF + Ridge Regression baseline",
+    "metric": "Absolute Error per issue",
+    "test_type": "Paired (same test issues evaluated by both models)"
+  },
+  "global_statistics": {
+    "n": 496,
+    "mae_llama3sp": 3.160973979580787,
+    "mae_baseline": 4.100620772800421,
+    "wilcoxon": {
+      "statistic": 47230.0,
+      "p_value": 6.534488557852946e-06,
+      "significant_at_0.05": true,
+      "note": "Wilcoxon signed-rank test completed."
+    },
+    "paired_ttest": {
+      "statistic": -4.660788340721699,
+      "p_value": 4.055552515335734e-06,
+      "significant_at_0.05": true
+    },
+    "cohens_d": {
+      "value": 0.2095,
+      "interpretation": "small",
+      "direction": "llama3sp_better"
+    }
+  },
+  "per_project_win_rate": {
+    "appceleratorstudio": {
+      "n": 31,
+      "mae_llama3sp": 3.6332,
+      "mae_baseline": 3.0407,
+      "wins_llama3sp": 11,
+      "wins_baseline": 20,
+      "ties": 0,
+      "winner": "baseline"
+    },
+    "aptanastudio": {
+      "n": 31,
+      "mae_llama3sp": 5.7664,
+      "mae_baseline": 3.7846,
+      "wins_llama3sp": 10,
+      "wins_baseline": 21,
+      "ties": 0,
+      "winner": "baseline"
+    },
+    "bamboo": {
+      "n": 31,
+      "mae_llama3sp": 1.0915,
+      "mae_baseline": 3.8501,
+      "wins_llama3sp": 24,
+      "wins_baseline": 7,
+      "ties": 0,
+      "winner": "llama3sp"
+    },
+    "clover": {
+      "n": 31,
+      "mae_llama3sp": 3.8894,
+      "mae_baseline": 5.5355,
+      "wins_llama3sp": 21,
+      "wins_baseline": 10,
+      "ties": 0,
+      "winner": "llama3sp"
+    },
+    "datamanagement": {
+      "n": 31,
+      "mae_llama3sp": 5.7369,
+      "mae_baseline": 6.277,
+      "wins_llama3sp": 19,
+      "wins_baseline": 12,
+      "ties": 0,
+      "winner": "llama3sp"
+    },
+    "duracloud": {
+      "n": 31,
+      "mae_llama3sp": 1.2807,
+      "mae_baseline": 3.051,
+      "wins_llama3sp": 19,
+      "wins_baseline": 12,
+      "ties": 0,
+      "winner": "llama3sp"
+    },
+    "jirasoftware": {
+      "n": 31,
+      "mae_llama3sp": 2.4184,
+      "mae_baseline": 5.1363,
+      "wins_llama3sp": 22,
+      "wins_baseline": 9,
+      "ties": 0,
+      "winner": "llama3sp"
+    },
+    "mesos": {
+      "n": 31,
+      "mae_llama3sp": 1.4669,
+      "mae_baseline": 2.7569,
+      "wins_llama3sp": 22,
+      "wins_baseline": 9,
+      "ties": 0,
+      "winner": "llama3sp"
+    },
+    "moodle": {
+      "n": 31,
+      "mae_llama3sp": 6.5,
+      "mae_baseline": 8.2187,
+      "wins_llama3sp": 18,
+      "wins_baseline": 13,
+      "ties": 0,
+      "winner": "llama3sp"
+    },
+    "mule": {
+      "n": 31,
+      "mae_llama3sp": 2.8936,
+      "mae_baseline": 3.901,
+      "wins_llama3sp": 20,
+      "wins_baseline": 11,
+      "ties": 0,
+      "winner": "llama3sp"
+    },
+    "mulestudio": {
+      "n": 31,
+      "mae_llama3sp": 4.878,
+      "mae_baseline": 3.5224,
+      "wins_llama3sp": 9,
+      "wins_baseline": 22,
+      "ties": 0,
+      "winner": "baseline"
+    },
+    "springxd": {
+      "n": 31,
+      "mae_llama3sp": 1.9494,
+      "mae_baseline": 3.0899,
+      "wins_llama3sp": 15,
+      "wins_baseline": 16,
+      "ties": 0,
+      "winner": "baseline"
+    },
+    "talenddataquality": {
+      "n": 31,
+      "mae_llama3sp": 2.3962,
+      "mae_baseline": 4.0778,
+      "wins_llama3sp": 19,
+      "wins_baseline": 12,
+      "ties": 0,
+      "winner": "llama3sp"
+    },
+    "talendesb": {
+      "n": 31,
+      "mae_llama3sp": 0.964,
+      "mae_baseline": 3.2895,
+      "wins_llama3sp": 24,
+      "wins_baseline": 7,
+      "ties": 0,
+      "winner": "llama3sp"
+    },
+    "titanium": {
+      "n": 31,
+      "mae_llama3sp": 3.7966,
+      "mae_baseline": 2.324,
+      "wins_llama3sp": 9,
+      "wins_baseline": 22,
+      "ties": 0,
+      "winner": "baseline"
+    },
+    "usergrid": {
+      "n": 31,
+      "mae_llama3sp": 1.9143,
+      "mae_baseline": 3.7543,
+      "wins_llama3sp": 22,
+      "wins_baseline": 9,
+      "ties": 0,
+      "winner": "llama3sp"
+    }
+  },
+  "bandit_simulation": {
+    "traffic_model_a_pct": 18.15,
+    "traffic_model_b_pct": 81.85,
+    "chosen_counts": {
+      "model_a": 90,
+      "model_b": 406
+    },
+    "avg_reward_a": -4.2222,
+    "avg_reward_b": -3.7143
+  },
+  "conclusion": "Llama3SP significantly outperforms baseline"
+}

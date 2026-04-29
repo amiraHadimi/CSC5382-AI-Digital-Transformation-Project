@@ -1,0 +1,80 @@
+{
+  "method": "manual_ks_test",
+  "columns": {
+    "storypoints": {
+      "drift_detected": "True",
+      "stattest": "kolmogorov-smirnov",
+      "p_value": 0.0,
+      "ks_statistic": 0.09244,
+      "wasserstein_dist": 1.638799,
+      "ref_mean": 6.7028,
+      "cur_mean": 5.064,
+      "mean_shift": -1.6388,
+      "ref_std": 10.8748,
+      "cur_std": 7.2201
+    },
+    "text_length": {
+      "drift_detected": "True",
+      "stattest": "kolmogorov-smirnov",
+      "p_value": 0.001581,
+      "ks_statistic": 0.031889,
+      "wasserstein_dist": 24.611935,
+      "ref_mean": 643.923,
+      "cur_mean": 630.243,
+      "mean_shift": -13.68,
+      "ref_std": 1586.7663,
+      "cur_std": 1489.0099
+    },
+    "word_count": {
+      "drift_detected": "True",
+      "stattest": "kolmogorov-smirnov",
+      "p_value": 6e-05,
+      "ks_statistic": 0.038503,
+      "wasserstein_dist": 3.794823,
+      "ref_mean": 86.3118,
+      "cur_mean": 85.4389,
+      "mean_shift": -0.8729,
+      "ref_std": 178.326,
+      "cur_std": 168.0957
+    },
+    "has_description": {
+      "drift_detected": "True",
+      "stattest": "kolmogorov-smirnov",
+      "p_value": 0.049423,
+      "ks_statistic": 0.022941,
+      "wasserstein_dist": 0.022941,
+      "ref_mean": 0.8916,
+      "cur_mean": 0.9146,
+      "mean_shift": 0.0229,
+      "ref_std": 0.3108,
+      "cur_std": 0.2795
+    },
+    "log_storypoints": {
+      "drift_detected": "True",
+      "stattest": "kolmogorov-smirnov",
+      "p_value": 0.0,
+      "ks_statistic": 0.09244,
+      "wasserstein_dist": 0.134552,
+      "ref_mean": 1.6641,
+      "cur_mean": 1.5295,
+      "mean_shift": -0.1346,
+      "ref_std": 0.762,
+      "cur_std": 0.6576
+    },
+    "title_word_count": {
+      "drift_detected": "True",
+      "stattest": "kolmogorov-smirnov",
+      "p_value": 0.020229,
+      "ks_statistic": 0.025565,
+      "wasserstein_dist": 0.191865,
+      "ref_mean": 8.5535,
+      "cur_mean": 8.3796,
+      "mean_shift": -0.174,
+      "ref_std": 4.0506,
+      "cur_std": 3.849
+    }
+  },
+  "dataset_drift_detected": true,
+  "n_drifted_columns": 6,
+  "n_monitored_columns": 6
+}

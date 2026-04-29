@@ -1,0 +1,2 @@
+-r requirements-core.txt
+zenml==0.57.1

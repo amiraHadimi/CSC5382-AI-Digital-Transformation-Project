@@ -1,0 +1,4 @@
+[Milestone 6 CT/CD] Pipeline run completed.
+  Current MAE: 5.621922500535217
+  Drift fraction: 100%
+  A/B winner: new

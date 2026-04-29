@@ -1,0 +1,394 @@
+{
+  "mode": "direct",
+  "total_tests": 19,
+  "summary_counts": {
+    "PASS": 19,
+    "FAIL": 0,
+    "WARN": 0,
+    "ERROR": 0
+  },
+  "pass_rate": 1.0,
+  "by_category": {
+    "empty_input": [
+      {
+        "name": "empty_title_and_description",
+        "status": "PASS",
+        "prediction": 1.0,
+        "response_time_ms": 0.01,
+        "notes": ""
+      },
+      {
+        "name": "whitespace_only",
+        "status": "PASS",
+        "prediction": 1.0,
+        "response_time_ms": 0.02,
+        "notes": ""
+      }
+    ],
+    "short_input": [
+      {
+        "name": "single_word_title",
+        "status": "PASS",
+        "prediction": 1.0,
+        "response_time_ms": 0.0,
+        "notes": ""
+      },
+      {
+        "name": "two_word_story",
+        "status": "PASS",
+        "prediction": 1.0,
+        "response_time_ms": 0.0,
+        "notes": ""
+      }
+    ],
+    "long_input": [
+      {
+        "name": "very_long_description",
+        "status": "PASS",
+        "prediction": 13.0,
+        "response_time_ms": 0.09,
+        "notes": ""
+      },
+      {
+        "name": "extremely_long_title",
+        "status": "PASS",
+        "prediction": 1.0,
+        "response_time_ms": 0.01,
+        "notes": ""
+      }
+    ],
+    "noisy_input": [
+      {
+        "name": "emoji_input",
+        "status": "PASS",
+        "prediction": 3.0,
+        "response_time_ms": 0.0,
+        "notes": ""
+      },
+      {
+        "name": "special_characters",
+        "status": "PASS",
+        "prediction": 3.0,
+        "response_time_ms": 0.0,
+        "notes": ""
+      },
+      {
+        "name": "all_punctuation",
+        "status": "PASS",
+        "prediction": 2.0,
+        "response_time_ms": 0.0,
+        "notes": ""
+      },
+      {
+        "name": "mixed_language",
+        "status": "PASS",
+        "prediction": 3.0,
+        "response_time_ms": 0.0,
+        "notes": ""
+      }
+    ],
+    "typo": [
+      {
+        "name": "heavy_typos",
+        "status": "PASS",
+        "prediction": 3.0,
+        "response_time_ms": 0.0,
+        "notes": ""
+      },
+      {
+        "name": "leetspeak",
+        "status": "PASS",
+        "prediction": 2.0,
+        "response_time_ms": 0.0,
+        "notes": ""
+      }
+    ],
+    "code_input": [
+      {
+        "name": "code_snippet_as_description",
+        "status": "PASS",
+        "prediction": 4.0,
+        "response_time_ms": 0.0,
+        "notes": ""
+      },
+      {
+        "name": "sql_in_title",
+        "status": "PASS",
+        "prediction": 2.0,
+        "response_time_ms": 0.0,
+        "notes": ""
+      }
+    ],
+    "gibberish": [
+      {
+        "name": "pure_numbers",
+        "status": "PASS",
+        "prediction": 1.0,
+        "response_time_ms": 0.0,
+        "notes": ""
+      },
+      {
+        "name": "random_gibberish",
+        "status": "PASS",
+        "prediction": 3.0,
+        "response_time_ms": 0.0,
+        "notes": ""
+      }
+    ],
+    "repetition": [
+      {
+        "name": "repeated_single_word",
+        "status": "PASS",
+        "prediction": 3.0,
+        "response_time_ms": 0.0,
+        "notes": ""
+      }
+    ],
+    "sanity": [
+      {
+        "name": "realistic_small_story",
+        "status": "PASS",
+        "prediction": 3.0,
+        "response_time_ms": 0.0,
+        "notes": ""
+      },
+      {
+        "name": "realistic_large_story",
+        "status": "PASS",
+        "prediction": 5.0,
+        "response_time_ms": 0.0,
+        "notes": ""
+      }
+    ]
+  },
+  "all_tests": [
+    {
+      "name": "empty_title_and_description",
+      "category": "empty_input",
+      "title": "",
+      "description": "",
+      "expected_behavior": "Returns a valid numeric prediction (fallback), no crash",
+      "prediction": 1.0,
+      "model_used": "fallback",
+      "response_time_ms": 0.01,
+      "status": "PASS",
+      "notes": ""
+    },
+    {
+      "name": "whitespace_only",
+      "category": "empty_input",
+      "title": "   ",
+      "description": "   \n\t  ",
+      "expected_behavior": "Returns a valid numeric prediction, no crash",
+      "prediction": 1.0,
+      "model_used": "fallback",
+      "response_time_ms": 0.02,
+      "status": "PASS",
+      "notes": ""
+    },
+    {
+      "name": "single_word_title",
+      "category": "short_input",
+      "title": "Fix",
+      "description": "",
+      "expected_behavior": "Returns prediction in [1, 13] range",
+      "prediction": 1.0,
+      "model_used": "fallback",
+      "response_time_ms": 0.0,
+      "status": "PASS",
+      "notes": ""
+    },
+    {
+      "name": "two_word_story",
+      "category": "short_input",
+      "title": "Add button",
+      "description": "Add a button",
+      "expected_behavior": "Returns reasonable low prediction (1-3 SP)",
+      "prediction": 1.0,
+      "model_used": "fallback",
+      "response_time_ms": 0.0,
+      "status": "PASS",
+      "notes": ""
+    },
+    {
+      "name": "very_long_description",
+      "category": "long_input",
+      "title": "Implement OAuth2 login",
+      "description": "Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers. Implement OAuth2 login with Google and Facebook providers.",
+      "expected_behavior": "Handles truncation, returns valid prediction, no OOM crash",
+      "prediction": 13.0,
+      "model_used": "fallback",
+      "response_time_ms": 0.09,
+      "status": "PASS",
+      "notes": ""
+    },
+    {
+      "name": "extremely_long_title",
+      "category": "long_input",
+      "title": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "description": "Normal description",
+      "expected_behavior": "Returns valid prediction without crash",
+      "prediction": 1.0,
+      "model_used": "fallback",
+      "response_time_ms": 0.01,
+      "status": "PASS",
+      "notes": ""
+    },
+    {
+      "name": "emoji_input",
+      "category": "noisy_input",
+      "title": "\ud83d\ude80 Deploy feature \ud83c\udf89",
+      "description": "Ship the new \ud83c\udf1f dashboard with charts \ud83d\udcca and filters \ud83d\udd0d",
+      "expected_behavior": "Returns valid numeric prediction, handles unicode",
+      "prediction": 3.0,
+      "model_used": "fallback",
+      "response_time_ms": 0.0,
+      "status": "PASS",
+      "notes": ""
+    },
+    {
+      "name": "special_characters",
+      "category": "noisy_input",
+      "title": "Fix <script>alert('xss')</script> bug",
+      "description": "The endpoint returns {\"error\": null} when input contains $pecial ch@racters & symbols!",
+      "expected_behavior": "Returns valid prediction, no injection executed",
+      "prediction": 3.0,
+      "model_used": "fallback",
+      "response_time_ms": 0.0,
+      "status": "PASS",
+      "notes": ""
+    },
+    {
+      "name": "all_punctuation",
+      "category": "noisy_input",
+      "title": "!!! ??? ### $$$ %%%",
+      "description": "@@@@ **** ^^^^ ~~~~",
+      "expected_behavior": "Returns valid numeric prediction, no crash",
+      "prediction": 2.0,
+      "model_used": "fallback",
+      "response_time_ms": 0.0,
+      "status": "PASS",
+      "notes": ""
+    },
+    {
+      "name": "mixed_language",
+      "category": "noisy_input",
+      "title": "Corriger le bug d'authentification",
+      "description": "Les utilisateurs ne peuvent pas se connecter apr\u00e8s la r\u00e9initialisation du mot de passe.",
+      "expected_behavior": "Returns a prediction (model may perform worse but should not crash)",
+      "prediction": 3.0,
+      "model_used": "fallback",
+      "response_time_ms": 0.0,
+      "status": "PASS",
+      "notes": ""
+    },
+    {
+      "name": "heavy_typos",
+      "category": "typo",
+      "title": "Fixx logi bugg in useer authentiication",
+      "description": "Usres recieve an errror mesage aftar resetting pasword. Nede to fix ASAP.",
+      "expected_behavior": "Returns reasonable prediction, typos should not crash service",
+      "prediction": 3.0,
+      "model_used": "fallback",
+      "response_time_ms": 0.0,
+      "status": "PASS",
+      "notes": ""
+    },
+    {
+      "name": "leetspeak",
+      "category": "typo",
+      "title": "4dd 0Auth2 l0g1n",
+      "description": "1mpl3m3nt G00gl3 4nd F4c3b00k l0g1n pr0v1d3rs",
+      "expected_behavior": "Returns a prediction without crash",
+      "prediction": 2.0,
+      "model_used": "fallback",
+      "response_time_ms": 0.0,
+      "status": "PASS",
+      "notes": ""
+    },
+    {
+      "name": "code_snippet_as_description",
+      "category": "code_input",
+      "title": "Refactor authentication module",
+      "description": "def authenticate(user, password):\n    if user == 'admin' and password == 'secret':\n        return True\n    return False\n\n# TODO: use bcrypt hashing instead",
+      "expected_behavior": "Returns a prediction; code input is a common real JIRA pattern",
+      "prediction": 4.0,
+      "model_used": "fallback",
+      "response_time_ms": 0.0,
+      "status": "PASS",
+      "notes": ""
+    },
+    {
+      "name": "sql_in_title",
+      "category": "code_input",
+      "title": "'; DROP TABLE issues; --",
+      "description": "Fix SQL injection vulnerability in login form",
+      "expected_behavior": "Returns valid prediction, SQL not executed",
+      "prediction": 2.0,
+      "model_used": "fallback",
+      "response_time_ms": 0.0,
+      "status": "PASS",
+      "notes": ""
+    },
+    {
+      "name": "pure_numbers",
+      "category": "gibberish",
+      "title": "123456789",
+      "description": "987654321 111 222 333",
+      "expected_behavior": "Returns valid numeric prediction",
+      "prediction": 1.0,
+      "model_used": "fallback",
+      "response_time_ms": 0.0,
+      "status": "PASS",
+      "notes": ""
+    },
+    {
+      "name": "random_gibberish",
+      "category": "gibberish",
+      "title": "qwerty asdfgh zxcvbn",
+      "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod",
+      "expected_behavior": "Returns a prediction in reasonable range",
+      "prediction": 3.0,
+      "model_used": "fallback",
+      "response_time_ms": 0.0,
+      "status": "PASS",
+      "notes": ""
+    },
+    {
+      "name": "repeated_single_word",
+      "category": "repetition",
+      "title": "bug bug bug bug bug bug",
+      "description": "fix fix fix fix fix fix fix fix fix fix",
+      "expected_behavior": "Returns valid prediction without looping / hanging",
+      "prediction": 3.0,
+      "model_used": "fallback",
+      "response_time_ms": 0.0,
+      "status": "PASS",
+      "notes": ""
+    },
+    {
+      "name": "realistic_small_story",
+      "category": "sanity",
+      "title": "Add loading spinner to login button",
+      "description": "When the login form is submitted, show a spinner on the button to indicate loading.",
+      "expected_behavior": "Predicts small value (1-3 SP)",
+      "prediction": 3.0,
+      "model_used": "fallback",
+      "response_time_ms": 0.0,
+      "status": "PASS",
+      "notes": ""
+    },
+    {
+      "name": "realistic_large_story",
+      "category": "sanity",
+      "title": "Migrate database from MySQL to PostgreSQL",
+      "description": "Migrate the entire production database from MySQL 5.7 to PostgreSQL 14. This includes schema migration, data migration, stored procedure rewrite, ORM compatibility updates, performance testing, rollback plan, and zero-downtime deployment.",
+      "expected_behavior": "Predicts large value (8-13+ SP)",
+      "prediction": 5.0,
+      "model_used": "fallback",
+      "response_time_ms": 0.0,
+      "status": "PASS",
+      "notes": ""
+    }
+  ]
+}
