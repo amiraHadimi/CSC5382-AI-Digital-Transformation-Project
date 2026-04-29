@@ -319,10 +319,10 @@ python run_pipeline.py
 
 ## Step 6 · ML Pipeline Integration (ZenML)
 
-**Tool:** ZenML | **Requirement:** Setup the data pipeline as part of the larger ML pipeline
+**Tool:** ZenML | **Requirement:** Setup the data pipeline as part of the larger ML pipeline  
 **Code:** [`pipeline/zenml_pipeline.py`](pipeline/zenml_pipeline.py)
 
-This requirement ensures that the data pipeline is not executed as a standalone script, but instead integrated into a structured MLOps workflow. We implemented this using ZenML, which orchestrates all pipeline steps, tracks executions, and manages artifacts across stages.
+This requirement ensures that the data pipeline is not executed as isolated scripts, but integrated into a structured MLOps workflow. We implemented this using ZenML, which orchestrates the ingestion, validation, preprocessing, and feature store registration steps.
 
 ### Every Step is a ZenML Step
 
@@ -331,7 +331,7 @@ This requirement ensures that the data pipeline is not executed as a standalone 
 def ingest_data(csv_path: str) -> pd.DataFrame: ...
 
 @step
-def validate_data(df: pd.DataFrame) -> dict: ...
+def validate_data(df: pd.DataFrame) -> pd.DataFrame: ...
 
 @step
 def preprocess_and_engineer(df: pd.DataFrame) -> pd.DataFrame: ...
@@ -343,12 +343,15 @@ def setup_feature_store(df: pd.DataFrame) -> dict: ...
 ### All Steps Wired Into One Pipeline
 
 ```python
-@pipeline(name="milestone3_data_pipeline", enable_cache=True)
-def data_pipeline(csv_path: str) -> None:
-    raw_df       = ingest_data(csv_path=csv_path)
-    val_report   = validate_data(df=raw_df)
-    processed_df = preprocess_and_engineer(df=raw_df)
-    store_info   = setup_feature_store(df=processed_df)
+@pipeline(name="milestone3_data_pipeline_v2", enable_cache=False)
+def data_pipeline(csv_path: str = "data/raw/raw_data.csv") -> None:
+    raw_df = ingest_data(csv_path=csv_path)
+
+    validated_df = validate_data(df=raw_df)
+
+    processed_df = preprocess_and_engineer(df=validated_df)
+
+    setup_feature_store(df=processed_df)
 ```
 
 ### What ZenML Provides
@@ -356,7 +359,7 @@ def data_pipeline(csv_path: str) -> None:
 | Feature | Benefit |
 |---|---|
 | Run tracking | Every pipeline run has a unique ID and is logged automatically |
-| Artifact store | DataFrames, reports, and schemas are stored and versioned between steps |
+| Artifact tracking | Step outputs such as dataframes, validation outputs, and processed data are tracked |
 | Caching (`enable_cache=True`) | If raw data has not changed, ZenML skips unchanged steps |
 | Dashboard | All runs, artifacts, and step outputs visible in ZenML UI |
 
@@ -385,7 +388,7 @@ setup_feature_store    → feast_repo/feature_repo/
 python run_pipeline.py
 
 # ZenML execution (tracked pipeline)
-zenml pipeline run pipeline.zenml_pipeline.data_pipeline
+zenml pipeline run pipeline/zenml_pipeline.py:data_pipeline
 ```
 
 ### ZenML Dashboard Visualization
@@ -402,10 +405,7 @@ http://127.0.0.1:8237
 
 The dashboard provides:
 
-A visual representation of the pipeline DAG
-Execution status of each step (all steps completed successfully)
-Logs and metadata for each component
-Artifact tracking across pipeline stages
+The dashboard shows the four connected stages of the pipeline: ingestion, validation, preprocessing, and feature store registration. This confirms that the Milestone 3 data preparation workflow is integrated into an orchestrated MLOps pipeline rather than executed as disconnected scripts.
 
 All four steps — ingestion, validation, preprocessing, and feature store setup — are displayed as successfully executed nodes.
 
