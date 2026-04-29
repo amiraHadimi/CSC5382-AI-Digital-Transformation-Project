@@ -1,171 +1,129 @@
 """
-Milestone 3 - Step 4: Feature Store (Feast)
-Registers engineered features in a local Feast feature store.
-Features are retrieved at training time and during inference,
-ensuring consistent preprocessing across the ML lifecycle.
+Milestone 3 - Step 4: Feature Store Setup with Feast
+Registers engineered features using a local Feast feature store.
 
-Feast is used here in offline mode (FileSource) for portability.
-For production, swap FileSource for a BigQuery / Redis source.
+Uses:
+- File offline store
+- SQLite online store
 """
 
 import os
 import subprocess
+from pathlib import Path
 
 import pandas as pd
 from zenml import step
-from zenml.logger import get_logger
-
-logger = get_logger(__name__)
-
-FEAST_REPO_PATH = "feast_repo/feature_repo"
-PROCESSED_DATA_PATH = os.path.abspath("data/processed/processed_data.parquet")
-FEATURE_STORE_YAML = os.path.join(FEAST_REPO_PATH, "feature_store.yaml")
-FEATURES_DEF_PATH = os.path.join(FEAST_REPO_PATH, "features.py")
 
 
-FEATURE_STORE_YAML_CONTENT = """\
-project: agile_story_points
-registry: data/registry.db
-provider: local
-online_store:
-  type: sqlite
-  path: data/online_store.db
-"""
-
-
-FEATURES_PY_CONTENT = f'''\
-"""
-Feast Feature View definitions for the Agile Story Point Estimation project.
-"""
-from datetime import timedelta
-from feast import Entity, FeatureView, Field, FileSource
-from feast.types import Int64, Float32
-
-issue_entity = Entity(
-    name="issue_id",
-    description="Unique identifier for a JIRA issue / user story.",
-)
-
-user_story_source = FileSource(
-    path=r"{PROCESSED_DATA_PATH}",
-    timestamp_field="event_timestamp",
-    description="Processed Agile user story features from Milestone 3 pipeline.",
-)
-
-user_story_features = FeatureView(
-    name="user_story_features",
-    entities=[issue_entity],
-    ttl=timedelta(days=90),
-    schema=[
-        Field(name="text_length", dtype=Int64, description="Character count of input_text"),
-        Field(name="word_count", dtype=Int64, description="Word count of input_text"),
-        Field(name="has_description", dtype=Int64, description="1 if description is non-empty"),
-        Field(name="title_word_count", dtype=Int64, description="Word count of cleaned_title"),
-        Field(name="log_storypoints", dtype=Float32, description="log1p of story point target"),
-        Field(name="is_fibonacci", dtype=Int64, description="1 if storypoints is Fibonacci"),
-    ],
-    source=user_story_source,
-    description="Engineered features for story point estimation.",
-)
-'''
-
-
-def _write_feast_files() -> None:
-    """Write Feast config files to the feature repo directory."""
-    os.makedirs(FEAST_REPO_PATH, exist_ok=True)
-
-    with open(FEATURE_STORE_YAML, "w", encoding="utf-8", errors="ignore") as f:
-        f.write(FEATURE_STORE_YAML_CONTENT)
-    logger.info(f"[FeatureStore] Written: {FEATURE_STORE_YAML}")
-
-    with open(FEATURES_DEF_PATH, "w", encoding="utf-8", errors="ignore") as f:
-        f.write(FEATURES_PY_CONTENT)
-    logger.info(f"[FeatureStore] Written: {FEATURES_DEF_PATH}")
-
-
-def _add_event_timestamp(parquet_path: str) -> None:
-    """
-    Feast requires an event_timestamp column for point-in-time joins.
-    Add it to the processed Parquet file if not present.
-    """
-    df = pd.read_parquet(parquet_path)
-    updated = False
-
-    if "event_timestamp" not in df.columns:
-        df["event_timestamp"] = pd.Timestamp.now(tz="UTC")
-        logger.info("[FeatureStore] Added 'event_timestamp' column to processed data.")
-        updated = True
-
-    if "issue_id" not in df.columns:
-        df["issue_id"] = range(len(df))
-        logger.info("[FeatureStore] Added 'issue_id' column as entity key.")
-        updated = True
-
-    if updated:
-        df.to_parquet(parquet_path, index=False)
-
-
-def _run_feast_apply() -> bool:
-    """Run `feast apply` to register the feature store."""
-    try:
-        result = subprocess.run(
-            ["feast", "apply"],
-            cwd=FEAST_REPO_PATH,
-            capture_output=True,
-            text=True,
-            timeout=60,
-        )
-        if result.returncode == 0:
-            logger.info("[FeatureStore] `feast apply` succeeded.")
-            logger.info(result.stdout)
-            return True
-
-        logger.error(f"[FeatureStore] `feast apply` failed:\n{result.stderr}")
-        return False
-
-    except FileNotFoundError:
-        logger.warning(
-            "[FeatureStore] `feast` CLI not found. "
-            "Install with: pip install feast[local]. "
-            "Feature view definitions are written but not applied."
-        )
-        return False
-    except subprocess.TimeoutExpired:
-        logger.error("[FeatureStore] `feast apply` timed out.")
-        return False
+FEAST_REPO = Path("feast_repo/feature_repo")
+PROCESSED_PATH = Path("data/processed/processed_data.parquet")
 
 
 @step
 def setup_feature_store(df: pd.DataFrame) -> dict:
-    """
-    ZenML step: Set up the Feast feature store and register features.
+    print("[FeatureStore] Initialising Feast feature store...")
 
-    Args:
-        df: Processed DataFrame (output of preprocess_and_engineer step).
+    FEAST_REPO.mkdir(parents=True, exist_ok=True)
 
-    Returns:
-        dict: Feature store metadata and registration status.
-    """
-    logger.info("[FeatureStore] Initialising Feast feature store...")
+    df = df.copy()
 
-    _write_feast_files()
-    _add_event_timestamp(PROCESSED_DATA_PATH)
-    applied = _run_feast_apply()
+    if "event_timestamp" not in df.columns:
+        df["event_timestamp"] = pd.Timestamp.utcnow()
+        print("[FeatureStore] Added 'event_timestamp' column.")
 
-    feature_info = {
-        "feast_repo": FEAST_REPO_PATH,
+    if "issue_id" not in df.columns:
+        df["issue_id"] = range(len(df))
+        print("[FeatureStore] Added 'issue_id' column as entity key.")
+
+    PROCESSED_PATH.parent.mkdir(parents=True, exist_ok=True)
+    df.to_parquet(PROCESSED_PATH, index=False)
+    print(f"[FeatureStore] Saved processed data to: {PROCESSED_PATH}")
+
+    feature_store_yaml = """project: story_point_estimation
+provider: local
+registry: data/registry.db
+
+offline_store:
+  type: file
+
+online_store:
+  type: sqlite
+  path: data/online_store.db
+
+entity_key_serialization_version: 2
+"""
+
+    features_py = f'''
+from datetime import timedelta
+
+from feast import Entity, FeatureView, Field, FileSource
+from feast.types import Float32, Int64, String
+from feast.value_type import ValueType
+
+
+issue_entity = Entity(
+    name="issue_id",
+    join_keys=["issue_id"],
+    value_type=ValueType.INT64,
+    description="Unique issue identifier"
+)
+
+
+user_story_source = FileSource(
+    path="{PROCESSED_PATH.as_posix()}",
+    event_timestamp_column="event_timestamp",
+)
+
+
+user_story_features = FeatureView(
+    name="user_story_features",
+    entities=[issue_entity],
+    ttl=timedelta(days=365),
+    schema=[
+        Field(name="text_length", dtype=Int64),
+        Field(name="word_count", dtype=Int64),
+        Field(name="has_description", dtype=Int64),
+        Field(name="title_word_count", dtype=Int64),
+        Field(name="log_storypoints", dtype=Float32),
+        Field(name="is_fibonacci", dtype=Int64),
+    ],
+    source=user_story_source,
+)
+'''
+
+    feature_store_path = FEAST_REPO / "feature_store.yaml"
+    features_path = FEAST_REPO / "features.py"
+
+    feature_store_path.write_text(feature_store_yaml, encoding="utf-8")
+    features_path.write_text(features_py, encoding="utf-8")
+
+    print(f"[FeatureStore] Written: {feature_store_path}")
+    print(f"[FeatureStore] Written: {features_path}")
+
+    feast_apply_success = False
+
+    try:
+        subprocess.run(
+            ["feast", "apply"],
+            cwd=str(FEAST_REPO),
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+        feast_apply_success = True
+        print("[FeatureStore] feast apply completed successfully.")
+
+    except Exception as e:
+        print(f"[FeatureStore] feast apply failed: {e}")
+
+    result = {
+        "feast_repo": str(FEAST_REPO),
         "feature_view": "user_story_features",
         "entity": "issue_id",
         "num_features": 6,
         "num_registered_rows": len(df),
-        "feast_apply_success": applied,
+        "feast_apply_success": feast_apply_success,
     }
 
-    logger.info(f"[FeatureStore] Registration complete: {feature_info}")
-    return feature_info
-
-
-if __name__ == "__main__":
-    df = pd.read_parquet(PROCESSED_DATA_PATH)
-    info = setup_feature_store.entrypoint(df=df)
-    print(info)
+    print(f"[FeatureStore] Registration complete: {result}")
+    return result

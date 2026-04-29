@@ -239,6 +239,8 @@ with open("feast_repo/feature_repo/feature_store.yaml", "w") as f:
         "project: agile_story_points\n"
         "registry: data/registry.db\n"
         "provider: local\n"
+        "offline_store:\n"
+        "  type: file\n"
         "online_store:\n"
         "  type: sqlite\n"
         "  path: data/online_store.db\n"
@@ -248,9 +250,15 @@ with open("feast_repo/feature_repo/features.py", "w") as f:
     f.write(
         "from datetime import timedelta\n"
         "from feast import Entity, FeatureView, Field, FileSource\n"
-        "from feast.types import Int64, Float32\n\n"
-        "issue_entity = Entity(name=\"issue_id\")\n\n"
-        f"user_story_source = FileSource(path=\"{abs_path}\", timestamp_field=\"event_timestamp\")\n\n"
+        "from feast.types import Int64, Float32\n"
+        "from feast.value_type import ValueType\n\n"
+        "issue_entity = Entity(\n"
+        "    name=\"issue_id\",\n"
+        "    join_keys=[\"issue_id\"],\n"
+        "    value_type=ValueType.INT64,\n"
+        "    description=\"Unique issue identifier\"\n"
+        ")\n\n"
+        f"user_story_source = FileSource(path=\"{abs_path}\", event_timestamp_column=\"event_timestamp\")\n\n"
         "user_story_features = FeatureView(\n"
         "    name=\"user_story_features\",\n"
         "    entities=[issue_entity],\n"
@@ -267,18 +275,20 @@ with open("feast_repo/feature_repo/features.py", "w") as f:
         ")\n"
     )
 
-result = subprocess.run(
-    [sys.executable, "-m", "feast", "apply"],
-    cwd="feast_repo/feature_repo",
-    capture_output=True,
-    text=True
-)
-if result.returncode == 0:
-    print("  feast apply succeeded")
-    if result.stdout.strip():
-        print(f"  {result.stdout.strip()}")
-else:
-    print(f"  feast note: {result.stderr.strip()[:200]}")
+try:
+    from feast import FeatureStore
+    import sys
+
+    sys.path.insert(0, os.path.abspath("feast_repo/feature_repo"))
+
+    from features import issue_entity, user_story_features
+
+    store = FeatureStore(repo_path="feast_repo/feature_repo")
+    store.apply([issue_entity, user_story_features])
+
+    print("  feast apply succeeded (Python API)")
+except Exception as e:
+    print(f"  feast note: {str(e)[:200]}")
 print("  [STEP 4] Done\n")
 
 print("=" * 60)

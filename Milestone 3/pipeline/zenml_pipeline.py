@@ -24,31 +24,28 @@ from pipeline.feature_store import setup_feature_store
 logger = get_logger(__name__)
 
 
-@pipeline(name="milestone3_data_pipeline", enable_cache=True)
+@pipeline(name="milestone3_data_pipeline_v2", enable_cache=False)
 def data_pipeline(csv_path: str = "data/raw/raw_data.csv") -> None:
     """
     Full Milestone 3 data pipeline for Agile Story Point Estimation.
 
     Stages:
-      1. Ingestion   – load raw CSV, normalize columns, snapshot to disk
-      2. Validation  – TFDV stats, schema inference, anomaly detection & fix
-      3. Transform   – text cleaning, feature engineering, Parquet export
-      4. FeatureStore – Feast registration of engineered features
-
-    Args:
-        csv_path: Path to the raw input CSV file.
+      1. Ingestion     – load raw CSV, normalize columns, snapshot to disk
+      2. Validation    – compute stats, infer schema, detect anomalies
+      3. Transform     – clean text, engineer features, export Parquet files
+      4. FeatureStore  – register engineered features in Feast
     """
     # Step 1: Ingest raw data
     raw_df = ingest_data(csv_path=csv_path)
 
-    # Step 2: Validate data (TFDV)
-    val_report = validate_data(df=raw_df)
+    # Step 2: Validate data
+    validated_df = validate_data(df=raw_df)
 
-    # Step 3: Preprocess and engineer features
-    processed_df = preprocess_and_engineer(df=raw_df)
+    # Step 3: Preprocess only after validation succeeds
+    processed_df = preprocess_and_engineer(df=validated_df)
 
-    # Step 4: Register features in Feast feature store
-    store_info = setup_feature_store(df=processed_df)
+    # Step 4: Register features in Feast
+    setup_feature_store(df=processed_df)
 
 
 if __name__ == "__main__":
