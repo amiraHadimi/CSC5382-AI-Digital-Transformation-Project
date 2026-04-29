@@ -410,8 +410,10 @@ The dashboard shows the four connected stages of the pipeline: ingestion, valida
 All four steps — ingestion, validation, preprocessing, and feature store setup — are displayed as successfully executed nodes.
 
 ### Example Dashboard View
-This confirms that the pipeline is fully orchestrated within an MLOps platform rather than executed as a standalone script.
 
+![ZenML Dashboard View](images/zenml_dashboard.png)
+
+This confirms that the pipeline is fully orchestrated within an MLOps platform rather than executed as a standalone script.
 
 
 ---
