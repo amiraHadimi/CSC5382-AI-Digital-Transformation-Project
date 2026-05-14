@@ -2,7 +2,6 @@
 
 > **CSC5382 · AI for Digital Transformation**  
 > AI-Based Story Point Estimation · Llama3SP (Llama-3.2-1B + LoRA/PEFT)  
-> Grading weight: **32%** of final grade · **100 points**
 
 ---
 
